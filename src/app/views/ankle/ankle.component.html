@@ -1,0 +1,268 @@
+<div class="container-fluid">
+
+
+<section class="title-bar">
+  <div class="title-bar-table">
+      <div class="title-bar-table-cell">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-10 col-sm-6 col-xs-6 col-6">
+                    <h2 class="text-white">{{bodyparts_name.Name}}</h2>
+                  </div>
+                   <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="dropdownRadious btn btn-primary dropdown-toggle">
+                      {{bodyparts_name.Name}} <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropDownUi dropdown-menu" role="menu">
+                      <li role="menuitem" *ngFor="let parts of bodyparts_json"><a class="dropdown-item" (click)="dropdownParts(parts.Id)">{{parts.Name}}</a></li>
+                      <li class="divider dropdown-divider"></li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section style="background: #F9F9F9; padding-bottom: 100px;">
+<div class="container">
+    <div class="row hrow">
+        <div class="col-md-12 col-lg-12">
+
+            <div class="dr-profilewrap shadow-sm" style="margin-top: 60px;">
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <div>
+
+                            <img src="{{bodyparts_name.ImagePath}}" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" style="" class="img-fluid b-part-img" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div style="padding: 30px 45px 15px 15px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="b-p-tile">
+                                      <h3 >{{bodyparts_name.Name}}</h3>
+
+                                        <p>{{bodyparts_name.Description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+
+<section style="background: #F9F9F9; padding-bottom: 100px;">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="shadow-sm p-filter-wrap">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Connecting you with <span
+                                style="color: #3495B6;">23 Doctors.</span>
+                        </h4>
+                        <hr>
+                        <div class="d-flex justify-content-center">
+                          <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" *ngFor="let item of doctorsarr; let i = index;" id="sections">
+                    <div class="col-md-12">
+                        <hr class="border-0" style="margin-top: 2px;">
+                    </div>
+
+                    <div class="col-md-7" (click)="onclick(item)">
+                        <div class="card card-colorss1 section" id="{{i+1}}">
+                            <div class="card-body drBgColor">
+                                <div class="row ">
+                                    <div class="col-md-4 ">
+                                        <img src="{{item.ProfilePhoto}}" class="profilepic img-fluid" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" >
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="dppad">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="bpdr-list-view">
+                                                        <div>
+                                                        <h3 class="docname" style="color: #07244B;">{{item.DisplayName}}
+                                                        </h3>
+                                                    </div>
+
+                                                        <div>
+                                                        </div>
+
+                                                        <div class="details">
+                                                        <ul class="list-inline mgb0 d-none d-md-block">
+                                                            <li class="list-inline-item dr-second-li">
+                                                                <p class="limit-text" style="color: #07244B; font-weight: 400;
+                                                                font-size: large;">
+                                                                    <span class="dr-first-li " style="font-weight: 650;">Specialities
+                                                                        :</span>{{item.Specialities}}
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="list-inline mgb0 d-none d-md-block">
+                                                            <li class="list-inline-item dr-second-li">
+                                                                <p class="limit-text" style="color: #07244B; font-weight: 400;
+                                                                font-size: large;">
+                                                                    <span class="dr-first-li " style="font-weight: 650;">Locations
+                                                                        :</span>{{item.tempLocation}}
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                    </div>
+
+                    <div class="col-md-5" [ngClass]="(item.tempId == tempId)?'visible_true':'visible_false'">
+                        <div class="col-md-12  d-none d-md-none d-lg-none d-xl-block">
+                          <div class="text-center leftmapcontainer">
+                        <label class="displaydocname"><h4>Displaying locations for {{item.DisplayName}}</h4></label>
+                        <div class="dp-map-width">
+                          <div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" style="height: 300px">
+                          <agm-marker *ngFor="let marker of selectedLocation" [latitude]="marker.Lattitude" [longitude]="marker.Longitude" [iconUrl]="iconpath">
+                            <agm-info-window>
+                              <strong>{{marker.Address}}</strong><br>
+                              <strong>{{marker.City}}</strong><br>
+                              <strong>{{marker.State}}</strong><br>
+                              <strong>{{marker.Country}}</strong><br>
+                              <strong>{{marker.Zipcode}}</strong>
+                          </agm-info-window>
+                          </agm-marker>
+                        </agm-map>
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<div style="background: #F9F9F9; padding-bottom: 100px;">
+</div>
+
+<section style="background: #F9F9F9; padding-bottom: 100px;">
+<div class="container">
+    <div class="shadow-sm body-more-info" style="">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="b-p-tile">
+                    <h3>More Info</h3>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-7 order-2  order-sm-2 order-md-2 order-lg-2 order-xl-1">
+                <div class="b-p-tile">
+                    <p>
+                        Ankle pain is often due to an ankle sprain but can also be caused by ankle instability,
+                        arthritis, gout, tendonitis, fracture, nerve compression (tarsal tunnel syndrome), infection and
+                        poor structural alignment of the leg or foot. Symptoms include swelling, stiffness, redness,
+                        numbness or tingling, and burning pain. Common conditions include: Achilles Tenton Rupture:
+                        complete or partial tear that occurs when the tendon is stretched beyond its capacity. Ankle
+                        Arthritis: joint inflammation that can cause swelling and pain and may eventually lead to
+                        deformit or a loss of joint function. Ankle Fracture: partial or complete break in a bone Gout:
+                        a buildup of uric acid in the tissues or a joint Osteoarthritis: breakdown and eventual loss of
+                        cartilage in one or more joints. Tarsal Tunnel Syndrome: compression on the tibial nerve that
+                        produces anywhere along the path of the nerve running from the inside of the ankle into the
+                        foot. </p>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-xl-5 order-1  order-sm-1 order-md-1 order-lg-1 order-xl-2">
+                <div class="text-center ">
+                    <img src="\assets\Wheredoesithurts\anklepain.jpg"  onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="img-fluid bpinf" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+  <p-dialog id="ankle" header="{{specialities}} Specialist"  [(visible)]="display" [modal]="true" [responsive]="true" [maximizable]="false"  [closable]="true" [blockScroll]='true'>
+    <div class="container">
+
+    <div class="row">
+      <div class="col-md-3" >
+        <img src="\assets\Wheredoesithurts\background.jpg" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="dr-back-pink img-fluid d-none d-xl-block" >
+        <img src="{{image}}"  onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="dr-img-sec imageleft">
+      </div>
+      <div class="col-md-9" style="color: #07244B;">
+        <h3 style="font-family:'Roboto', sans-serif; font-size: 23px;font-weight: 600;margin-bottom: .5rem;line-height: 1.2;">{{name}}</h3>
+        <ul class="list-inline">
+            <li class=" dr-first-li">
+                <p>Specialities :</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+                <p>{{specialities}}</p>
+            </li>
+        </ul>
+        <ul class="list-inline">
+            <li class=" dr-first-li">
+                <p>Locations:</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+                <p>{{locations}}</p>
+            </li>
+        </ul>
+        <ul class="list-inline">
+            <li class=" dr-first-li">
+                <p>Education:</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+                <p>{{education}}</p>
+            </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <div >
+            <button type="button" class="btn btn-pill btn-block" (click)="learnAbout()"
+                id="ip1">Learn about {{name}}</button>
+        </div>
+
+        <div >
+            <button type="button" class="btn btn-pill btn-block" (click)="Request()" id="ip2">Request an
+                appointment</button>
+        </div>
+    </div>
+    </div>
+
+  </div>
+  </p-dialog>
+
+  <p-dialog  blockScroll="true" [closable]="false" [modal]="true"
+  [responsive]="true" [baseZIndex]="10000" [style]="{width: '1200px', height: '200px'}" [positionTop]="60">
+  <span class="pull-right">
+    <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal"> ×</button>
+    </span>
+  <div class="container">
+      <app-reqappointment></app-reqappointment>
+  </div>
+</p-dialog>
+</div>

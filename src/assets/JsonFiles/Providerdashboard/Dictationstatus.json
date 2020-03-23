@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "DicStatus": "Pending",
+    "DicStatusId": 1
+  }, {
+    "Id": 2,
+    "DicStatus": "Dictation Complted",
+    "DicStatusId": 2
+  }, {
+    "Id": 3,
+    "DicStatus": "Provider Approved",
+    "DicStatusId": 3
+  }
+]

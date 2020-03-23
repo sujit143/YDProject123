@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "1-2 drinks per week"
+  },
+  {
+    "Id": 2,
+    "Name": "3-5 drinks per week"
+  },
+  {
+    "Id": 3,
+    "Name": "4-5 drinks per week"
+  },
+  {
+    "Id": 4,
+    "Name": "10-15 drinks per week"
+  }
+]

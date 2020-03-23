@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="">
+        <hr class="horizontal-line">
+        <div id="">
+          <form [formGroup]="OrganizationForm">
+          <div class="row">
+            <div class="form-group col-md-3">
+              <label>Organization</label >
+              <p-dropdown id="pwsdropdown" [options]="organizationOpt" placeholder="Select " optionLabel="Name"
+                (onChange)="selectedOrganization($event)" filter="true" #drop>
+              </p-dropdown>
+            </div>
+            <br>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <input autocomplete="off" class="input-md mmorgan  form-control" id="txtorgan" name="OrginzationsTag"
+                type="text">
+              <div *ngIf="showOrganization" id="txtMemberPracLoc_tagsinput" class="tagsinput">
+                <span class="tag" *ngFor="let item of selectOrganization; index as i">
+                  <span>
+                    <span class="spnRace">
+                      <span data-id="1" class="spRace"> {{item.Name}} </span>
+                    </span>&nbsp;&nbsp;
+                  </span><a title="Removing tag" (click)="unSelectOrganization(item,i)">x</a>
+                </span>
+              </div>
+            </div>
+            <a class="btn btn-primary drop-seleted-btn" (click)="onSubmit(drop)" *ngIf="showOrganization">Save</a>
+          </div>
+          </form>
+        </div>
+        <div id="dvAssociatedOrganizationList">
+          <br>
+          <br>
+          <div class="row">
+            <hr class="horizontal-line">
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Who Created</th>
+                    <th>Created Date</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="displayValues">
+                  <tr *ngFor="let item of organizationData; index as i">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.WhoCreated}}</td>
+                    <td>{{item.CreatedDate}}</td>
+                    <a class="btn btn-xs btn-danger" (click)="removeSelected(i,item,drop)">Remove</a>
+                  </tr>
+                </tbody>
+                <tr *ngIf="organizationDataLength ===0" >
+                  <td colspan="10" class="alert alert-warning">
+                    No Data Please do add Organization
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="custompagination pull-right" *ngIf="organizationDataLength > 0">
+            <span class="label pagerInfo">Total Items <strong>{{organizationDataLength}}</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

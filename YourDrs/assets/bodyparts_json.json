@@ -1,0 +1,73 @@
+[{
+
+  "Id": 4,
+  "Name" :  "Ankle",
+  "Description":"The Ankle is a large joint made up of 3 bones: shin bone (tibia), the thinner bone that runs next to the shin bone (fibula), and the foot bone that sits above the heel bone (talus). Like the hand, the ankle is a very flexible joint that should move up and down, side to side, and twist freely.",
+  "ImagePath" : "https://qa.yourdrs.com/BodyRangeCMSImages/11a99930-6eca-4547-a75f-879e9c6fde23_Ankel%2001.jpg"
+},
+{
+  "Id": 15,
+  "Name" :  "Knee",
+  "Description" : "Knee pain is the most common musculoskeletal complaint that brings people to the doctor. Knee pain has a wide variety of specific causes and treatments.",
+  "ImagePath": "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 3,
+  "Name" :  "Arm",
+  "Description" : "Of the 206 bones in the body, only three of them are in the arm: the humerus, radius, and ulna. The arms contain many muscles that work together to allow us to perform all sorts of motions and tasks. Each arm is composed of the upper arm and the forearm. The upper arm extends from the shoulder to the elbow and the forearm runs from the elbow to the wrist.",
+  "ImagePath" : "https://qa.yourdrs.com/BodyRangeCMSImages/2d55e6a2-ca5d-4d17-bf60-8a75666d8b4d_arm%2001.jpg"
+},
+{
+  "Id": 13,
+  "Name" :  "Elbowh",
+  "Description" : "Elbow: Your elbow lets you throw, lift, swing, and hug. Elbow pain can be caused by a number of different things. Your elbow can be dislocated (one of the bones that forms your elbow gets knocked out of place).",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 16,
+  "Name" :  "Foot",
+  "Description": "The foot consists of 26 bones, 33 joints, and over 100 muscles, tendons, and ligaments that provide support, balance, and mechanical function.",
+  "ImagePath": "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 19,
+  "Name" :  "Leg",
+  "Description" : "N/A",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 8,
+  "Name" :  "Low Back",
+  "Description" : "Lumbar (Low) Spine: The lumbar spine refers to the lower back, where your spine curves inward towards the abdomen. It starts about five or six inches below the shoulder blades, and connects with the thoracic spine at the top and extends downward to the sacral spine.",
+  "ImagePath" :"https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 7,
+  "Name" :  "Mid Back",
+  "Description" : "Thoracic (Mid) Spine: The Thoracic spine is the longest region of the spine. Connecting with the cervical spine above and the lumbar spine below, the thoracic spine runs from the base of the neck down to the abdomen.",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 1,
+  "Name" :  "Neck",
+  "Description" : "The Neck forms an important role in our common daily movements (i.e., bending, lifting, turning, and twisting) take a serious toll on your neck over time. The discomfort and loss of mobility can majorly impact your quality of life.",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 12,
+  "Name" :  "Shoulder",
+  "Description" : "Shoulder: The shoulder is a ball and socket joint with a large range of motion. Such a mobile joint tends to be more susceptible to injury.",
+  "ImagePath" : "https://qa.yourdrs.com/BodyRangeCMSImages/4934a0fc-9519-4376-8fc0-82704ff0d68a_Shoulder.jpg"
+},
+{
+  "Id": 9,
+  "Name" :  "Head",
+  "Description" : "The head is one of the most important parts of the body. It houses our brain and other sensory organs, which controls the functioning of the whole body.",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+},
+{
+  "Id": 10,
+  "Name" :  "Hand",
+  "Description" : "The Hand is made up of the wrist, palm, and fingers and is comprised of 27 bones, 27 joints, 34 muscles, over 100 ligaments and tendons, and blood vessels and nerves. It is the most flexible part of the human skeleton and enables us to perform almost all of our daily activities.",
+  "ImagePath" : "https://qa.yourdrs.com/images/speciality/no-image.jpg"
+}]

@@ -1,0 +1,12 @@
+[
+  {
+    "appt_memo": "ABC",
+    "who_added": "admin dev",
+    "when_added":"25/11/2020"
+  },
+  {
+    "appt_memo": "XYZ",
+    "who_added": "admin",
+    "when_added":"25/11/2020"
+  }
+]

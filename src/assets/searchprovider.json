@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Adin David",
+    "practice": "HEMA",
+    "location":"54 DEAN",
+    "address":"54 South Dean Street NJ Englewood 78784-5432",
+    "speciality":"Physical Medicine & Rehabilitation, Pain Management",
+    "city":"Englewood",
+    "state":"NJ"
+  },
+  {
+    "name": "Abc",
+    "practice": "XYZ",
+    "location":"54 DEAN",
+    "address":"54 South Dean Street NJ Englewood 78784-5432",
+    "speciality":"Physical Medicine & Rehabilitation, Pain Management",
+    "city":"Englewood",
+    "state":"NJ"
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "Id": 1,
+    "Organization": "some organization name",
+    "WhoCreated": "Admin",
+    "CreatedDate": "06/03/2020",
+    "Header": {
+      "Status": "OK",
+      "StatusCode": "200",
+      "StatusMessage": "Success"
+    }
+  }
+]

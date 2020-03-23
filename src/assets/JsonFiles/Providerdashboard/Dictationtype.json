@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "DicType": "Operative Report",
+    "DicTypeId": 1
+  }, {
+    "Id": 2,
+    "DicType": "Nerve Block Report",
+    "DicTypeId": 2
+  }, {
+    "Id": 3,
+    "DicType": "Medical Report",
+    "DicTypeId": 3
+  }
+]

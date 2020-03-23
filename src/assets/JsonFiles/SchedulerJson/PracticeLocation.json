@@ -1,0 +1,165 @@
+[
+  {
+    "Id": 1,
+    "PracticeId": 1,
+    "Practice": "HEMG",
+    "LocationId": 1,
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "HEMG@Flemington Neuro",
+    "PatientId": 1
+  }, {
+    "Id": 2,
+    "PracticeId": 1,
+    "Practice": "HEMG",
+    "LocationId": 2,
+    "Location": "54 DEAN",
+    "PracticeLocation": "HEMG@54 DEAN",
+    "PatientId": 2
+  }, {
+    "Id": 3,
+    "PracticeId": 1,
+    "Practice": "HEMG",
+    "LocationId": 3,
+    "Location": "38 Astoria",
+    "PracticeLocation": "HEMG@38 Astoria",
+    "PatientId": 3
+  }, {
+    "Id": 4,
+    "PracticeId": 1,
+    "Practice": "HEMG",
+    "LocationId": 4,
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "HEMG@100A Liv Brooklyn",
+    "PatientId": 4
+  },   {
+    "Id": 5,
+    "PracticeId": 2,
+    "Practice": "New Horizons ASC",
+    "LocationId": 1,
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "New Horizons ASC@Flemington Neuro",
+    "PatientId":5
+  }, {
+    "Id": 6,
+    "PracticeId": 2,
+    "Practice": "New Horizons ASC",
+    "LocationId": 2,
+    "Location": "54 DEAN",
+    "PracticeLocation": "New Horizons ASC@54 DEAN",
+    "PatientId": 6
+  }, {
+    "Id": 7,
+    "PracticeId": 2,
+    "Practice": "New Horizons ASC",
+    "LocationId": 3,
+    "Location": "38 Astoria",
+    "PracticeLocation": "New Horizons ASC@38 Astoria",
+    "PatientId": 7
+  }, {
+    "Id": 8,
+    "PracticeId": 2,
+    "Practice": "New Horizons ASC",
+    "LocationId": 4,
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "New Horizons ASC@100A Liv Brooklyn",
+    "PatientId": 8
+  },  {
+    "Id": 9,
+    "PracticeId": 3,
+    "Practice": "Mount Sinai Beth Israel",
+    "LocationId": 1,
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "Mount Sinai Beth Israel@Flemington Neuro",
+    "PatientId": 9
+
+  }, {
+    "Id": 10,
+    "PracticeId": 3,
+    "Practice": "Mount Sinai Beth Israel",
+    "LocationId": 2,
+    "Location": "54 DEAN",
+    "PracticeLocation": "Mount Sinai Beth Israel@54 DEAN",
+    "PatientId": 10
+  }, {
+    "Id": 11,
+    "PracticeId": 3,
+    "Practice": "Mount Sinai Beth Israel",
+    "LocationId": 3,
+    "Location": "38 Astoria",
+    "PracticeLocation": "Mount Sinai Beth Israel@38 Astoria",
+    "PatientId": 11
+  }, {
+    "Id": 12,
+    "PracticeId": 3,
+    "Practice": "Mount Sinai Beth Israel",
+    "LocationId": 4,
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "Mount Sinai Beth Israel@100A Liv Brooklyn",
+    "PatientId": 12
+  },   {
+    "Id": 13,
+    "PracticeId": 4,
+    "Practice": "Englewood Hospital",
+    "LocationId": 1,
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "Englewood Hospital@Flemington Neuro",
+    "PatientId": 13
+  }, {
+    "Id": 14,
+    "PracticeId": 4,
+    "Practice": "Englewood Hospital",
+    "LocationId": 2,
+    "Location": "54 DEAN",
+    "PracticeLocation": "Englewood Hospital@54 DEAN",
+    "PatientId": 14
+  }, {
+    "Id": 15,
+    "PracticeId": 4,
+    "Practice": "Englewood Hospital",
+    "LocationId": 3,
+    "Location": "38 Astoria",
+    "PracticeLocation": "Englewood Hospital@38 Astoria",
+    "PatientId": 15
+  }, {
+    "Id": 16,
+    "PracticeId": 4,
+    "Practice": "Englewood Hospital",
+    "LocationId": 4,
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "Englewood Hospital@100A Liv Brooklyn",
+    "PatientId": 16
+  },   {
+    "Id": 17,
+    "PracticeId": 5,
+    "Practice": "HEMA",
+    "LocationId": 1,
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "HEMA@Flemington Neuro",
+    "PatientId": 17
+  }, {
+    "Id": 18,
+    "PracticeId": 5,
+    "Practice": "HEMA",
+    "LocationId": 2,
+    "Location": "54 DEAN",
+    "PracticeLocation": "HEMA@54 DEAN",
+    "PatientId": 18
+  }, {
+    "Id": 19,
+    "PracticeId": 5,
+    "Practice": "HEMA",
+    "LocationId": 3,
+    "Location": "38 Astoria",
+    "PracticeLocation": "HEMA@38 Astoria",
+    "PatientId": 17
+  }, {
+    "Id": 20,
+    "PracticeId": 5,
+    "Practice": "HEMA",
+    "LocationId": 4,
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "HEMA@100A Liv Brooklyn",
+    "PatientId": 20
+  }
+
+]

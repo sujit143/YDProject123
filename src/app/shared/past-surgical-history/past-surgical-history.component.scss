@@ -1,0 +1,73 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "~../../../assets/CSS/plugins.css";
+// @import "../../../../src/scss/afterLogin.scss";
+a:not([href]) {
+  color: #FFFFFF;
+}
+.dialog-title {
+    text-transform: none;
+    text-align: center;
+    font-weight: 1000;
+}
+::ng-deep #customDialog .ui-dialog{
+  -webkit-animation-name: bounceInRight;
+	animation-name: bounceInRight;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+::ng-deep #customDialog .ui-dialog .ui-dialog-titlebar {
+  border: 0px;
+  background-color: white;
+  color: #333333;
+  padding: 1em;
+  font-weight: 700;
+  border-bottom: 0 none;
+}
+::ng-deep #customDialog .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px;
+  height: auto;
+  padding: 0.571em 1em;
+}
+
+.ng-trigger.ng-trigger-animation.ng-tns-c19-113.dialog.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-dialog-draggable.ui-dialog-resizable.ng-star-inserted {
+  width: 85vw !important;
+  top: 40px !important;
+}
+
+::ng-deep #customDialog .ui-dialog .ui-dialog-footer {
+  border: 0px !important;
+}
+@media screen and (min-width: 480px) {
+  :host ::ng-deep #customDialog .ui-dialog {
+    width: 53vw !important;
+    // top: 408px !important;
+    top: 40px !important;
+    left: 460px !important
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1026px) {
+  :host ::ng-deep #customDialog .ui-dialog {
+    width: 77vw !important;
+    top: 169px !important;
+    left: 226px !important;
+  }
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.ui-inputtext.ui-widget.ui-state-default.ui-corner-all.ui-autocomplete-input.ng-star-inserted {
+  border: 0px white !important;
+}

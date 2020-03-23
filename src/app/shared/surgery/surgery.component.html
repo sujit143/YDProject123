@@ -1,0 +1,1994 @@
+
+<div class="container-fluid">
+  <div class="pull-right">
+    <a href="javascript:void(0)" class="btn btn-primary" id="btnAddNewSurgeryInSurgeryDetailsTab" (click)="addSurgerypop()">
+      Add Surgery
+    </a>
+  </div>
+  <div class="row paddingTitle">
+    <div class="col-sm-8">
+      <h3 style="color: #676a6c;">Surgery Details</h3>
+    </div>
+  </div>
+</div>
+
+<div>
+  <ul>
+    <li *ngFor="let item of listofAccordeon; let i = index">
+    <p-accordion>
+      <p-accordionTab header="Header 1">
+        <section class="home-content-top">
+          <p-tabView>
+            <p-tabPanel header="GENERAL INFORMATION">
+              <form [formGroup]="surgeryformData" value="ListOfData">
+              <div class="tab-content margin-tops" style="margin-top: 20px;">
+                <div class="tab-pane active" id="GenralSurgeryInfo12761" style="padding:5px;">
+
+                  <div id="dvSurgeryInformation_12761" class="dvSurgerydetails1">
+                  <div id="dvSurgeryInfo">
+
+                  <div class="ibox-content dvSugeryDetailsFields">
+
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="col-md-3" style="padding: 0px;">
+                                  <label class="labelcolor">Height </label>
+                                  <div class="input-group m-b">
+                                      <input class="form-control txtSurgeryInfoHeight" formControlName="height" data-val="true" data-val-number="The field Height must be a number." id="txtSurgeryInfoHeight" maxlength="5" name="Height" type="text" value="">
+                                      <span class="input-group-addon" style="border: none; padding: 0px;">
+                                          <select  class="idSurgeryVitalHeightUnit form-control chosen-select input-group-addon" id="idSurgeryVitalHeightUnit" name="HeightUnit" style="display: none;">
+                                            <option value="Inch">Inch</option>
+                                            <option value="Feet">Feet</option>
+                                      </select><div class="chosen-container chosen-container-single" style="width: 100%" title="" id="idSurgeryVitalHeightUnit_chosen"><a class="chosen-single">
+                                      <div><b></b></div></a>
+                                      <div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+                                      </span>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Weight</label>
+                                  <div class="input-group m-b">
+                                      <input class="form-control txtSurgeryInfoWeight"  formControlName="weight" data-val="true" data-val-number="The field Weight must be a number." id="txtSurgeryInfoWeight" maxlength="6" name="Weight" type="text" value="">
+                                      <span class="input-group-addon">Pounds</span>
+                                  </div>
+                              </div>
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Body Mass Index</label>
+                                  <div class="input-group m-b">
+                                      <input class="form-control txtsurgeryinfoBmi" data-val="true" formControlName="bmi" data-val-number="The field BodyMassIndex must be a number." id="txtsurgeryinfoBmi" name="BodyMassIndex" readonly="true" type="text" value="">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Appointment Location</label>
+                                  <div class="input-group">
+                                      <input type="text" value="" data-req-url="/Patient/SearchSurgerieslocationFilteredJson" style="display: none;">
+                                      <div id="txtSurgeryLocation_12761_tagsinput" class="tagsinput txtSurgeryLocation_12761surgerylocationTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                                        <div id="txtSurgeryLocation_12761_addTag">
+                                          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                        <span class="tag" *ngIf="selectedApp != undefined">
+                                          <span id="spnsurgerylocationTag" data-surgerylocation-id="116" data-surgerypracticelocationid="116">{{selectedApp}}</span>
+                                      <a href="#" title="Removing tag" (click)="closeApp()">x</a>
+                                    </span>
+
+
+                                        <!-- <input id="txtSurgeryLocation_12761_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="Search Location" placeholder="Search Location" class="ui-autocomplete-input" autocomplete="off"> -->
+
+                                        <p-autoComplete id="surgeonId" [(ngModel)]="app" [suggestions]="filteredApp" (completeMethod)="searchApp($event)" placeholder="Search Member" appendTo="body" (onSelect)="selectedApplication()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                                      </div>
+                                      <div class="tags_clear">
+
+                                      </div>
+                                    </div>
+                                      <span class="input-group-addon btnSearchEpiSugerylocationspan"><a href="javascript:void(0)" class="fa fa-search searchsurgerylocation" id="btnSearchEpiSugerylocation" title="Search Location" data-req-url="/Patient/SearchSurgerieslocation" (click)="appointmentloc()" data-update-container="#dvPopupTopNode" data-search-updatecontainer="#txtSurgeryLocation_12761" data-view-container="#btnViewSurgeryLocationDetails"></a></span>
+                                      <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewSurgeryLocationDetails" class="fa fa-eye fa-3 btnViewSurgeryLocationDetails" data-surloc-container="#txtSurgeryLocation_12761" title="View Details" data-view-container="#txtSurgeryLocation_12761" data-req-url="/Patient/GetSurgeryLocationDetails" data-update-container="#dvPopupTopNode"><span></span></a></span>
+
+                                  </div>
+                              </div>
+
+                          <div class="col-md-4">
+                              <label class="labelcolor">Surgeon </label><span style="color: red">*</span><br>
+                              <div class="input-group">
+                                  <input type="text" value="" class="form-control txtAddEditSurgeon txtSurgeon txtSurgeryProvider mandatoryFieldBorder txtSurgeryProvider_1 txtSurgeon_1" id="txtSurgeon_1" disabled="disabled" data-surgeon-id="" data-practiceid-id="" data-locationid="" data-practicelocationid="" data-req-url="/Patient/SearchSurgeonsForAutocomplete" data-classname="txtSurgeryProvider_1" style="display: none;">
+                              <div id="txtSurgeon_1_tagsinput" class="tagsinput txtSurgeryProvider_1txtSurgeonTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                                <div id="txtSurgeon_1_addTag">
+                                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                    <span class="tag"  *ngIf="selectedVal != undefined">
+                                      <span id="spntxtSurgeonTag" data-surgeon-id="1313" data-practiceid-id="81" data-locationid="149" data-practicelocationid="149">
+                                        {{selectedVal}}
+                                      </span>
+                                    <a title="Removing tag" (click)="closeSpan()">x</a>
+                                  </span>
+                                    <!-- <input id="txtSurgeon_1_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Member" placeholder="Search Member" class="ui-autocomplete-input" autocomplete="off"> -->
+                                    <p-autoComplete id="surgeonId" [(ngModel)]="text" [suggestions]="filteredSurgeons" (completeMethod)="searchAuto($event)" placeholder="Search Member" appendTo="body" (onSelect)="selectedSugestion()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                                </div>
+
+                                <div class="tags_clear">
+                                </div>
+                              </div>
+                                  <span class="input-group-addon btnSearchEpiSurgeonspan"><a href="javascript:void(0)" class="fa fa-search searchsurgeon" id="btnSearchEpiSurgeon" (click)="searchSurgerypop()" title="Search Surgeon" data-req-url="/Patient/SearchSurgeons" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtSurgeon" data-view-container="#btnViewSurgeonDetails" data-location-container="#txtSurgeryLocation_1" data-surgerytype-updatecontainer="#ddlSurgeryType_1" data-surgerytype-requrl="/Patient/GetSurgeryTypesForSurgeon" data-procedure-updatecontainer="#txtSurgery_1" data-onsurgeonselect-clearcontainer1="#txtSurgery_1" data-onsurgeonselect-clearcontainer2="#txtescSurgery1_1" data-onsurgeonselect-clearcontainer3="#txtescSurgery2_1" data-onsurgeonselect-clearcontainer4="#txtescSurgery3_1"></a></span>
+                                  <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewSurgeonDetails" (click)="viewSurgerypop()" class="fa fa-eye fa-3 btnViewSurgeonDetails" data-surgeon-container=".txtSurgeon" title="View Details" data-view-container=".txtSurgeon" data-req-url="/Admin/GetMemberDetails" data-update-container="#dvPopupTopNode"><span></span></a></span>
+                            </div>
+                          </div>
+                              <div class="col-md-4">
+                                <label class="labelcolor">Procedure <span style="color: red">*</span></label>
+                              <br>
+                              <div class="input-group">
+                                <input type="text" value="" formControlName="procedure"  class="form-control txtSurgery mandatoryFieldBorder txtProcedure_1 txtProcedure" id="txtSurgery_1" disabled="disabled" data-surgeryid-id="" data-surgerytypeid="" data-req-url="/Patient/SearchSurgiesJson" data-classname="txtProcedure_1" data-req-bodyparturl="/Patient/GetBodyPartsForSelectedProcedure" data-updatecontainer-bodypart="#ddlBodyPartId_1" data-req-proctypeurl="/Patient/GetAssociatedProcedureSurgeryTypes" data-updatecontainer-proctype="#ddlProcedureType_1" data-addbtn-id="#btnAddSurgery" style="display: none;">
+                                <div id="txtSurgery_1_tagsinput" class="tagsinput procedureTagsInput" style="width: 100%; min-height: auto; height: auto;">
+
+                                  <div id="txtSurgery_1_addTag">
+                                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                    <span class="tag" *ngIf="selectedPro != undefined">
+                                      <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                                        {{selectedPro}}
+                                      </span>
+                                      <a title="Removing tag" (click)="closePro()">x</a>
+                                    </span>
+
+                                    <p-autoComplete id="procedureId" [(ngModel)]="pro" [suggestions]="filteredProcedure" (completeMethod)="searchPro($event)" placeholder="Search Surgery" appendTo="body" (onSelect)="selectedProc()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+
+
+                                </div>
+                                <div class="tags_clear">
+                                </div>
+                              </div>
+                                <span class="input-group-addon btnSearchEpiSugeryspan"><a href="javascript:void(0)" class="fa fa-search searchsurgery" id="btnSearchEpiSugery_1" (click)="Onsearch()" title="Search Surgery" data-req-url="/Patient/SearchSurgery" data-update-container="#dvPopupTopNode" data-surgeonid="" data-search-updatecontainer="#txtSurgery_1" data-view-container="#btnViewSurgeryDetails" data-surgeontextid=".txtSurgeon" data-secprocedure1-updatecontainer="#txtescSurgery1_1" data-secprocedure2-updatecontainer="#txtescSurgery2_1" data-secprocedure3-updatecontainer="#txtescSurgery3_1" data-updatecontainer-bodypart="#ddlBodyPartId_1" data-req-bodyparturl="/Patient/GetBodyPartsForSelectedProcedure" data-req-proctypeurl="/Patient/GetAssociatedProcedureSurgeryTypes" data-updatecontainer-proctype="#ddlProcedureType_1" data-surgeon-container=".txtSurgeon" data-addbtn-id="#btnAddSurgery" data-onsurgeryselect-clearcontainer1="#txtescSurgery1_1" data-onsurgerynselect-clearcontainer2="#txtescSurgery2_1" data-onsurgerynselect-clearcontainer3="#txtescSurgery3_1"></a></span>
+                            </div>
+                            </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                      <div class="col-md-12" style="padding: 0px;">
+                        <div class="col-md-6">
+                          <span>
+                            <label class="labelcolor">Procedure Type</label><span style="color: red">*</span><br>
+                            <p-dropdown id="pwsdropdown" [options]="originatedpro" optionLabel="name" formControlName="procedure_type"
+                              placeholder="Select " (onChange)="origisePro($event)" filter="true"     [autoWidth]="true"
+                              [style]="{'width': '100%'}" >
+                            </p-dropdown>
+                          </span>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="labelcolor">Place Of Service<span style="color: red">*</span></label><br>
+                          <div class="input-group">
+                            <input type="text" value="" formControlName="place_of_service" class="form-control txtAddEditPOS txtPlaceOfService  mandatoryFieldBorder txtPlaceOfService_1" id="tags1580192631634" data-req-url="/Patient/SearchPlaceOfSurviceAutocomplete" data-classname="txtPlaceOfService_1" data-posplid="" data-addbtn-id="#btnAddSurgery" style="display: none;">
+                            <div id="tags1580192631634_tagsinput" class="tagsinput txtPlaceOfServiceTags" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580192631634_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+
+                                <span class="tag" *ngIf="selectedService != undefined">
+                                  <span class="spnSurgeryPlaceOfService" data-posplid="116" data-pospid="57" data-poslid="116">
+                                    {{selectedService}}
+                                  </span>
+                                  <a title="Removing tag" (click)="closeService()">x</a>
+                                </span>
+
+                                <input id="tags1580192631634_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Practice Location" placeholder="Search Practice Location" class="ui-autocomplete-input" autocomplete="off">
+                              </div>
+                              <div class="tags_clear">
+                              </div>
+                            </div>
+                            <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchposplid"
+                                id="btnSearchPlaceofServiceBookingDB" (click)="Servicepop()" title="Search Practice Location"
+                                data-req-url="/BookingSheet/GetPlaceOfServiceList" data-update-container="#dvPopupTopNode1"
+                                data-search-updatecontainer=".txtPlaceOfService_1" ></a></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label class="labelcolor">Secondary Procedure 1</label><br>
+                          <div class="input-group">
+                            <input type="text" formControlName="secondary_procedure_1" class="form-control txtescSurgery1 txtescprocedur1_1 txtescprocedur1 " id="tags1580192631607" disabled="disabled" data-classname="txtescprocedur1_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                            <div id="tags1580192631607_tagsinput" class="tagsinput txtescprocedur1_1procedure1TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580192631607_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <span class="tag" *ngIf="selectedPro1 != undefined">
+                                  <span id="spnsecProcedure3Tag" data-id="539">
+                                    {{selectedPro1}}
+                                  </span>
+                                  <a title="Removing tag"  (click)="closePro1()">x</a>
+                                </span>
+                                <p-autoComplete id="procedure1Id" [(ngModel)]="pro1" [suggestions]="filteredProcedure1" (completeMethod)="searchProc1($event)" placeholder="Search Secondary Procedure" appendTo="body" (onSelect)="selectedProc1()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                              </div>
+                              <div class="tags_clear">
+                              </div>
+                            </div>
+                            <span class="input-group-addon btnSearchEpiSugeryspan"><a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery1" id="btnSearchEpiSecSugery1_1"  title="Search Secondary Procedure1" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur1_1" data-view-container="#btnViewSurgeryDetails" data-procedure-updatecontainer=".txtProcedure_1" data-surgery-container="#txtSurgery_1"></a></span>
+                            <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-times btnClearEpiSecSugeryInfo1" id="btnClearEpiSecSugeryInfo1" title="Clear"></a></span>
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                          <label class="labelcolor">Secondary Procedure 2</label><br>
+                          <div class="input-group">
+                            <input type="text" formControlName="secondary_procedure_2" class="form-control txtescSurgery2 txtescprocedur2_1 txtescprocedur2" id="tags1580192631614" disabled="disabled" data-classname="txtescprocedur2_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                            <div id="tags1580192631614_tagsinput" class="tagsinput txtescprocedur2_1procedure2TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580192631614_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <span class="tag" *ngIf="selectedPro2 != undefined">
+                                  <span id="spnsecProcedure3Tag" data-id="539">
+                                    {{selectedPro2}}
+                                  </span>
+                                  <a title="Removing tag"  (click)="closePro2()">x</a>
+                                </span>
+
+                                <p-autoComplete id="procedure2Id" [(ngModel)]="pro2" [suggestions]="filteredProcedure2" (completeMethod)="searchProc2($event)" placeholder="Search Surger" appendTo="body" (onSelect)="selectedProc2()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                              </div>
+                              <div class="tags_clear">
+                              </div>
+                            </div>
+                            <span class="input-group-addon btnSearchEpiSugeryspan">
+                              <a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery2" id="btnSearchEpiSecSugery2_1" (click)="Procedurepop2()" title="Search Secondary Procedure2" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur2_1" data-view-container="#btnViewSurgeryDetails" data-surgery-container="#txtSurgery_1" data-procedure-updatecontainer=".txtProcedure_1"></a>
+                            </span>
+                            <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-times btnClearEpiSecSugeryInfo1" id="btnClearEpiSecSugeryInfo1" title="Clear"></a></span>
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                          <label class="labelcolor">Secondary Procedure 3</label><br>
+                          <div class="input-group">
+                            <input type="text" formControlName="secondary_procedure_3" class="form-control txtescSurgery3 txtescprocedur3_1 txtescprocedur3" id="tags1580192631620" disabled="disabled" data-classname="txtescprocedur3_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                            <div id="tags1580192631620_tagsinput" class="tagsinput txtescprocedur3_1procedure3TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580192631620_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <span class="tag" *ngIf="selectedPro3 != undefined">
+                                  <span id="spnsecProcedure3Tag" data-id="539">
+                                    {{selectedPro3}}
+                                  </span>
+                                  <a title="Removing tag"  (click)="closePro3()">x</a>
+                                </span>
+                                <p-autoComplete id="procedure3Id" [(ngModel)]="pro3" [suggestions]="filteredProcedure3" (completeMethod)="searchProc3($event)" placeholder="Search Secondary Procedure3" appendTo="body" (onSelect)="selectedProc3()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+
+                              </div>
+                              <div class="tags_clear">
+                              </div>
+                            </div>
+                            <span class="input-group-addon btnSearchEpiSugeryspan">
+                              <a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery3" id="btnSearchEpiSecSugery3_1" (click)="Procedurepop3()" title="Search Secondary Procedure3" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur3_1" data-view-container="#btnViewSurgeryDetails" data-surgery-container="#txtSurgery_1" data-procedure-updatecontainer=".txtProcedure_1"></a></span>
+                              <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-times btnClearEpiSecSugeryInfo1" id="btnClearEpiSecSugeryInfo1" title="Clear"></a></span>
+                            </div>
+                        </div>
+                      </div>
+
+
+
+                      <hr>
+
+
+
+                      <div class="row">
+
+                        <div class="col-md-12" style="padding: 0px;">
+                          <div class="col-md-6">
+                            <label class="labelcolor">Assistant</label><br>
+                            <div>
+                              Legends &nbsp;
+                              <span title="YourDRs Member" style="background-color: rgb(99, 132, 33); width: 10px; height: 10px; display: inline-block"></span>
+                              <span title="Non YourDRs Member" style="background-color: rgb(250, 235, 215); width: 10px; height: 10px; display: inline-block"></span>
+                            </div>
+                            <div class="input-group">
+                              <input type="text" value="" class="form-control txtSurgeryAssistant txtSurgeryAssistant_1" id="tags1580192631628" disabled="disabled" data-assistant-memid="" data-req-url="/Patient/SearchSurgeryAssistantJson" data-classname="txtSurgeryAssistant_1" style="display: none;">
+                              <div id="tags1580192631628_tagsinput" class="tagsinput surgeryassistantTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                                <div id="tags1580192631628_addTag">
+                                  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                  <span class="tag"  *ngIf="selectedVal != undefined">
+                                    <span id="spnSurgeryAssistantTag" data-id="542">
+                                      {{selectedLegend}}
+                                    </span>
+                                    <a title="Removing tag" (click)="closeLegend()">x</a>
+                                  </span>
+                                  <p-autoComplete id="legendId" [(ngModel)]="leg" [suggestions]="filteredLegend" (completeMethod)="searchLeg($event)" placeholder="Search Assistant" appendTo="body" (onSelect)="selectedLeg()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+
+                                  <!-- <input id="tags1580192631628_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Assistant" placeholder="Search Assistant" class="ui-autocomplete-input" autocomplete="off"> -->
+                                </div>
+                                <div class="tags_clear">
+
+                                </div>
+                              </div>
+                              <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchsurgeryassistant" id="btnSearchSugeryAssistant_1" (click)="Legendpop()"  title="Search Surgery Assitant" data-req-url="/Patient/SearchSurgeryAssistant" data-update-container="#dvPopupTopNode" data-search-updatecontainer="#txtSurgeryAssistant_1"></a></span>
+                            </div>
+                          </div>
+
+
+
+
+                          <div class="col-md-6">
+                            <label class="labelcolor">Special Surgical Instruction</label>
+                            <textarea formControlName="special_surgical_instruction"  class="txtSpecialSurgicalInstruction txtSpecialSurgicalInstruction_1 form-control"
+                              maxlength="500" rows="3"></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <br>
+
+
+                      <div class="row">
+                        <div class="col-md-3">
+                          <input type="checkbox" style="height: 20px;width: 20px;"
+                            class="chkIsSurgryUrgent chkIsSurgryUrgent_1">&nbsp;Is Surgery Urgent?
+                        </div>
+                        <div class="col-md-3 hide">
+                          <label class="labelcolor">Booking Sheet</label>
+                          <div class="input-group">
+                            <select class="form-control chosen-select ddlbookingsheetfile" style="display: none;">
+                              <option value="">Select</option>
+                              <option value="13" data-refpraid="203"
+                                data-physcicalfilename="CL18106954_David_Test_Palermo_UB04_f6d6473a-132c-4d64-8579-642e267fb356 b0fceda246b44654b65764fab0560e87.pdf"
+                                data-reflocid="199" data-refproid="">
+                                CL18106954_David_Test_Palermo_UB04_f6d6473a-132c-4d64-8579-642e267fb356.pdf</option>
+                              <option value="20" data-refpraid="83"
+                                data-physcicalfilename="Liability Statement (12) 162c939360d54e6fbfd53cb3d921d928.pdf"
+                                data-reflocid="149" data-refproid="1062">Liability Statement (12).pdf</option>
+                              <option value="23" data-refpraid="81"
+                                data-physcicalfilename="schedule appointment - 2.0 368a35e200c34ba6b8818aee53e29743.pdf"
+                                data-reflocid="149" data-refproid="15">schedule appointment - 2.0.pdf</option>
+                              <option value="32" data-refpraid="8" data-physcicalfilename="Acrobat Document_ccb05583a6.pdf"
+                                data-reflocid="42" data-refproid="97">Acrobat Document.pdf</option>
+                            </select>
+                            <div class="chosen-container chosen-container-single" style="width: 100%" title=""><a
+                                class="chosen-single"><span>Select</span>
+                                <div><b></b></div>
+                              </a>
+                              <div class="chosen-drop">
+                                <div class="chosen-search"><input type="text" autocomplete="off"></div>
+                                <ul class="chosen-results"></ul>
+                              </div>
+                            </div>
+
+                            <span class="input-group-addon">
+                              <a href="javascript:void(0)" class="lnksurgeryviewbkngsheetdoc"
+                                data-gets3docurl="/Patient/GetS3DocumentViewer"
+                                data-folderpath="UploadFilesTemp/BookingSheetDocuments"><i class="fa fa-eye"
+                                  aria-hidden="true" title="Document Details"></i></a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Referral Source Member</label><br>
+                                  <span class="labelcolor">aaaa Aggy</span>
+                              </div>
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Referral Source Member Practice</label><br>
+                                  <span class="labelcolor">HEMA</span>
+                              </div>
+                              <div class="col-md-4">
+                                  <label class="labelcolor">Referral Source Member Location</label><br>
+                                  <span class="labelcolor">54 DEAN</span>
+                              </div>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <span>
+                                <label class="labelcolor">Body Part</label>
+                                <p-dropdown id="pwsdropdown" formControlName="body_part" [options]="originatedBodyPart" optionLabel="name"
+                                  placeholder="Select " (onChange)="origiseBodyPart($event)" filter="true"  [autoWidth]="true"
+                                  [style]="{'width': '100%'}" >
+                                </p-dropdown>
+                              </span>
+                            </div>
+                            <div class="col-md-3">
+                              <span>
+                                <label class="labelcolor">Side</label>
+                                <p-dropdown id="pwsdropdown" formControlName="side"  [options]="originatedSide" optionLabel="name"
+                                  placeholder="Select " (onChange)="origiseSide($event)" filter="true"     [autoWidth]="true"
+                                  [style]="{'width': '100%'}" >
+                                </p-dropdown>
+                              </span>
+                            </div>
+                            <div class="col-md-3">
+
+                              <span>
+                                <label class="labelcolor">Level 1</label>
+                                <p-dropdown id="pwsdropdown"  [options]="originatedLevel1" optionLabel="name"
+                                  placeholder="Select " (onChange)="origiseLevel1($event)" filter="true"     [autoWidth]="true"
+                                  [style]="{'width': '100%'}" formControlName="level_1" >
+
+                                </p-dropdown>
+                              </span>
+                            </div>
+                            <div class="col-md-3">
+
+                              <span>
+                                <label class="labelcolor">Level 2</label>
+                                <p-dropdown id="pwsdropdown" [options]="originatedLevel2" optionLabel="name"
+                                  placeholder="Select " (onChange)="origiseLevel2($event)" filter="true"     [autoWidth]="true"
+                                  [style]="{'width': '100%'}" formControlName="level_2"  >
+
+                                </p-dropdown>
+                              </span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <br>
+
+
+
+                      <div class="row">
+                        <div class="col-md-3">
+                          <label class="labelcolor">Suggested Date 1 </label>
+                          <div class="input-group">
+                                <input type="text" class="form-control"  formControlName="suggested_date_1" placeholder="Schedule date"  bsDatepicker [(bsValue)]="myDateValue">
+                                <span class="input-group-addon">
+                                  <a href="javascript:void(0)" data-isfromsurgery="true" data-appinmentreqid="24224" data-iedit-appointment="1" data-get-url="/Patient/GetEpisodeAppointmentRequestDetailsForEdit" data-update-container="#dvAddEpisodeApointmentRequest" id="EditAppointmentReq" title="View" class=""><i class="fa fa-eye"></i></a>
+                              </span>
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                            <span>
+                              <label class="labelcolor">Time</label>
+                              <p-dropdown id="pwsdropdown" formControlName="time" [options]="originatedTime" optionLabel="name"
+                                placeholder="Select " (onChange)="origiseTime($event)" filter="true"     [autoWidth]="true"
+                                [style]="{'width': '100%'}" >
+                              </p-dropdown>
+                            </span>
+                          </div>
+                        <div class="col-md-3">
+                          <label class="labelcolor">Suggested Date 2</label><br>
+                          <div class="input-group">
+                          <input type="text" class="form-control" formControlName="suggested_date_2" placeholder="Schedule date"  bsDatepicker [(bsValue)]="myDateValue">
+                            <span class="input-group-addon">
+                              <a href="javascript:void(0)" data-isfromsurgery="true" data-appinmentreqid="24224" data-iedit-appointment="1" data-get-url="/Patient/GetEpisodeAppointmentRequestDetailsForEdit" data-update-container="#dvAddEpisodeApointmentRequest" id="EditAppointmentReq" title="View" class=""><i class="fa fa-eye"></i></a>
+                          </span>
+                          </div>
+
+                      </div>
+                      </div>
+                      <hr>
+                      <div class="row hide">
+                          <div class="col-md-12">
+                              <div class="col-md-10">
+                                  <label class="labelcolor">Comments</label><br>
+                                  <span style="text-transform: capitalize"></span>
+                              </div>
+                          </div>
+
+                      </div>
+                      <hr>
+
+                  <div class="row">
+                  <div class="col-md-12"></div>
+                  <div class="pull-right">
+                  <a href="javascript:void(0)" id="btnupdatesurgeryDeatils" data-post-url="/Patient/InsUpdEpisodeSurgeryDetails" data-update-container="#dvSurgeryInformation_12761" data-episodesurgerydetailsid="12761" data-get-url="/Patient/GetPreSurgicalDetails" class="btn btn-primary pull-right btnupdatesurgeryDeatils" style="margin-left:10px;">Save</a>
+                  </div>
+                  </div>
+
+                  </div>
+                  </div>
+
+
+                </div>
+                <div id="dvEpisodeSurgeryDetails12761" class="clspanle hide" style="background-color: gray; padding: 5px 15px;">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#pnlpresurgery12761" style="color: white;" class="awvAccordionanc">Pre Surgery Status Details
+                  <i class="fa fa-bars pull-right presurgicaldetails" id="presurgerybtn12761" aria-hidden="true" data-surgery-id="12761" data-update-container="#pnlPresurgeryUPC12761" data-get-url="/Patient/GetPreSurgicalDetails"></i>
+                  </a>
+                  </div>
+                  <div id="pnlpresurgery12761" class="panel-collapse collapse  surgerydetailsdivmain">
+                  <div class="panel-body">
+
+                  <div id="pnlPresurgeryUPC12761" class="presurgerydetailsdiv">
+                  </div>
+                  </div>
+                  </div>
+                  <br>
+                  <h4>Documents</h4>
+                  <div id="dvSurgeryDocuments_12761">
+
+
+
+
+
+                  </div>
+                  <br>
+
+                  <div id="dvSurgeryDetails12761" class="clspanle hide" style="background-color: gray; padding: 5px 15px;">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#pnlSurgery12761" style="color: white;" class="awvAccordionanc">Surgery Status Details
+                  <i class="fa fa-bars pull-right surgicaldetails" id="surgerybtn12761" aria-hidden="true" data-surgery-id="12761" data-update-container="#pnlSurgeryUPC12761" data-get-url="/Patient/GetSurgicalDetails"></i>
+                  </a>
+                  </div>
+                  <div id="pnlSurgery12761" class="panel-collapse collapse surgerydetailsdivmain hide">
+                  <div class="panel-body">
+                  <div id="pnlSurgeryUPC12761" class="surgerydetailsdiv">
+                  </div>
+                  </div>
+                  </div>
+
+                  </div>
+
+                  </div>
+
+
+          </form>
+
+
+          </p-tabPanel>
+
+          <p-tabPanel header="BOOKING">
+            <div class="tab-pane active"  id="dischargeinfo9563">
+              <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+              <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="bookdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+          </p-tabPanel>
+
+
+
+          <p-tabPanel header="PRE-SURGICAL">
+          <div class="tab-pane active" id="dischargeinfo9563">
+          <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+          <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="presurgicaldoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+          </p-tabPanel>
+
+          <p-tabPanel header="REGISTRATION ">
+                  <div class="tab-pane active" id="dischargeinfo9563">
+                    <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+                    <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="registrationdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="SURGEON">
+            <div class="tab-pane active" id="dischargeinfo9563">
+              <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+              <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="surgdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="ANESTHESIA">
+          <div class="tab-pane active" id="dischargeinfo9563">
+              <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+              <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments"  (click)="anasthesiadoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="INTRA-OP">
+          <div class="tab-pane active" id="dischargeinfo9563">
+          <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+          <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="Intraopdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="Post-OP">
+            <div class="tab-pane active" id="dischargeinfo9563">
+              <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+              <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="Postopdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="BILLING">
+          <div class="tab-pane active" id="dischargeinfo9563">
+            <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+            <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="billingdoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+          <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+
+        </p-tabPanel>
+
+          <p-tabPanel header="OPERATIVE REPORTS">
+                  <div class="tab-pane active" id="dischargeinfo9563">
+                      <a href="javascript:void(0)" id="" data-get-url="/Patient/PrintAllSurgeryTabDocumentFiles" data-updatecontainer="#dvDocumentDetails" data-urlsrc="https://qa.yourdrs.com:443/Patient/PrintAllSurgeryTabDocumentFiles?EpisodeSurgeryId=" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" class="btnPrintAllSurgeryDocumentFiles btn btn-danger btn-xs"><i class="fa fa-print" style="padding-top: 3px;"></i>Print All Files</a>
+                      <a href="javascript:void(0)" class="btn btn-primary pull-right btnaddcmndocforsurgerytab " id="" data-surgeryid="9563" data-documentcategoryid="8" data-documenttypeid="62" data-isbookingsheetdocument="true" data-req-url="/Patient/AddNewEpisodePreSurgicalActivityAttachments" (click)="operativedoc()" data-update-container="#dvPopupTopNode" title="Add Document"><i class="fa fa-cloud-upload" style="font-size: 16px; color: #fff"></i>&nbsp;Add Document</a>
+                      <div id="dvDischargeDocuments_9563">
+
+
+          <table class="table table-striped">
+          <tbody>
+          <tr>
+          <td><strong>Description</strong></td>
+          <td><strong>Document Category</strong></td>
+          <td><strong>Document Type</strong></td>
+
+          <td><strong>Report Added On</strong></td>
+          <td><strong>Report Added By</strong></td>
+          <td><strong>Date Of Service</strong></td>
+          <td></td>
+          <td></td>
+          </tr>
+          <tr>
+          <td colspan="6">
+          <div class="alert alert-warning">No Documents found.</div>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <input type="hidden" value="0" id="hddEpisodedocumentcountforsurgery">
+
+          </div>
+          </div>
+          </p-tabPanel>
+          </p-tabView>
+        </section>
+      </p-accordionTab>
+    </p-accordion>
+  </li>
+  </ul>
+
+</div>
+
+    <p-dialog id="addSurgeryPopup" [style]="{width: '90vw'}" [(visible)]="addSurgery" [blockScroll]='true' [draggable]="false" [closable]="false" [modal]="true">
+        <p-header>
+          <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right"
+              (click)="closeAddsurgery()" style="width: 60px;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;font-size: 20px;">Add Surgery</h5>
+          </div>
+        </p-header>
+
+        <form [formGroup]="surgeryformData"  (ngSubmit)="onSubmit(surgeryformData.value)">
+            <div class="container-fluid">
+              <h3 id="headsurgid">Surgery Information</h3>
+              <input class="form-control" data-val="true" data-val-number="The field BodyMassIndex must be a number."
+                id="txthddsurgeryBmi" name="EpisodeSurgeryDetailsViewModel.EpisodeSurgeryDetails.BodyMassIndex"
+                readonly="true" type="hidden" value="">
+              <input type="hidden" id="hddBMI">
+              <div class="row">
+                <div class="col-md-12">
+                    <div id="dvEpisodeTreatmentVitals" class="dvEpisodeTreatmentVitals">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label>Height</label>
+                                <div class="input-group m-b">
+                                    <input class="form-control" formControlName="height" data-val="true" id="txtSurgeryHeight" maxlength="5" type="text" value="">
+                                    <span class="input-group-addon" style="padding: 0px; border: none;">
+                                      <select class="ddlSurgeryHeightUnit form-control chosen-select input-group-addon" id="ddlSurgeryHeightUnit" name="EpisodeSurgeryDetailsViewModel.EpisodeSurgeryDetails.HeightUnit" style="display: none;"><option value="Inch">Inch</option>
+                                        <option value="Feet">Feet</option>
+                                        </select><div class="chosen-container chosen-container-single" style="width: 100%" title="" id="ddlSurgeryHeightUnit_chosen"><a class="chosen-single"><span>Inch</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"><li class="active-result result-selected" data-option-array-index="0" style="">Inch</li><li class="active-result" data-option-array-index="1" style="">Feet</li></ul></div></div>
+                                  </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Weight</label>
+                                <div class="input-group m-b">
+                                    <input class="form-control" formControlName="weight" id="txtSurgeryWeight" maxlength="6"  type="text" value="">
+                                    <span class="input-group-addon">Pounds</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>BMI</label>
+                                <div class="input-group m-b">
+                                    <input class="form-control txtsurgeryBmi" id="txtsurgeryBmi" name="EpisodeSurgeryDetailsViewModel.EpisodeSurgeryDetails.BodyMassIndex" readonly="true" type="text" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <div class="hide" id="dvBMITreatmentValidationMessage">
+                <div class="row">
+                  <div class="col-md-12">
+                    <span style="color: red"><b>For this patient BMI is greater than 50.</b></span>
+                  </div>
+                </div>
+              </div>
+              <br>
+
+              <div id="dvEpisodeSurgeryContainer">
+                <div class="" id="">
+                  <div id="dvSurgeryContainer"
+                    class="ibox-content m-b-sm border-bottom dvSurgerydetails dvSugeryDetailsFields " style="padding: 0px;">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Surgeon<span style="color: red">*</span></label><br>
+                        <div class="input-group">
+                          <input type="text"  value="" class="form-control txtAddEditSurgeon txtSurgeon txtSurgeryProvider mandatoryFieldBorder txtSurgeryProvider_1 txtSurgeon_1" id="txtSurgeon_1" disabled="disabled" data-surgeon-id="" data-practiceid-id="" data-locationid="" data-practicelocationid="" data-req-url="/Patient/SearchSurgeonsForAutocomplete" data-classname="txtSurgeryProvider_1" style="display: none;">
+                          <div id="txtSurgeon_1_tagsinput" class="tagsinput txtSurgeryProvider_1txtSurgeonTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                          <div id="txtSurgeon_1_addTag">
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                            <span class="tag"  *ngIf="selectedVal != undefined">
+                              <span id="spntxtSurgeonTag">
+                                {{selectedVal}}
+                              </span>
+                            <a title="Removing tag" (click)="closeSpan()">x</a>
+                          </span>
+                            <p-autoComplete id="surgeonId" [(ngModel)]="text" [suggestions]="filteredSurgeons" (completeMethod)="searchAuto($event)" placeholder="Search Member" appendTo="body" (onSelect)="selectedSugestion()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                        </div>
+                          <div class="tags_clear">
+                          </div>
+                        </div>
+                          <span class="input-group-addon btnSearchEpiSurgeonspan"><a href="javascript:void(0)" class="fa fa-search searchsurgeon" id="btnSearchEpiSurgeon" (click)="searchSurgerypop()" title="Search Surgeon" data-req-url="/Patient/SearchSurgeons" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtSurgeon" data-view-container="#btnViewSurgeonDetails" data-location-container="#txtSurgeryLocation_1" data-surgerytype-updatecontainer="#ddlSurgeryType_1" data-surgerytype-requrl="/Patient/GetSurgeryTypesForSurgeon" data-procedure-updatecontainer="#txtSurgery_1" data-onsurgeonselect-clearcontainer1="#txtSurgery_1" data-onsurgeonselect-clearcontainer2="#txtescSurgery1_1" data-onsurgeonselect-clearcontainer3="#txtescSurgery2_1" data-onsurgeonselect-clearcontainer4="#txtescSurgery3_1"></a></span>
+                          <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewSurgeonDetails" (click)="viewSurgerypop()" class="fa fa-eye fa-3 btnViewSurgeonDetails" data-surgeon-container=".txtSurgeon" title="View Details" data-view-container=".txtSurgeon" data-req-url="/Admin/GetMemberDetails" data-update-container="#dvPopupTopNode"><span></span></a></span>
+                      </div>
+                      </div>
+
+                  <p-dialog id="btnViewSurgeonDetails" [style]="{width: '70vw'}" [(visible)]="viewSurgery" [draggable]="false" [resizable]="false" [closable]="false">
+                            <p-header>
+                              <div class="head">
+                                <a href="javascript:void(0)" class="btn btn-danger pull-right"
+                                  (click)="closeMemberDetails()"style="width: 60px;">close</a>
+                                <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Member Details</h5>
+                              </div>
+                            </p-header>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <tbody><tr>
+                                        <td><strong>Title</strong>
+                                            <br>
+                                            <span id="spnPatientTitle"></span>
+                                        </td>
+
+                                        <td><strong>First Name</strong>
+                                            <br>
+                                            <span id="spnPatientFname">{{memberDetailsData.name}}</span>
+                                        </td>
+
+                                        <td><strong>Middle Name</strong>
+                                            <br>
+                                            <span id="spnPatientMname">{{memberDetailsData.moddlename}}</span>
+                                        </td>
+
+                                        <td><strong>Last Name</strong><br>
+                                            <span id="spnPatientLname">{{memberDetailsData.lastname}}</span></td>
+                                        <td><strong>Gender</strong>
+                                            <br>{{memberDetailsData.gender}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Date of Birth</strong><br></td>
+
+                                        <td><strong>City</strong><br>
+                                            <span>{{memberDetailsData.city}}</span></td>
+                                        <td><strong>State</strong><br>
+                                            <span style="word-wrap: break-word; display: block; width: 150px;">NJ</span></td>
+                                        <td><strong>Email</strong><br>{{memberDetailsData.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Profile Photo</strong>
+                                            <br>
+                                            <img class="img-responsive" src="/Images/profile/dummypic.jpg" style="width:35%">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                  </p-dialog>
+
+                  <div class="col-md-6">
+                        <label>Procedure<span style="color: red">*</span></label>
+                      <br>
+                      <div class="input-group">
+                        <input type="text" value="" class="form-control txtSurgery mandatoryFieldBorder txtProcedure_1 txtProcedure" id="txtSurgery_1" disabled="disabled" data-surgeryid-id="" data-surgerytypeid="" data-req-url="/Patient/SearchSurgiesJson" data-classname="txtProcedure_1" data-req-bodyparturl="/Patient/GetBodyPartsForSelectedProcedure" data-updatecontainer-bodypart="#ddlBodyPartId_1" data-req-proctypeurl="/Patient/GetAssociatedProcedureSurgeryTypes" data-updatecontainer-proctype="#ddlProcedureType_1" data-addbtn-id="#btnAddSurgery" style="display: none;">
+                        <div id="txtSurgery_1_tagsinput" class="tagsinput procedureTagsInput" style="width: 100%; min-height: auto; height: auto;">
+
+                          <div id="txtSurgery_1_addTag">
+                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                            <span class="tag" *ngIf="selectedPro != undefined">
+                              <span id="spnProcedureTag">
+                                {{selectedPro}}
+                              </span>
+                              <a title="Removing tag" (click)="closePro()">x</a>
+                            </span>
+
+                            <p-autoComplete id="procedureId" [(ngModel)]="pro" [suggestions]="filteredProcedure" (completeMethod)="searchPro($event)" placeholder="Search Surgery" appendTo="body" (onSelect)="selectedProc()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+
+
+                        </div>
+                        <div class="tags_clear">
+                        </div>
+                      </div>
+                        <span class="input-group-addon btnSearchEpiSugeryspan"><a href="javascript:void(0)" class="fa fa-search searchsurgery" id="btnSearchEpiSugery_1" (click)="Onsearch()" title="Search Surgery" data-req-url="/Patient/SearchSurgery" data-update-container="#dvPopupTopNode" data-surgeonid="" data-search-updatecontainer="#txtSurgery_1" data-view-container="#btnViewSurgeryDetails" data-surgeontextid=".txtSurgeon" data-secprocedure1-updatecontainer="#txtescSurgery1_1" data-secprocedure2-updatecontainer="#txtescSurgery2_1" data-secprocedure3-updatecontainer="#txtescSurgery3_1" data-updatecontainer-bodypart="#ddlBodyPartId_1" data-req-bodyparturl="/Patient/GetBodyPartsForSelectedProcedure" data-req-proctypeurl="/Patient/GetAssociatedProcedureSurgeryTypes" data-updatecontainer-proctype="#ddlProcedureType_1" data-surgeon-container=".txtSurgeon" data-addbtn-id="#btnAddSurgery" data-onsurgeryselect-clearcontainer1="#txtescSurgery1_1" data-onsurgerynselect-clearcontainer2="#txtescSurgery2_1" data-onsurgerynselect-clearcontainer3="#txtescSurgery3_1"></a></span>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12" style="padding: 0px;">
+                      <div class="col-md-6">
+                        <span>
+                          <label>Procedure Type <span style="color: red">*</span></label><br>
+                          <p-dropdown id="pwsdropdown" [options]="originatedpro" optionLabel="name" formControlName="procedure_type"
+                            placeholder="Select " (onChange)="origisePro($event)" filter="true"     [autoWidth]="true"
+                            [style]="{'width': '100%'}" >
+                          </p-dropdown>
+                        </span>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Place Of Service<span style="color: red">*</span></label><br>
+                        <div class="input-group">
+                          <input type="text" value="" class="form-control txtAddEditPOS txtPlaceOfService  mandatoryFieldBorder txtPlaceOfService_1" id="tags1580192631634" data-req-url="/Patient/SearchPlaceOfSurviceAutocomplete" data-classname="txtPlaceOfService_1" data-posplid="" data-addbtn-id="#btnAddSurgery" style="display: none;">
+                          <div id="tags1580192631634_tagsinput" class="tagsinput txtPlaceOfServiceTags" style="width: 100%; min-height: auto; height: auto;">
+                            <div id="tags1580192631634_addTag">
+                              <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+
+                              <span class="tag" *ngIf="selectedService != undefined">
+                                <span class="spnSurgeryPlaceOfService">
+                                  {{selectedService}}
+                                </span>
+                                <a title="Removing tag" (click)="closeService()">x</a>
+                              </span>
+
+                              <input id="tags1580192631634_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Practice Location" placeholder="Search Practice Location" class="ui-autocomplete-input" autocomplete="off">
+                            </div>
+                            <div class="tags_clear">
+                            </div>
+                          </div>
+
+                          <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchposplid"
+                              id="btnSearchPlaceofServiceBookingDB" (click)="Servicepop()" title="Search Practice Location"
+                              data-req-url="/BookingSheet/GetPlaceOfServiceList" data-update-container="#dvPopupTopNode1"
+                              data-search-updatecontainer=".txtPlaceOfService_1" ></a></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <br>
+                    <div class="row">
+
+                      <div class="col-md-4">
+                        <label>Secondary Procedure 1</label><br>
+                        <div class="input-group">
+                          <input type="text" class="form-control txtescSurgery1 txtescprocedur1_1 txtescprocedur1 " id="tags1580192631607" disabled="disabled" data-classname="txtescprocedur1_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                          <div id="tags1580192631607_tagsinput" class="tagsinput txtescprocedur1_1procedure1TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                            <div id="tags1580192631607_addTag">
+                              <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                              <span class="tag" *ngIf="selectedPro1 != undefined">
+                                <span id="spnsecProcedure3Tag">
+                                  {{selectedPro1}}
+                                </span>
+                                <a title="Removing tag"  (click)="closePro1()">x</a>
+                              </span>
+
+                              <p-autoComplete id="procedure1Id" [(ngModel)]="pro1" [suggestions]="filteredProcedure1" (completeMethod)="searchProc1($event)" placeholder="Search Secondary Procedure" appendTo="body" (onSelect)="selectedProc1()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                            </div>
+                            <div class="tags_clear">
+                            </div>
+                          </div>
+                          <span class="input-group-addon btnSearchEpiSugeryspan"><a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery1" id="btnSearchEpiSecSugery1_1" (click)="Procedurepop1()" title="Search Secondary Procedure1" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur1_1" data-view-container="#btnViewSurgeryDetails" data-procedure-updatecontainer=".txtProcedure_1" data-surgery-container="#txtSurgery_1"></a></span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label>Secondary Procedure 2</label><br>
+                        <div class="input-group">
+                          <input type="text"  class="form-control txtescSurgery2 txtescprocedur2_1 txtescprocedur2" id="tags1580192631614" disabled="disabled" data-classname="txtescprocedur2_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                          <div id="tags1580192631614_tagsinput" class="tagsinput txtescprocedur2_1procedure2TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                            <div id="tags1580192631614_addTag">
+                              <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                              <span class="tag" *ngIf="selectedPro2 != undefined">
+                                <span id="spnsecProcedure3Tag">
+                                  {{selectedPro2}}
+                                </span>
+                                <a title="Removing tag"  (click)="closePro2()">x</a>
+                              </span>
+                              <p-autoComplete id="procedure2Id" [(ngModel)]="pro2" [suggestions]="filteredProcedure2" (completeMethod)="searchProc2($event)" placeholder="Search Surger" appendTo="body" (onSelect)="selectedProc2()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                            </div>
+                            <div class="tags_clear">
+                            </div>
+                          </div>
+                          <span class="input-group-addon btnSearchEpiSugeryspan">
+                            <a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery2" id="btnSearchEpiSecSugery2_1" (click)="Procedurepop2()" title="Search Secondary Procedure2" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur2_1" data-view-container="#btnViewSurgeryDetails" data-surgery-container="#txtSurgery_1" data-procedure-updatecontainer=".txtProcedure_1"></a>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <label>Secondary Procedure 3</label><br>
+                        <div class="input-group">
+                          <input type="text" class="form-control txtescSurgery3 txtescprocedur3_1 txtescprocedur3" id="tags1580192631620" disabled="disabled" data-classname="txtescprocedur3_1" data-req-url="/Patient/SearchSecondarySurgiesJson" style="display: none;">
+                          <div id="tags1580192631620_tagsinput" class="tagsinput txtescprocedur3_1procedure3TagsInput" style="width: 100%; min-height: auto; height: auto;">
+                            <div id="tags1580192631620_addTag">
+                              <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                              <span class="tag" *ngIf="selectedPro3 != undefined">
+                                <span id="spnsecProcedure3Tag">
+                                  {{selectedPro3}}
+                                </span>
+                                <a title="Removing tag"  (click)="closePro3()">x</a>
+                              </span>
+                              <p-autoComplete id="procedure3Id" [(ngModel)]="pro3" [suggestions]="filteredProcedure3" (completeMethod)="searchProc3($event)" placeholder="Search Secondary Procedure3" appendTo="body" (onSelect)="selectedProc3()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                            </div>
+                            <div class="tags_clear">
+                            </div>
+                          </div>
+                          <span class="input-group-addon btnSearchEpiSugeryspan">
+                            <a href="javascript:void(0)" class="fa fa-search btnSearchEpiSecSugery btnSearchEpiSecSugery3" id="btnSearchEpiSecSugery3_1" (click)="Procedurepop3()" title="Search Secondary Procedure3" data-req-url="/Patient/SearchSecondarySurgery" data-update-container="#dvPopupTopNode" data-search-updatecontainer=".txtescprocedur3_1" data-view-container="#btnViewSurgeryDetails" data-surgery-container="#txtSurgery_1" data-procedure-updatecontainer=".txtProcedure_1"></a></span>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <span>
+                              <label>Body Part<span style="color: red">*</span></label><br>
+                              <p-dropdown id="pwsdropdown" formControlName="body_part" [options]="originatedBodyPart" optionLabel="name"
+                                placeholder="Select " (onChange)="origiseBodyPart($event)" filter="true"     [autoWidth]="true"
+                                [style]="{'width': '100%'}" >
+                              </p-dropdown>
+                            </span>
+                          </div>
+                          <div class="col-md-3">
+                            <span>
+                              <label>Side<span style="color: red">*</span></label><br>
+                              <p-dropdown id="pwsdropdown" formControlName="side" [options]="originatedSide" optionLabel="name"
+                                placeholder="Select " (onChange)="origiseSide($event)" filter="true"     [autoWidth]="true"
+                                [style]="{'width': '100%'}" >
+
+                              </p-dropdown>
+                            </span>
+                          </div>
+                          <div class="col-md-3">
+                            <span>
+                              <label>Level 1</label>
+                              <p-dropdown id="pwsdropdown" formControlName="level_1" [options]="originatedLevel1" optionLabel="name"
+                                placeholder="Select " (onChange)="origiseLevel1($event)" filter="true"     [autoWidth]="true"
+                                [style]="{'width': '100%'}" >
+                              </p-dropdown>
+                            </span>
+                          </div>
+                          <div class="col-md-3">
+                            <span>
+                              <label>Level 2</label>
+                              <p-dropdown id="pwsdropdown" formControlName="level_2" [options]="originatedLevel2" optionLabel="name"
+                                placeholder="Select " (onChange)="origiseLevel2($event)" filter="true"     [autoWidth]="true"
+                                [style]="{'width': '100%'}" >
+                              </p-dropdown>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <label>Suggested Date 1 </label>
+                              <input type="text" class="form-control" formControlName="suggested_date_1" placeholder="Schedule date"  bsDatepicker [(bsValue)]="myDateValue">
+                        </div>
+                        <div class="col-md-3">
+                          <span>
+                            <label>Time</label>
+                            <p-dropdown id="pwsdropdown" formControlName="time" [options]="originatedTime" optionLabel="name"
+                              placeholder="Select " (onChange)="origiseTime($event)" filter="true"     [autoWidth]="true"
+                              [style]="{'width': '100%'}" >
+                            </p-dropdown>
+                          </span>
+                        </div>
+                      <div class="col-md-3">
+                        <label>Suggested Date 2</label><br>
+                          <input type="text" class="form-control" formControlName="suggested_date_2" placeholder="Schedule date"  bsDatepicker [(bsValue)]="myDateValue">
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label>Notes&nbsp;<span style="color: red" class="hide spnsurmandnotesornot">*</span></label>
+                        <textarea formControlName="notes" class="form-control txtXomments" maxlength="500"></textarea>
+                      </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12" style="padding: 0px;">
+                        <div class="col-md-6">
+                          <label>Assistant</label><br>
+                          <div>
+                            Legends &nbsp;
+                            <span title="YourDRs Member" style="background-color: rgb(99, 132, 33); width: 10px; height: 10px; display: inline-block"></span>
+                            <span title="Non YourDRs Member" style="background-color: rgb(250, 235, 215); width: 10px; height: 10px; display: inline-block"></span>
+                          </div>
+                          <div class="input-group">
+                            <input type="text" value="" formControlName="assistant_legend" class="form-control txtSurgeryAssistant txtSurgeryAssistant_1" id="tags1580192631628" disabled="disabled" data-assistant-memid="" data-req-url="/Patient/SearchSurgeryAssistantJson" data-classname="txtSurgeryAssistant_1" style="display: none;">
+                            <div id="tags1580192631628_tagsinput" class="tagsinput surgeryassistantTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580192631628_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <span class="tag"  *ngIf="selectedLegend != undefined">
+                                  <span id="spnSurgeryAssistantTag" data-id="542">
+                                    {{selectedLegend}}
+                                  </span>
+                                  <a title="Removing tag" (click)="closeLegend()">x</a>
+                                </span>
+                                <p-autoComplete id="legendId" [(ngModel)]="leg" [suggestions]="filteredLegend" (completeMethod)="searchLeg($event)" placeholder="Search Assistant" appendTo="body" (onSelect)="selectedLeg()" [ngModelOptions]="{standalone: true}"></p-autoComplete>
+                                <!-- <input id="tags1580192631628_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Assistant" placeholder="Search Assistant" class="ui-autocomplete-input" autocomplete="off"> -->
+                              </div>
+                              <div class="tags_clear">
+                              </div>
+                            </div>
+                            <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchsurgeryassistant" id="btnSearchSugeryAssistant_1" (click)="Legendpop()"  title="Search Surgery Assitant" data-req-url="/Patient/SearchSurgeryAssistant" data-update-container="#dvPopupTopNode" data-search-updatecontainer="#txtSurgeryAssistant_1"></a></span>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>Special Surgical Instruction</label>
+                          <textarea formControlName="special_surgical_instruction" class="txtSpecialSurgicalInstruction txtSpecialSurgicalInstruction_1 form-control"
+                            maxlength="500" rows="3"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <input type="checkbox" style="height: 20px;width: 20px;"
+                          class="chkIsSurgryUrgent chkIsSurgryUrgent_1">&nbsp;Is Surgery Urgent?
+                      </div>
+                      <div class="col-md-3 hide">
+                        <label>Booking Sheet</label>
+                        <div class="input-group">
+                          <select class="form-control chosen-select ddlbookingsheetfile" formControlName="booking_sheet" style="display: none;">
+                            <option value="">Select</option>
+                            <option value="13" data-refpraid="203"
+                              data-physcicalfilename="CL18106954_David_Test_Palermo_UB04_f6d6473a-132c-4d64-8579-642e267fb356 b0fceda246b44654b65764fab0560e87.pdf"
+                              data-reflocid="199" data-refproid="">
+                              CL18106954_David_Test_Palermo_UB04_f6d6473a-132c-4d64-8579-642e267fb356.pdf</option>
+                            <option value="20" data-refpraid="83"
+                              data-physcicalfilename="Liability Statement (12) 162c939360d54e6fbfd53cb3d921d928.pdf"
+                              data-reflocid="149" data-refproid="1062">Liability Statement (12).pdf</option>
+                            <option value="23" data-refpraid="81"
+                              data-physcicalfilename="schedule appointment - 2.0 368a35e200c34ba6b8818aee53e29743.pdf"
+                              data-reflocid="149" data-refproid="15">schedule appointment - 2.0.pdf</option>
+                            <option value="32" data-refpraid="8" data-physcicalfilename="Acrobat Document_ccb05583a6.pdf"
+                              data-reflocid="42" data-refproid="97">Acrobat Document.pdf</option>
+                          </select>
+                          <div class="chosen-container chosen-container-single" style="width: 100%" title=""><a
+                              class="chosen-single"><span>Select</span>
+                              <div><b></b></div>
+                            </a>
+                            <div class="chosen-drop">
+                              <div class="chosen-search"><input type="text" autocomplete="off"></div>
+                              <ul class="chosen-results"></ul>
+                            </div>
+                          </div>
+
+                          <span class="input-group-addon">
+                            <a href="javascript:void(0)" class="lnksurgeryviewbkngsheetdoc"
+                              data-gets3docurl="/Patient/GetS3DocumentViewer"
+                              data-folderpath="UploadFilesTemp/BookingSheetDocuments"><i class="fa fa-eye"
+                                aria-hidden="true" title="Document Details"></i></a>
+                          </span>
+                        </div>
+
+
+                      </div>
+
+
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label>Referral Source Member <span style="color: red">*</span></label><br>
+                        <div class="col-md-3">
+                          <span>
+                            <label>Provider<span style="color: red">*</span></label><br>
+                            <p-dropdown id="pwsdropdown" formControlName="provider" [options]="originatedProvider" optionLabel="name"
+                              placeholder="Select " (onChange)="origiseProvider($event)" filter="true"     [autoWidth]="true"
+                              [style]="{'width': '100%'}" >
+                            </p-dropdown>
+                          </span>
+                        </div>
+                        <div class="col-md-3">
+                        <span>
+                            <label>Practice<span style="color: red">*</span></label><br>
+                            <p-dropdown id="pwsdropdown" formControlName="practice" [options]="originatedPractice" optionLabel="name"
+                              placeholder="Select " (onChange)="origisePractice($event)" filter="true"     [autoWidth]="true"
+                              [style]="{'width': '100%'}" >
+                            </p-dropdown>
+                          </span>
+                        </div>
+                        <div class="col-md-3">
+                          <span>
+                            <label>Location<span style="color: red">*</span></label><br>
+                            <p-dropdown id="pwsdropdown" formControlName="location" [options]="originatedLocation" optionLabel="name"
+                              placeholder="Select "  filter="true"     [autoWidth]="true"
+                              [style]="{'width': '100%'}" >
+                            </p-dropdown>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" class="hddEpisodeIsActive" value="true">
+                    <a href="javascript:void(0)" class="btn btn-danger hide btnRemoveSurgery pull-right"
+                      style="display: none;">Remove</a><br>
+                  </div>
+                  <input type="submit" class="btnAddSurgery btn btn-primary pull-right " value="Add"/>
+                </div>
+            <br>
+            <input type="hidden" id="hddEpisodeAssessmentBodyPartDetailsId">
+            <input type="hidden" id="hddEpisodePlanOfCareId">
+            <input type="hidden" id="hddEpisodePlanOfCareDisabilityType">
+            <input type="hidden" id="hddScheduleAppointmentSurgeryDetailsIds">
+          </div>
+          <hr>
+          <div class="modal-footer">
+            <button class="btn btn-primary pull-right btnprocessing" id="btnSaveSurgeryDetailsSurgery">Save</button>
+          </div>
+        </form>
+
+    </p-dialog>
+
+    <p-dialog id="addNewdocument" [style]="{width: '90vw'}" [(visible)]="book" [draggable]="false" [blockScroll]="true" [resizable]="false" [closable]="false" [modal]="true">
+      <p-header>
+        <a href="javascript:void(0)"  class="btn btn-small btn-danger pull-right" (click)="closeAddNewDoc()">Close</a>
+        <h3 style="text-transform: none; text-align: center;">Add New Document</h3>
+      </p-header>
+      <div class="ibox-content" style="background-color: #e8f6ff;">
+        <label>
+        <h3>Attach Document</h3>
+        </label>
+        <br>
+        <div class="dvSurgeryepisodedocfirstrow" id="dvSurgeryEpisodeAdddocForMulti" style="border: 2px dashed #37cb93; padding: 15px; margin-bottom: 10px">
+          <div class="row">
+            <div class="col-md-3">
+              <label>
+                  Document Category<span style="color: red;">*</span>
+              </label>
+              <p-dropdown id="pwsdropdown" [options]="documentCategory" placeholder="Select " optionLabel="name" filter="true">
+            </p-dropdown>
+          </div>
+
+          <div class="col-md-2">
+            <label>
+                Document Type <span style="color: red;">*</span>
+            </label>
+            <p-dropdown id="pwsdropdown" [options]="documentType" placeholder="Select " optionLabel="name" filter="true">
+          </p-dropdown>
+        </div>
+
+
+        <div class="col-md-2 provider">
+            <label>
+                Provider
+            </label>
+            <p-dropdown id="pwsdropdown" [options]="documentProvider" placeholder="Select " optionLabel="name"
+      filter="true">
+          </p-dropdown>
+
+        </div>
+
+        <div class="col-md-2 Surgerytreatmentdate" data-appid="" data-compltedbymemid="">
+          <label>
+              Treatment Date
+          </label>
+
+
+          <div class="input-group">
+                <input type="text" class="form-control" placeholder="Treatment date"  bsDatepicker [(bsValue)]="myDateValue">
+
+          </div>
+
+          <!-- <input class="form-control datepicker episodedocpresurgricalTreatmentdate hasDatepicker" data-doc-id="0" data-mask="99/99/9999" data-val="true" data-val-date="The field TreatmentDate must be a date." id="episodedocpresurgricalTreatmentdate" name="EpisodeDocument.TreatmentDate" placeholder="mm/dd/yyyy" type="text" value=""> -->
+      </div>
+      <div class="col-md-1 clsexdiag" style="margin-top: 30px">
+          <a href="javascript:void(0)" class="btnSurgeryaddepisodedocfirstrow"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 20px; color: #08ce37;"></i></a>
+          <a href="javascript:void(0)" class="btnSurgeryremoveepisodedocfirstrow" style="display: none;"><i class="fa fa-minus-circle" aria-hidden="true" style="font-size: 20px; color: #fc0830;"></i></a>
+      </div>
+
+      <br>
+
+      <div class="row hide" id="dvSurgeryAddingSameTypeOfDoc">
+        <div class="col-md-12">
+          <label id="lblNameSurgeryAddingSameTypeOfDoc" style="color: red;"></label>
+          <textarea class="form-control" cols="20" id="txtSurgeryReasonForAddingSameTypeOfDocument" maxlength="500" name="EpisodeDocument.ReasonForAddingSameTypeOfDocument" rows="2" style="width:100%"></textarea>
+      </div>
+      </div>
+
+      <br>
+
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-12">
+              <label>
+                  Description
+              </label>
+              <textarea class="form-control" cols="20" id="txtpresurgricalDocumentDescription" maxlength="500" name="EpisodeDocument.Description" placeholder="Document Description" rows="2"></textarea>
+          </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+            <label>
+                Document Access <span style="color: red;">*</span>
+            </label>
+            <br>
+
+    <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}"></p-radioButton>
+    <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}"></p-radioButton>
+            <!-- <label class="radio-inline i-checks">
+                <div class="iradio_square-green" style="position: relative;"><input type="radio" value="1" name="rdoIsPublic" class="rdoIsPublic" id="rdoPublic" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                Is Public</label>
+            <label class="radio-inline i-checks">
+                <div class="iradio_square-green checked" style="position: relative;"><input type="radio" value="0" name="rdoIsPublic" class="rdoIsPublic" id="rdoPrivate" checked="checked" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                Is Private</label><br>
+            <br>
+            <label id="lblDocAccessMessage" style="color: red;">You are marking this document as private, which means no one will be able to see this document. To Grant access to this document, you need to manually add people to provide access.</label> -->
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div id="dvAttach" class="attchcontrols" style="padding-left:3%" data-download-url="/Patient/DownloadPatientDocuments">
+
+
+
+
+    <div>
+
+
+    <form method="POST" enctype="multipart/form-data">
+    <div class="fallback" ondrop="upload_file(event)">
+    <label class="dropzone" style="padding: 0px;">
+    <i class="fa fa-cloud-upload" style="font-size: 70px; color: #36cb94; margin-top: 15px;"></i>
+    <h2 style="font-size: 18px; margin: 0px;">Drop files here or click to upload.</h2>
+    <input id="S3Files" class="S3FileUpload_67b59" data-classname="S3FileUpload_67b59" name="file" type="file" data-bucketfolder="yourdrs-qa/UploadFilesTemp/PatientDocuments" data-attachmentlistname="AttachmentList" multiple="" data-ismessageattachment="0" data-fileuploadacceptextension="" data-noofdocsallowed="" data-isfromuploadgroupdocument="0" data-isfrompaymentdocuments="0">
+    </label>
+    </div>
+    </form>
+
+    <div role="presentation" style="width: 100%;" data-toggle="modal-gallery; " data-target="#modal-gallery" class="s3files_S3FileUpload_67b59">
+    </div>
+    <div class="results_S3FileUpload_67b59">
+    </div>
+
+
+
+
+    </div>
+
+          </div>
+      </div>
+    </div>
+
+
+      </div>
+
+      <br>
+
+      <div class="ibox-content" id="dvdocumentacess">
+        <label>
+            <h3>Grant Access To The Attached Document</h3>
+        </label>
+        <br>
+
+    <div class="row">
+    <div class="col-md-3">
+
+    <label>
+        Role<span style="color: red;">*</span>
+    </label>
+    <p-dropdown id="pwsdropdown" [options]="documentRole" placeholder="Select " optionLabel="name" filter="true">
+    </p-dropdown>
+
+    </div>
+    <div class="col-md-6">
+    <label>Name</label>
+    <input type="text" id="txtSearchDocAccessMember" class="form-control" maxlength="100">
+    </div>
+    <div class="col-md-3" style="margin-top:20px;">
+    <a href="javascript:void(0)" id="btnSearchDocumentAccessMembers" class="btn btn-primary" data-updateurl="/Patient/GetDocumentAccessMembers" data-upatecontainer=".dvDocumentaccessmembers">Search</a>
+    </div>
+    </div>
+
+    <div class="row">
+      <p-accordion>
+        <p-accordionTab header="Header 1">
+      <div class="container-fluid">
+        <div class="col-md-6">
+          <label>Assign To<span style="color: red"></span></label>
+            <input type="text" id="txtSearchDocAccessMember" class="form-control" maxlength="100">
+          </div>
+        </div>
+        </p-accordionTab>
+
+    </p-accordion>
+    </div>
+      </div>
+    </p-dialog>
+    <p-dialog id="searchSurgeryPopup" [style]="{width: '70vw'}" [(visible)]="searchSurgery" [draggable]="false" [resizable]="false" [closable]="false"  [baseZIndex]="1000" [modal]="true">
+      <p-header>
+        <a href="javascript:void(0)"  class="btn btn-small btn-danger pull-right" (click)="searchSurgeryClose()">Close</a>
+        <h3 style="text-transform: none; text-align: center;">Search Surgeon</h3>
+      </p-header>
+        <div style="height: 100px;">
+          <div class="col-md-3">
+              <label>Name</label>
+              <input type="text" id="txtEpiSodeSurgeonName" class="form-control textbox-search-onenterkey" placeholder="Name" data-enterkey-pressed="#btnSearchEpiSurgeonResult">
+          </div>
+          <div class="col-md-3">
+              <label>City</label>
+              <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City" data-enterkey-pressed="#btnSearchEpiSurgeonResult">
+          </div>
+          <div class="col-md-4">
+            <label>State</label>
+            <select class="form-control chosen-select" id="ddlSearchState" name="State" style="display: none;">
+              <option value="">Any</option>
+              <option value="AE">AE</option>
+              <option value="AK">AK</option>
+              <option value="AL">AL</option>
+              <option value="AR">AR</option>
+              <option value="AS">AS</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DC">DC</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="FM">FM</option>
+            </select>
+            <div class="chosen-container chosen-container-single" style="width: 100%" title="" id="ddlSearchState_chosen">
+              <a class="chosen-single">
+                <span>Any</span>
+              </a>
+              <div class="chosen-drop">
+                <div class="chosen-search">
+                  <input type="text" autocomplete="off"></div>
+                  <ul class="chosen-results"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2" style="margin-top: 20px">
+              <a href="javascript:void(0)" class="btn btn-primary" id="btnSearchEpiSurgeonResult" data-get-url="/Patient/SearchSurgeonsFiltered" data-update-container=".dvSearchEpisodeSurgeonResult" (click)="ShowData()">Search</a>
+            </div>
+        </div>
+        <div class="" style="margin-right: 30px; margin-left: 30px;margin-top: 20px;" *ngIf="showTable">
+        <table class="table table-striped table-condensed tablesorter text-sm">
+          <thead style="color: #828388;">
+          <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Practice</th>
+          <th>Location</th>
+          <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of SurgeryData">
+          <td>{{item.name}}</td>
+          <td>{{item.city}}</td>
+          <td>{{item.state}}</td>
+          <td>{{item.practice}}</td>
+          <td>{{item.location}}</td>
+          <td style="vertical-align: middle;">
+          <div class="btn-group">
+          <a href="javascript:void(0)" class="selectedEpisodeSurgeon" (click)="selectSearch(item)">Select</a>
+          </div>
+          </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </p-dialog>
+
+    <p-dialog id="ProcedurePopup" [style]="{width: '70vw'}" [(visible)]="Procedure" [closable]="false" [blockScroll]='true' [draggable]="false" [positionTop]=10 [baseZIndex]="1000" [modal]="true">
+          <p-header>
+            <div class="head">
+              <a href="javascript:void(0)" class="btn btn-danger pull-right"
+                (click)="ProcedureClose()"style="width: 60px;">close</a>
+              <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Procedure</h3>
+            </div>
+          </p-header>
+               <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-6">
+                      <label>Search String</label>
+                      <input type="text" id="txtSearchSurgery" maxlength="100" class="form-control textbox-search-onenterkey" data-enterkey-pressed="#btnSearchSurgery">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-primary" style="margin-top:23px;" data-req-url="/Patient/SearchSurgies" data-update-container="#dvSearchSurgeryResult" id="btnSearchSurgery" (click)="ShowProcedureData()">Search</a>
+                    </div>
+                  </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="dvSearchSurgeryResult">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="" style="margin-left: 30px; margin-right: 30px;" *ngIf="showProcedure" >
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Name</th>
+                    <th>CPT</th>
+                    <th>Type</th>
+                    <th>Class Name</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of ProcedureData">
+                        <td>{{item.name}}</td>
+                        <td>{{item.cpt}}</td>
+                        <td>{{item.type}}</td>
+                        <td>{{item.classname}}</td>
+
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-xs btn-primary" (click)="selectProcedure(item)">
+                    Select
+                    </button> -->
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectProcedure(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+    </p-dialog>
+
+    <p-dialog id="btnSearchPlaceofServiceBookingDB" [style]="{width: '70vw'}" [draggable]="false" [(visible)]="Service" [closable]="false" [baseZIndex]="1000" [modal]="true">
+          <p-header>
+            <div class="head">
+              <a href="javascript:void(0)" class="btn btn-danger pull-right"
+                (click)="ServiceClose()"style="width: 60px;">close</a>
+              <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Practice / Location</h3>
+            </div>
+          </p-header>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Name</label>
+                    <input type="text" id="txtPlaceofServiceName" class="form-control textbox-search-onenterkey" placeholder="Name" data-enterkey-pressed="#btnSearchRefSrcMem">
+                  </div>
+                  <div class="col-md-2" style="margin-top: 20px">
+                        <a href="javascript:void(0)" class="btn btn-primary" id="btnSearchPlaceofService" data-req-url="/BookingSheet/SearchPlaceOfServiceList" data-update-container=".dvSearchPlaceofService" (click)="ShowServiceData()">Search</a>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="" class="dvSearchPlaceofService">
+                        </div>
+                    </div>
+                </div>
+                <div class="row paddingLR" *ngIf="showService">
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Practice</th>
+                    <th>Location</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of ServiceData">
+                      <td>{{item.practice}}</td>
+                      <td>{{item.location}}</td>
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectService(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="pull-right">
+                    <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right">Close</a>
+                </div>
+    </p-dialog>
+
+    <p-dialog id="btnSearchEpiSecSugery1_1"  [(visible)]="Procedure1" [style]="{width: '70vw'}" [blockScroll]='true' [draggable]="false" [closable]="false" [baseZIndex]="1000" [modal]="true">
+          <p-header>
+            <div class="head">
+              <a href="javascript:void(0)" class="btn btn-danger pull-right"
+                (click)="Procedure1Close()"style="width: 60px;">close</a>
+              <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Secondary Procedure</h3>
+            </div>
+          </p-header>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-6">
+                    <label>Search String</label>
+                    <input type="text" id="txtSearchsecondarySurgery" maxlength="100" class="form-control textbox-search-onenterkey" data-enterkey-pressed="#btnSearchsecondarySurgery">
+                  </div>
+                  <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-primary btnSearchsecondarySurgery" style="margin-top:23px;" data-req-url="/Patient/SearchSecondarySurgies" data-update-container="#dvSearchSecondarySurgeryResult" id="btnSearchsecondarySurgery" (click)="ShowPro1Data()">Search</a>
+                  </div>
+                </div>
+              </div><br><br><br>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="dvSearchSecondarySurgeryResult">
+                    </div>
+                  </div>
+                </div>
+                <div class="row paddingLR" *ngIf="showPro1">
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Name</th>
+                    <th>CPT</th>
+                    <th>Type</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of Pro1Data">
+                        <td>{{item.name}}</td>
+                        <td>{{item.cpt}}</td>
+                        <td>{{item.type}}</td>
+
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-xs btn-primary" (click)="selectPro1(item)">
+                    Select
+                    </button> -->
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectPro1(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+    </p-dialog>
+
+
+    <p-dialog id="btnSearchEpiSecSugery2_1" [(visible)]="Procedure2"  [style]="{width: '70vw'}" [blockScroll]='true' [draggable]="false" [closable]="false" [baseZIndex]="1000" [modal]="true">
+      <p-header>
+        <div class="head">
+          <a href="javascript:void(0)" class="btn btn-danger pull-right"
+            (click)="Procedure2Close()"style="width: 60px;">close</a>
+          <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Secondary Procedure</h3>
+        </div>
+      </p-header>
+                <div class="row" >
+                     <div class="col-md-12">
+                    <div class="col-md-6">
+                        <label>Search String</label>
+                        <input type="text" id="txtSearchsecondarySurgery" maxlength="100" class="form-control textbox-search-onenterkey" data-enterkey-pressed="#btnSearchsecondarySurgery">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-primary btnSearchsecondarySurgery" style="margin-top:23px;" data-req-url="/Patient/SearchSecondarySurgies" data-update-container="#dvSearchSecondarySurgeryResult" id="btnSearchsecondarySurgery" (click)="ShowPro2Data()">Search</a>
+                    </div>
+                         </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="dvSearchSecondarySurgeryResult">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="showPro2">
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Name</th>
+                    <th>CPT</th>
+                    <th>Type</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of Pro1Data">
+                        <td>{{item.name}}</td>
+                        <td>{{item.cpt}}</td>
+                        <td>{{item.type}}</td>
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-xs btn-primary" (click)="selectPro2(item)">
+                    Select
+                    </button> -->
+
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectPro2(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+    </p-dialog>
+
+
+    <p-dialog id="btnSearchEpiSecSugery3_1" [(visible)]="Procedure3"  [style]="{width: '70vw'}" [closable]="false" [blockScroll]='true' [draggable]="false" [positionTop]=10 [baseZIndex]="1000" [modal]="true">
+      <p-header>
+        <div class="head">
+          <a href="javascript:void(0)" class="btn btn-danger pull-right"
+            (click)="Procedure3Close()"style="width: 60px;">close</a>
+          <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Secondary Procedure</h3>
+        </div>
+      </p-header>
+                <div class="row" >
+                     <div class="col-md-12">
+                    <div class="col-md-6">
+                        <label>Search String</label>
+                        <input type="text" id="txtSearchsecondarySurgery" maxlength="100" class="form-control textbox-search-onenterkey" data-enterkey-pressed="#btnSearchsecondarySurgery">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="javascript:void(0)" class="btn btn-primary btnSearchsecondarySurgery" style="margin-top:23px;" data-req-url="/Patient/SearchSecondarySurgies" data-update-container="#dvSearchSecondarySurgeryResult" id="btnSearchsecondarySurgery" (click)="ShowPro3Data()">Search</a>
+                    </div>
+                         </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="dvSearchSecondarySurgeryResult">
+                        </div>
+                    </div>
+                </div>
+                <div class="row paddingLR" *ngIf="showPro3">
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Name</th>
+                    <th>CPT</th>
+                    <th>Type</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of Pro1Data">
+                        <td>{{item.name}}</td>
+                        <td>{{item.cpt}}</td>
+                        <td>{{item.type}}</td>
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectPro3(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+    </p-dialog>
+
+    <p-dialog id="btnSearchSugeryAssistant_1" [(visible)]="Legend" [style]="{width: '70vw'}" [closable]="false" [blockScroll]='true' [draggable]="false" [positionTop]=10 [baseZIndex]="1000" [modal]="true">
+    <p-header>
+      <div class="head">
+        <a href="javascript:void(0)" class="btn btn-danger pull-right"
+          (click)="LegendClose()"style="width: 60px;">close</a>
+        <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Search Members</h3>
+      </div>
+    </p-header>
+                <div class="row">
+                  <div class="col-md-3">
+                    <label>Name</label>
+                    <input type="text" id="txtSurgeryAssistantName" class="form-control textbox-search-onenterkey" placeholder="Name" data-enterkey-pressed="#btnSearchSrugeryAssistantResult">
+                  </div>
+
+                  <div class="col-md-2" style="margin-top: 20px">
+                        <a href="javascript:void(0)" class="btn btn-primary" id="btnSearchSrugeryAssistantResult" data-get-url="/Patient/SearchSurgeryAssistantFiltered" data-update-container=".dvSearchSurgeryAssistantResult" (click)="ShowLegendData()">Search</a>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="dvSearchSurgeryAssistantResult" class="dvSearchSurgeryAssistantResult">
+                        </div>
+                    </div>
+                </div>
+                <div class="row paddingLR" *ngIf="showLegend">
+                  <table class="table table-striped table-condensed tablesorter text-sm">
+                    <thead style="color: #828388;">
+                    <tr>
+                    <th>Name</th>
+                    <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr *ngFor="let item of LegendData">
+                        <td>{{item.name}}</td>
+                    <td style="vertical-align: middle;">
+                    <div class="btn-group">
+                    <!-- <button type="button" class="btn btn-xs btn-primary" (click)="selectLegend(item)">
+                    Select
+                    </button> -->
+                    <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectLegend(item)">Select</a>
+                    </div>
+                    </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="pull-right">
+                    <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right">Close</a>
+                </div>
+    </p-dialog>
+
+    <p-dialog id="btnSearchEpiSugerylocation" [(visible)]="applocation" [closable]="false" [baseZIndex]="1000" [modal]="true">
+      <p-header>
+        <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right" (click)="LocationClose()">Close</a>
+                  <h3>Search Location</h3>
+
+      </p-header>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Location Name</label>
+                      <input type="text" id="txtSurgeryAssistantName" class="form-control textbox-search-onenterkey" placeholder="Name" data-enterkey-pressed="#btnSearchSrugeryAssistantResult">
+                    </div>
+
+                    <div class="col-md-2" style="margin-top: 20px">
+                          <a href="javascript:void(0)" class="btn btn-primary" id="btnSearchSrugeryAssistantResult" data-get-url="/Patient/SearchSurgeryAssistantFiltered" data-update-container=".dvSearchSurgeryAssistantResult" (click)="ShowAppData()">Search</a>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div id="dvSearchSurgeryAssistantResult" class="dvSearchSurgeryAssistantResult">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row"  *ngIf="showAppointment">
+                    <table class="table table-striped table-condensed tablesorter text-sm">
+                      <thead style="color: #828388;">
+                      <tr>
+                      <th>Name</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th></th>
+                      </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor="let item of AppData">
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.state}}</td>
+                      <td style="vertical-align: middle;">
+                      <div class="btn-group">
+                      <!-- <button type="button" class="btn btn-xs btn-primary">
+                      Select
+                      </button> -->
+                      <a href="javascript:void(0)" class="selectedEpisodeSurgeon"  (click)="selectLoc(item)">Select</a>
+                      </div>
+                      </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="pull-right">
+                      <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right">Close</a>
+                  </div>
+      </p-dialog>
+
+
+
+
+
+
+
+
+

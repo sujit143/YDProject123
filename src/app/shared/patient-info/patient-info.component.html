@@ -1,0 +1,395 @@
+<p-tabMenu [model]="items2" [activeItem]="activeItem" class="nav navbar-header">
+  <ng-template pTemplate="item" let-item let-i="index">
+    <div class="tab-active" (click)=" onactivatefirsttab(i)">
+      <div class="ui-menuitem-text">
+        <i class="{{item.icon}}"></i> {{item.label}}
+      </div>
+      <a class="close-icon" (click)="closeItem($event, i, 1)" *ngIf="i !== 0">
+        <span class="tabClose badge badge-danger">
+          <i class="fa fa-close" style="color: white !important"></i>
+        </span>
+      </a>
+    </div>
+  </ng-template>
+</p-tabMenu>
+<p-toast [style]="{marginTop: '80px'}" styleClass="custom-toast"></p-toast>
+
+<div class="container-fluid " *ngIf="firsttabactive">
+
+  <div class="modal-body">
+    <div>
+      <table class="table table-striped">
+        <thead class="table-head">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Case Type</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filterdData | paginate: config; let i=index">
+
+            <td>
+              <i class="fa fa-user-plus fa-2x" aria-hidden="true" title="Patient"></i>
+            </td>
+            <td>
+              <a (click)="addTab('1', item)">{{ item.Name }}</a><br>
+              <span>DOB:{{item.DOB}}</span><br>
+              <span>Account:{{item.Account}}</span><br>
+              <span>Case:{{item.Case}}</span><br>
+              <span>Injury Date:{{item.InjuryDate}}</span><br>
+              <span>QB Provider:{{item.QBProvider}}</span><br>
+              <span>Contact Numbers Home:{{item.Contactnumber}}</span>
+            </td>
+            <td>{{ item.Casetype}}</td>
+            <td>{{ item.Address1}}</td>
+            <td>{{ item.Address2}}</td>
+            <td>{{ item.City }}</td>
+            <td>{{ item.State}}</td>
+            <td>{{item.Role}}</td>
+          </tr>
+          <span *ngIf="filterdData?.length == 0" class="span-line">No records found!</span>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+      </pagination-controls>
+      <div class="custompagination pull-right epEpisodePatientAlerts mt-2">
+        <span class="item-count-label">Total Items <strong>{{filterdData?.length}}</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel-heading" *ngIf="secondtabactive">
+  <div class="pull-left">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-2">
+          <div class="profileImgContainer">
+            <img class="img-responsive patientImg ProfileImage" data-del-url="/Admin/DeleteMessageAttachment"
+              src="/assets/CSS/providerpic.jpg" style="width:100%">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>
+                <span class="badge badge-danger" title="Case #">Y191116546_1 </span>
+                <span class="spnpatientlastname">
+                  {{detailedInfo.Name}}</span> <span class="spnpatientlastname">- {{detailedInfo.Gender}}</span><span
+                  class="spnpatientlastname">- {{detailedInfo.Age}}-Year(s) old</span>
+              </h3>
+            </div>
+            <div class="col-md-3">
+              <a class="btn btn-primary whiteColor" (click)="printPage()"><i class="fa fa-print"></i>&nbsp;Print
+                Patient Demographics</a>
+            </div>
+            <div class="col-md-2">
+              <a class="btn btn-primary whiteColor" (click)="printPage()"><i class="fa fa-print"></i>&nbsp;Print</a><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="chosen-single">
+                <div class="chosen-container chosen-container-single" id="ddlPatientsEpisodeDetails_chosen">
+                  <span>
+                    <p-dropdown id="pwsdropdown" [options]="originatedpractise" placeholder="Commercial/DOA:NA "
+                      optionLabel="name" [autoWidth]="true" [style]="{'width': '100%'}" filter="true"
+                      (onChange)="origisePractice($event)"></p-dropdown>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 ">
+              <span class="badge badge-primary spanIsArchivedOrClosed" style="font-size: 13px; color: white;"
+                data-isarchieve="False" data-ismmireached="False">Active</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-2 headerdisplayphonenumbers">
+          <div class="force-overflow">
+            <div class="row">
+              <div class="col-md-3" style="padding: 0px; height: 20px;">
+                Home :
+              </div>
+              <div class="col-md-8" style="padding: 0px; height: 20px;">
+                <span>
+                  <span class="fontNumbers badge-danger">(566)789-9909</span>
+                  <span style="margin-left: 6px;"><a href="javascript:void(0)" class="label twiliocall "
+                      style="color:white; background-color:lightgreen;" data-phnumber="(566)789-9909"><i
+                        class="fa fa-phone" data-phnumber="(566)789-9909" title="Call"
+                        aria-hidden="true"></i></a></span>&nbsp;<span
+                    style="margin-left: 6px; padding: 0px; margin-top: -10px !important;" class="badge"></span>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3" style="padding: 0px; height: 20px;">
+                Mobile :
+              </div>
+              <div class="col-md-8" style="padding: 0px; height: 20px;">
+                <span>
+                  <span class="fontNumbers  badge-danger">(245)566-7787</span>
+                  <span style="margin-left: 6px;"><a href="javascript:void(0)" class="label twiliocall "
+                      style="color:white; background-color:lightgreen;" data-phnumber="(245)566-7787"><i
+                        class="fa fa-phone" data-phnumber="(245)566-7787" title="Call"
+                        aria-hidden="true"></i></a></span>&nbsp;<span
+                    style="margin-left: 6px; padding: 0px; margin-top: -5px !important;" class="badge"></span>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12" style="background: white;">
+      <div class="col-md-9">
+        <div class="lnkMarqueePHS">
+          <marquee onmouseover="this.setAttribute('scrollamount', 0, 0);this.stop();" onmouseout="this.setAttribute('scrollamount', 2, 0);this.start();" scrollamount="2">
+            <span style="color:red;font-size:18px;padding-right:15px;" *ngFor="let item of alertMessage"><i (click)="openDialog()" class="fa fa-bullhorn"></i>&nbsp;{{item.Message}}</span>
+         </marquee>
+      </div>
+      </div>
+      <div class="col-md-3 dvMarkasDuplicate">
+        <div class="display-box">
+          <div class="checkbox checkbox-success">
+            <input id="chkDuplicateEpisode" class="chkDuplicateEpisode" type="checkbox" (click)="onclickofcheckbox()">
+            <label for="chkDuplicateEpisode" style="font-weight:1">Mark this episode as
+              duplicate</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibox float-e-margins" style="margin: 10px;">
+      <div class="ibox-content">
+        <div class="row tabscontainer">
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 1}" style="width: 170px !important"
+            id="TabEpisodeActivity" (click)="activateTab(1, 'Episode Activity Statement')">
+            <h3 style="color: #1C223F">&nbsp;Episode Activity Statement</h3>
+          </div>
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 2}" id="TabDemographics"
+            (click)="activateTab(2, 'Demographics')">
+            <h3 style="color: #1C223F"><i class="fa fa-circle circle-warning"
+                title="100 % completed"></i>&nbsp;Demographics</h3>
+          </div>
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 3}" id="TabAppointments"
+            (click)="activateTab(3, 'Surgery')">
+            <h3 style="color: #1C223F">&nbsp;Surgery</h3>
+          </div>
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 4}" id="TabSurgery"
+            (click)="activateTab(4, 'Case Notes')">
+            <h3 style="color: #1C223F"><i class="fa fa-circle circle-green"></i>&nbsp;Case Notes</h3>
+          </div>
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 5}" id="TabDocuments"
+            (click)="activateTab(5, 'Documents')">
+            <h3 style="color: #1C223F">Documents
+            </h3>
+          </div>
+          <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 6}" id="TabCareteam"
+          (click)="activateTab(6, 'Care Team')">
+          <h3 style="color: #1C223F"><i class="fa fa-circle circle-red" title="100 % completed"></i>&nbsp;Care Team
+          </h3>
+        </div>
+        <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 7}" id="TabAuthorization"
+        (click)="activateTab(7, 'Authorization')">
+        <h3 style="color: #1C223F">Authorization
+        </h3>
+      </div>
+      <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 8}" id="TabLedger"
+      (click)="activateTab(8, 'Ledger')">
+      <h3 style="color: #1C223F">Ledger
+      </h3>
+    </div>
+    <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 9}" id="TabEpisodebodyparts"
+    (click)="activateTab(9, 'Episode Body Parts')">
+    <h3 style="color: #1C223F">Episode Body Parts
+    </h3>
+  </div>
+  <div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 10}" id="TabImplantable Device"
+  (click)="activateTab(10, 'Implantable Device')">
+  <h3 style="color: #1C223F">Implantable Device
+  </h3>
+</div>
+<div class="col-md-2 tbs tabs" [ngClass]="{'tabActive': selectorId == 11}" id="TabAmendments"
+(click)="activateTab(11, 'Amendments')">
+<h3 style="color: #1C223F">Amendments
+</h3>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 1">
+      <div class="ibox-title">
+        <h5>{{selectorName}}</h5>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div>
+            Episode Activity Statement
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 2">
+      <div class="ibox-title">
+        <h5>{{selectorName}}</h5>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div>
+            <app-demographics></app-demographics>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 3">
+      <div class="ibox-title">
+        <h5>{{selectorName}}</h5>
+      </div>
+      <div class="ibox-content">
+        <div>
+          <app-surgery></app-surgery>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 4">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="">
+        <div>
+          <app-casenote [parentdata]=detailedInfo></app-casenote>
+        </div>
+      </div>
+    </div>
+
+    <ul id="myiconmenu" class="iconmenu">
+      <li title="Instant Messaging"><a class="" rel="rel1"><em class="fa fa-wechat fa-spin"
+            style="margin-top: 10px;"></em></a></li>
+      <li title="Reminders" data-geturl="/Patient/GetMyReminders"><a class="" rel="rel2" id="lnkReminderIconMenu"><em
+            class="fa fa-bell" style="margin-top: 10px;"></em></a>
+      </li>
+      <li><a class="" rel="rel3" title="Recent Patients"><em class="fa fa-user" style="margin-top: 10px;"></em></a></li>
+      <li><a class="" rel="rel4" title="Recent Filters"><em class="fa fa-filter" style=""></em></a></li>
+      <li><a class="hide" rel="rel5" title="Release Notes"><em class="fa fa-file"
+            style="margin-top: 10px; font-size:14px;"></em></a></li>
+    </ul>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 5">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Documents
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 6">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Care Team
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 7">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Authorization
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 8">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Ledger
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 9">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Episode Body Parts
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 10">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Implantable Device
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ibox float-e-margins tabpages" *ngIf="selectorId == 11">
+    <div class="ibox-title">
+      <h5>{{selectorName}}</h5>
+    </div>
+    <div class="ibox-content">
+      <div class="row">
+        <div>
+          Amendments
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p-dialog id="customDialog" [showHeader]="false" header="Authorized Representative/Emergency Contact"
+  [(visible)]="messageDialog" styleClass="dialog" [style]="{width:'50%'}" [modal]="true" [blockScroll]="true" [(closeOnEscape)]="dialogClose">
+  <div class="head">
+    <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog()">Close</a>
+    <h3 class="dialog-title">Alerts
+    </h3>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>

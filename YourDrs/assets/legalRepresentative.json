@@ -1,0 +1,60 @@
+[
+  {
+    "First_Name": "Sai",
+    "Status":"Active",
+    "Last_Name": "Preeya",
+    "FirmName": "",
+    "City": "Hubli",
+    "State": "Karnataka",
+    "Created_Date":"1/12/2020",
+    "Created_By":"Admin Dev",
+    "Cell_Number":"(998)898-9888",
+    "Office_Number":"(212)239-3680",
+    "Email_Id":"park@gmail.com"
+
+  },{
+    "First_Name": "Deepa",
+    "Status":"Active",
+    "Last_Name": "Chittaragi",
+    "FirmName": "",
+    "City": "Bagalkot",
+    "State": "Karnataka",
+    "Created_Date":"1/12/2020",
+    "Craeted_By":"Admin Dev",
+    "Cell_Number":"(565)261-6516",
+    "Office_Number":"(212)239-3680",
+    "Email_Id":"park@gmail.com"
+
+
+    }, {
+    "First_Name": "Sushma",
+    "Status":"Active",
+    "Last_Name": "Neel",
+    "FirmName": "",
+    "City": "Pune",
+    "State": "Maharastra",
+    "Created_Date":"1/12/2020",
+    "Craeted_By":"Admin Dev",
+    "Cell_Number":"(565)261-6516",
+    "Office_Number":"(212)239-3680",
+    "Email_Id":"park@gmail.com"
+
+
+
+  },{
+    "First_Name": "Abhi",
+    "Status":"Active",
+    "Last_Name": "Shek",
+    "FirmName": "",
+    "City": "Jammu",
+    "State": "Kashmir",
+    "Created_Date":"1/12/2020",
+    "Craeted_By":"Admin Dev",
+    "Cell_Number":"(998)898-9888",
+    "Office_Number":"(212)239-3680",
+    "Email_Id":"park@gmail.com"
+
+
+
+  }
+]

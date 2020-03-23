@@ -1,0 +1,490 @@
+.tabpagescontainer {
+    margin-bottom: 20px;
+    padding: 0px 10px 0px 10px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.hide {
+    display: none !important;
+}
+
+.ibox-content {
+    clear: both;
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-top-color: rgb(231, 234, 236);
+    border-right-color: rgb(231, 234, 236);
+    border-bottom-color: rgb(231, 234, 236);
+    border-left-color: rgb(231, 234, 236);
+    border-image: none;
+}
+
+
+.ibox-title {
+    border-top: 4px solid #1AB394 !important;
+    background: #eee;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-width: 4px 0px 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding-top: 14px;
+    padding-right: 15px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    height: 48px;
+}
+
+.ibox-title h5 {
+    display: inline-block;
+    font-size: 14px;
+    padding: 0;
+    margin: 0 0 7px;
+    text-overflow: ellipsis;
+    float: left;
+    color:#676A6c;
+}
+
+
+.col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+div {
+    display: block;
+}
+
+.items-collection {
+    margin: 0px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.items-collection label.btn-default.active {
+    background-color: #0cd46a;
+    color: #FFF;
+}
+.items-collection label.btn-default {
+    border: 1px solid #CCC;
+    background: #EEE;
+    color: #305891;
+}
+
+
+.btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-group > .btn.active{
+    z-index: 2;
+}
+
+.btn-group > .btn{
+position: relative;
+float: left;
+}
+
+.btn.active {
+    outline: 0;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.button {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: middle;
+}
+
+.btn{
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: normal !important;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+    padding: 6px 12px;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+}
+
+label, .btn{
+    font-weight: normal !important;
+}
+
+.float-e-margins .btn{
+    margin-bottom: 5px;
+}
+
+.btn-success {
+    background-color: #848484;
+    border-color: #999999;
+    color: #FFFFFF;
+    box-shadow: 0 8px 7px rgba(0, 0, 0, 0.22);
+}
+.btn-primary{
+    background-color: #848484;
+    border-color: #999999;
+    color: #FFFFFF;
+    box-shadow: 0 8px 7px rgba(0, 0, 0, 0.22);
+}
+
+.btn-warning {
+    background-color: #f8ac59;
+    border-color: #f8ac59;
+    color: #FFFFFF;
+}
+
+.btn-xs{
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.radioBtn {
+    margin: 5px 10px 5px 0px !important;
+    padding: 2px 5px 2px 5px;
+    border-radius: 4px !important;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+[data-toggle="buttons"] > .btn input[type="radio"]{
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+input[type="radio"]{
+    margin: 4px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+label{
+    max-width: 100%;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: normal !important;
+    cursor: default;
+}
+
+input{
+    font-family: inherit;
+    font-size: inherit;
+    font: inherit;
+    color: inherit;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    margin: 0;
+    cursor: text;
+    border-image: initial;
+}
+
+.col-lg-3{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ibox-content h4{
+    margin-top: 5px;
+}
+
+h4{
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.row:before{
+    display: table;
+    content: " ";
+}
+
+.row:after{
+    clear: both;
+    display: table;
+    content: " ";
+}
+
+
+//Media Querries For REsponsive----------------------------------------------------------------------------------------------------------------------->
+
+@media (min-width: 992px){
+    .col-md-12 {
+        width: 100%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px){
+.col-md-4 {
+    width: 33.33333333%;
+    float: left;
+}
+}
+
+@media (min-width: 992px){
+.col-md-3 {
+    width: 25%;
+    float: left;
+}
+}
+
+@media (min-width: 1200px){
+.col-lg-3 {
+    width: 25%;
+    float: left;
+}
+}
+
+@media (min-width: 992px){
+    .col-md-8 {
+        width: 66.66666667%;
+        float: left;
+    }
+}
+
+
+@media (min-width: 992px){
+    .col-md-6 {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px){
+    .col-md-2 {
+        width: 16.66666667%;
+    float: left;
+}
+}
+
+
+
+//END OF Media Querries For REsponsive----------------------------------------------------------------------------------------------------------------------->
+
+
+
+// Appointment History-------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.panel-group {
+    margin-bottom: 20px;
+}
+.panel-group .panel {
+    border-radius: 4px;
+}
+.panel{
+    box-shadow: none;
+    background-color: #fff;
+    border: 1px solid transparent;
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel-default > .panel-heading {
+    color: #1C223F;
+    border-color: #F4F9FF;
+}
+
+.panel-group .panel-heading {
+    border-bottom: 0;
+}
+.panel-heading {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.ibox-content h3{
+    margin-top: 5px;
+}
+
+h3{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    display: block;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+.awvAccordionanc {
+    display: block;
+}
+
+.collapse.in {
+    display: block;
+}
+
+.collapse {
+    display: none;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #ddd;
+}
+
+.panel-group .panel-heading + .panel-collapse > .panel-body{
+    border-top: 1px solid #ddd;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.panel-body:before{
+    display: table;
+    content: " ";
+}
+.panel-body:after{
+    clear: both;
+    display: table;
+    content: " ";
+}
+
+hr {
+
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px dashed #DFDFE4 !important;
+    width: 96%;
+    height: 0;
+    box-sizing: content-box;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
+
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.h3title {
+    padding: 10px;
+    border-bottom: 1px solid #f7a54a;
+}
+
+.col-md-8{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.m-b-sm{
+    margin-bottom: 10px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #e7eaec !important;
+}
+
+.col-md-4 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.form-control{
+    background-color: #FFFFFF;
+    background-image: none;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    width: 100% !important;
+    font-size: 14px;
+    border-left: 1px solid #CCC !important;
+    border-top: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+    border-bottom: 2px solid #36cc95 !important;
+    border-radius: 0px !important;
+    box-shadow: none;
+}
+
+.col-md-6{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+strong {
+    font-weight: bold;
+}
+// END OF Appointment History-------------------------------------------------------------------------------------------------------------------------------------------------------->

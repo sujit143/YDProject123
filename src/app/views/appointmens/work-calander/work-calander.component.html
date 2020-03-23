@@ -1,0 +1,809 @@
+<div class="container-fluid">
+    <div >
+      <div class="row">
+        <div class="row col-md-12">
+          <div class="col-md-3">
+            <ejs-multiselect id='multiselectelement' [dataSource]='locationData' [fields]='fieldsforloc' placeholder='Select Locations' (change)="filterBasedValue($event,'location')"></ejs-multiselect>
+          </div>
+          <div class="col-md-3">
+            <ejs-dropdownlist   [dataSource]='providerArr' [fields]='fieldsforpro' [(ngModel)]="selectedProviderforDropdown"  placeholder='Select a Providers' (change)="filterBasedValue($event ,'providers')"></ejs-dropdownlist>
+          </div>
+          <div class="col-md-3">
+            <h5 (click)="ShowMoreFilters()" style="cursor: pointer;">More Filters <i *ngIf="!displaymorefilters" class="fa fa-caret-down"></i>
+              <i *ngIf="displaymorefilters" class="fa fa-caret-up"></i></h5>
+          </div>
+
+          <div class="col-md-3">
+            <button class="btn" id="btnSearchProvider" style="background-color: #89c2ef;" (click)="OnSelctedFilter()"><span class="fa fa-search"></span></button>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="displaymorefilters">
+        <div class="row col-md-12">
+          <div class="col-md-4">
+            <label>Practices</label>
+            <ejs-dropdownlist   [dataSource]='practiceData' [fields]='fieldsforprac'  placeholder='Select a Practices' (change)="filterBasedValue($event, 'practices')"></ejs-dropdownlist>
+          </div>
+          <div class="col-md-4">
+            <label>Specialities</label>
+            <ejs-dropdownlist   [dataSource]='specialityData' [fields]='fieldsforejs'  placeholder='Select a Speciality' (change)="filterBasedValue($event , 'speciality')"></ejs-dropdownlist>
+          </div>
+          <div class="col-md-4">
+            <label>Appt Type</label>
+            <ejs-dropdownlist   [dataSource]='appointmentTypeData' [fields]='fieldsforappdata'  placeholder='Select a Appointment Type' (change)="filterBasedValue($event , 'appointment')"></ejs-dropdownlist>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container-fluid">
+  <nav class="navbar navbar-light bg-light">
+    <div class="pull-center">
+      <h5>Work Calander</h5>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label>
+          <a (click)="openManageExceptionPopUp()" style="color: #89c2ef;cursor: pointer;font-size: 18px;"><span class="fa fa-cog"></span>Exceptions</a>
+        </label>
+
+        <label style="padding-left:5px">
+              <a (click)="openManageRecurringPopup()" style="color: #89c2ef;cursor: pointer;font-size: 18px;"><span class="fa fa-cog"></span>Recurring</a>
+        </label>
+      </div>
+
+    </div>
+  </nav>
+</div>
+<p-toast position="top-right"></p-toast>
+
+<div class="container-fluid" >
+  <ejs-schedule #scheduleObj width='100%' height='550px'   [selectedDate]="selectedDate"
+   (eventRendered)="onEventRendered($event)"  [(eventSettings)]="eventSettings" [showQuickInfo]="showQuickInfo" [group]="group"  >
+
+  <!-- <ng-template #resourceHeaderTemplate let-data>
+    <div class='template-wrap'>
+      <div class="resource-details">
+        <div class="resource-name">{{getEmployeeName(data)}}</div>
+      </div>
+    </div>
+  </ng-template> -->
+
+<e-resources>
+  <e-resource field='ProviderId' title='Choose Project' name='Projects' [(dataSource)]='projectResourceDataSource' textField='Text'
+      idField='PatientId' colorField='color' >
+  </e-resource>
+  <e-resource field='LocationId' title='Category' name='Categories' [(dataSource)]='locationResourceDataSource' [allowMultiple]='allowMultiple'
+  textField='Data' idField='PatientId' colorField='color'>
+</e-resource>
+</e-resources>
+  <e-views>
+    <e-view option="Week" startHour="8:00AM" endHour="21:00PM" displayName="Recurring"   >
+    </e-view>
+    <e-view option="Month" displayName="Exceptions" ></e-view>
+</e-views>
+<ng-template #editorTemplate let-data>
+  <!-- <a style="width: 60px; background: red;color: white; margin-top: -2px;" class="btn btn-danger pull-right" (click)="closeEditPopupForWC()">Close</a> -->
+  <div class="container" *ngIf="data != undefined">
+    <form [formGroup]="ManageRecurring">
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <label>Practice </label>
+          <p-dropdown formControlName="practice_name" [options]="formatedPracData"  placeholder="Select a Practices"></p-dropdown>
+         </div>
+         <div class="col-md-3">
+          <label>Location</label>
+          <p-dropdown formControlName="location_name" [options]="formatedLocData"  placeholder="Select a Location"></p-dropdown>
+         </div>
+         <div class="col-md-1">
+          <label>From</label>
+          <p-dropdown formControlName="from_Time" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+         </div>
+         <div class="col-md-1">
+          <label>To</label>
+          <p-dropdown formControlName="to_Time" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+         </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+</ejs-schedule>
+<ejs-contextmenu #menuObj cssClass='schedule-context-menu' target='.e-schedule' [items]='menuItems' (beforeOpen)='onContextMenuBeforeOpen($event)'
+  (select)='onMenuItemSelect($event)'></ejs-contextmenu>
+</div>
+
+<p-confirmDialog ></p-confirmDialog>
+
+<p-dialog header="Manage Recurring" [(visible)]="displayEditPopup" [modal]="true" [style]="{width: '800px'}" [maximizable]="false"
+    [draggable]="false" [resizable]="false" [closable]="false">
+    <form [formGroup]="ManageRecurring">
+      <div class="form-row">
+        <div class="col-3">
+          <label>Practice </label>
+          <p-dropdown formControlName="practice_name" [style]="{'width':'150px'}" [options]="formatedPracData"  placeholder="Select a Practices"></p-dropdown>
+        </div>
+        <div class="col-3">
+          <label>Location</label>
+          <p-dropdown formControlName="location_name" [style]="{'width':'150px'}" [options]="formatedLocData"  placeholder="Select a Location"></p-dropdown>
+        </div>
+        <div class="col-3">
+          <label>From Time</label>
+          <p-dropdown formControlName="from_Time" [style]="{'width':'150px'}" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+         </div>
+        <div class="col-3">
+          <label>To Time</label>
+          <p-dropdown formControlName="to_Time" [style]="{'width':'150px'}" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+        </div>
+      </div>
+    </form>
+    <p-footer>
+      <button type="submit" pButton  label="Save" (click)="saveManageRecurringChanges()"></button>
+      <button type="button" pButton  label="Cancel" class="ui-button-secondary" (click)="closeEditPopup()"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog id="manageRecurrsing" [(visible)]="manageRecurring" [modal]="true" [responsive]="true"
+[maximizable]="false" [closable]="false" [blockScroll]='true' [draggable]="false" [positionTop]=10>
+<p-header>
+  <div class="head">
+    <a href="javascript:void(0)" class="btn btn-danger pull-right"
+      (click)="closeManageRecurring()" style="width: 60px;">close</a>
+    <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Manage Recurring</h5>
+  </div>
+</p-header>
+<form [formGroup]="form">
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Sunday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkSunday('sunday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('sunday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12" >
+    <div class="row paddingLeftAdd" formArrayName="sunday" *ngFor="let sundayArray of form.get('sunday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'sunday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkSunday('sunday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('sunday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Monday</h6>
+      </div>
+      <div class="col-md-2"  *ngIf="checkMonday('monday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('monday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="monday" *ngFor="let mondayArray of form.get('monday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'monday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkMonday('monday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('monday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Tuesday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkTuesday('tuesday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('tuesday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="tuesday" *ngFor="let tuesdayArray of form.get('tuesday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'tuesday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkTuesday('tuesday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('tuesday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Wednesday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkWednesday('wednesday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('wednesday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="wednesday" *ngFor="let wednesdayArray of form.get('wednesday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'wednesday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;"  *ngIf="!checkWednesday('wednesday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('wednesday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Thursday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkThursday('thursday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('thursday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="thursday" *ngFor="let thursdayArray of form.get('thursday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'thursday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkThursday('thursday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('thursday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Friday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkFriday('friday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('friday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="friday" *ngFor="let fridayArray of form.get('friday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'friday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkFriday('friday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('friday')">Add More</a>
+    </div>
+  </div>
+  </div>
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+  <div class="col-md-12">
+    <div class="checkbox checkbox-success form-row" style="margin-right: 4px; margin-top: 20px;">
+      <div class="col-md-2">
+        <h6 style="margin-top: 0px;">Saturday</h6>
+      </div>
+      <div class="col-md-2" *ngIf="checkSaturday('saturday')">
+        <a href="javascript:void(0)" data-slot=".dvsundayslot" (click)="onAddTime('saturday')">Add
+          Time</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="row paddingLeftAdd" formArrayName="saturday" *ngFor="let fridayArray of form.get('saturday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="toTime" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'saturday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;" *ngIf="!checkSaturday('saturday')">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('saturday')">Add More</a>
+    </div>
+  </div>
+  </div>
+</form>
+<p-footer>
+  <div class="modal-footer">
+    <input type="submit" class="btn btn-primary btn-block " id="ip1" style="width: 60px;color:white" (click)="formData()" value="Save"/>
+  </div>
+</p-footer>
+</p-dialog>
+<p-dialog id="AddTime" [(visible)]="addTime" [modal]="true" [responsive]="true"
+[maximizable]="false" [closable]="false" [blockScroll]='true' [draggable]="false" [positionTop]=10>
+<p-header>
+<div class="head">
+  <a href="javascript:void(0)" class="btn btn-danger pull-right"
+    (click)="closeManageRecurringTime()" style="width: 60px;">close</a>
+  <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Add Time</h5>
+</div>
+</p-header>
+<form [formGroup]="form">
+  <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+    <div class="form-group col-md-12">
+      <div class="col-md-12">
+        <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+          <h6>{{dayNameToAdd}}</h6>
+        </div>
+      </div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='sunday'">
+    <div class="row paddingLeftAdd" formArrayName="sunday" *ngFor="let sundayArray of form.get('sunday')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="paddingForItem col-md-3">
+        <label>Practice </label>
+        <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-3">
+        <label>Location</label>
+        <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+       </div>
+       <div class="paddingForItem col-md-2">
+        <label>From</label>
+        <p-dropdown formControlName="form" [options]="timeList" placeholder="Select a Time" (onChange)="formValidation($event, i)"></p-dropdown>
+       </div>
+       <div class="paddingForItem margin col-md-2">
+        <label>To</label>
+        <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+       </div>
+       <div class="col-md-2">
+            <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'sunday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+      </div>
+      </ng-container>
+    </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='sunday'">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('sunday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='monday'">
+  <div class="row paddingLeftAdd" formArrayName="monday" *ngFor="let mondayArray of form.get('monday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem  col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList"  (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'monday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='monday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('monday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='Tuesday'">
+  <div class="row paddingLeftAdd" formArrayName="tuesday" *ngFor="let tuesdayArray of form.get('tuesday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'tuesday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='Tuesday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('tuesday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='Wednesday'">
+  <div class="row paddingLeftAdd" formArrayName="wednesday" *ngFor="let WednesdayArray of form.get('wednesday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'wednesday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='Wednesday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('wednesday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='Thursday'">
+  <div class="row paddingLeftAdd" formArrayName="thursday" *ngFor="let thursdayArray of form.get('thursday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'thursday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='Thursday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('thursday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='Friday'">
+  <div class="row paddingLeftAdd" formArrayName="friday" *ngFor="let thursdayArray of form.get('friday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'friday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='Friday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('friday')">Add More</a>
+</div>
+<div class="col-md-12" *ngIf="dayNameToAdd =='Saturday'">
+  <div class="row paddingLeftAdd" formArrayName="saturday" *ngFor="let thursdayArray of form.get('saturday')['controls']; let i = index">
+    <ng-container [formGroupName]="i">
+      <div class="paddingForItem col-md-3">
+      <label>Practice </label>
+      <p-dropdown formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-3">
+      <label>Location</label>
+      <p-dropdown formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+     </div>
+     <div class="paddingForItem col-md-2">
+      <label>From</label>
+      <p-dropdown formControlName="form" [options]="timeList" (onChange)="formValidation($event)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="paddingForItem margin col-md-2">
+      <label>To</label>
+      <p-dropdown formControlName="to" [options]="timeList" (onChange)="toValidation($event, i)" placeholder="Select a Time"></p-dropdown>
+     </div>
+     <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i,'saturday')" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+    </div>
+    </ng-container>
+  </div>
+</div>
+<div style="text-align: center;" *ngIf="dayNameToAdd =='Saturday'">
+  <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="onAddMore('saturday')">Add More</a>
+</div>
+</div>
+</div>
+</form>
+<p-footer>
+  <div class="modal-footer">
+    <div href="javascript:void(0)" class="btn btn-primary pull-right" (click)="addFormData()" style="width: 60px;">Add</div>
+  </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog id="manageException" [(visible)]="manageException" [modal]="true" [responsive]="true"
+[maximizable]="false" [closable]="false" [blockScroll]='true' [positionTop]=10 [draggable]="false">
+<p-header>
+  <div class="head">
+    <a href="javascript:void(0)" class="btn btn-danger pull-right"
+      (click)="closeManageException()"style="width: 60px;">close</a>
+    <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Manage Exceptions</h5>
+  </div>
+</p-header>
+<form [formGroup]="addException">
+
+    <div class="col-md-12">
+      <div class="form-row" style="border-bottom: 2px dotted lightgrey;">
+        <div class="form-group col-md-12">
+          <div class="col-md-12">
+            <li class="list-inline-item">
+              <div class="form-group">
+                <input placeholder="Please select the month" formControlName="monthDate" autocomplete="off" class="form-control" name="date" bsDatepicker [bsConfig]="{dateInputFormat: 'MM/YYYY'}" (onShown)="onOpenCalendar($event)">
+              </div>
+            </li>
+            <li class="list-inline-item">
+              <div class="form-group">
+                <p style="color: #9c9696;">1 Exception</p>
+              </div>
+            </li>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="container" style="color: #9c9696;font-size: 15px;"> Exception 1 </label>
+    </div>
+    <div formArrayName="exceptionDate" class="form-row paddingItem" *ngFor="let exceptionDate of addException.get('exceptionDate')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+      <p>Date</p>
+      <div class="form-group row col-md-12">
+        <div class="form-group col-md-3" style="width: 200px;padding: 0px;">
+          <li class="list-inline-item">
+            <div class="form-group">
+              <input formControlName="scheduleDate" type="text" class="form-control" bsDatepicker>
+            </div>
+          </li>
+        </div>
+        <div class="form-group col-md-3">
+          <div >
+            <div>
+            <p-dropdown formControlName="scheduleDay" id="excepDropdown"  [options]="exceptionDropDown" filter="true" placeholder="Select a work Days"></p-dropdown>
+          </div>
+          </div>
+        </div>
+        <div class="form-group col-md-3">
+          <div >
+            <div>
+            <p-dropdown formControlName="scheduledayCounts" id="excepDropdownDays"  [options]="exceptionDropDownDays" filter="true" placeholder="Select a Day Count"></p-dropdown>
+          </div>
+          </div>
+        </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="form-row paddingItem">
+      <label class="checkBoxItem">
+        <p-checkbox name="groupname" value="val1" (onChange)="checkStatus($event)"></p-checkbox>
+          Recurring exception
+        </label>
+   </div>
+    <div formArrayName="recurringException" *ngFor="let exception of addException.get('recurringException')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="form-group row col-md-12">
+        <div class="paddingForItem col-md-3">
+          <label>Recurring Practice</label>
+          <p-dropdown  appendTo="body" formControlName="newPractice" [options]="formatedPracData" placeholder="Select a Practice" [disabled]="!checkboxEnabled"></p-dropdown>
+         </div>
+         <div class="paddingForItem col-md-3">
+          <label>Recurring Location</label>
+          <p-dropdown appendTo="body" formControlName="newLocation" [options]="formatedLocData" placeholder="Select a Location" [disabled]="!checkboxEnabled"></p-dropdown>
+         </div>
+         <div class="paddingForItem col-md-2">
+         <label>From</label>
+         <p-dropdown appendTo="body" formControlName="newForm" [options]="timeList" placeholder="Select a Time" [disabled]="!checkboxEnabled"></p-dropdown>
+        </div>
+        <div class="paddingForItem margin col-md-2">
+         <label>To</label>
+         <p-dropdown appendTo="body" formControlName="newTo" [options]="timeList" placeholder="Select a Time" [disabled]="!checkboxEnabled"></p-dropdown>
+        </div>
+      </div>
+      </ng-container>
+    </div>
+
+    <div formArrayName="excceptiondata" *ngFor="let exception of addException.get('excceptiondata')['controls']; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="form-group row col-md-12">
+        <div class="paddingForItem col-md-3">
+          <label>New Practice </label>
+          <p-dropdown appendTo="body" formControlName="practice" [style]="{'width':'150px'}" [options]="formatedPracData" placeholder="Select a Practice"></p-dropdown>
+         </div>
+         <div class="paddingForItem col-md-3">
+          <label>New Location</label>
+          <p-dropdown appendTo="body" formControlName="location" [options]="formatedLocData" placeholder="Select a Location"></p-dropdown>
+         </div>
+         <div class="paddingForItem col-md-2">
+         <label>From</label>
+         <p-dropdown appendTo="body" formControlName="form" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+        </div>
+        <div class="paddingForItem margin col-md-2">
+         <label>To</label>
+         <p-dropdown appendTo="body" formControlName="to" [options]="timeList" placeholder="Select a Time"></p-dropdown>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-small btn-warning removeslot" (click)="onDeleteException(i)" style="margin-left: 50px;margin-top: 25px;">Remove</button>
+        </div>
+      </div>
+      </ng-container>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <a href="javascript:void(0)" data-slot=".dvsundayslot" style="margin-left: 30px; color: #0d8ff1;" (click)="addCreds()">Add More</a>
+  </div>
+</form>
+<p-footer>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary btn-block " id="ip1" style="width: 60px;color:white" (click)="exceptionData()">Save</button>
+  </div>
+</p-footer>
+</p-dialog>

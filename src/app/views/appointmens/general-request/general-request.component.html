@@ -1,0 +1,277 @@
+
+<app-table-filter (emit1)="filterdata($event)"></app-table-filter>
+<div class="panel-body" style="background-color: white; padding:0px;">
+  <div class="tab-content" style="">
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_9 active">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_9"><div class="col-md-12 dragscroll" style="overflow-x: scroll;">
+<div class="ibox-content forum-container">
+<table class="table table-striped" style="width: 100%">
+<thead style="background-color: #337ab7; color: white">
+  <tr>
+    <th>Time</th>
+    <th>#Case</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Appt Reason</th>
+      <th>Appointment Time</th>
+      <th>Type</th>
+      <th>Doctor</th>
+      <th>Location</th>
+      <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+          <tr *ngFor="let item of t_data | filter:filter1;">
+              <td id="tdpad"><span>{{item.Date}}<br> 11:30AM</span>
+              </td>
+              <td id="tdpad">{{item.Case}}</td>
+
+              <td id="tdpad">{{item.FirstName}}</td>
+              <td id="tdpad">{{item.LastName}}</td>
+              <td id="tdpad">{{item.Phone}}</td>
+              <td id="tdpad">
+                      <span>{{item.Email}}<br><br></span>
+
+              </td>
+              <td id="tdpad">
+
+                <span title="sfsdf">{{item.ApptReason}}</span>
+
+
+            </td>
+              <td id="tdpad">
+
+                  <span title="NA">11/13/2018 <br> {{item.ApptTime}}</span>
+
+              </td>
+
+              <td id="tdpad">
+                  <span>{{item.Type}}</span>
+
+              </td>
+              <td id="tdpad"><span title="">{{item.Doctor}} </span></td>
+
+
+              <td id="tdpad">
+                <span>{{item.Location}}</span>
+
+            </td>
+
+              <td><span><button type="button" class="btn btn-primary btn-sm">Approve</button><br><button type="button" class="btn btn-primary btn-sm">Adjust</button></span></td>
+
+          </tr>
+          <!-- <tr style="">
+            <td id="tdpad"><span>11/13/2018<br> 11:30AM</span>
+            </td>
+            <td id="tdpad">Y112345_1</td>
+
+            <td id="tdpad">Michael</td>
+            <td id="tdpad">jordan</td>
+
+            <td id="tdpad">
+123-123-1234
+
+            </td>
+            <td id="tdpad">12345@gmail.com</td>
+            <td id="tdpad">
+                    <span>Car accident-Lower back<br><br></span>
+
+            </td>
+            <td id="tdpad">
+
+                <span title="NA">11/13/2018 <br> 11:30AM - 12:00 AM</span>
+
+            </td>
+            <td id="tdpad">
+
+                <span title="sfsdf">Initial Evals</span>
+
+
+            </td>
+            <td id="tdpad">
+                <span>Levine Pamela</span>
+
+            </td>
+            <td id="tdpad"><span title="">54 Dean </span></td>
+
+
+
+            <td><span><button type="button" class="btn btn-primary btn-sm">Approve</button><br><button type="button" class="btn btn-primary btn-sm">Adjust</button></span></td>
+
+        </tr> -->
+        <!-- <tr style="">
+          <td id="tdpad"><span>11/13/2018<br> 11:30AM</span>
+          </td>
+          <td id="tdpad">Y112345_1</td>
+
+          <td id="tdpad">Michael</td>
+          <td id="tdpad">jordan</td>
+
+          <td id="tdpad">
+123-123-1234
+
+          </td>
+          <td id="tdpad">12345@gmail.com</td>
+          <td id="tdpad">
+                  <span>Car accident-Lower back<br><br></span>
+
+          </td>
+          <td id="tdpad">
+
+              <span title="NA">11/13/2018 <br> 11:30AM - 12:00 AM</span>
+
+          </td>
+          <td id="tdpad">
+
+              <span title="sfsdf">Initial Evals</span>
+
+
+          </td>
+          <td id="tdpad">
+              <span>Levine Pamela</span>
+
+          </td>
+          <td id="tdpad"><span title="">54 Dean </span></td>
+
+
+
+          <td ><span><button type="button" class="btn btn-primary btn-sm">Approve</button><br><button type="button" class="btn btn-primary btn-sm">Adjust</button></span></td>
+
+      </tr>
+      <tr style="">
+        <td id="tdpad"><span>11/13/2018<br> 11:30AM</span>
+        </td>
+        <td id="tdpad">Y112345_1</td>
+
+        <td id="tdpad">Michael</td>
+        <td id="tdpad">jordan</td>
+
+        <td id="tdpad">
+123-123-1234
+
+        </td>
+        <td id="tdpad">12345@gmail.com</td>
+        <td id="tdpad">
+                <span>Car accident-Lower back<br><br></span>
+
+        </td>
+        <td id="tdpad">
+
+            <span title="NA">11/13/2018 <br> 11:30AM - 12:00 AM</span>
+
+        </td>
+        <td id="tdpad">
+
+            <span title="sfsdf">Initial Evals</span>
+
+
+        </td>
+        <td id="tdpad">
+            <span>Levine Pamela</span>
+
+        </td>
+        <td id="tdpad"><span title="">54 Dean </span></td>
+
+
+
+        <td><span><button type="button" class="btn btn-primary btn-sm">Approve</button><br><button type="button" class="btn btn-primary btn-sm">Adjust</button></span></td>
+
+    </tr> -->
+
+
+</tbody>
+</table>
+</div>
+</div>
+<div class="custompagination pull-right PtEpisodeTempList" style="margin:0 !important" data-req-url="/Admin/GeneralAppointmentRequestsPage" data-update-container="#dvGeneralAppList">
+<span class="label pagerInfo">Showing <b>1-10</b> of <b>28</b></span>
+<!-- <ul><li class="disabled"><a data-val="0" href="javascript:void(0)">&lt;&lt;</a></li><li><select class="pagerSelect input-small"><option selected="selected" value="1">1</option><option value="2">2</option><option value="3">3</option></select></li><li><a class="pagerItem" data-val="2" href="javascript:void(0)">&gt;&gt;</a></li></ul> -->
+</div>
+
+</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_18">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_18">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_32">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_32">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_197">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_197">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_214">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_214">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane tabCompltedAppt tabCompltedAppt_215">
+              <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="dvGeneralAppointments_215">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      <div class="tab-pane tabCompltedAppt tabCompltedAppt_0">
+          <div class="panel-group">
+              <div class="panel panel-default" style="margin-bottom: 2px; border: none;">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="dvGeneralAppointments_0">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>

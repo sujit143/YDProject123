@@ -1,0 +1,166 @@
+<p-toast position="top-right"></p-toast>
+
+<div *ngIf="(confirmDialog == false)" class="container-fluid modal-body info">
+  <div class="row">
+    <div class="col-md-10">
+      <h3 class="appoint-pop-h3">
+        Where does it hurts ? <span class="pull-right"> </span>
+      </h3>
+      <p class="appoint-pop-p">( Select all that apply. )</p>
+    </div>
+    <div class="col-md-2">
+      <span class="pull-right">
+        <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal">×</button>
+      </span>
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="add-b-parts">
+        <div class="items " *ngFor="let parts of bodyparts; let i =index;">
+          <div class="info-block block-info clearfix" style="cursor:pointer">
+            <div class="square-box pull-left"></div>
+            <div data-toggle="buttons" (click)="selectParts(parts)">
+              <div class="bizcontent ">
+                <label class="btn btn-default bodypartselection">
+                  <div [ngClass]="
+                    parts.isSelected == true ? 'selected-cls' : 'unselected-cls'
+                  ">
+                    <img src="{{ parts.imageUrl }}" class="img-fluid text-center"  />
+                    <br />
+                    <h5>{{ parts.name }}</h5>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="color" style="color: rgb(18, 37, 56); font-family:  'Times New Roman'; font-size: xx-large;"></div>
+      </div>
+    </div>
+    <br />
+    <div class="row pull-right">
+      <button type="button" pButton (click)="nextModal(bodyparts)" label="Next" class="btn btn-secondary btn-block "
+        id="ip"></button>&nbsp;&nbsp;
+    </div>
+
+    <div class="col-md-9" style="float:left;">
+      <h4 class="pop-emer-text" style="margin-top:0px;">
+        <strong>
+          In Case of Emergency call 911
+        </strong>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<!---------------------------------------requets---------------------------------->
+
+<div *ngIf="confirmDialog" class="container-fluid modal-body info">
+  <div class="row">
+
+    <div class="col-md-10">
+      <h3 class="appoint-pop-h3">
+        Request an Appointment
+
+      </h3>
+      <h4 class="mgt10 mgb30">Contact Information</h4>
+    </div>
+    <div class="col-md-2">
+      <span class="pull-right">
+        <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal"> ×</button>
+      </span>
+    </div>
+
+  </div>
+  <div>
+    <form [formGroup]="reqForm" (ngSubmit)="onSubmit(reqForm.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="" style="color:#07244B;">
+            <div class="form-group ">
+              <div>
+                <label><strong>Full Name<span style="color:red">*</span></strong></label>
+                <input formControlName="UserName" autofocus="true" class="form-control" style="border-radius: 20px;"
+                  type="text">
+                <label *ngIf="reqForm.get('UserName').hasError('required') && !reqForm.get('UserName').pristine"
+                  class="text"><span style="color:red">Username is required</span></label>
+                  <label *ngIf="reqForm.get('UserName').hasError('pattern') && !reqForm.get('UserName').pristine"
+                  class="text"><span style="color:red">Enter only characters  </span></label>
+              </div>
+              <div>
+                <label><strong>Phone Number</strong><span style="color:red">*</span></label>
+
+                  <input formControlName="PhoneNumber" (keypress)="numberOnly($event)"  type="text" class="form-control" id="ip1"  maxlength="10" placeholder="(xxx)xxx-xxxx"><br>
+                <label *ngIf="reqForm.get('PhoneNumber').hasError('required') && !reqForm.get('PhoneNumber').pristine"
+                  class="text"><span style="color:red">Phone number is required</span></label>
+                  <label *ngIf="reqForm.get('PhoneNumber').hasError('pattern') && !reqForm.get('PhoneNumber').pristine"
+                  class="text"><span style="color:red">Please enter only digits</span></label>
+              </div>
+
+
+              <div>
+                <label><strong>Email Address<span style="color:red">*</span> </strong></label>
+                <input type="text" formControlName="Email" class="form-control" id="ip1" />
+                <label *ngIf="reqForm.get('Email').hasError('required') && !reqForm.get('Email').pristine"
+                  class="text"><span style="color:red">Email is required</span></label>
+                <label *ngIf="reqForm.get('Email').hasError('pattern') && !reqForm.get('Email').pristine"
+                  class="text"><span style="color:red">Enter Valid Email address</span></label>
+
+
+              </div>
+              <label><strong>Location</strong></label>
+              <select class="form-control" id="ip1" name="LocationId" formControlName="locations">
+                <option [ngValue]=null><strong></strong></option>
+                <option *ngFor="let item of locationLists">{{item.Name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1"><strong>Additional Comments (optional)</strong></label>
+              <textarea class="form-control" formControlName="comment" id="exampleFormControlTextarea1"
+                rows="4"></textarea>
+            </div>
+          </div>
+        </div>
+        <div>
+
+        </div>
+        <div class="col-md-6">
+          <p-carousel [value]="carouselData" [numVisible]="4" [numScroll]="3" [circular]="false"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-car pTemplate="item">
+              <div class="car-details">
+                <div class="p-grid p-nogutter">
+                  <div class="p-col-12 car-data">
+                    <div class="car-title">{{ car.month }}</div>
+                    <div class="car-subtitle">{{ car.date }}</div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
+          <div class="calendar">
+            SET ALL TIMINGS+
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <div class="col-md-12">
+          <div class="row" style="float:right">
+            <div class="ui-md-6">
+              <button type="button" (click)="showDialog()" id="ip1" style="cursor:pointer">
+                Previous
+              </button>
+            </div>
+            <div class="ui-md-6">
+              <button type="submit"  id="ip1" style="float:center;cursor:pointer">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </p-footer>
+    </form>
+
+  </div>
+</div>

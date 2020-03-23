@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "AppmtStatus": "Approved",
+    "AppmtStatusId": 1
+  }, {
+    "Id": 2,
+    "AppmtStatus": "Cancelled",
+    "AppmtStatusId": 2
+  }, {
+    "Id": 3,
+    "AppmtStatus": "In Progress",
+    "AppmtStatusId": 3
+  }
+]

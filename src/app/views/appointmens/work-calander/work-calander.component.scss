@@ -1,0 +1,340 @@
+.custom-event-editor .e-textlabel {
+  padding-right: 15px;
+  text-align: right;
+}
+::ng-deep .e-dialog.e-popup {
+  width: 60% !important;
+}
+::ng-deep .e-title-text {
+  display: none;
+}
+.custom-event-editor td {
+  padding: 7px;
+  padding-right: 16px;
+}
+.schedule-context-menu .e-menu-item .new::before {
+  content: '\e7f9';
+}
+
+.schedule-context-menu .e-menu-item .edit::before {
+  content: '\ea9a';
+}
+
+.schedule-context-menu .e-menu-item .recurrence::before {
+  content: '\e308';
+  font-weight: bold;
+}
+
+.schedule-context-menu .e-menu-item .today::before {
+  content: '\e322';
+}
+
+.schedule-context-menu .e-menu-item .delete::before {
+  content: '\e94a';
+}
+
+.e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
+  font-size: 14px;
+}
+
+.schedule-context-menu ul .e-menu-item .e-menu-icon {
+  font-size: 12px;
+}
+.e-schedule .e-agenda-view .e-appointment .subject {
+  font-size: 14px;
+}
+
+.e-schedule .e-agenda-view .e-appointment .group {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.e-schedule .e-month-view .e-appointment .e-appointment-details {
+  padding: 1px;
+  padding-left: 3px;
+}
+
+.e-schedule .e-agenda-view .e-appointment .location {
+  font-size: 12px;
+}
+
+.e-schedule .e-date-header-wrap .e-resource-cells {
+  font-weight: 500;
+  font-size: 15px;
+}
+/* custom code start*/
+.highcontrast .schedule-context-menu .e-menu-item .today::before,
+.fabric .schedule-context-menu .e-menu-item .today::before {
+    content: '\e321';
+}
+
+.bootstrap .schedule-context-menu .e-menu-item .today::before {
+    content: '\e312';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .delete::before,
+.fabric .schedule-context-menu .e-menu-item .delete::before {
+    content: '\eb00';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .new::before,
+.fabric .schedule-context-menu .e-menu-item .new::before {
+    content: '\e823';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
+.fabric .schedule-context-menu .e-menu-item .recurrence::before {
+    content: '\e309';
+    font-weight: bold;
+}
+.schedule-cell-dimension.e-schedule .e-vertical-view .e-date-header-wrap table col,
+.schedule-cell-dimension.e-schedule .e-vertical-view .e-content-wrap table col {
+    width: 200px;
+}
+
+.schedule-cell-dimension.e-schedule .e-vertical-view .e-time-cells-wrap table td,
+.schedule-cell-dimension.e-schedule .e-vertical-view .e-work-cells {
+    height: 100px;
+}
+
+.schedule-cell-dimension.e-schedule .e-month-view .e-work-cells,
+.schedule-cell-dimension.e-schedule .e-month-view .e-date-header-wrap table col {
+    width: 200px;
+}
+
+.schedule-cell-dimension.e-schedule .e-month-view .e-work-cells {
+    height: 200px;
+}
+
+.schedule-cell-dimension.e-schedule .e-timeline-month-view .e-content-wrap table col,
+.schedule-cell-dimension.e-schedule .e-timeline-view .e-content-wrap table col {
+    width: 100px;
+}
+
+.schedule-cell-dimension.e-schedule .e-timeline-view .e-work-cells,
+.schedule-cell-dimension.e-schedule .e-timeline-month-view .e-work-cells {
+    height: 600px;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.checkBoxItem input:checked ~ .checkmark {
+  background-color:green;
+  border-radius: 50px;
+}
+.checkbox {
+  padding-left: 0px;
+}
+
+h6 {
+  font-size: 14px !important;
+  color: #b7adad;
+  font-weight: 600;
+}
+
+.btn-warning {
+  background-color: white;
+  color: black;
+  border-color: white !important;
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open .dropdown-toggle.btn-warning {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show>.btn-warning.dropdown-toggle {
+  color: #212529;
+  background-color: white;
+  border-color: white !important;
+}
+@media (min-width: 992px){
+  .col-md-3 {
+      width: 21% !important;
+  }
+}
+.paddingForItem{
+  padding: 0px;
+}
+.margin{
+  margin-left: 40px;
+}
+//@extend
+.container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // height: 25px;
+  // width: 25px;
+  // background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+    overflow: hidden;
+    position: relative;
+    font-size: 13px !important;
+  }
+
+.ui-chkbox .ui-chkbox-box {
+  border: 1px solid #36cc95;
+  background-color: #ffffff;
+  width: 15px !important;
+  height: 15px !important;
+  text-align: center;
+  border-radius: 50% !important;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 0 0.2em #fff !important;
+}
+#manageRecurrsing.ui-dialog .ui-dialog-content {
+  padding: 0em 1em !important;
+  border: 0px solid #c8c8c8;
+}
+#manageRecurrsing .ui-dialog-titlebar {
+  background-color: white;
+  border-bottom: 2px dotted lightgrey;
+}
+#manageRecurrsing .ui-dialog .ui-dialog-content {
+  padding: 0px;
+  height: 450px !important;
+  width: 1000px !important;
+  border: 0px solid #c8c8c8 !important;
+}
+#manageException .ui-dialog-titlebar {
+  background-color: white;
+  border: 0px solid #c8c8c8;
+}
+#manageException .ui-dialog .ui-dialog-content {
+  height: 430px !important;
+  width: 1000px !important;
+  border: 0px solid #c8c8c8;
+}
+#AddTime .ui-dialog-titlebar {
+  background-color: white;
+
+}
+#AddTime.ui-dialog .ui-dialog-content {
+  padding: 0em 1em !important;
+  border: 0px solid #c8c8c8;
+}
+
+#AddTime .ui-dialog .ui-dialog-content {
+padding: 0px;
+height: 350px !important;
+width: 1000px !important;
+border: 0px solid #c8c8c8;
+}
+.chosen-disabled .chosen-single {
+  cursor: not-allowed;
+  background-color: #d5d5d5;
+  opacity: 1;
+  color: #000000;
+  border: 1px solid #8e959c !important;
+}
+.paddingItem{
+  padding-left: 20px;
+}
+.paddingRight{
+  padding-right: 20px;
+}
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: .75rem;
+  border-top: 0px solid #dee2e6;
+  border-bottom-right-radius: calc(.3rem - 1px);
+  border-bottom-left-radius: calc(.3rem - 1px);
+}
+ .ui-dialog .ui-dialog-footer {
+  border: 0px solid #c8c8c8;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 0.571em 1em;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  top: 0px;
+}
+.paddingLeft{
+  padding-left: 10px;
+  height: 33px;
+}
+
+
+.navbar {
+  min-height: 80px !important;
+  border: 1px solid lightgrey !important;
+  margin-bottom: auto !important;
+}
+.contents {
+  margin-right: auto !important;
+}
+.navbar .container {
+  display: initial !important;
+}
+@media (min-width: 768px){
+  .col-md-3 {
+      flex: 0 0 21% !important;
+      max-width: 21% !important;
+  }
+}
+.paddingLeftAdd{
+  padding-left: 20px;
+}

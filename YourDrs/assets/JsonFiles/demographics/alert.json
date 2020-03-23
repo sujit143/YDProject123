@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 1,
+    "Message": "alert message",
+    "IsEpisodeSpecific": true
+  },
+  {
+    "Id": 2,
+    "Message": "message",
+    "IsEpisodeSpecific": false
+  }
+]

@@ -1,0 +1,1024 @@
+.e-print:before{
+  content:'\eb5e';
+  }
+  .e-upload:before{
+  content: '\e725';
+  }
+  .e-font:before{
+  content: '\e34c';
+  }
+
+
+  button.btn.btn-primary {
+  width: 75%;
+  }
+
+  button.btn.btn-warning {
+  padding-top: 5px;
+  padding-bottom: 7px;
+  margin-left: 0px;
+  margin-top: -2px;
+  }
+
+  .col-md-6 {
+  margin-bottom: 8px;
+  }
+
+  input[type="text"] {
+  border-radius: 0px;
+  }
+
+  h4 {
+  color: #6baefb;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  }
+
+  .col-md-9 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: lightgray;
+  font-size: 30px;
+  }
+
+  .form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 2px solid #ced4da;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  border-bottom: 1px solid #80808059 !important
+  }
+
+  label.lab1 {
+  font-size: 12px;
+  color: black;
+  font-weight: 600;
+  }
+
+  .checkbox-custom, .radio-custom {
+  opacity: 0;
+  position: absolute;
+  }
+
+  .checkbox-custom, .checkbox-custom-label, .radio-custom, .radio-custom-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  cursor: pointer;
+  }
+
+  .checkbox-custom-label, .radio-custom-label {
+  position: relative;
+  }
+
+  .checkbox-custom + .checkbox-custom-label:before, .radio-custom + .radio-custom-label:before {
+  content: '';
+  background: #fff;
+  border: 2px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  margin-right: 10px;
+  text-align: center;
+  }
+
+  .checkbox-custom:checked + .checkbox-custom-label:before {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  background: rebeccapurple;
+  color: #fff;
+  }
+
+  .radio-custom + .radio-custom-label:before {
+  border-radius: 50%;
+  }
+
+  .radio-custom:checked + .radio-custom-label:before {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+  color: #bbb;
+  }
+
+  .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
+  outline: 1px solid #ddd;
+
+  }
+  .row1 {
+  margin-top: 31px; margin-left: 364px
+  }
+  .cancel {
+  margin-top: 31px;   margin-left: 2px;
+  }
+  .m1{
+    margin-top: 28px;
+  }
+  input#m1 {
+  color: black;
+  font-size: 13px;
+  background: cornflowerblue;
+  width: -14%;
+
+  }
+  // @media (min-width: 768px){
+  // .col-md-3 {
+  // max-width: 100.333333%;
+  // }
+  // }
+  @media (max-width: 768px){
+  .col-md-3 {
+  -webkit-box-flex: 0;
+  flex: 0 0 50.333333%;
+  max-width: 100.333333%;
+  }
+  }
+  @media (max-width: 767px) and (min-width: 425px){
+  .row1{
+  margin-top: 105px;
+  margin-left: -54px;
+  }
+  }
+  @media (max-width: 424px) and (min-width: 300px){
+  .row1{
+  margin-top: 105px;
+  margin-left: -161px;
+  }
+  }
+  @media (max-width: 767px) and (min-width:411px){
+  .head {
+  margin-left: -362px;
+  }
+  }
+  @media (max-width: 410px) and (min-width:300px){
+  .head {
+  margin-left: -377px;
+  }
+  }
+  @media (max-width: 410px) and (min-width:300px){
+  .par {
+  margin-left: 651px;
+  }
+
+  }
+
+  @media (max-width: 1440px) and (min-width:769px){
+  .col-md-3 {
+  -webkit-box-flex: 0;
+  max-width: 100.333333%;
+  }
+  }
+  @media (min-width: 768px){
+ .col-md-3 {
+    max-width: 24.333333%;
+}
+  }
+
+  @media (max-width: 768px) and (min-width:425px){
+  .col-md-3 {
+  -webkit-box-flex: 0;
+  flex: 0 0 23.333333%;
+  max-width: 100.333333%;
+  }}
+  hr {
+  border-style: dashed;
+  }
+  button.btn.btn-primary {
+  width: 52%;
+  }
+  button.btn.btn-primary1 {
+  width: 114%;
+  color: white;
+  background-color: #5a8eea;
+  // height: 33px;
+  }
+  .par{
+  margin-left: 700px;
+  font-size: 17px;
+
+  margin-bottom: -17px;cursor: pointer;
+  }
+  @media (max-width: 425px) and (min-width:300px){
+
+  button.btn.btn-primary {
+  width: 18%;
+
+  margin-left: 128px;
+  }
+  }
+  input {
+  background-color: white;
+  border-radius: 0px;
+  }
+
+  .savedata{
+  color: white;margin-left: 515px;margin-top: 19px; border-radius: 0px;
+  background-color: cornflowerblue;
+  }
+
+  input#dateinput {
+  background-color: white;
+  }
+
+  input#inputbox {
+  background-color: white;
+  }
+
+  .form-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 39px;
+  margin-left: -25px;
+  }
+
+  .container:hover input ~ .checkmark {
+  background-color: #ccc;
+  }
+
+  .container input:checked ~ .checkmark {
+  background-color: #2196F3;
+  }
+
+  .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  }
+
+  .container input:checked ~ .checkmark:after {
+  display: block;
+  }
+
+  .container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  }
+  .ui-chkbox .ui-chkbox-box {
+  border-radius: 50% !important;
+  }
+
+  :host{
+    ::ng-deep .ui-chkbox .ui-chkbox-box {
+    border: 1px solid #6baefb;
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 0.2em #fff !important;
+    }
+    }
+    :host{
+    ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #6baefb !important;
+    background-color: #6baefb !important;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2em #6baefb !important;
+    }
+    }
+
+
+  div.tagsinput {
+  border: 1px solid #dadada;
+  background: #fff;
+  padding: 5px;
+  width: 100%;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
+  div.tagsinput div {
+  display: block;
+  float: left;
+  position: relative;
+  }
+  ::ng-deep #addmemo .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+  ::ng-deep #addmemo .ui-dialog .ui-dialog-content {
+    background-color: #ffffff;
+    color: #333333;
+    border: 0px solid #c8c8c8;
+    padding: 0.571em 1em;
+    overflow-y: auto;
+    max-height: 600px;
+  }
+.saveMemoBtn{
+  width: 20% !important;
+  background: #6baefb;
+  float: right;
+  border: 2px #6baefb;
+}
+.titleMemo{
+  text-transform: none;
+  text-align: center;
+   font-weight: 1000;
+}
+
+::ng-deep #addpatient .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+  ::ng-deep #addpatient .ui-dialog .ui-dialog-content {
+    background-color: #ffffff;
+    color: #333333;
+    border: 0px solid #c8c8c8;
+    padding: 0.571em 1em;
+  }
+
+  ::ng-deep #cancelapp .ui-dialog .ui-dialog-titlebar{
+    border: 0px solid #c8c8c8;
+      background-color: white;
+  }
+    ::ng-deep #cancelapp .ui-dialog .ui-dialog-content {
+      background-color: #ffffff;
+      color: #333333;
+      border: 0px solid #c8c8c8;
+      padding: 0.571em 1em;
+    }
+
+  ::ng-deep #editapp .ui-dialog .ui-dialog-titlebar{
+    border: 0px solid #c8c8c8;
+      background-color: white;
+  }
+  ::ng-deep #editapp .ui-dialog .ui-dialog-content {
+      background-color: #ffffff;
+      color: #333333;
+      border: 0px solid #c8c8c8;
+      padding: 0.571em 1em;
+  }
+  .paddingInput{
+    padding-left: 10px;
+    height: 31px;
+  }
+
+  ::ng-deep #nextapp .ui-dialog .ui-dialog-titlebar{
+    border: 0px solid #c8c8c8;
+      background-color: white;
+  }
+  ::ng-deep #nextapp .ui-dialog .ui-dialog-content {
+      background-color: #ffffff;
+      color: #333333;
+      border: 0px solid #c8c8c8;
+      padding: 0.571em 1em;
+  }
+  #control_wrapper {
+    margin: 0 auto;
+    max-width: 300px;
+}
+#control_wrapper.multiselectWrapper{
+    float: none;
+}
+
+.control-section {
+    margin: 25px auto;
+}
+
+.e-bigger #wrapper,
+.e-bigger#wrapper {
+        max-width: 300px;
+}
+.contentValue {
+    padding: 10px;
+    overflow: auto;
+    max-height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.valuesWrapper{
+    margin: 0 auto;
+    float: none;
+    padding: 0;
+    max-width: 370px;
+}
+
+body.highcontrast .contentValue {
+    border: 1px solid #969696
+}
+
+.colorSpan {
+  border: 1px solid #84b6e8;
+  display: block;
+  float: left;
+  padding: 0 8px;
+  background: #d3e1eb;
+  color: #0859b7;
+  margin: 5px 5px 5px 5px;
+  line-height: 23px;
+  font-size: 11px;
+}
+
+.calenderDisable {
+  cursor: not-allowed;
+}
+
+.isDisabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.btnCancel{
+  color: white !important;
+  margin-top: 19px;
+  border-radius: 0px;
+  background: #6baefb;
+  float: right;
+}
+
+.heading {
+  color: #80808075;
+}
+
+.customFont {
+  font-family: sans-serif;
+  color: black;
+  // font-size: 15px;
+}
+
+.customButton1 {
+  background-color: #d3e1eb;
+  border-color: #d3e1eb;
+  border-radius: 0px;
+  color: #212529;
+  margin-bottom: 3px;
+}
+
+.editFont {
+  cursor: pointer;
+  color: cornflowerblue !important;
+}
+
+.editInput {
+  background-color: #bfd8f1;
+}
+
+.fontSize {
+  font-size: 15px;
+}
+
+.popupClose {
+  width: 60px;
+}
+
+.memoTextArea {
+  background: #bfd8f1;
+  width: 942px;
+}
+
+.memoCheckBoxDiv {
+  margin-left: 17px;
+}
+
+.memoSearchInput {
+  width: 175px;
+  height: 33px;
+  background-color: #bfd8f1;
+  // padding-bottom: 28px;
+  margin-top: 10px;
+}
+
+.memoTagsInput {
+  width: 200%;
+  min-height: auto;
+  height: auto;
+}
+
+.memothead {
+  color: grey;
+  font-weight: bold;
+}
+
+.memoBody {
+  font-weight: bolder;
+  color: #80808075;
+}
+
+.cancelCard {
+  width: 970px;
+  padding-left: 12px;
+  background-color: #bfd8f1;
+}
+
+.cancelContainer {
+  margin-left: 81px;
+}
+
+.canceldiv1 {
+  margin-right: 298px;
+  margin-left: -125px;
+}
+
+.cancelInputapp {
+  width: 406px;
+}
+
+.cancelInputprov {
+  width: 200px;
+}
+
+.appTypeDiv {
+  margin-left: 75px;
+}
+
+.provDiv {
+  margin-left: 50px;
+}
+
+.canceldiv2 {
+  margin-left: -107px;
+}
+
+.bodyPartDiv {
+  margin-left: 57px;
+}
+
+.frequencyDiv {
+  margin-left: -25px;
+}
+
+.locationDiv {
+  margin-left: -25px;
+}
+
+.timeDiv {
+  margin-left: 58px;
+}
+
+.reccTimeDiv {
+  width: 126px;
+}
+
+.dateDiv {
+  margin-left: -110px;
+}
+
+.cancelSinglelabel {
+  margin-left: 55px;
+}
+
+.cancelAllDiv {
+  margin-left: 59px;
+}
+
+.cancelTextArea {
+  background-color: #bfd8f1;
+  margin-top: 0px;
+  width: 807px;
+  margin-left: 59px;
+}
+
+.editInfo1 {
+  margin-left: 81px;
+}
+
+.editInfo2 {
+  margin-left: 99px;
+}
+
+.editInfo3 {
+  margin-left: 110px;
+}
+
+.editCard {
+  width: 959px;
+  background-color: #bfd8f1;
+}
+
+.nextAppDiv {
+  margin-left: 56px;
+}
+
+.nextBodypartDiv {
+  margin-left: 21px;
+}
+
+.nextFrequencyDiv {
+  margin-left: 22px;
+}
+
+.nextProvDiv {
+  margin-left: 57px;
+}
+
+.nextLocationDiv {
+  margin-left: 22px;
+}
+
+.nextFormDiv {
+  margin-left: 57px;
+  margin-top: 24px;
+}
+
+.nextTimelabel {
+  font-family: sans-serif;
+  color: #6363ef;
+}
+
+.nextCalenderDiv {
+  margin-left: 57px;
+  margin-left: 477px;
+  margin-top: -103px;
+}
+.nextAppDatelabel {
+  font-family: sans-serif;
+  color: #6363ef;
+  margin-bottom: -17px;
+  margin-left: 43px;
+}
+
+.calenderDiv{
+  overflow:auto;
+  margin-left: -40px;
+}
+
+.nextCheckboxdiv {
+  margin-top: -33px;
+  margin-left: 546px;
+}
+
+.nextcheckInput {
+  width: 406px;
+  height: 31px;
+  background-color:#bfd8f1;
+  margin-left: -20px;
+  margin-top: 24px;
+}
+
+.nextLaterbtn {
+  color: #6baefb;
+  border-radius: 0px;
+  width: 47%;
+  background: #bfd8f1;
+  margin-left: 637px;
+}
+
+.nextSavebtn {
+  color: white;
+  border-radius: 0px;
+  width: 47%;
+  background: #6baefb;
+  margin-left: 475px;
+}
+
+.editreschelabel {
+  margin-left: 55px;
+}
+
+.editreschebutton {
+  width: 151px;
+  margin-left: 764px;
+}
+
+
+hr#colapsivehr{
+  width:auto;
+}
+
+.moreFilters {
+  cursor: pointer;
+}
+
+.iplus {
+  color: rgb(235, 225, 225);
+  font-size: 2.5rem;
+}
+
+.iprint {
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+.fontsize {
+  font-size: 12px;
+}
+
+.editheader {
+  text-align: center
+}
+
+.editCard {
+  width: 959px;
+  background-color: #bfd8f1;
+}
+
+.reche {
+  color: black;
+}
+
+.editcalender {
+  overflow:auto;
+}
+
+
+
+
+@media (max-width:425px){
+  ::ng-deep #addpatient .ui-dialog .ui-dialog-titlebar {
+    border: 0px solid #c8c8c8;
+    background-color: white;
+
+    padding-left: 150px;
+  }
+  }
+  @media (max-width:375px){
+    ::ng-deep #addpatient .ui-dialog .ui-dialog-titlebar {
+      border: 0px solid #c8c8c8;
+      background-color: white;
+      padding-right: 15px;
+      padding-left: 203px;
+    }
+    }
+    @media (max-width: 320px){
+      ::ng-deep #addpatient .ui-dialog .ui-dialog-titlebar {
+      border: 0px solid #c8c8c8;
+      background-color: white;
+      padding-right: 99px;
+      padding-left: 288px;
+  }
+    }
+    @media (max-width: 768px) and (min-width: 425){
+      ::ng-deep #addpatient .ui-dialog .ui-dialog-titlebar {
+      border: 0px solid #c8c8c8;
+      background-color: white;
+      padding-right: 46px;
+      padding-left: 0px;
+  }
+    }
+
+    @media (max-width: 320px){
+
+    .form-row {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 39px;
+      margin-left: 197px;
+  }}
+  @media (max-width: 425px){
+
+    .form-row {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 39px;
+      margin-left: 66px;
+  }}
+  @media (max-width: 375px){
+
+    .form-row {
+      display: -webkit-box;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: 39px;
+      margin-left: 197px;
+  }}
+//added by mathivanan for p-dialog content scroll
+// ::ng-deep p-dialog .ui-dialog {
+//   overflow: scroll;
+//   max-height: 100%;
+// }
+.checkBoxItem input:checked ~ .checkmark {
+  background-color:green;
+  border-radius: 50px;
+}
+h3#patientdetails {
+  padding-left: 370px;
+}
+.modal-header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+   border-bottom: 0px solid #c8ced3;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group .form-control{
+  display: table-cell;
+}
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-bottom: 0;
+  background-color: lightgray;
+}
+.form-control[disabled]{
+  opacity: 1;
+}
+.form-control[disabled] {
+  cursor: not-allowed;
+  background-color: #CCC;
+  opacity: 1;
+}
+
+.input-group-addon:not(:first-child):not(:last-child){
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.input-group-addon {
+  background-color: #fff;
+  border: 1px solid #E5E6E7;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px;
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  border-collapse: separate;
+}
+
+.fa {
+  display: inline-block;
+  font-family: FontAwesome !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-stretch: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  transform: translate(0, 0);
+
+}
+
+.fa-eye:before {
+  content: "\f06e";
+}
+
+.input-group-addon:last-child {
+  border-left: 0;
+  border-left-width: 0px;
+  border-left-style: initial;
+  border-left-color: initial;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+input.btn.btn-primary.btnprocessing {
+  background-color: gray;
+  border-color: white;
+}
+thead {
+  background: #F5F5F7;
+  color: #828388;
+  font-weight: 700;
+}
+
+
+.e-kanban .header-template-wrap {
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.e-kanban .header-template-wrap .header-icon {
+  margin-top: 3px;
+  width: 10%;
+}
+
+.e-kanban .header-template-wrap .header-text {
+  margin-left: 15px;
+}
+
+.e-kanban .e-card {
+  height: auto !important;
+}
+
+.e-kanban .card-template-wrap {
+  line-height: normal;
+  font-size: 12px;
+  width: 100%;
+}
+
+.e-kanban .card-template-wrap td {
+  background: none !important;
+  border: none !important;
+  height: auto !important;
+  line-height: 1.6;
+}
+
+.e-kanban .card-header,
+.e-kanban .e-title {
+  padding-left: 12px;
+}
+
+.e-kanban .e-title,
+.e-kanban .e-tag-cell {
+  padding-bottom: 12px;
+}
+
+.e-kanban .Open::before {
+  content: '\e607';
+  color: #6495ed;
+  font-size: 16px;
+}
+
+.e-kanban .InProgress::before {
+  content: '\e606';
+  color: #0000ff;
+  font-size: 16px;
+}
+
+.e-kanban .e-image img {
+  background: #ececec;
+  border: 1px solid #c8c8c8;
+  border-radius: 50%;
+}
+
+.e-kanban .e-image {
+  padding-right: 12px;
+}
+
+.e-kanban .Review::before {
+  content: '\e345';
+  color: #ffa500;
+  font-size: 16px;
+}
+
+.e-kanban .Close::before {
+  content: '\ea84';
+  color: #008000;
+  font-size: 16px;
+}
+
+.bootstrap4 .e-kanban .Open::before {
+  content: '\e729';
+}
+
+.bootstrap4 .e-kanban .InProgress::before {
+  content: '\e7c8';
+}
+
+.bootstrap4 .e-kanban .Review::before {
+  content: '\e787';
+}
+
+.bootstrap4 .e-kanban .Close::before {
+  content: '\e7d9';
+}
+
+.e-kanban .e-card .e-tag {
+  background: #ececec;
+  color: #6b6b6b;
+  margin-right: 5px;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 1px 7px 3px 7px;
+}
+
+.e-kanban .e-card .e-tags {
+  display: table-cell;
+}
+
+.card-template.Low {
+  border-left: 3px solid #ffd600
+}
+
+.card-template.High {
+  border-left: 3px solid #990099
+}
+
+.card-template.Normal {
+  border-left: 3px solid #66cc33
+}
+
+.card-template.Critical {
+  border-left: 3px solid #cc0000
+}

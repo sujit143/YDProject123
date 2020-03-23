@@ -1,0 +1,142 @@
+[
+  {
+    "Id": "1",
+    "visible": "true",
+    "fieldName": "Appointment From Date",
+    "position": "1",
+    "isVisible": "true"
+  },
+  {
+    "Id": "2",
+    "visible": "true",
+    "fieldName": "Authorization Status",
+    "position": "2",
+    "isVisible": "true"
+  },
+  {
+    "Id": "3",
+    "visible": "true",
+    "fieldName": "Case #",
+    "position": "3",
+    "isVisible": "true"
+  },
+  {
+    "Id": "4",
+    "visible": "true",
+    "fieldName": "MOP",
+    "position": "4",
+    "isVisible": "true"
+  },
+  {
+    "Id": "5",
+    "visible": "true",
+    "fieldName": "Super Bill Status",
+    "position": "5",
+    "isVisible": "true"
+  },
+  {
+    "Id": "6",
+    "visible": "true",
+    "fieldName": "Checked In Time",
+    "position": "6",
+    "isVisible": "true"
+  },
+  {
+    "Id": "7",
+    "visible": "true",
+    "fieldName": "Patient Name",
+    "position": "7",
+    "isVisible": "true"
+  },
+  {
+    "Id": "8",
+    "visible": "true",
+    "fieldName": "Appointment Created From Date",
+    "position": "8",
+    "isVisible": "true"
+  },
+  {
+    "Id": "9",
+    "visible": "true",
+    "fieldName": "Provider",
+    "position": "9",
+    "isVisible": "true"
+  },
+  {
+    "Id": "10",
+    "visible": "true",
+    "fieldName": "Verification Status",
+    "position": "10",
+    "isVisible": "true"
+  },
+  {
+    "Id": "11",
+    "visible": "true",
+    "fieldName": "Location",
+    "position": "11",
+    "isVisible": "true"
+  },
+  {
+    "Id": "12",
+    "visible": "true",
+    "fieldName": "Case Details",
+    "position": "12",
+    "isVisible": "true"
+  },
+  {
+    "Id": "13",
+    "visible": "true",
+    "fieldName": "Appointment Status",
+    "position": "13",
+    "isVisible": "true"
+  },
+  {
+    "Id": "14",
+    "visible": "true",
+    "fieldName": "Dictation Type",
+    "position": "14",
+    "isVisible": "true"
+  },
+  {
+    "Id": "15",
+    "visible": "true",
+    "fieldName": "Assessment Status",
+    "position": "15",
+    "isVisible": "true"
+  },
+  {
+    "Id": "16",
+    "visible": "true",
+    "fieldName": "POS Location",
+    "position": "16",
+    "isVisible": "true"
+  },
+  {
+    "Id": "17",
+    "visible": "true",
+    "fieldName": "Video Session",
+    "position": "17",
+    "isVisible": "true"
+  },
+  {
+    "Id": "18",
+    "visible": "true",
+    "fieldName": "Dictation Status",
+    "position": "18",
+    "isVisible": "true"
+  },
+  {
+    "Id": "19",
+    "visible": "true",
+    "fieldName": "Billing Status",
+    "position": "19",
+    "isVisible": "true"
+  },
+  {
+    "Id": "20",
+    "visible": "true",
+    "fieldName": "Appointment Type",
+    "position": "20",
+    "isVisible": "true"
+  }
+]

@@ -1,0 +1,755 @@
+<p-toast [style]="{marginTop: '80px'}" styleClass="custom-toast"></p-toast>
+<div class="">
+  <div class="">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+      <div class="pull-right">
+        <a class="btn btn-primary printpatientdemo" (click)="onPrintDemographics()"><i
+            class="fa fa-print"></i>&nbsp;Print
+          Patient Demographics</a>
+        <a (click)="onEditPatientInfo()" class="btn btn-sm btn-primary">Update Patient
+          Info</a>
+      </div>
+      <div class="table-responsive-md">
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>
+                <strong>First Name <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics"></i></strong>
+                <br>
+                <span id="spnPatientFname" class="text-uppercase">{{patientData?.FirstName}}</span>
+              </td>
+
+              <td>
+                <strong>Middle Name </strong>
+                <br>
+                <span id="spnPatientMname" class="text-uppercase">{{patientData?.MiddleName}}</span>
+              </td>
+
+              <td>
+                <strong>Last Name <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics"></i></strong>
+                <br>
+                <span id="spnPatientLname" class="text-uppercase">{{patientData?.LastName}}</span>
+              </td>
+              <td>
+                <strong>Birth Gender <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics"></i></strong>
+                <br>{{patientData?.BirthGender}}
+              </td>
+              <td>
+                <strong>Sexual Orientation <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics."></i></strong>
+                <br>
+                <span id="spnPatientMname" class="text-uppercase">{{patientData?.SexualOrientation}}</span>
+              </td>
+
+            </tr>
+            <tr>
+              <td>
+                <strong>Gender Identity </strong>
+                <br>
+                <span id="spnPatientMname" class="text-uppercase">{{patientData?.GenderIdentity}}</span>
+              </td>
+
+              <td>
+                <strong>Date of birth <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics."></i></strong>
+                <br>{{patientData?.DateOfBirth}}
+              </td>
+
+              <td><strong>Marital Status</strong>
+                <br>{{patientData?.MaritalStatus}}</td>
+              <td>
+                <strong>Address</strong>
+                <br>
+                <span class="text-span">{{patientData?.Address1}},{{patientData?.Address2}}</span>
+
+              </td>
+              <td>
+                <div class="normalHCCRisk" id="dvPatientActive">
+                  <strong>Status</strong>
+                  <br>
+                  <span class="bg-success">{{patientData?.Status}}</span>
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <td><strong>ZIP</strong>
+                <br>{{patientData?.Zip}}</td>
+              <td>
+                <strong>City <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics"></i></strong>
+                <br>{{patientData?.City}}
+              </td>
+              <td>
+                <strong>State <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics."></i></strong>
+                <br>{{patientData?.State}}
+              </td>
+              <td><strong>Race</strong>
+                <br><span *ngFor="let race of patientData?.Race">{{race}},</span></td>
+              <td></td>
+            </tr>
+            <tr>
+
+              <td><strong>Ethnicity</strong>
+                <br><span *ngFor="let ethnicity of patientData?.Ethnicity">{{ethnicity}},</span>
+              <td>
+                <strong>Language <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This field is used to complete demographics."></i></strong>
+                <br>{{patientData?.Language}}
+              </td>
+
+              <td id="PatientEmail">
+                <strong>Email <i class="fa fa-dot-circle-o" aria-hidden="true"
+                    title="This Field is used to complete demographics."></i></strong>
+                <br>
+                <span id="spPatientEmail" class="spPatientEmail">{{patientData?.Email}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <strong>SSN</strong>
+                <br>{{patientData?.SSN}}
+              </td>
+            </tr>
+
+            <tr>
+
+              <td>
+                <strong>Suffix </strong>
+                <br>
+                <span id="spnSuffix" class="text-uppercase">{{patientData?.Suffix}}</span>
+              </td>
+              <td>
+                <strong>Previous Name </strong>
+                <br>
+                <span id="spnPreName" class="text-uppercase">{{patientData?.PreviousName}}</span>
+              </td>
+
+              <td><strong>Granular Race</strong>
+                <br><span *ngFor="let granularRace of patientData?.GranularRace">{{granularRace}},</span></td>
+
+              <td><strong>Granular Etnicity</strong>
+                <br><span *ngFor="let ethnicity of patientData?.GranularEthnicity">{{ethnicity}},</span></td>
+            </tr>
+
+            <tr>
+
+              <td><strong>Smoking Status</strong>
+                <br>{{patientData?.SmokingStatus}}</td>
+              <td><strong>Start Date</strong>
+                <br>{{patientData?.StartDate}}</td>
+              <td><strong>End Date</strong>
+                <br>{{patientData?.EndDate}}</td>
+              <td><strong>Comments</strong>
+                <br>{{patientData?.Comments}}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Alcohol</strong>
+                <br>{{patientData?.Alcohol}}</td>
+              <td><strong>Drug</strong>
+                <br>{{patientData?.Drug}}</td>
+
+            </tr>
+
+            <tr>
+              <td><strong>Height</strong>
+                <br>{{patientData?.HeightFt}}.{{patientData?.HeightIn}}</td>
+              <td><strong>Weight</strong>
+                <br>{{patientData?.Weight}}</td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="table-data">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td colspan="2">
+                        <h3>Contact Information</h3>
+                      </td>
+                    </tr>
+                    <tr *ngFor="let phone of patientData?.ContactInformation.Phone">
+                      <td>
+                        <label>Phone Type</label>
+                        <br>{{phone.PhoneType}}
+                        <span *ngIf="phone.Primary"><b>(Primary)</b></span>
+                      </td>
+                      <td>
+                        <label>Phone Number</label>
+                        <br>{{phone.PhoneNumber}}<span></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td colspan="2">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="profileImgContainer" style="width: 100px" *ngIf="!webcamImage && !uploadedImage">
+                          <img class="img-responsive patientImg ProfileImage"
+                            data-del-url="/Admin/DeleteMessageAttachment"
+                            src={{patientData?.ContactInformation.ProfilePicture}}>
+                        </div>
+                        <div class="profileImgContainer" *ngIf="webcamImage && !uploadedImage">
+                          <img class="img-responsive patientImg ProfileImage" [src]="this.patientData?.ContactInformation.ProfilePicture.imageAsDataUrl">
+                        </div>
+                        <div class="profileImgContainer" *ngIf="uploadedImage">
+                          <img class="img-responsive patientImg ProfileImage" [src]="this.patientData?.ContactInformation.ProfilePicture">
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <a class="btn btn-primary editProfileImg m-t-sm" (click)="onChangePhoto()">Take Photo</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput
+                          (change)="uploadFile($event)" hidden />
+                        <a type="submit" class="btn btn-primary editProfileImg m-t-sm"
+                          (click)="fileInput.click()">Change Photo</a>
+                        <br>
+                      </td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input id="hddPP" name="MyPatient.ProfilePhoto" type="hidden" value="">
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="5">
+                <strong>Comments</strong>
+                <br>{{patientData?.ContactInformation.Comments}}
+
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>Created By</strong>
+                <br>
+                <span>{{patientData?.ContactInformation.CreatedBy}}</span>
+              </td>
+
+              <td>
+                <strong>Created Date</strong>
+                <br>
+                <span>{{patientData?.ContactInformation.CreatedDate}}</span>
+              </td>
+
+              <td>
+                <strong>Modified By</strong>
+                <br>
+                <span>{{patientData?.ContactInformation.ModifiedBy}}</span>
+              </td>
+
+              <td>
+                <strong>Modified Date</strong>
+                <br>
+                <span>{{patientData?.ContactInformation.ModifiedDate}}</span>
+              </td>
+
+            </tr>
+            <tr>
+              <td>
+                <strong>Authorisation to Contact Patient </strong>
+                <br>
+                <span *ngIf="patientData?.ContactInformation.AuthorisationToContactPatient.Email">Email</span>
+                <span *ngIf="patientData?.ContactInformation.AuthorisationToContactPatient.Phone">Phone</span>
+                <span *ngIf="patientData?.ContactInformation.AuthorisationToContactPatient.Text">Text</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="col-md-12 col-lg-12 col-xl-12 mb-3">
+      <p-accordion>
+        <p-accordionTab header="Insurance">
+          <app-insurance></app-insurance>
+        </p-accordionTab>
+        <p-accordionTab header="Emergency Contacts">
+          <app-emergency-contacts></app-emergency-contacts>
+        </p-accordionTab>
+        <p-accordionTab header="Alerts">
+          <app-alert></app-alert>
+        </p-accordionTab>
+        <p-accordionTab header="Referral Source">
+          <app-referral-source></app-referral-source>
+        </p-accordionTab>
+        <p-accordionTab header="Originated Source">
+          <app-originated-source></app-originated-source>
+        </p-accordionTab>
+        <p-accordionTab header="Legal Representative">
+          <label>Legal Representative</label>
+          <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+          <app-legal-representative></app-legal-representative>
+        </p-accordionTab>
+        <p-accordionTab header="Organization">
+          <app-organization></app-organization>
+        </p-accordionTab>
+        <p-accordionTab header="Past Surgical History">
+          <app-past-surgical-history></app-past-surgical-history>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
+
+<p-dialog id="customDialog" [(visible)]="EditDisplayDialog" [modal]="true" [blockScroll]="true"
+  [(closeOnEscape)]="haltEscapeDialogClose" [responsive]="true" [draggable]="false" [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog()">Close</a>
+      <h3 class="dialog-title">Update Patient Demographics</h3>
+    </div>
+  </p-header>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row ui-g ui-fluid">
+        <div class="col-md-12 col-md-12 col-xl-12">
+          <form [formGroup]="patientFormRecord">
+            <div class="row">
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Patient Last Name<span class="mandatoryBorder">*</span></label>
+                <input class="form-control" maxlength="100" type="text" formControlName="LastName">
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Patient First Name<span class="mandatoryBorder">*</span></label>
+                <input class="form-control" maxlength="100" type="text" formControlName="FirstName">
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Patient Middle Name</label>
+                <input class="form-control" maxlength="100" type="text" formControlName="MiddleName">
+              </div>
+            </div>
+            <br>
+            <div class="form-group row">
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Patient DOB<span class="mandatoryBorder">*</span></label>
+                <input type="text" class="form-control" placeholder="mm/dd/yyyy" bsDatepicker [maxDate]="today"
+                  formControlName="PatientDOB">
+              </div>
+              <div class="form-group col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label> Birth Gender<span class="mandatoryBorder">*</span></label>
+                <div>
+                  <p-dropdown [options]="genderOpt" placeholder="select" filter="true" formControlName="BirthGender">
+                  </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Sexual Orientation<span class="mandatoryBorder">*</span></label>
+                <div>
+                  <p-dropdown [options]="sexualOrientationOpt" placeholder="select" filter="true"
+                    formControlName="SexualOrientation"> </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Gender Identity</label>
+                <div>
+                  <p-dropdown [options]="genderIdentityOpt" placeholder="select" filter="true"
+                    formControlName="GenderIdentity" (onChange)="onSelectGender($event)"> </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showOtherGenderIdentity">
+                <label>Other Gender Identity </label>
+                <input class="form-control" maxlength="50"
+                formControlName="OtherGenderIdentity" type="text">
+              </div>
+
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Marital Status</label>
+                <div>
+                  <p-dropdown [options]="maritalStatusOpt" placeholder="select" filter="true"
+                    formControlName="MaritalStatus"> </p-dropdown>
+                </div>
+              </div>
+            </div>
+            <div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Email</label>
+                  <input class="form-control" maxlength="100" type="email" formControlName="Email">
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>SSN</label>
+                  <p-inputMask mask="999-99-9999" placeholder="xxx-xx-xxxx" formControlName="SSN"></p-inputMask>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Address Line 1</label>
+                  <input class="form-control" maxlength="100" type="text" formControlName="AddressLine1">
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Address Line 2</label>
+                  <input class="form-control" maxlength="100" type="text" formControlName="AddressLine2">
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>ZIP</label>
+                  <p-inputMask mask="99999-9999" placeholder="xxxxx-xxxx" formControlName="Zip"></p-inputMask>
+                </div>
+
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>City</label>
+                  <input class="form-control" maxlength="100" type="text" formControlName="City">
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>State</label>
+                  <p-dropdown [options]="statesOpt" placeholder="select" filter="true" formControlName="State">
+                  </p-dropdown>
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Preferred Language</label>
+                  <div>
+                    <p-dropdown [options]="languageOpt" placeholder="select" filter="true"
+                      formControlName="PreferredLanguage"> </p-dropdown>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Race</label>
+                  <div>
+                    <p-dropdown [options]="raceOpt" placeholder="select" filter="true" formControlName="Race"
+                      (onChange)="onSelectedRace($event)">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-8 mt-4 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showselectedRace">
+                  <div class="tagsinput " style="width: 100%; min-height: auto; height: auto;">
+                    <span class="tag" *ngFor="let raceItem of selectedRace; index as i">
+                      <span>
+                        <span class="spnRace"><span data-id="1" class="spRace">{{raceItem}}</span>
+                        </span>&nbsp;&nbsp;
+                      </span><a title="Removing tag" (click)="unSelectedRace(i)">x</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Granular Race</label>
+                  <div>
+                    <p-dropdown [options]="raceOpt" placeholder="Select" filter="true" formControlName="GranularRace"
+                      (onChange)="onSelectedGranularRace($event)">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-8 mt-4 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showselectedGranularRace">
+                  <div class="tagsinput " style="width: 100%; min-height: auto; height: auto;">
+                    <span class="tag" *ngFor="let granularRaceItem of selectedGranularRace; index as i">
+                      <span>
+                        <span class="spnRace"><span data-id="1" class="spRace">{{granularRaceItem}}</span>
+                        </span>&nbsp;&nbsp;
+                      </span><a title="Removing tag" (click)="unSelectedGranularRace(i)">x</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Ethnicity</label>
+                  <div>
+                    <p-dropdown [options]="ethinicityOpt" placeholder="select" filter="true" formControlName="Ethnicity"
+                      (onChange)="onSelectedEthnicity($event)"> </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-8 mt-4 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showselectedEthnicity">
+                  <div class="tagsinput " style="width: 100%; min-height: auto; height: auto;">
+                    <span class="tag" *ngFor="let ethnicityItem of selectedEthnicity; index as i">
+                      <span>
+                        <span class="spnRace"><span data-id="1" class="spRace">{{ethnicityItem}}</span>
+                        </span>&nbsp;&nbsp;
+                      </span><a title="Removing tag" (click)="unSelectedEthnicity(i)">x</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Granular Etnicity</label>
+                  <div>
+                    <p-dropdown [options]="ethinicityOpt" placeholder="select" filter="true"
+                      formControlName="GranularEthnicity" (onChange)="onSelectedGranularEthnicity($event)">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-8 mt-4 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showselectedGranularEthnicity">
+                  <div class="tagsinput " style="width: 100%; min-height: auto; height: auto;">
+                    <span class="tag" *ngFor="let granularEthnicityItem of selectedGranularEthnicity; index as i">
+                      <span>
+                        <span class="spnRace"><span data-id="1" class="spRace">{{granularEthnicityItem}}</span>
+                        </span>&nbsp;&nbsp;
+                      </span><a title="Removing tag" (click)="unSelectedGranularEthnicity(i)">x</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Suffix </label>
+                  <input autocomplete="off" class="form-control" maxlength="10" type="text" formControlName="Suffix">
+                </div>
+
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Previous Name </label>
+                  <input autocomplete="off" class="form-control" maxlength="30" type="text"
+                    formControlName="PreviousName">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4" style="padding-top: 5px;">
+                  <label>Smoking Status</label>
+                  <div>
+                    <p-dropdown [options]="smokingStatusOpt" placeholder="select" filter="true" (onChange)="onSelectedSmoke($event)"
+                      formControlName="SmokingStatus"> </p-dropdown>
+                  </div>
+                </div>
+                <div *ngIf="showSmokeControls">
+                  <div class="staff form-group col-md-3 ui-g-12 ui-md-6 ui-lg-4"
+                  style="padding-top: 5px">
+                  <label>Start Date <span style="color: red">*</span></label>
+                  <input type="text" class="form-control" placeholder="mm/dd/yyyy" bsDatepicker formControlName="StartDate">
+                </div>
+
+                <div class="staff form-group col-md-3 ui-g-12 ui-md-6 ui-lg-4 dvendsmokingstatus" style="padding-top: 5px">
+                  <label>End Date</label>
+                  <input type="text" class="form-control" [minDate]="patientFormRecord.value.StartDate" placeholder="mm/dd/yyyy" bsDatepicker formControlName="EndDate">
+                </div>
+                <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4" style="padding-top: 5px">
+                  <label>Comments<span style="color: red">*</span></label>
+                  <input class="form-control mandatoryFieldBorder" id="txttext" maxlength="100"
+                  formControlName="Comments" type="text" value="">
+                </div>
+              </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Alcohol</label>
+                  <div>
+                    <p-dropdown [options]="alcoholOpt" placeholder="select" filter="true" formControlName="Alcohol">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Drug</label>
+                  <select class="form-control chosen-select" formControlName="Drug">
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-2 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Height</label>
+                  <div class="input-group">
+                    <input type="text" maxlength="200" class="form-control txtOnlyNumber" formControlName="HeightFt">
+                    <span class="input-group-addon">Ft</span>
+                  </div>
+                </div>
+                <div class="col-md-2 ui-g-12 ui-md-6 ui-lg-4">
+                  <label style="margin-left: 30px;">&nbsp;</label>
+                  <div class="input-group">
+                    <input type="text" maxlength="200" class="form-control txtOnlyNumber" formControlName="HeightIn">
+                    <span class="input-group-addon">In</span>
+                  </div>
+                </div>
+                <div class="col-md-2 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Weight</label>
+                  <div class="input-group">
+                    <input type="text" maxlength="200" formControlName="Weight" class="form-control txtOnlyDecimal">
+                    <span class="input-group-addon">Lbs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div [formGroup]="ContactInformationForm">
+              <br>
+              <h3>Contact Info</h3>
+              <hr>
+              <div class="form-group row">
+                <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Phone Type <span style="color: red;">*</span></label>
+                  <div>
+                    <p-dropdown [options]="phoneOpt" (onChange)="onSelectPhoneType($event)" placeholder="select" filter="true" formControlName="PhoneType">
+                    </p-dropdown>
+                  </div>
+                </div>
+                <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showOtherPhoneType" >
+                  <label>Other Phone Type </label>
+                  <input class="form-control" maxlength="100" type="text" formControlName="OtherPhoneType">
+                </div>
+                <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4">
+                  <label>Phone # <span style="color: red;">*</span></label>
+                  <p-inputMask mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" formControlName="PhoneNumber"></p-inputMask>
+                </div>
+                <div class="col-md-2 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showExtensionControl" >
+                  <label>Extn</label>
+                  <input class="form-control" maxlength="6" type="text" formControlName="Extension">
+                </div>
+                <div class="col-md-1 ui-g-12 ui-md-2 ui-lg-2">
+                  <br>
+                  <a class="btn-sm btn-primary" style="margin-top: 4px;margin-right: 10px;" (click)="addNewContactInfo(true)">{{btnTitle}}</a>
+                </div>
+
+                <div *ngIf="btnTitle=='Update'" class="col-md-1 ui-g-12 ui-md-2 ui-lg-2">
+                  <br>
+                  <a class="btn-sm btn-danger" style="margin-top: 4px;" (click)="resetForm()">Cancel</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row" id="dvPhoneDtlsContainer">
+              <table class="table table-striped table-condensed table-responsive" id="tblPhoneDtls">
+                <tbody>
+                  <tr>
+                    <th>Phone Type</th>
+                    <th>Phone #</th>
+                  </tr>
+                  <ng-container [formGroup]="ContactInformationForm">
+                    <tr *ngFor="let formItem of patientPhone;let i=index;">
+                      <td>{{formItem.PhoneType}}</td>
+
+                      <td>{{formItem.PhoneNumber}}<span></span></td>
+                      <td>
+                        <!-- <input type="radio" formControlName="Primary"  [value]="formItem.Primary">Primary -->
+                        <p-radioButton formControlName="Primary" [value]="formItem.Primary" id="i"></p-radioButton>Primary
+                      </td>
+                      <td>
+                        <a class="btn-sm btn-primary" (click)="onFormEdit(formItem,'Update',i)">Edit</a>
+                        <a class="btn-sm btn-danger p-l-sm" (click)="onFormDelete(formItem,i)">Delete</a>
+                      </td>
+                    </tr>
+                  </ng-container>
+                  <tr>
+                    <td colspan="3" style="padding-top: 18px;">
+                      <b>Authorization to Contact Patient</b>
+                      <hr style="margin: 10px 0px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="width: 33%;">
+                      <label class="">
+                        <div class="icheckbox_square-green" style="position: relative;">
+                          <input type="checkbox" style="position: absolute;" formControlName="AuthEmail">
+                          <ins class="iCheck-helper"
+                            style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                        </div>&nbsp;Email
+                      </label>
+                      &nbsp;
+                      <label class="">
+                        <div class="icheckbox_square-green" style="position: relative;">
+                          <input type="checkbox" style="position: absolute;" formControlName="AuthPhone">
+                          <ins class="iCheck-helper"
+                            style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                        </div>&nbsp;Phone
+                      </label>
+                      &nbsp;
+                      <label class="">
+                        <div class="icheckbox_square-green" style="position: relative;">
+                          <input type="checkbox" style="position: absolute;" formControlName="AuthText">
+                          <ins class="iCheck-helper"
+                            style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                        </div>&nbsp;Text
+                      </label>
+                    </td>
+                  </tr>
+                  <ng-container *ngIf="showanother" [formGroup]="ContactInformationForm">
+                    <tr *ngFor="let item of NewRecordAddForPhone; let i=index;">
+                      <td>
+                        {{item.PhoneType}}
+                      </td>
+                      <td>
+                        {{item.PhoneNumber}}
+                      </td>
+                      <td>
+                        <!-- <input type="radio" formControlName="Primary" [value]="item.Primary">Primary -->
+                        <p-radioButton formControlName="Primary" [value]="item.Primary"  id="i"></p-radioButton>Primary
+                      </td>
+                      <td>
+                        <a class="btn-sm btn-primary btnEditPtPhone" (click)="onClickEdit(item,'Update',i)">Edit</a>
+                        <a class="btn-sm btn-danger p-l-sm btnDelPtPhone" (click)="onClickDelete(item,i)">Delete</a>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+            <div class="form-group row" formGroupName="ContactInformation">
+              <div class="col-md-12 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Comments</label>
+                <textarea class="form-control" cols="20" maxlength="500" rows="2" formControlName="Comments"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="modal-footer">
+      <a class="btn btn-success" (click)="onUpdate()">Update</a>
+      <a class="btn btn-danger" (click)="closeDialog()">Cancel</a>
+      <a class="btn btn-disabled btnProcessingDiabled hide" disabled="disabled">Processing...</a>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog id="customDialog" [(visible)]="capturePhotoDialog" [modal]="true" [blockScroll]="true"
+  [(closeOnEscape)]="haltEscapeDialogClose" [responsive]="true" [draggable]="false" [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog()">Close</a>
+      <h3 class="dialog-title">Capture Photo</h3>
+    </div>
+  </p-header>
+  <div class="modal-body">
+    <div style="text-align:center" *ngIf="errors.length == 0">
+      <div *ngIf="capturePhotoDialog">
+        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+          [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+          (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)"></webcam>
+        <br />
+      </div>
+    </div>
+
+    <div *ngIf="errors.length > 0">
+      <h4>Messages:</h4>
+      <div *ngFor="let error of errors;">
+        <div class="alert alert-warning">Sorry WebCam not Found!</div>
+      </div>
+    </div>
+  </div>
+  <p-footer >
+    <div class="modal-footer">
+      <a class="btn btn-primary editProfileImg m-t-sm" (click)="handleImage($event)">Save Photo</a>
+    </div>
+  </p-footer>
+</p-dialog>
+<p-confirmDialog [style]="{width: '50vw'}" [blockScroll]="true"></p-confirmDialog>

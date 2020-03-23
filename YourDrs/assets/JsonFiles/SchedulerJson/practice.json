@@ -1,0 +1,28 @@
+[
+  {
+    "Id": 1,
+    "Practice": "HAMG",
+    "PatientId": 1,
+    "LocationId": 1
+  }, {
+    "Id": 2,
+    "Practice": "New Horizons ASC",
+    "PatientId": 2,
+    "LocationId": 2
+  }, {
+    "Id": 3,
+    "Practice": "Mount Sinai Beth Israel",
+    "PatientId": 3,
+    "LocationId": 3
+  }, {
+    "Id": 4,
+    "Practice": "Englewood Hospital",
+    "PatientId": 4,
+    "LocationId": 4
+  }, {
+    "Id": 5,
+    "Practice": "HEMA",
+    "PatientId": 5,
+    "LocationId": 5
+  }
+]

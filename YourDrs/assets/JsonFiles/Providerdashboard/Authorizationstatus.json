@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "AutStatus": "Pending",
+    "AutStatusId": 1
+  }, {
+    "Id": 2,
+    "AutStatus": "Requested",
+    "AutStatusId": 2
+  }, {
+    "Id": 3,
+    "AutStatus": "Authorized",
+    "AutStatusId": 3
+  }
+]

@@ -1,0 +1,54 @@
+<section class="title-bar">
+  <div class="title-bar-table">
+      <div class="title-bar-table-cell">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12 col-md-6">
+                      <h2 class="text-white">Specialities</h2>
+                  </div>
+                  <div class="col-12 col-md-6">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+  <div class="col-md-4 col-sm-12" *ngFor="let item of specialityList" (click)="getSpecDoc(item)" >
+    <div class="treatment-wrapper">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/anesthesia.png" class="image" *ngIf="item.Id==17">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/anesthesia.png" class="image" *ngIf="item.Id==11">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/anesthesia.png" class="image" *ngIf="item.Id==13">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/neurosurgery.png" class="image" *ngIf="item.Id==12">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/orthopedics.png" class="image" *ngIf="item.Id==1">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/pain management.png" class="image" *ngIf="item.Id==3">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/PM R.png" class="image" *ngIf="item.Id==5">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/physical therapy.png" class="image" *ngIf="item.Id==6">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/podiatry.png" class="image" *ngIf="item.Id==4">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/spine care.png" class="image" *ngIf="item.Id==2">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/sports medicine.png" class="image" *ngIf="item.Id==22">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/sports medicine.png" class="image" *ngIf="item.Id==20">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/sports medicine.png" class="image" *ngIf="item.Id==8">
+          <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/specialities/sports medicine.png" class="image" *ngIf="item.Id==24">
+    </div>
+    <div class="treatment-wrap-text">
+      <h3>{{item.Name}}</h3>
+  </div>
+</div>
+</div>
+</div>
+</section>
+  <div class="d-flex justify-content-center">
+    <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+  </div>
+
+
+
+
+
+
+
+

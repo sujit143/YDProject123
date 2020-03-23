@@ -1,0 +1,2493 @@
+<div class="ibox float-e-margins tabpages" id="dvAddPatientInsuranceContainer" style="">
+  <div class="ibox-title">
+      <h5>Patient Insurance</h5>
+  </div>
+  <div class="ibox-content">
+      <div class="row">
+          <div id="dvAddPatientInsurance">
+<div class="row">
+<div class="col-md-12">
+  <div id="dvInsuranceDetails">
+      <div class="ibox-content m-b-sm border-bottom">
+<div class="row">
+  <div class="col-md-12 idScheduleAppointmentInsuranceType" id="idScheduleAppointmentInsuranceType">
+      <div class="row">
+          <div class="col-md-2">
+              <label>
+                  Insurance Type
+              </label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="items-collection">
+                  <div class="btn-group" data-toggle="buttons">
+                      <label class="btn btn-default button radioBtn" (click)="OnCommercialClick()">
+                          <input class="styled inputScheduleAppointmentInsuranceType" data-val="true" data-val-number="The field InsuranceTypeId must be a number." data-val-required="The InsuranceTypeId field is required." id="14" name="InsuranceTypeId" type="radio" value="14">
+                          Commercial
+                      </label>
+                      <label class="btn btn-default button radioBtn" (click)="OnCLiabilityClick()">
+                          <input class="styled inputScheduleAppointmentInsuranceType" id="4" name="InsuranceTypeId" type="radio" value="4" >
+                          Liability
+                      </label>
+                      <label class="btn btn-default button radioBtn" (click)="OnWorkerCompClick()">
+                          <input type="radio" value="1" id="1" name="InsuranceTypeId" class="styled inputScheduleAppointmentInsuranceType">
+                          Worker's Comp
+                      </label>
+                      <label class="btn btn-default button radioBtn" (click)="OnNJpipClick()">
+                          <input class="styled inputScheduleAppointmentInsuranceType" id="10" name="InsuranceTypeId" type="radio" value="10">
+                          NJ PIP
+                      </label>
+                      <label class="btn btn-default button radioBtn" (click)="OnAutoAccdntClick()">
+                          <input class="styled inputScheduleAppointmentInsuranceType" id="5" name="InsuranceTypeId" type="radio" value="5">
+                          Auto Accident
+                      </label>
+                      <label class="btn btn-default button radioBtn">
+                          <input class="styled inputScheduleAppointmentInsuranceType" id="7" name="InsuranceTypeId" type="radio" value="7">
+                          Other
+                      </label>
+                      <label class="btn btn-default button radioBtn" (click)="OnSelfPayClick()">
+                          <input class="styled inputScheduleAppointmentInsuranceType" id="16" name="InsuranceTypeId" type="radio" value="16">
+                          Self-Pay
+                      </label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<div id="PayerSection" class="PayerSection" style="background-color: rgb(69, 78, 92); color: white; padding: 20px; " *ngIf="Commercialins">
+
+  <div class="row">
+      <div class="col-md-2 EffectiveFrom insurancecontrol NJPIPNYNF CommercialInsurance Liability" style="margin-top: 1%; display: block;">
+          <label>Effective From </label>
+          <input bsDatepicker class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date." id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text" value="">
+      </div>
+
+      <div class="col-md-2 ExpirationDate insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" style="margin-top: 1%; display: block;">
+          <label>
+              Expiration Date
+          </label>
+          <input bsDatepicker class="input-xlarge form-control expdate datepicker  inputPatientPayerInfo txtExpireDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field ExpirationDate must be a date." id="txtExpireDatetobereplaced" name="PatientPayer.ExpirationDate" placeholder="mm/dd/yyyy" style="z-index:9999999 !important;" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured" style="margin-top: 1%; display: block;">
+          <label>Relationship to Insured </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="RelationshipDrop"
+              placeholder="select" optionLabel="label" (onChange)="onChange($event)">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC Liability CommercialInsurance" id="InsuranceStatus" style="margin-top: 1%; display: block;">
+          <label>
+              Status
+          </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatusDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 Insuranceid insurancecontrol CommercialInsurance NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label id="lblSchdAppoInsuranceId">Insurance Id</label>
+          <input class="form-control scheduleAppointmentControls" id="txtSchAppInsuId" maxlength="20" name="PatientPayer.InsuranceId" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol CommercialInsurance" style="margin-top: 1%;display: block;">
+          <label>
+              Group ID
+          </label>
+          <input class="txtgroup form-control scheduleAppointmentControls inputPatientPayerInfo" id="txtgroupid" maxlength="20" name="PatientPayer.GroupId" type="text" value="">
+      </div>
+
+      <div class="col-md-3 Priority insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance Liability" id="Priority" style="margin-top: 1%; display: block;">
+          <label>
+              Priority
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo " data-val="true" data-val-number="The field PriorityId must be a number." id="1" name="PatientPayer.PriorityId" type="radio" value="1">
+
+              Primary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="2" name="PatientPayer.PriorityId" type="radio" value="2">
+              Secondary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="3" name="PatientPayer.PriorityId" type="radio" value="3">
+              Tertiary
+          </label>
+      </div>
+      <div class="col-md-2 Copay insurancecontrol CommercialInsurance" id="Copay" style="margin-top: 1%;">
+          <label>
+              Copay
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="Fixed" name="PatientPayer.CoPayType" type="radio" value="Fixed">
+              Fixed
+          </label>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="Percent" name="PatientPayer.CoPayType" type="radio" value="Percent">
+              Percent
+          </label>
+      </div>
+      <div class="col-md-2 insurancecontrol CommercialInsurance" style="margin-top: 1%;">
+          <label>
+              Copay Amount
+          </label>
+          <input class="txtCopayAmount form-control scheduleAppointmentControls inputPatientPayerInfo" data-val="true" data-val-number="The field Amount must be a number." id="txtCopayAmount" maxlength="15" name="PatientPayer.Amount" type="text" value="">
+      </div>
+      <div class="col-md-2 insurancecontrol SelfPayInsurance" style="margin-top: 1%; display: none;">
+          <label>
+              Self Pay Amount
+          </label>
+          <input class="txtAmount form-control scheduleAppointmentControls inputPatientPayerInfo  txtSelfPayAmount" data-val="true" data-val-number="The field SelfPayAmount must be a number." id="txtSelfPayAmount" maxlength="15" name="PatientPayer.SelfPayAmount" type="text" value="">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC" style="margin-top: 1%; display: block;">
+          <label>Payer</label>
+          <div class="input-group">
+              <input class="form-control inputPatientPayerInfo tagsPatientPayer" data-payerid=""   id="txtSchPayerName" name="txtPayerName" type="text" value="" style="display: none;">
+              <div id="txtSchPayerName_tagsinput" class="tagsinput SchedAppoPayerTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                 <span *ngFor="let item of selectedPayerarr" class="tag">
+                    <span><span><span class="memberdetail">{{item.PayerName}} ( {{item.State}} - {{item.City}} - {{item.Zip}} )</span></span>&nbsp;&nbsp;</span>
+                            <a (click)="closepayertags(item)" title="Removing tag">x</a></span>
+                <div id="txtSchPayerName_addTag">
+                  <input id="txtSchPayerName_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select payer" placeholder="select payer" class="ui-autocomplete-input" autocomplete="off">
+                </div>
+                <div class="tags_clear">
+                </div>
+              </div>
+              <span class="field-validation-valid" data-valmsg-for="PatientPayer.PayerId" data-valmsg-replace="true"></span>
+              <span class="input-group-addon"><a href="javascript:void(0)" id="lnkSelectPayer" class="fa fa-search" (click)="opensearch1()"></a></span>
+          </div>
+      </div>
+
+      <div class="col-md-2 payerfaxnumber" style="margin-top: 1%; ">
+          <label>Fax Number</label>
+          <input type="text" class="form-control scheduleAppointmentControls" id="PayerFaxNumber" maxlength="15" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx">
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC financialsts" style="margin-top: 1%; display: block;">
+          <label><b>Financial Status</b></label>
+          <br>
+          <div  class="col-md-2 policy">
+              <label>Policy Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number" style="color: white;"  [(ngModel)]="policyAmt"  class="form-control txtOnlyDecimal inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtPolicyamount" maxlength="15">
+ </div>
+          </div>
+          <div class="col-md-2 spent">
+              <label>Approximate Spent Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input style="color: white;" type="number" [(ngModel)]="ApproxAmt"  class="form-control txtOnlyDecimal  inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtApprxamount" maxlength="15">
+
+                </div>
+          </div>
+          <div class="col-md-2 balance">
+              <label>Balance</label>
+              <br>
+              <span class="spnbalanceamt dollar" style="padding-left: 2px; padding-bottom: 20px;">$ {{policyAmt-ApproxAmt}}
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row " id="dvmonthwiseinsurancelist">
+
+  </div>
+  <br>
+
+  <br>
+  <div id="dvOtherHealthInsusrerdemographics" class="dvOtherHealthInsusrerdemographics" style="" *ngIf="nonself">
+      <div class="row">
+          <div class="col-md-3">
+              <label>First Name</label>
+              <input class="txtInsuredHealthfname form-control inputPatientPayerInfo scheduleAppointmentControls" id="txtInsuredHealthfname" maxlength="45" name="PatientPayer.InsuredFirstnName" type="text" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Last Name</label>
+              <input class="txtInsuredHealthlname form-control inputPatientPayerInfo scheduleAppointmentControls" id="txtInsuredHealthlname" maxlength="45" name="PatientPayer.InsuredLastName" type="text" value="">
+          </div>
+          <div class="form-group col-md-3">
+              <label>Gender</label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="GenderDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+          </div>
+          <div class="col-md-3">
+              <label>Phone Number</label>
+              <input class="txtInsuredHealthphonenumber form-control inputPatientPayerInfo scheduleAppointmentControls" data-mask="(999)999-9999" id="txtInsuredHealthphonenumber" maxlength="20" name="PatientPayer.InsuredPhoneNumber" placeholder="(xxx)xxx-xxx" type="text" value="">
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <label>Date Of Birth</label>
+              <input class="form-control datepicker disablefuturedates inputPatientPayerInfo txtInsuredHealthDOB scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field InsuredDOB must be a date." id="txtInsuredHealthDOBtobereplaced" name="PatientPayer.InsuredDOB" placeholder="mm/dd/yyyy" type="text" value="">
+          </div>
+
+          <div class=" col-md-3">
+              <label>SSN</label>
+              <input class="txtInsuredssn form-control inputPatientPayerInfo scheduleAppointmentControls" data-mask="999-99-9999" data-val="true" data-val-regex="Invalid Social Security Number" data-val-regex-pattern="(^\d{3}-\d{2}-\d{4}$)" id="txtInsuredssn" maxlength="15" name="PatientPayer.InsuredSSN" placeholder="xxx-xx-xxxx" type="text" value="">
+          </div>
+          <div class="col-md-3">
+
+              <label>Address Line 1</label>
+              <input class="txtInsuredHealthaddressline1 form-control inputPatientPayerInfo scheduleAppointmentControls" id="txtInsuredHealthaddressline1" maxlength="200" name="PatientPayer.InsuredAddressLine1" type="text" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Address Line 2</label>
+              <input class="txtInsuredHealthaddressline2 form-control inputPatientPayerInfo scheduleAppointmentControls" id="txtInsuredHealthaddressline2" maxlength="200" name="PatientPayer.InsuredAddressLine2" type="text" value="">
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class=" col-md-3">
+              <label>ZIP</label><input class="form-control inputPatientPayerInfo ZipCodeChange txtInsuredHealthZip scheduleAppointmentControls" data-cityfield=".txtInsuredHealthCity" data-statefield=".ddlInsuredHealthState" data-mask1="99999" data-req-url="/Admin/GetCityStateFromZip" id="txtInsuredHealthZip" maxlength="10" name="PatientPayer.InsuredZip" placeholder="xxxxx-xxxx" type="text" value="">
+          </div>
+          <div class=" col-md-3 ">
+              <label>City</label>
+              <input class="txtInsuredHealthCity form-control inputPatientPayerInfo scheduleAppointmentControls" id="txtInsuredHealthCity" maxlength="200" name="PatientPayer.InsuredCity" type="text" value="">
+          </div>
+          <div class="col-md-3">
+              <label>State</label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- SEARCH PAYER -->
+<p-dialog id="custom" [(visible)]="searchpayer" [showHeader]="false" [modal]="true" [responsive]="true"
+[style]="{width: '900px'}"   [positionTop]="200" [draggable]="false" [closable]="false" [blockScroll]='true' [contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+'max-height': '80vh','min-height':'250px'}">
+<div class="modal-header">
+   <button class="btn btn-danger btn-sm pull-right" (click)="closesearch1popup()">Close</button>
+   <h3 style="text-align: center;">Search Payer</h3>
+</div>
+<div class="modal-body">
+   <div class="row">
+       <div class="col-sm-10">
+           <label>Search Payer</label>
+           <input type="text" class="form-control textbox-search-onenterkey" name="class" id="Payerfind"
+                placeholder="Payer Name / City / State">
+       </div>
+       <div class="col-sm-2" style="margin-top: 21px;">
+           <a href="javascript:void(0)" class="btn btn-primary"  (click)="OnSearchPayerClick()" id="btnSearchPatientPayer">Search</a>
+       </div>
+   </div>
+   <br>
+   <br>
+
+   <div *ngIf="Searchpayertrue" class="row" style="margin-top:25px;">
+    <div class="col-lg-12" style="padding:0;">
+        <div class="wrapper wrapper-content " style="padding:0;">
+            <div id="dvSearchPatientPayerResults"><div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+<table class="table table-striped table-hover table-condensed">
+<thead>
+<tr style="width: 100%;">
+    <th>Payer Name</th>
+    <th style="width:100px">Phone</th>
+    <th style="width:100px">Fax</th>
+    <th>Address 1</th>
+    <th>Address 2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th style="text-align: center"></th>
+</tr>
+</thead>
+<tbody *ngFor="let item of payerArray">
+    <tr>
+        <td style="padding-left: 5px;">{{item.PayerName}}</td>
+        <td>{{item.Phone}}</td>
+        <td>{{item.Fax}}</td>
+        <td>{{item.Address1}}</td>
+        <td>{{item.Address2}}</td>
+        <td>{{item.City}}</td>
+        <td>{{item.State}}</td>
+        <td>{{item.Zip}}</td>
+        <td><a href="javascript:void(0)" data-payer-id="1" class="selPayer" data-fax="" (click)="OnSelectPayer(item)">Select</a></td>
+    </tr>
+
+</tbody>
+</table>
+
+<div class="custompagination pull-right pagPayerList" style="margin-top:-17px" data-req-url="/patient/SearchPatientPayers" data-update-container="#dvSearchPatientPayerResults">
+<span class="label pagerInfo">Showing <em>1-20</em> of <em>2832</em></span><ul><li class="disabled"><a data-val="0" href="javascript:void(0)">&lt;&lt;</a></li><li><label style="display:none" for="selId">.</label><select class="pagerSelect input-small" id="selId"><option selected="selected" value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option><option value="61">61</option><option value="62">62</option><option value="63">63</option><option value="64">64</option><option value="65">65</option><option value="66">66</option><option value="67">67</option><option value="68">68</option><option value="69">69</option><option value="70">70</option><option value="71">71</option><option value="72">72</option><option value="73">73</option><option value="74">74</option><option value="75">75</option><option value="76">76</option><option value="77">77</option><option value="78">78</option><option value="79">79</option><option value="80">80</option><option value="81">81</option><option value="82">82</option><option value="83">83</option><option value="84">84</option><option value="85">85</option><option value="86">86</option><option value="87">87</option><option value="88">88</option><option value="89">89</option><option value="90">90</option><option value="91">91</option><option value="92">92</option><option value="93">93</option><option value="94">94</option><option value="95">95</option><option value="96">96</option><option value="97">97</option><option value="98">98</option><option value="99">99</option><option value="100">100</option><option value="101">101</option><option value="102">102</option><option value="103">103</option><option value="104">104</option><option value="105">105</option><option value="106">106</option><option value="107">107</option><option value="108">108</option><option value="109">109</option><option value="110">110</option><option value="111">111</option><option value="112">112</option><option value="113">113</option><option value="114">114</option><option value="115">115</option><option value="116">116</option><option value="117">117</option><option value="118">118</option><option value="119">119</option><option value="120">120</option><option value="121">121</option><option value="122">122</option><option value="123">123</option><option value="124">124</option><option value="125">125</option><option value="126">126</option><option value="127">127</option><option value="128">128</option><option value="129">129</option><option value="130">130</option><option value="131">131</option><option value="132">132</option><option value="133">133</option><option value="134">134</option><option value="135">135</option><option value="136">136</option><option value="137">137</option><option value="138">138</option><option value="139">139</option><option value="140">140</option><option value="141">141</option><option value="142">142</option></select></li><li><a class="pagerItem" data-val="2" href="javascript:void(0)">&gt;&gt;</a></li></ul>
+</div>
+
+
+</div>
+</div>
+        </div>
+    </div>
+</div> -->
+</div>
+<br>
+<br>
+</p-dialog>
+<!-- SEARCH PAYER END -->
+
+
+
+
+<div id="PayerSection" class="PayerSection" style="background-color: #454e5c; color: white; padding: 20px;"*ngIf="LiabilityINS">
+
+  <div class="row">
+      <div class="col-md-2 EffectiveFrom insurancecontrol NJPIPNYNF CommercialInsurance Liability" style="margin-top: 1%; display: block;">
+          <label>Effective From </label>
+          <input bsDatepicker class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date." id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text" value="">
+      </div>
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC Liability CommercialInsurance" id="InsuranceStatus" style="margin-top: 1%; display: block;">
+          <label>
+              Status
+          </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatusDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 LienDocument insurancecontrol Liability" style="margin-top: 2%; padding: 0px;">
+          <br>
+          <label class="checkbox-inline i-checks">
+            <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+              <div class="ui-chkbox ui-widget" >
+                  <div class="ui-helper-hidden-accessible">
+                      <input type="checkbox" >
+                  </div>
+              </div>
+          </p-checkbox> &nbsp;Is Lien Document Available
+          </label>
+      </div>
+
+      <div class="col-md-3 Priority insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance Liability" id="Priority" style="margin-top: 1%; display: block;">
+          <label>
+              Priority
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo " data-val="true" data-val-number="The field PriorityId must be a number." id="1" name="PatientPayer.PriorityId" type="radio" value="1">
+              Primary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="2" name="PatientPayer.PriorityId" type="radio" value="2">
+              Secondary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="3" name="PatientPayer.PriorityId" type="radio" value="3">
+              Tertiary
+          </label>
+
+      </div>
+      <div class="col-md-2 Copay insurancecontrol CommercialInsurance" id="Copay" style="margin-top: 1%; display: none;">
+          <label>
+              Copay
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="Fixed" name="PatientPayer.CoPayType" type="radio" value="Fixed">
+              Fixed
+          </label>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="Percent" name="PatientPayer.CoPayType" type="radio" value="Percent">
+              Percent
+          </label>
+      </div>
+      <div class="col-md-2 insurancecontrol CommercialInsurance" style="margin-top: 1%; display: none;">
+
+          <label>
+              Copay Amount
+          </label>
+          <input class="txtCopayAmount form-control scheduleAppointmentControls inputPatientPayerInfo" data-val="true" data-val-number="The field Amount must be a number." id="txtCopayAmount" maxlength="15" name="PatientPayer.Amount" type="text" value="">
+      </div>
+      <div class="col-md-2 hide insurancecontrol SelfPayInsurance" style="margin-top: 1%; display: none;">
+          <label>
+              Self Pay Amount
+          </label>
+          <input class="txtAmount form-control scheduleAppointmentControls inputPatientPayerInfo  txtSelfPayAmount" data-val="true" data-val-number="The field SelfPayAmount must be a number." id="txtSelfPayAmount" maxlength="15" name="PatientPayer.SelfPayAmount" type="text" value="">
+      </div>
+  </div>
+
+  <div class="row">
+      <div id="dvadjuster " class="hide insurancecontrol NJPIPNYNF NJWCNYWC" style="display: none;">
+          <div class="col-md-4" style="margin-top: 1%">
+
+              <label>Adjuster</label>
+              <div class="input-group adjusterview">
+                  <input class="form-control txtSChClaimHandlerMem" data-mem-id="" data-req-url="/Admin/SearchEpisodeMembers_Tags" data-roleid="7" disabled="disabled" id="txtSChClaimHandlerMem" name="EpisodeInjuryDetail.ClaimHandlerMemberName" style="background-color: transparent; display: none;" type="text" value=""><div id="txtSChClaimHandlerMem_tagsinput" class="tagsinput SchedAppoadjusterTagsInput" style="width: 100%; min-height: auto; height: auto;"><div id="txtSChClaimHandlerMem_addTag"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input id="txtSChClaimHandlerMem_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select adjuster" placeholder="select adjuster" class="ui-autocomplete-input" autocomplete="off"></div><div class="tags_clear"></div></div>
+                  <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewPatClaimHandlerDetails" title="View Details" class="fa fa-eye fa-3 viewmemberdetails" ></a></span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-search srchadjuster" data-orgtypeid="4" data-roleid="7" title="Search Members" ></a></span>
+                  <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-plus addnewclaimhandlermember" title="Add New Member" ></a></span>
+              </div>
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Contact Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterContactNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Extension</label>
+              <input type="text" class="form-control scheduleAppointmentControls txtOnlyNumber" id="adjusterPhoneExtension" maxlength="10" disabled="disabled">
+
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Fax Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterFaxNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Email</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterEmail" disabled="disabled">
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC" style="margin-top: 1%; display: block;">
+          <label>Payer</label>
+          <div class="input-group">
+              <input class="form-control inputPatientPayerInfo tagsPatientPayer" data-payerid=""  id="txtSchPayerName" name="txtPayerName" type="text" value="" style="display: none;">
+              <div id="txtSchPayerName_tagsinput" class="tagsinput SchedAppoPayerTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                <span *ngFor="let item of selectedPayerarr" class="tag">
+                  <span><span><span class="memberdetail">{{item.PayerName}} ( {{item.State}} - {{item.City}} - {{item.Zip}} )</span></span>&nbsp;&nbsp;</span>
+                          <a (click)="closepayertags(item)" title="Removing tag">x</a></span>
+                <div id="txtSchPayerName_addTag">
+                  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible">
+                  </span>
+                  <input id="txtSchPayerName_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select payer" placeholder="select payer" class="ui-autocomplete-input" autocomplete="off">
+                </div>
+                <div class="tags_clear">
+                </div>
+              </div>
+              <span class="field-validation-valid" data-valmsg-for="PatientPayer.PayerId" data-valmsg-replace="true"></span>
+              <span class="input-group-addon"><a href="javascript:void(0)"  id="lnkSelectPayer" class="fa fa-search" (click)="opensearch1()"></a></span>
+          </div>
+      </div>
+
+      <div class="col-md-2 payerfaxnumber" style="margin-top: 1%">
+          <label>Fax Number</label>
+          <input type="text" class="form-control scheduleAppointmentControls" id="PayerFaxNumber" maxlength="15" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx">
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC financialsts" style="margin-top: 1%; display: block;">
+          <label><b>Financial Status</b></label>
+          <br>
+          <div class="col-md-2">
+              <label>Policy Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number" style="color: white;"  [(ngModel)]="policyAmt"  class="form-control txtOnlyDecimal inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtPolicyamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Approximate Spent Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input style="color: white;" type="number" [(ngModel)]="ApproxAmt"  class="form-control txtOnlyDecimal  inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtApprxamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Balance</label>
+              <br>
+              <span class="spnbalanceamt dollar" style="padding-left: 2px; padding-bottom: 20px;">$ {{policyAmt-ApproxAmt}}</span>
+          </div>
+      </div>
+  </div>
+  <div class="row " id="dvmonthwiseinsurancelist">
+  </div>
+  <br>
+  <br>
+</div>
+
+<div id="PayerSection" class="PayerSection" style="background-color: #454e5c; color: white; padding: 20px;" *ngIf="WorkercompINS">
+
+  <div class="row">
+      <div class="col-md-2  hide insurancecontrol NJPIPNYNF" style="margin-top: 1%; display: none;">
+          <label>
+              Claim #
+          </label>
+          <input class="form-control inputPatientPayerInfo txtClaimNumber scheduleAppointmentControls"
+              id="txtClaimNumber" maxlength="20" name="PatientPayer.EpisodePatientPayerDetails.ClaimNumber"
+              type="text" value="">
+      </div>
+      <div class="col-md-2  insurancecontrol NJWCNYWC" style="margin-top: 1%;">
+          <label>
+              WCB #
+          </label>
+          <input class="form-control  inputPatientPayerInfo txtWCBNumber scheduleAppointmentControls"
+              id="txtWCBNumber" maxlength="15" name="PatientPayer.InsuranceId" type="text" value="">
+      </div>
+      <div class="col-md-2 EffectiveFrom hide insurancecontrol NJPIPNYNF CommercialInsurance Liability"
+          style="margin-top: 1%; display: none;">
+          <label>Effective From </label>
+          <input
+              class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker"
+              data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date."
+              id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text"
+              value="">
+      </div>
+      <div class="col-md-2 ExpirationDate insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance"
+          style="margin-top: 1%;">
+          <label>
+              Expiration Date
+          </label>
+          <input bsDatepicker
+              class="input-xlarge form-control expdate datepicker  inputPatientPayerInfo txtExpireDate scheduleAppointmentControls hasDatepicker"
+              data-mask="99/99/9999" data-val="true" data-val-date="The field ExpirationDate must be a date."
+              id="txtExpireDatetobereplaced" name="PatientPayer.ExpirationDate" placeholder="mm/dd/yyyy"
+              style="z-index:9999999 !important;" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured"
+          style="margin-top: 1%;">
+          <label>Relationship to Insured </label>
+
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="RelationshipDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured"
+          style="margin-top: 1%;">
+          <label>Status  </label>
+
+          <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" [options]="StatusDrop"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 Insuranceid hide insurancecontrol CommercialInsurance NJPIPNYNF"
+          style="margin-top: 1%; display: none;">
+          <label id="lblSchdAppoInsuranceId">Insurance Id</label>
+          <input class="form-control scheduleAppointmentControls" id="txtSchAppInsuId" maxlength="20"
+              name="PatientPayer.InsuranceId" type="text" value="">
+      </div>
+
+      <div class="col-md-2 hide insurancecontrol CommercialInsurance" style="margin-top: 1%; display: none;">
+          <label>
+              Group ID
+          </label>
+          <input class="txtgroup form-control scheduleAppointmentControls inputPatientPayerInfo" id="txtgroupid"
+              maxlength="20" name="PatientPayer.GroupId" type="text" value="">
+      </div>
+
+      <div class="col-md-2 CarrierCase insurancecontrol NJWCNYWC" style="margin-top: 1%;">
+          <label>Carrier Case #</label>
+          <input class="form-control scheduleAppointmentControls txtCarrierCaseNumber"
+              id="txtSchAppCarrierClaimNumber" maxlength="45" name="EpisodeInjuryDetail.CarrierTPAClaimNumber"
+              type="text" value="">
+      </div>
+
+      <div class="col-md-2 CarrierCase insurancecontrol NJWCNYWC" style="margin-top: 1%;">
+          <label>Carrier Id #</label>
+          <input class="form-control scheduleAppointmentControls txtCarrierId" id="txtSchAppCarrierId" maxlength="45"
+              name="EpisodeInjuryDetail.CarrierTPAClaimNumber" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured"
+          style="margin-top: 1%;">
+          <label>State</label>
+
+          <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" [options]="stateName"
+              placeholder="select" optionLabel="label">
+          </p-dropdown>
+      </div>
+
+      <div class="col-md-2 InsuranceCityInformation insurancecontrol NJWCNYWC NJPIPNYNF" style="margin-top: 1%;">
+          <label>City </label>
+          <input class="form-control scheduleAppointmentControls txtCityInformation" id="txtCityInformation"
+              maxlength="100" name="PatientPayer.CityInformation" type="text" value="">
+      </div>
+
+      <div class="col-md-2 CarrierCase insurancecontrol NJWCNYWC" style="margin-top: 1%;">
+          <label>Carrier Id #</label>
+          <input class="form-control scheduleAppointmentControls txtCarrierId" id="txtSchAppCarrierId" maxlength="45"
+              name="EpisodeInjuryDetail.CarrierTPAClaimNumber" type="text" value="">
+      </div>
+
+      <div class="col-md-2 InsuranceOtherInformation insurancecontrol NJWCNYWC NJPIPNYNF" style="margin-top: 1%;">
+          <label>Other Information</label>
+          <input class="form-control scheduleAppointmentControls txtOtherInformation" id="txtOtherInformation"
+              maxlength="100" name="PatientPayer.OtherInformation" type="text" value="">
+      </div>
+
+      <div class="col-md-2 LienDocument hide insurancecontrol Liability"
+          style="margin-top: 2%; padding: 0px; display: none;">
+          <br>
+          <label class="checkbox-inline i-checks">
+              <div class="icheckbox_square-green" style="position: relative;"><input type="checkbox"
+                      id="chkScheAppoIsLeanDoc" style="position: absolute; opacity: 0;"><ins class="iCheck-helper"
+                      style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+              </div>
+              Is Lien Document Available
+          </label>
+      </div>
+
+      <div class="col-md-3 Priority insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance Liability" id="Priority"
+          style="margin-top: 1%;">
+          <label>
+              Priority
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+
+              <input class="styled inputPatientPayerInfo " data-val="true"
+                  data-val-number="The field PriorityId must be a number." id="1" name="PatientPayer.PriorityId"
+                  type="radio" value="1">
+              Primary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="2" name="PatientPayer.PriorityId" type="radio"
+                  value="2">
+              Secondary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="3" name="PatientPayer.PriorityId" type="radio"
+                  value="3">
+              Tertiary
+          </label>
+
+      </div>
+      <div class="col-md-2 Copay hide insurancecontrol CommercialInsurance" id="Copay"
+          style="margin-top: 1%; display: none;">
+          <label>
+              Copay
+          </label>
+
+          <br>
+          <label class="btn btn-primary btn-xs">
+
+              <input class="styled inputPatientPayerInfo" id="Fixed" name="PatientPayer.CoPayType" type="radio"
+                  value="Fixed">
+
+              Fixed
+          </label>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="Percent" name="PatientPayer.CoPayType" type="radio"
+                  value="Percent">
+              Percent
+          </label>
+      </div>
+      <div class="col-md-2 hide insurancecontrol CommercialInsurance" style="margin-top: 1%; display: none;">
+
+          <label>
+              Copay Amount
+          </label>
+          <input class="txtCopayAmount form-control scheduleAppointmentControls inputPatientPayerInfo" data-val="true"
+              data-val-number="The field Amount must be a number." id="txtCopayAmount" maxlength="15"
+              name="PatientPayer.Amount" type="text" value="">
+      </div>
+      <div class="col-md-2 hide insurancecontrol SelfPayInsurance" style="margin-top: 1%; display: none;">
+          <label>
+              Self Pay Amount
+          </label>
+          <input class="txtAmount form-control scheduleAppointmentControls inputPatientPayerInfo  txtSelfPayAmount"
+              data-val="true" data-val-number="The field SelfPayAmount must be a number." id="txtSelfPayAmount"
+              maxlength="15" name="PatientPayer.SelfPayAmount" type="text" value="">
+      </div>
+  </div>
+
+  <div class="row">
+      <div id="dvadjuster " class="insurancecontrol NJPIPNYNF NJWCNYWC" style="">
+          <div class="col-md-4" style="margin-top: 1%">
+
+              <label>Adjuster</label>
+              <div class="input-group adjusterview">
+                  <input class="form-control txtSChClaimHandlerMem" data-mem-id=""
+                       disabled="disabled" id="txtSChClaimHandlerMem" name="EpisodeInjuryDetail.ClaimHandlerMemberName"
+                      style="background-color: transparent; display: none;" type="text" value="">
+                  <div id="txtSChClaimHandlerMem_tagsinput" class="tagsinput SchedAppoadjusterTagsInput"
+                      style="width: 100%; min-height: auto; height: auto;">
+                      <span  *ngIf="searchicon" class="tag">
+                        <span><span><span class="memberdetail">{{firstName}} {{middleName}} {{lastName}} </span></span>&nbsp;&nbsp;</span>
+                                <a (click)="closeadjSearchContactags(firstName)" title="Removing tag">x</a></span>
+                      <div id="txtSChClaimHandlerMem_addTag"><span role="status" aria-live="polite"
+                              class="ui-helper-hidden-accessible"></span><input id="txtSChClaimHandlerMem_tag"
+                              style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select adjuster"
+                              placeholder="select adjuster" class="ui-autocomplete-input" autocomplete="off">
+                            </div>
+                      <div class="tags_clear"></div>
+                  </div>
+                  <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewPatClaimHandlerDetails"
+                          data-org-container="#txtSChClaimHandlerMem" title="View Details"
+                          class="fa fa-eye fa-3 viewmemberdetails"
+                          data-req-url="/Patient/GetReferralSourceMemberDetails"
+                          data-update-container="#dvPopupTopNode1" data-orgmem-container="#txtEmpClaimHandlerMem"
+                          (click)="OnAddadjDetailView()"></a></span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-search srchadjuster" data-orgtypeid="4"
+                          data-roleid="7" title="Search Members" data-view-container="#btnViewPatClaimHandlerDetails"
+                           (click)="adjSearchPop()"></a>
+                  </span>
+                  <span class="input-group-addon"><a href="javascript:void(0)"
+                          class="fa fa-plus addnewclaimhandlermember" title="Add New Member"
+                          data-update-container="#dvTopupBodyNode" data-req-url="/Patient/AddNewResourceTypeMembers"
+                          data-addnewmem-updatecontainer="#txtSChClaimHandlerMem" data-role-id="7"
+                          data-partner-orgtype="0" data-resourcetypeid="2" (click)="OnAddAdjPop()"></a></span>
+              </div>
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Contact Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterContactNumber"
+                  maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Extension</label>
+              <input type="text" class="form-control scheduleAppointmentControls txtOnlyNumber"
+                  id="adjusterPhoneExtension" maxlength="10" disabled="disabled">
+
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Fax Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterFaxNumber"
+                  maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Email</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterEmail"
+                  disabled="disabled">
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC"
+          style="margin-top: 1%;">
+          <label>Payer</label>
+          <div class="input-group">
+              <input class="form-control inputPatientPayerInfo tagsPatientPayer" data-payerid=""
+                  data-req-url="/Patient/SearchPatientPayers_Tags" id="txtSchPayerName" name="txtPayerName"
+                  type="text" value="" style="display: none;">
+              <div id="txtSchPayerName_tagsinput" class="tagsinput SchedAppoPayerTagsInput"
+                  style="width: 100%; min-height: auto; height: auto;">
+                  <span *ngFor="let item of selectedPayerarr" class="tag">
+                    <span><span><span class="memberdetail">{{item.PayerName}} ( {{item.State}} - {{item.City}} - {{item.Zip}} )</span></span>&nbsp;&nbsp;</span>
+                            <a (click)="closepayertags(item)" title="Removing tag">x</a></span>
+                  <div id="txtSchPayerName_addTag"><span role="status" aria-live="polite"
+                          class="ui-helper-hidden-accessible"></span><input id="txtSchPayerName_tag"
+                          style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select payer"
+                          placeholder="select payer" class="ui-autocomplete-input" autocomplete="off"></div>
+                  <div class="tags_clear"></div>
+              </div>
+              <span class="field-validation-valid" data-valmsg-for="PatientPayer.PayerId"
+                  data-valmsg-replace="true"></span>
+              <span class="input-group-addon"><a href="javascript:void(0)" id="lnkSelectPayer" class="fa fa-search"
+                      (click)="opensearch1()"></a>
+             </span>
+
+          </div>
+      </div>
+
+      <div class="col-md-2 payerfaxnumber" style="margin-top: 1%">
+          <label>Fax Number</label>
+          <input type="text" class="form-control scheduleAppointmentControls" id="PayerFaxNumber" maxlength="15"
+              data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx">
+      </div>
+  </div>
+
+
+
+  <div class="row">
+      <div class="col-md-12">
+          <div id="dvworkerscompensation" class="dvworkerscompensation insurancecontrol NJWCNYWC" style="">
+              <div class="row">
+                  <div class="col-md-4">
+                      <label>Employer</label>
+                      <div class="input-group">
+                          <input class="form-control schedappoemployerserach txtPatCurrentEmployer" data-org-id=""
+                              data-req-url="/Admin/SearchPartnerOrgnizations_Tags" id="txtPatCurrentEmployer"
+                              name="EpisodeInjuryDetail.CurrentEmployerName" type="text" value=""
+                              style="display: none;">
+                          <div id="txtPatCurrentEmployer_tagsinput" class="tagsinput SchedAppoEmplTagsInput"
+                              style="width: 100%; min-height: auto; height: auto;">
+                              <div id="txtPatCurrentEmployer_addTag"><span role="status" aria-live="polite"
+                                      class="ui-helper-hidden-accessible"></span><input id="txtPatCurrentEmployer_tag"
+                                      style="width: 100px; color: rgb(102, 102, 102);" value=""
+                                      data-default="select organization" placeholder="select organization"
+                                      class="ui-autocomplete-input" autocomplete="off"></div>
+                              <div class="tags_clear"></div>
+                          </div>
+                          <span class="input-group-addon"><a href="javascript:void(0)"
+                                  id="btnViewPatCurrentEmpOrgDetails" data-org-container="#txtPatCurrentEmployer"
+                                  title="View Details" class="fa fa-eye fa-3 viewparorgdet"
+                                  data-req-url="/Admin/GetPartnerOrgnizationDetails"
+                                  data-update-container="#dvPopupTopNode1" (click)="OnOpenOrgDetails()"></a></span>
+                          <span class="input-group-addon">
+                              <a href="javascript:void(0)" class="fa fa-search searchorgnization" data-orgtypeid="4"
+                                  title="Search Partner Orgnization"
+                                  data-search-updatecontainer="#txtPatCurrentEmployer"
+                                  data-view-container="#btnViewPatCurrentEmpOrgDetails"
+                                  data-req-url="/Admin/SearchSchdAppoPartOrganization"
+                                  data-update-container="#dvPopupTopNode1" (click)="OnsearchOrg()"></a></span>
+                                  <span class="input-group-addon"><a href="javascript:void(0)"
+                                      class="fa fa-plus addnewclaimhandlermember" title="Add New Member"
+                                      data-update-container="#dvTopupBodyNode"(click)="OnAddOrgPop()"></a>
+                         </span>
+                      </div>
+                  </div>
+
+                  <div class="col-md-2">
+                      <label>Contact Number</label>
+                      <input type="text" class="form-control scheduleAppointmentControls" id="txtEmployerContact"
+                          maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label>Supervisor</label>
+                      <div class="input-group supervisorview">
+                          <input type="text" value=""
+                              class="form-control refSrcMemId inputAccIncInfo schedapposupervisorserach txtSupervisor"
+                              id="txtSupervisor" data-mem-id="" data-req-url="/Admin/SearchEpisodeMembers_Tags"
+                              style="display: none;">
+                          <div id="txtSupervisor_tagsinput" class="tagsinput SchedAppoSuprevisorTagsInput"
+                              style="width: 100%; min-height: auto; height: auto;">
+                              <div id="txtSupervisor_addTag"><span role="status" aria-live="polite"
+                                      class="ui-helper-hidden-accessible"></span><input id="txtSupervisor_tag"
+                                      style="width: 100px; color: rgb(102, 102, 102);" value=""
+                                      data-default="select supervisor" placeholder="select supervisor"
+                                      class="ui-autocomplete-input" autocomplete="off"></div>
+                              <div class="tags_clear"></div>
+                          </div>
+                          <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewMemDetails"
+                                  class="fa fa-eye fa-3 viewmemberdetails" title="View Details" (click)="OnAddadjDetailView()"><span></span></a></span>
+                          <span class="input-group-addon"><a href="javascript:void(0)"
+                                  class="fa fa-search srchepimem assignmembertype" id="btnSearchEpiMem"
+                                  title="Search Member" (click)="OnSearchSupervisor()"></a></span>
+
+                          <span class="input-group-addon"><a href="javascript:void(0)"
+                                  class="fa fa-plus addnewSupervisiormember" title="Add New Member"
+                                  data-update-container="#dvTopupBodyNode"
+                                  data-req-url="/Patient/AddNewSuperVisorOrHR" data-addnewmem-updatecontainer="#"
+                                  data-role-id="26" (click)="OnAddNewSupervisor()"></a></span>
+                      </div>
+                  </div>
+
+                  <div class="col-md-2">
+                      <label>Contact Number</label>
+                      <input type="text" class="form-control scheduleAppointmentControls" id="txtSupervisorContact"
+                          maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label>HR</label>
+                      <div class="input-group hrview">
+                          <input type="text" value=""
+                              class="form-control refSrcMemId inputAccIncInfo schedappoHRserach txtHR" id="txtHR"
+                              data-mem-id="" data-req-url="/Admin/SearchEpisodeMembers_Tags" style="display: none;">
+                          <div id="txtHR_tagsinput" class="tagsinput SchedAppoHRTagsInput"
+                              style="width: 100%; min-height: auto; height: auto;">
+                              <div id="txtHR_addTag"><span role="status" aria-live="polite"
+                                      class="ui-helper-hidden-accessible"></span><input id="txtHR_tag"
+                                      style="width: 100px; color: rgb(102, 102, 102);" value=""
+                                      data-default="select HR" placeholder="select HR" class="ui-autocomplete-input"
+                                      autocomplete="off"></div>
+                              <div class="tags_clear"></div>
+                          </div>
+                          <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewMemDetails"
+                                  class="fa fa-eye fa-3 viewmemberdetails" title="View Details" (click)="OnAddadjDetailView()"><span></span></a></span>
+                          <span class="input-group-addon"><a href="javascript:void(0)"
+                                  class="fa fa-search srchepimem assignmembertype" id="btnSearchEpiMem"
+                                  title="Search Member" data-req-url="/Admin/SearchSchdAppoResourceTypeMembers"
+                                  data-update-container="#dvPopupTopNode1" data-search-updatecontainer="#txtHR"
+                                  data-view-container="#btnViewMemDetails" data-role-id="25" data-refsrcname="HR"
+                                  data-gbl-msg="hr" (click)="OnSearchNewHR()"></a></span>
+
+                          <span class="input-group-addon"><a href="javascript:void(0)"
+                                  class="fa fa-plus addnewHRmember" title="Add New Member"
+                                  data-update-container="#dvTopupBodyNode"
+                                  data-req-url="/Patient/AddNewSuperVisorOrHR" data-addnewmem-updatecontainer="#"
+                                  data-role-id="25" (click)="OnAddNewHR()"></a></span>
+                      </div>
+                  </div>
+                  <div class="col-md-2">
+                      <label>Contact Number</label>
+                      <input type="text" class="form-control scheduleAppointmentControls" id="txtHRContact"
+                          maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC financialsts"
+          style="margin-top: 1%;">
+          <label><b>Financial Status</b></label>
+          <br>
+          <div class="col-md-2">
+              <label>Policy Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput"
+                      style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number" value=" "style="color: white;"  [(ngModel)]="policyAmt"  class="form-control txtOnlyDecimal inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtPolicyamount" maxlength="15">
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Approximate Spent Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput"
+                      style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number" value="" style="color: white;"  [(ngModel)]="ApproxAmt"  class="form-control txtOnlyDecimal  inputPatientPayerInfo financialstatus scheduleAppointmentControls"id="txtApprxamount" maxlength="15">
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Balance</label>
+              <br>
+              <span class="spnbalanceamt dollar" style="padding-left: 2px; padding-bottom: 20px;">$ {{policyAmt-ApproxAmt}}
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row " id="dvmonthwiseinsurancelist">
+
+  </div>
+  <br>
+
+  <br>
+  <div id="dvOtherHealthInsusrerdemographics" class="hide
+          dvOtherHealthInsusrerdemographics" style="display: none;">
+      <div class="row">
+          <div class="col-md-3">
+              <label>First Name</label>
+              <input class="txtInsuredHealthfname form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  id="txtInsuredHealthfname" maxlength="45" name="PatientPayer.InsuredFirstnName" type="text"
+                  value="">
+          </div>
+          <div class="col-md-3">
+              <label>Last Name</label>
+              <input class="txtInsuredHealthlname form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  id="txtInsuredHealthlname" maxlength="45" name="PatientPayer.InsuredLastName" type="text" value="">
+          </div>
+          <div class="form-group col-md-3">
+              <label>Gender</label>
+              <div>
+                  <select
+                      class="ddlPayerGender form-control inputPatientPayerInfo chosen-select scheduleAppointmentControls"
+                      id="ddlPayerGender" name="PatientPayer.InsuredGender" style="display: none;">
+                      <option value="">Select</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">Other</option>
+                  </select>
+                  <div class="chosen-container chosen-container-single" style="width: 100%" title=""
+                      id="ddlPayerGender_chosen"><a class="chosen-single"><span>Select</span>
+                          <div><b></b></div>
+                      </a>
+                      <div class="chosen-drop">
+                          <div class="chosen-search"><input type="text" autocomplete="off"></div>
+                          <ul class="chosen-results"></ul>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="col-md-3">
+              <label>Phone Number</label>
+              <input
+                  class="txtInsuredHealthphonenumber form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  data-mask="(999)999-9999" id="txtInsuredHealthphonenumber" maxlength="20"
+                  name="PatientPayer.InsuredPhoneNumber" placeholder="(xxx)xxx-xxx" type="text" value="">
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-3">
+              <label>Date Of Birth</label>
+              <input
+                  class="form-control datepicker disablefuturedates inputPatientPayerInfo txtInsuredHealthDOB scheduleAppointmentControls hasDatepicker"
+                  data-mask="99/99/9999" data-val="true" data-val-date="The field InsuredDOB must be a date."
+                  id="txtInsuredHealthDOBtobereplaced" name="PatientPayer.InsuredDOB" placeholder="mm/dd/yyyy"
+                  type="text" value="">
+          </div>
+
+          <div class=" col-md-3">
+              <label>SSN</label>
+              <input class="txtInsuredssn form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  data-mask="999-99-9999" data-val="true" data-val-regex="Invalid Social Security Number"
+                  data-val-regex-pattern="(^\d{3}-\d{2}-\d{4}$)" id="txtInsuredssn" maxlength="15"
+                  name="PatientPayer.InsuredSSN" placeholder="xxx-xx-xxxx" type="text" value="">
+          </div>
+          <div class="col-md-3">
+
+              <label>Address Line 1</label>
+              <input
+                  class="txtInsuredHealthaddressline1 form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  id="txtInsuredHealthaddressline1" maxlength="200" name="PatientPayer.InsuredAddressLine1"
+                  type="text" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Address Line 2</label>
+              <input
+                  class="txtInsuredHealthaddressline2 form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  id="txtInsuredHealthaddressline2" maxlength="200" name="PatientPayer.InsuredAddressLine2"
+                  type="text" value="">
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class=" col-md-3">
+              <label>ZIP</label><input
+                  class="form-control inputPatientPayerInfo ZipCodeChange txtInsuredHealthZip scheduleAppointmentControls"
+                  data-cityfield=".txtInsuredHealthCity" data-statefield=".ddlInsuredHealthState" data-mask1="99999"
+                  data-req-url="/Admin/GetCityStateFromZip" id="txtInsuredHealthZip" maxlength="10"
+                  name="PatientPayer.InsuredZip" placeholder="xxxxx-xxxx" type="text" value="">
+          </div>
+          <div class=" col-md-3 ">
+              <label>City</label>
+              <input class="txtInsuredHealthCity form-control inputPatientPayerInfo scheduleAppointmentControls"
+                  id="txtInsuredHealthCity" maxlength="200" name="PatientPayer.InsuredCity" type="text" value="">
+          </div>
+          <div class="col-md-3">
+              <label>State</label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                  placeholder="select" optionLabel="label">
+              </p-dropdown>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- SEARCH ADJUSTER POPUP -->
+<p-dialog id="custom" [(visible)]="adjsearch" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="closeAdjsearchpopup()">Close</button>
+      <h3 style="text-align: center;">Search- Claim Handler Or Adjuster Contact</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-md-3">
+              <label>Name</label>
+              <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                  placeholder="Name" data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-3">
+              <label>City</label>
+              <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+                  data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-4">
+              <label>State </label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                  placeholder="select" optionLabel="label">
+              </p-dropdown>
+          </div>
+          <div class="col-md-2" style="margin-top: 20px">
+              <a href="javascript:void(0)" class="btn btn-primary btnsearchmem" (click)="OnSearchAdjusterContact()" id="btnSearchEpiMember">Search</a>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row" *ngIf="ShowSearchedCont">
+    <div class="col-lg-12">
+        <div id="dvSearchEpisodeMemResult" class="dvSearchEpisodeMemResult"><div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+<table class="table table-striped table-hover table-condensed">
+<thead>
+<tr style="width: 100%;">
+    <th style="max-width: 10%;">Name</th>
+
+    <th>City</th>
+    <th>State</th>
+    <th></th>
+    <th style="max-width: 10%; text-align: center"></th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of adjusterContactsArray">
+        <td>{{item.name}}</td>
+        <td>{{item.city}}</td>
+        <td>{{item.state}}</td>
+        <td><a href="javascript:void(0)" class="selEpiMember" (click)="OnSelectContact(item)">Select</a></td>
+    </tr>
+
+</tbody>
+</table>
+
+<div class="custompagination pull-right pagEpisodeSearchMembersList" style="margin-top:-17px" data-req-url="/Admin/SearchEpisodeMembers" data-update-container=".dvSearchEpisodeMemResult">
+<span class="label pagerInfo">Showing <em>1-10</em> of <em>13</em></span>
+
+</div>
+</div>
+</div>
+    </div>
+</div>
+  <hr>
+  <div class="head">
+      <button class="btn btn-danger btn-sm pull-right" (click)="closeAdjsearchpopup()">Close</button>
+  </div>
+</p-dialog>
+<!-- SEARCH ADJUSTER END -->
+
+<!-- ADD ADJUSTER -->
+<p-dialog id="custom" [(visible)]="addAdj" [showHeader]="false" [modal]="true" [responsive]="true" [style]="{width: '900px'}"
+  [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true' [contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+  'max-height': '80vh','min-height':'250px'}">
+<form [formGroup]="NewAdjusterForm" (ngSubmit)="OnSubmitAdjusterContact()" >
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="oncloseAddAdjpop()">Close</button>
+      <h3 style="text-align: center;">New - Claim Handler Or Adjuster</h3>
+  </div>
+      <div class="ibox-content">
+      <div class="row">
+          <div class="col-md-12">
+          <div class="col-md-3">
+              <label>Title </label><input formControlName ="title" name="Title" class="form-control txtProviderTitle" id="txtProviderTitle"
+                  type="text" maxlength="45" placeholder="Title" value="">
+          </div>
+          <div class="col-md-3">
+              <label>First Name <span style="color: red;">*</span></label>
+              <input formControlName = "fName" name="FirstName" class="form-control txtProviderfirstname" id="txtProviderfirstname" type="text"
+                  maxlength="45" placeholder="First Name" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Middle Name <span style="color: red;">&nbsp;</span></label>
+              <input formControlName = "MName" name="MiddleName" class="form-control txtProviderMiddelname" id="txtProviderMiddelname" type="text" maxlength="45"
+                  placeholder="Middle Name" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Last Name <span style="color: red;">*</span></label>
+              <input formControlName = "lName" name="LastName" class="form-control txtProviderlastname" id="txtProviderlastname" type="text" maxlength="45"
+                  placeholder="Last Name" value="">
+          </div>
+      </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-12">
+          <div class="col-md-3">
+              <label>Suffix </label><input formControlName = "suffix" name="Title" class="form-control txtProviderTitle" id="txtProviderTitle"
+                  type="text" maxlength="45" placeholder="Suffix" value="">
+          </div>
+
+          <div class="col-md-3">
+              <label>Home# <span style="color: red;">*</span></label>
+              <input formControlName = "homeno" name="FirstName" class="form-control txtProviderfirstname" id="txtProviderfirstname" type="number" maxlength="14"
+                  maxlength="45" placeholder="(xxx)xxx-xxxx" value="">
+                  <span style="color: red;">Fill either Home # or Cell #</span>
+          </div>
+
+          <div class="col-md-3">
+              <label>Extn <span style="color: red;">&nbsp;</span></label><input formControlName = "exten" name="MiddleName"
+                  class="form-control txtProviderMiddelname" id="txtProviderMiddelname" type="text" maxlength="45"
+                  placeholder="" value="">
+          </div>
+          <div class="col-md-3">
+              <label>Cell#<span style="color: red;">*</span></label><input type="number" maxlength="14" formControlName = "cellno" name="LastName"
+                  class="form-control txtProviderlastname" id="txtProviderlastname" type="text" maxlength="45"
+                  placeholder="(xxx)xxx-xxxx" value="">
+          </div>
+      </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+          <div class="col-md-12">
+          <div class="col-md-4">
+              <label>Email </label><input formControlName = "email" name="Sufix" class="form-control" id="txtProvidersuffix" type="text"
+                  maxlength="45" placeholder="Email" value="">
+          </div>
+          <div class="col-md-4">
+              <label>Fax number </label><input formControlName = "fax" name="Sufix" class="form-control" id="txtProvidersuffix" type="text"
+                  maxlength="45" placeholder="Fax" value="">
+          </div>
+      </div>
+      </div>
+  </div>
+  <br>
+  <div class="ibox-content" id="dvIsYourdrsMem">
+      <div class="row">
+          <div class="col-md-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Make Member Of YourDrs ?
+              </label>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="ibox-content">
+      <div class="row">
+          <div class="col-md-12">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid" (onChange)="handleData($event)">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Complete Expanded Information
+              </label>
+          </div>
+      </div>
+      <br>
+      <div id="dvaddressgroupProvider" style="display: block;" *ngIf="ComplExpInfo">
+          <div class="row">
+              <div class="col-sm-6">
+                  <label>Address Line 1</label>
+                  <input formControlName = "addres1" name="AddressLine1" class="form-control txtProviderAddressLine1" id="txtProviderAddressLine1"
+                      type="text" maxlength="45" placeholder="Address Line 1" value="">
+              </div>
+
+              <div class="staff form-group col-sm-6">
+                  <label>Address Line 2</label><input formControlName = "addrs2" name="AddressLine2" class="form-control txtProviderAddressLine2"
+                      id="txtProviderAddressLine2" type="text" maxlength="45" placeholder="Address Line 2" value="">
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-md-4">
+                  <label>ZIP</label><input formControlName = "zip" name="PostalCode" class="form-control txtProviderZipcode ZipCodeChange"
+                      id="txtProviderZipcode" type="text" maxlength="10" placeholder="xxxxx-xxxx" value=""
+                      data-req-url="/Admin/GetCityStateFromZip" data-mask1="99999-9999"
+                      data-statefield="#ddlProviderStates" data-cityfield=".txtProviderCity">
+              </div>
+              <div class=" col-md-4 ">
+                  <label>City</label>
+                  <input formControlName = "city" name="City" class="form-control txtProviderCity" id="txtProviderCity" type="text"
+                      maxlength="80" value="">
+              </div>
+              <div class="col-md-4">
+                  <label>State</label>
+
+                  <p-dropdown formControlName = "state" styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                      placeholder="select" optionLabel="label">
+                  </p-dropdown>
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-sm-8">
+                  <label>Comments</label>
+                  <textarea formControlName = "coments" name="Comments" class="form-control txtProviderComments" id="txtProviderComments"
+                      maxlength="500" rows="2" cols="20"></textarea>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="pull-right">
+          <button type ="submit" class="pull-right btn btn-primary btnSaveMember" id="btnSaveNewProvider" href="javascript:void(0)">Save</button>
+      </div>
+  </div>
+</form>
+</p-dialog>
+<!-- ADD ADJUSTER END -->
+
+<!-- MEMBER DETAILS POPUP -->
+<p-dialog id="custom" [(visible)]="memDetails" [modal]="true" [showHeader]="false"  [responsive]="true"
+  [style]="{width: '1000px'}" [positionTop]="86" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseAdjMemDetail()">Close</button>
+      <h3 style="text-align: center; ">Member Details</h3>
+  </div>
+  <form>  </form>
+  <div class="modal-body">
+      <table class="table">
+          <tbody>
+              <tr>
+                  <td><strong>Title</strong>
+                      <br>
+                      <span id="spnPatientTitle">{{Title}}</span>
+                  </td>
+
+                  <td><strong>First Name</strong>
+                      <br>
+                      <span id="spnPatientFname">{{firstName}}</span>
+                  </td>
+
+                  <td><strong>Middle Name</strong>
+                      <br>
+                      <span id="spnPatientMname">{{middleName}}</span>
+                  </td>
+
+                  <td><strong>Last Name</strong><br>
+                      <span id="spnPatientLname">{{lastName}}</span></td>
+                  <td><strong>Gender</strong>
+                      <br>{{gender}}
+                  </td>
+              </tr>
+              <tr>
+                  <td><strong>Date of Birth</strong><br>{{dob}}</td>
+
+                  <td><strong>City</strong><br>
+                      <span>-{{city}}-</span></td>
+                  <td><strong>State</strong><br>
+                      <span style="word-wrap: break-word; display: block; width: 150px;">{{state}}</span></td>
+                  <td><strong>Email</strong><br>{{Email}}</td>
+              </tr>
+              <tr>
+                  <td>
+                      <strong>Profile Photo</strong>
+                      <br>
+                      <img class="img-responsive" src="/Images/profile/dummypic.jpg" style="width:35%">
+
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <br>
+  <br>
+</p-dialog>
+<!-- MEMBER DETAILS POPUP END -->
+
+<!-- SEARCH ORGANIZATION -->
+<p-dialog id="custom" [(visible)]="searchOrg" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrg()">Close</button>
+      <h3 style="text-align: center;">Search Organization</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-md-3">
+              <label>Name</label>
+              <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                  placeholder="Name" data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-3">
+              <label>City</label>
+              <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+                  data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-4">
+              <label>State </label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                  placeholder="select" optionLabel="label">
+              </p-dropdown>
+          </div>
+          <div class="col-md-2" style="margin-top: 20px">
+              <a href="javascript:void(0)" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember">Search</a>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row" style="margin-top:25px;">
+      <div class="col-lg-12" style="padding:0;">
+          <div class="wrapper wrapper-content " style="padding:0;">
+              <div id="dvSearchPatientPayerResults">
+              </div>
+          </div>
+      </div>
+  </div>
+</p-dialog>
+<!-- SEARCH ORGANIZATION END -->
+
+<!-- ADD EMPLOYER -->
+<p-dialog id="custom" [(visible)]="addnewOrg" [modal]="true" [showHeader]="false" [responsive]="true" [style]="{width: '900px'}"
+  [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseAddOrg()">Close</button>
+      <h3 style="text-align: center;">Add New Organization</h3>
+  </div>
+  <div class="ibox-content">
+      <div class="row">
+
+          <div class="col-lg-12">
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="ddlorgtypes">Organization Type<span style="color: #e80c4d">*</span></label>
+                      <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="OrganizationType"
+                             placeholder="select" optionLabel="label">
+                   </p-dropdown>
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtParName">Name<span style="color: #e80c4d">*</span></label>
+                      <input class="form-control" data-val="true"
+                          data-val-required="The Organization Name field is required." id="txtParName" maxlength="400"
+                          name="Name" type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtphn">Phone</label>
+                      <input class="form-control" data-mask="(999)-999-9999" id="txtphn" maxlength="15" name="phone"
+                          type="text" value="">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="txtEmail">Email</label>
+                      <input class="form-control" data-val="true"
+                          data-val-email="The email field is not a valid e-mail address." id="txtEmail" maxlength="50"
+                          name="email" type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtfax">Fax</label>
+                      <input class="form-control" data-mask="(999)-999-9999" id="txtfax" maxlength="15" name="fax"
+                          type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtadrs">Address</label>
+                      <input class="form-control" id="txtadrs" maxlength="500" name="address" type="text" value="">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="txtorgzp">ZIP</label>
+                      <input class="form-control ZipCodeChange" data-cityfield="#txtorgcity"
+                          data-statefield="#ddlOrgState" data-mask1="99999-9999"
+                          data-req-url="/Admin/GetCityStateFromZip" id="txtorgzp" maxlength="10" name="ZipCode"
+                          placeholder="xxxxx-xxxx" type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtorgcity">City</label>
+                      <input class="form-control txtorgcity" id="txtorgcity" maxlength="50" name="city" type="text"
+                          value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label>State </label>
+                      <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                          placeholder="select" optionLabel="name">
+                      </p-dropdown>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label for="txtwebsite">Website</label>
+                      <input class="form-control" id="txtwebsite" maxlength="50" name="WebSite" type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtcontact">Contact</label>
+                      <input class="form-control" id="txtcontact" maxlength="30" name="Contact" type="text" value="">
+                  </div>
+                  <div class="col-md-4">
+                      <label for="txtcontactphone">Contact Phone</label>
+                      <input class="form-control" data-mask="(999)-999-9999" id="txtcontactphone" maxlength="15"
+                          name="ContactPhone" placeholder="(xxx)-xxx-xxxx" type="text" value="">
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+
+                  <div class="col-md-8">
+                      <label for="txtcmmnts">Comments</label>
+                      <textarea class="form-control" cols="20" id="txtcmmnts" maxlength="500" name="Comments"
+                          rows="2"></textarea>
+                  </div>
+              </div>
+              <div class="row " id="" style="margin-top: 10px;">
+                  <div class=" form-group col-md-3">
+                      <label for="ddlOrganizationPractice">Practice</label>
+                      <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="Practice"
+                      placeholder="select" optionLabel="label">
+                    </p-dropdown>
+                  </div>
+                  <div class="form-group col-md-3">
+                      <label for="ddlOrganizationLocation">Location</label>
+                      <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="Location"
+                      placeholder="select" optionLabel="label">
+                    </p-dropdown>
+                  </div>
+                  <div class="form-group col-md-2" style="margin-top:25px;">
+                      <input type="button" value="Add" class="btn btn-primary btnOrganAddPracticeLoc">
+                  </div>
+              </div>
+              <table class="table table-striped table-condensed table-responsive 0 > 0 ?'':'hide'"
+                  id="tblpraLocDetails">
+                  <tbody>
+                      <tr>
+                          <th>Practice</th>
+                          <th>Location</th>
+                      </tr>
+                  </tbody>
+              </table>
+              <div>
+                  <div class="pull-right" style="margin-top: 30px">
+                      <a href="javascript:void(0)" class="btn btn-primary" id="btnSaveParOrg">Save</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</p-dialog>
+<!-- ADD EMPLOYER END -->
+
+<!-- ORGANIZATION DETAILS POPUP -->
+<p-dialog id="custom" [(visible)]="Orgdetails" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '650px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrgDetails()">Close</button>
+      <h3 style="text-align: center;">Organization Details</h3>
+  </div>
+  <div class="modal-body">
+      <table class="table">
+          <tbody>
+              <tr>
+                  <td><strong>Name</strong>
+                      <br>
+                      <span id="spnPatientFname">Ddddd</span>
+                  </td>
+                  <td><strong>Phone</strong>
+                      <br>
+                      <span id="spnPatientMname"></span>
+                  </td>
+                  <td><strong>Email</strong><br>
+                      <span></span>
+                  </td>
+                  <td><strong>Fax</strong><br>
+                      <span>-NA-</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td><strong>Address</strong><br>-NA-</td>
+                  <td><strong>City</strong><br>
+                      <span>-NA-</span></td>
+                  <td><strong>State</strong><br>
+                      <span>-NA-</span></td>
+                  <td><strong>Website</strong><br></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <br>
+  <br>
+</p-dialog>
+<!-- ORGANIZATION DETAILS POPUP END-->
+
+<!-- SEARCH SUPERVISOR -->
+<p-dialog id="custom" [(visible)]="searchSupervisor" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false"  [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseSupervisorSearch()">Close</button>
+      <h3 style="text-align: center;">Search - Supervisor Contact</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-md-3">
+              <label>Name</label>
+              <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                  placeholder="Name" data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-3">
+              <label>City</label>
+              <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+                  data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-4">
+              <label>State dfcsdfcsdf</label>
+
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                  placeholder="select" optionLabel="label">
+              </p-dropdown>
+          </div>
+          <div class="col-md-2" style="margin-top: 20px">
+              <a href="javascript:void(0)" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember">Search</a>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-lg-12">
+          <div id="dvSearchEpisodeAdminMemResult" class="dvSearchEpisodeAdminMemResult">
+          </div>
+      </div>
+  </div>
+  <hr>
+  <div class="head">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseSupervisorSearch()">Close</button>
+  </div>
+</p-dialog>
+<!-- SEARCH SUPERVISOR END -->
+
+<!-- ADD SUPERVISOR -->
+<p-dialog id="custom" [(visible)]="AddNewSupervisor" [modal]="true" [showHeader]="false" [responsive]="true" [style]="{width: '900px'}"
+  [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true' [contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+  'max-height': '80vh','min-height':'250px'}">
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseAddSupervisor()">Close</button>
+      <h3 style="text-align: center;">New - Supervisor Contact</h3>
+  </div>
+  <div class="modal-body" id="dvPralocmemid">
+      <div class="ibox-content">
+      <div class="row">
+          <div class="col-md-12">
+              <label>Select Organization  <span style="color: red;">*</span></label>
+              <div class="input-group">
+                  <input name="LocationName" disabled="disabled" class="form-control" id="txtProviderPractice"
+                      type="text" value="" data-pra-id="">
+                  <span class="input-group-addon"><a title="Search Member" class="fa fa-eye fa-3"
+                          href="javascript:void(0)" (click)="OnOpenOrgDetails()"></a></span>
+                  <span class="input-group-addon"><a title="Search Member" class="fa fa-search"
+                          href="javascript:void(0)" (click)=" OnsearchOrg()"></a></span>
+                  <span class="input-group-addon"><a title="Add New Member" class="fa fa-plus"
+                          href="javascript:void(0)"></a></span>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <br />
+  <div class="ibox-content">
+      <div class="row">
+          <div class="col-sm-2">
+              <label>Title </label><input name="Title" class="form-control txtProviderTitle" id="txtProviderTitle"
+                  type="text" maxlength="45" placeholder="Title" value="">
+          </div>
+          <div class="col-sm-3">
+              <label>First Name <span style="color: red;">*</span></label>
+              <input name="FirstName" class="form-control txtProviderfirstname" id="txtProviderfirstname" type="text"
+                  maxlength="45" placeholder="First Name" value="">
+          </div>
+
+          <div class="col-sm-2">
+              <label>Middle Name <span style="color: red;">&nbsp;</span></label><input name="MiddleName"
+                  class="form-control txtProviderMiddelname" id="txtProviderMiddelname" type="text" maxlength="45"
+                  placeholder="Middle Name" value="">
+          </div>
+          <div class="col-sm-3">
+              <label>Last Name <span style="color: red;">*</span></label><input name="LastName"
+                  class="form-control txtProviderlastname" id="txtProviderlastname" type="text" maxlength="45"
+                  placeholder="Last Name" value="">
+          </div>
+
+          <div class="col-md-2">
+              <label>Suffix </label><input name="Sufix" class="form-control" id="txtProvidersuffix" type="text"
+                  maxlength="45" placeholder="Suffix" value="">
+          </div>
+
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-sm-3" id="litOffice">
+              <label>Office # </label><input name="WorkPhone" class="form-control txtProviderPhoneNumber"
+                  id="txtProviderPhoneNumber" type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value=""
+                  data-mask="(999)999-9999">
+              <span style="color: red;">Fill either Office # or Cell #</span>
+          </div>
+          <div class=" col-sm-3" id="litExtension">
+              <label>Extension </label><input name="Extension" class="form-control txtproviderExtension"
+                  id="txtproviderExtension" type="text" maxlength="5" placeholder="xxxxx" value="">
+          </div>
+          <div class="col-sm-3" id="litCell">
+              <label>Cell # </label><input name="CellNumber" class="form-control txtProviderCellNumber"
+                  id="txtProviderCellNumber" type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value=""
+                  data-mask="(999)999-9999">
+          </div>
+          <div class="col-sm-3" id="litEmail">
+              <label>Email </label><input name="Email" class="form-control txtProvideremail" id="txtProvideremail"
+                  type="text" maxlength="100" placeholder="Email" value="">
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Is Arbitraion Attorney
+              </label>
+          </div>
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp;Is Litigation Attorney
+              </label>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="ibox-content" id="dvIsYourdrsMem">
+      <div class="row">
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Make Member Of YourDrs ?
+              </label>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="ibox-content">
+      <div id="dvaddressgroupProvider" style="display: block;">
+          <div class="row">
+              <div class="staff form-group col-sm-4">
+                  <label>Address Line 1</label>
+                  <input name="AddressLine1" class="form-control txtProviderAddressLine1" id="txtProviderAddressLine1"
+                      type="text" maxlength="45" placeholder="Address Line 1" value="">
+              </div>
+
+              <div class="staff form-group col-sm-4">
+                  <label>Address Line 2</label><input name="AddressLine2" class="form-control txtProviderAddressLine2"
+                      id="txtProviderAddressLine2" type="text" maxlength="45" placeholder="Address Line 2" value="">
+              </div>
+
+              <div class="staff form-group col-sm-4">
+                  <label>Suite#</label><input name="AddressLine2" class="form-control txtProviderAddressLine2"
+                      id="txtProviderAddressLine2" type="text" maxlength="45" placeholder="Address Line 2" value="">
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-md-3">
+                  <label>ZIP</label><input name="PostalCode" class="form-control txtProviderZipcode ZipCodeChange"
+                      id="txtProviderZipcode" type="text" maxlength="10" placeholder="xxxxx-xxxx" value=""
+                      data-req-url="/Admin/GetCityStateFromZip" data-mask1="99999-9999"
+                      data-statefield="#ddlProviderStates" data-cityfield=".txtProviderCity">
+              </div>
+              <div class=" col-md-3 ">
+                  <label>City</label>
+                  <input name="City" class="form-control txtProviderCity" id="txtProviderCity" type="text"
+                      maxlength="80" value="">
+              </div>
+              <div class="col-md-3">
+                  <label>State </label>
+                  <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                      placeholder="select" optionLabel="label">
+                  </p-dropdown>
+              </div>
+              <div class="col-sm-3">
+                  <label>Fax #</label><input name="Fax" class="form-control txtProviderFax" id="txtProviderFax"
+                      type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value="" data-mask="(999)999-9999">
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-md-12">
+                  <label>Comments</label>
+                  <textarea name="Comments" class="form-control txtProviderComments" id="txtProviderComments"
+                      maxlength="500" rows="2" cols="20"></textarea>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="row">
+      <div class="col-sm-12 pull-right">
+          <a class="pull-right btn btn-primary btnSaveMember" id="btnSaveNewProvider" href="javascript:void(0)"
+              data-post-url="/Patient/AddNewProvider" data-roleid="2"
+              data-getmatchingmembers-url="/Patient/GetMatchingMembersForAddNewReferralSourceMember"
+              data-matchingdata-updatecontainer="#dvMatchingMember" data-orgid="9" data-memberid=""
+              data-existingpracticelocid="">Save</a>
+      </div>
+  </div>
+</p-dialog>
+<!-- ADD SUPERVISOR END -->
+
+<!-- SUPERVISOR DETAILS POPUP -->
+<p-dialog id="custom" [(visible)]="Supervisordetails" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '650px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrgDetails()">Close</button>
+      <h3 style="text-align: center;">Supervisor Details</h3>
+  </div>
+  <div class="modal-body">
+      <table class="table">
+          <tbody>
+              <tr>
+                  <td><strong>Name</strong>
+                      <br>
+                      <span id="spnPatientFname">Ddddd</span>
+                  </td>
+                  <td><strong>Phone</strong>
+                      <br>
+                      <span id="spnPatientMname"></span>
+                  </td>
+                  <td><strong>Email</strong><br>
+                      <span></span>
+                  </td>
+                  <td><strong>Fax</strong><br>
+                      <span>-NA-</span>
+                  </td>
+              </tr>
+              <tr>
+                  <td><strong>Address</strong><br>-NA-</td>
+                  <td><strong>City</strong><br>
+                      <span>-NA-</span></td>
+                  <td><strong>State</strong><br>
+                      <span>-NA-</span></td>
+                  <td><strong>Website</strong><br></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <br>
+  <br>
+</p-dialog>
+<!-- SUPERVISOR DETAILS POPUP END-->
+
+<!-- HR ADD POPUP -->
+<p-dialog id="custom" [(visible)]="AddNewHR" [modal]="true" [showHeader]="false" [responsive]="true" [style]="{width: '900px'}"
+  [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'[contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+  'max-height': '80vh','min-height':'250px'}">
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseAddHR()">Close</button>
+      <h3 style="text-align: center;">New - HR Contact</h3>
+  </div>
+  <div class="modal-body" id="dvPralocmemid">
+      <div class="ibox-content">
+      <div class="row">
+          <div class="col-md-12">
+              <label>Select Organization  <span style="color: red;">*</span></label>
+              <div class="input-group">
+                  <input name="LocationName" disabled="disabled" class="form-control" id="txtProviderPractice"
+                      type="text" value="" data-pra-id="">
+                  <span class="input-group-addon"><a title="Search Member" class="fa fa-eye fa-3"
+                          href="javascript:void(0)" (click)="OnOpenOrgDetails()"></a></span>
+                  <span class="input-group-addon"><a title="Search Member" class="fa fa-search"
+                          href="javascript:void(0)" (click)=" OnsearchOrg()"></a></span>
+                  <span class="input-group-addon"><a title="Add New Member" class="fa fa-plus"
+                          href="javascript:void(0)"></a></span>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <br />
+  <div class="ibox-content">
+      <div class="row">
+          <div class="col-sm-2">
+              <label>Title </label><input name="Title" class="form-control txtProviderTitle" id="txtProviderTitle"
+                  type="text" maxlength="45" placeholder="Title" value="">
+          </div>
+          <div class="col-sm-3">
+              <label>First Name <span style="color: red;">*</span></label>
+              <input name="FirstName" class="form-control txtProviderfirstname" id="txtProviderfirstname" type="text"
+                  maxlength="45" placeholder="First Name" value="">
+          </div>
+
+          <div class="col-sm-2">
+              <label>Middle Name <span style="color: red;">&nbsp;</span></label><input name="MiddleName"
+                  class="form-control txtProviderMiddelname" id="txtProviderMiddelname" type="text" maxlength="45"
+                  placeholder="Middle Name" value="">
+          </div>
+          <div class="col-sm-3">
+              <label>Last Name <span style="color: red;">*</span></label><input name="LastName"
+                  class="form-control txtProviderlastname" id="txtProviderlastname" type="text" maxlength="45"
+                  placeholder="Last Name" value="">
+          </div>
+
+          <div class="col-md-2">
+              <label>Suffix </label><input name="Sufix" class="form-control" id="txtProvidersuffix" type="text"
+                  maxlength="45" placeholder="Suffix" value="">
+          </div>
+
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-sm-3" id="litOffice">
+              <label>Office # </label><input name="WorkPhone" class="form-control txtProviderPhoneNumber"
+                  id="txtProviderPhoneNumber" type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value=""
+                  data-mask="(999)999-9999">
+              <span style="color: red;">Fill either Office # or Cell #</span>
+          </div>
+          <div class=" col-sm-3" id="litExtension">
+              <label>Extension </label><input name="Extension" class="form-control txtproviderExtension"
+                  id="txtproviderExtension" type="text" maxlength="5" placeholder="xxxxx" value="">
+          </div>
+          <div class="col-sm-3" id="litCell">
+              <label>Cell # </label><input name="CellNumber" class="form-control txtProviderCellNumber"
+                  id="txtProviderCellNumber" type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value=""
+                  data-mask="(999)999-9999">
+          </div>
+          <div class="col-sm-3" id="litEmail">
+              <label>Email </label><input name="Email" class="form-control txtProvideremail" id="txtProvideremail"
+                  type="text" maxlength="100" placeholder="Email" value="">
+          </div>
+      </div>
+      <br>
+      <div class="row">
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Is Arbitraion Attorney
+              </label>
+          </div>
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp;Is Litigation Attorney
+              </label>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="ibox-content" id="dvIsYourdrsMem">
+      <div class="row">
+          <div class="form-group col-sm-4">
+              <label class="radio-inline i-checks">
+                  <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                      <div class="ui-chkbox ui-widget" >
+                          <div class="ui-helper-hidden-accessible">
+                              <input type="checkbox" >
+                          </div>
+                      </div>
+                  </p-checkbox>
+                  &nbsp; Make Member Of YourDrs ?
+              </label>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="ibox-content">
+      <div id="dvaddressgroupProvider" style="display: block;">
+          <div class="row">
+              <div class="staff form-group col-sm-4">
+                  <label>Address Line 1</label>
+                  <input name="AddressLine1" class="form-control txtProviderAddressLine1" id="txtProviderAddressLine1"
+                      type="text" maxlength="45" placeholder="Address Line 1" value="">
+              </div>
+
+              <div class="staff form-group col-sm-4">
+                  <label>Address Line 2</label><input name="AddressLine2" class="form-control txtProviderAddressLine2"
+                      id="txtProviderAddressLine2" type="text" maxlength="45" placeholder="Address Line 2" value="">
+              </div>
+
+              <div class="staff form-group col-sm-4">
+                  <label>Suite#</label><input name="AddressLine2" class="form-control txtProviderAddressLine2"
+                      id="txtProviderAddressLine2" type="text" maxlength="45" placeholder="Address Line 2" value="">
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-md-3">
+                  <label>ZIP</label><input name="PostalCode" class="form-control txtProviderZipcode ZipCodeChange"
+                      id="txtProviderZipcode" type="text" maxlength="10" placeholder="xxxxx-xxxx" value=""
+                      data-req-url="/Admin/GetCityStateFromZip" data-mask1="99999-9999"
+                      data-statefield="#ddlProviderStates" data-cityfield=".txtProviderCity">
+              </div>
+              <div class=" col-md-3 ">
+                  <label>City</label>
+                  <input name="City" class="form-control txtProviderCity" id="txtProviderCity" type="text"
+                      maxlength="80" value="">
+              </div>
+              <div class="col-md-3">
+                  <label>State </label>
+                  <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                      placeholder="select" optionLabel="label">
+                  </p-dropdown>
+              </div>
+              <div class="col-sm-3">
+                  <label>Fax #</label><input name="Fax" class="form-control txtProviderFax" id="txtProviderFax"
+                      type="text" maxlength="10" placeholder="(xxx)xxx-xxxx" value="" data-mask="(999)999-9999">
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+              <div class=" col-md-12">
+                  <label>Comments</label>
+                  <textarea name="Comments" class="form-control txtProviderComments" id="txtProviderComments"
+                      maxlength="500" rows="2" cols="20"></textarea>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br />
+  <div class="row">
+      <div class="col-sm-12 pull-right">
+          <a class="pull-right btn btn-primary btnSaveMember" id="btnSaveNewProvider" href="javascript:void(0)"
+              data-post-url="/Patient/AddNewProvider" data-roleid="2"
+              data-getmatchingmembers-url="/Patient/GetMatchingMembersForAddNewReferralSourceMember"
+              data-matchingdata-updatecontainer="#dvMatchingMember" data-orgid="9" data-memberid=""
+              data-existingpracticelocid="">Save</a>
+      </div>
+  </div>
+</p-dialog>
+<!-- HR ADD POPUP END -->
+
+<!-- SEARCH HR -->
+<p-dialog id="custom" [(visible)]="searchHR" [showHeader]="false" [modal]="true" [responsive]="true"
+  [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false"  [blockScroll]='true'>
+  <div class="modal-header">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseHRSearch()">Close</button>
+      <h3 style="text-align: center;">Search - HR Contact</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-md-3">
+              <label>Name</label>
+              <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                  placeholder="Name" data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-3">
+              <label>City</label>
+              <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+                  data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-4">
+              <label>State dfcsdfcsdf</label>
+              <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                  placeholder="select" optionLabel="label">
+              </p-dropdown>
+          </div>
+          <div class="col-md-2" style="margin-top: 20px">
+              <a href="javascript:void(0)" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember">Search</a>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-lg-12">
+          <div id="dvSearchEpisodeAdminMemResult" class="dvSearchEpisodeAdminMemResult">
+          </div>
+      </div>
+  </div>
+  <hr>
+  <div class="head">
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseSupervisorSearch()">Close</button>
+  </div>
+</p-dialog>
+<!-- SEARCH HR END -->
+
+<div id="PayerSection" class="PayerSection" style="background-color: rgb(69, 78, 92); color: white; padding: 20px; display: block;" *ngIf="NJPipINS">
+
+  <div class="row">
+      <div class="col-md-2  insurancecontrol NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label>
+              Claim #
+          </label>
+          <input class="form-control inputPatientPayerInfo txtClaimNumber scheduleAppointmentControls" id="txtClaimNumber" maxlength="20" name="PatientPayer.EpisodePatientPayerDetails.ClaimNumber" type="text" value="">
+      </div>
+      <div class="col-md-2 EffectiveFrom insurancecontrol NJPIPNYNF CommercialInsurance Liability" style="margin-top: 1%; display: block;">
+          <label>Effective From </label>
+          <input bsDatepicker class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date." id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text" value="">
+      </div>
+      <div class="col-md-2 ExpirationDate insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" style="margin-top: 1%; display: block;">
+          <label>
+              Expiration Date
+          </label>
+          <input bsDatepicker class="input-xlarge form-control expdate datepicker  inputPatientPayerInfo txtExpireDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field ExpirationDate must be a date." id="txtExpireDatetobereplaced" name="PatientPayer.ExpirationDate" placeholder="mm/dd/yyyy" style="z-index:9999999 !important;" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured" style="margin-top: 1%; display: block;">
+          <label>Relationship to Insured</label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="RelationshipDrop"
+          placeholder="select" optionLabel="label">
+      </p-dropdown>
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC Liability CommercialInsurance" id="InsuranceStatus" style="margin-top: 1%; display: block;">
+          <label>
+              Status
+          </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatusDrop"
+          placeholder="select" optionLabel="label">
+      </p-dropdown>
+
+      </div>
+      <div class="col-md-2 Insuranceid insurancecontrol CommercialInsurance NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label id="lblSchdAppoInsuranceId">Policy #</label>
+          <input class="form-control scheduleAppointmentControls" id="txtSchAppInsuId" maxlength="20" name="PatientPayer.InsuranceId" type="text" value="">
+      </div>
+
+      <div class="col-md-3 Priority insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance Liability" id="Priority" style="margin-top: 1%; display: block;margin-right: 691px;">
+          <label>
+              Priority
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo " data-val="true" data-val-number="The field PriorityId must be a number." id="1" name="PatientPayer.PriorityId" type="radio" value="1">
+              Primary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="2" name="PatientPayer.PriorityId" type="radio" value="2">
+              Secondary
+          </label>&nbsp;
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="3" name="PatientPayer.PriorityId" type="radio" value="3">
+              Tertiary
+          </label>
+      </div>
+
+  <div class="row">
+      <div id="dvadjuster " class="insurancecontrol NJPIPNYNF NJWCNYWC" style="display: block;">
+          <div class="col-md-4" style="margin-top: 1%">
+
+              <label>Adjuster</label>
+              <div class="input-group adjusterview">
+                  <input class="form-control txtSChClaimHandlerMem" data-mem-id=""  data-roleid="7" disabled="disabled" id="txtSChClaimHandlerMem" name="EpisodeInjuryDetail.ClaimHandlerMemberName" style="background-color: transparent; display: none;" type="text" value="">
+                  <div id="txtSChClaimHandlerMem_tagsinput" class="tagsinput SchedAppoadjusterTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                    <span  *ngIf="searchicon" class="tag">
+                      <span><span><span class="memberdetail">{{firstName}} {{middleName}} {{lastName}} </span></span>&nbsp;&nbsp;</span>
+                              <a (click)="closeadjSearchContactags(firstName)" title="Removing tag">x</a></span>
+                      <div id="txtSChClaimHandlerMem_addTag">
+                          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                          <input id="txtSChClaimHandlerMem_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select adjuster" placeholder="select adjuster" class="ui-autocomplete-input" autocomplete="off">
+                      </div>
+                          <div class="tags_clear">
+
+                          </div>
+                      </div>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" id="btnViewPatClaimHandlerDetails"  title="View Details" class="fa fa-eye fa-3 viewmemberdetails" (click)="OnAddadjDetailView()">
+                      </a>
+                  </span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-search srchadjuster" title="Search Members"  (click)="adjSearchPop()">
+                      </a>
+                  </span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-plus addnewclaimhandlermember" title="Add New Member" (click)="OnAddAdjPop()">
+                      </a>
+              </span>
+              </div>
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Contact Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterContactNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Extension</label>
+              <input type="text" class="form-control scheduleAppointmentControls txtOnlyNumber" id="adjusterPhoneExtension" maxlength="10" disabled="disabled">
+
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Fax Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterFaxNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Email</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterEmail" disabled="disabled">
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC" style="margin-top: 1%; display: block;">
+          <label>Payer</label>
+          <div class="input-group">
+              <input class="form-control inputPatientPayerInfo tagsPatientPayer" data-payerid="" id="txtSchPayerName" name="txtPayerName" type="text" value="" style="display: none;">
+              <div id="txtSchPayerName_tagsinput" class="tagsinput SchedAppoPayerTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                <span *ngFor="let item of selectedPayerarr" class="tag">
+                  <span><span><span class="memberdetail">{{item.PayerName}} ( {{item.State}} - {{item.City}} - {{item.Zip}} )</span></span>&nbsp;&nbsp;</span>
+                          <a (click)="closepayertags(item)" title="Removing tag">x</a></span>
+                <div id="txtSchPayerName_addTag">
+                  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible">
+                  </span>
+                  <input id="txtSchPayerName_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select payer" placeholder="select payer" class="ui-autocomplete-input" autocomplete="off"></div><div class="tags_clear"></div></div>
+              <span class="field-validation-valid" data-valmsg-for="PatientPayer.PayerId" data-valmsg-replace="true"></span>
+              <span class="input-group-addon">
+                  <a href="javascript:void(0)" id="lnkSelectPayer" class="fa fa-search" (click)="opensearch1()">
+                  </a>
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC financialsts" style="margin-top: 1%; display: block;">
+          <label><b>Financial Status</b></label>
+          <br>
+          <div class="col-md-2">
+              <label>Policy Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number" style="color: white;"  [(ngModel)]="policyAmt" value=" " class="form-control txtOnlyDecimal inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtPolicyamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Approximate Spent Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="number"  style="color: white;"  [(ngModel)]="ApproxAmt" value="" class="form-control txtOnlyDecimal  inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtApprxamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Balance</label>
+              <br>
+              <span class="spnbalanceamt dollar" style="padding-left: 2px; padding-bottom: 20px;">$ {{policyAmt-ApproxAmt}}
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row " id="dvmonthwiseinsurancelist">
+  </div>
+  <br>
+  <br>
+</div>
+</div>
+
+<div id="PayerSection" class="PayerSection" style="background-color: rgb(69, 78, 92); color: white; padding: 20px; display: block;" *ngIf="AutoAccidentINS">
+
+  <div class="row">
+      <div class="col-md-2  insurancecontrol NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label>
+              Claim #
+          </label>
+          <input class="form-control inputPatientPayerInfo txtClaimNumber scheduleAppointmentControls" id="txtClaimNumber" maxlength="20" name="PatientPayer.EpisodePatientPayerDetails.ClaimNumber" type="text" value="">
+      </div>
+
+      <div class="col-md-2 EffectiveFrom insurancecontrol NJPIPNYNF CommercialInsurance Liability" style="margin-top: 1%; display: block;">
+          <label>Effective From </label>
+          <input bsDatepicker class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date." id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text" value="">
+      </div>
+      <div class="col-md-2 ExpirationDate insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" style="margin-top: 1%; display: block;">
+          <label>
+              Expiration Date
+          </label>
+          <input bsDatepicker  class="input-xlarge form-control expdate datepicker  inputPatientPayerInfo txtExpireDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field ExpirationDate must be a date." id="txtExpireDatetobereplaced" name="PatientPayer.ExpirationDate" placeholder="mm/dd/yyyy" style="z-index:9999999 !important;" type="text" value="">
+      </div>
+
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" id="RelationToInsured" style="margin-top: 1%; display: block;">
+          <label>Relationship to Insured</label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="RelationshipDrop"
+          placeholder="select" optionLabel="label">
+      </p-dropdown>
+      </div>
+      <div class="col-md-2 insurancecontrol NJPIPNYNF NJWCNYWC Liability CommercialInsurance" id="InsuranceStatus" style="margin-top: 1%; display: block;">
+          <label>
+              Status
+          </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatusDrop"
+          placeholder="select" optionLabel="label">
+      </p-dropdown>
+      </div>
+      <div class="col-md-2 Insuranceid insurancecontrol CommercialInsurance NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label id="lblSchdAppoInsuranceId">Policy #</label>
+          <input class="form-control scheduleAppointmentControls" id="txtSchAppInsuId" maxlength="20" name="PatientPayer.InsuranceId" type="text" value="">
+      </div>
+      <div class="col-md-2  insurancecontrol NJPIPNYNF" style="margin-top: 1%; display: block;">
+          <label>
+              State
+          </label>
+          <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="stateName"
+          placeholder="select" optionLabel="label">
+      </p-dropdown>        </div>
+
+      <div class="col-md-2 EffectiveFrom insurancecontrol NJPIPNYNF CommercialInsurance Liability" style="margin-top: 1%; display: block;">
+          <label>City </label>
+          <input class="input-xlarge form-control datepicker  inputPatientPayerInfo txtEffectiveDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field EffectiveFrom must be a date." id="PatientPayer_EffectiveFrom" name="PatientPayer.EffectiveFrom" placeholder="mm/dd/yyyy" type="text" value="">
+      </div>
+      <div class="col-md-2 ExpirationDate insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance" style="margin-top: 1%; display: block;">
+          <label>
+              Other Information
+          </label>
+          <input class="input-xlarge form-control expdate datepicker  inputPatientPayerInfo txtExpireDate scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-date="The field ExpirationDate must be a date." id="txtExpireDatetobereplaced" name="PatientPayer.ExpirationDate" placeholder="mm/dd/yyyy" style="z-index:9999999 !important;" type="text" value="">
+      </div>
+
+      <div class="col-md-3 Priority insurancecontrol NJPIPNYNF NJWCNYWC CommercialInsurance Liability" id="Priority" style="margin-top: 1%; display: block;">
+          <label>
+              Priority
+          </label>
+          <br>
+          <label class="btn btn-primary btn-xs">
+
+              <input class="styled inputPatientPayerInfo " data-val="true" data-val-number="The field PriorityId must be a number." id="1" name="PatientPayer.PriorityId" type="radio" value="1">
+
+              Primary
+          </label>
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="2" name="PatientPayer.PriorityId" type="radio" value="2">
+              Secondary
+          </label>
+
+          <label class="btn btn-primary btn-xs">
+              <input class="styled inputPatientPayerInfo" id="3" name="PatientPayer.PriorityId" type="radio" value="3">
+              Tertiary
+          </label>
+      </div>
+  </div>
+
+  <div class="row">
+      <div id="dvadjuster " class="insurancecontrol NJPIPNYNF NJWCNYWC" style="display: block;">
+          <div class="col-md-4" style="margin-top: 1%">
+
+              <label>Adjuster</label>
+              <div class="input-group adjusterview">
+                  <input class="form-control txtSChClaimHandlerMem" data-mem-id="" data-req-url="/Admin/SearchEpisodeMembers_Tags" data-roleid="7" disabled="disabled" id="txtSChClaimHandlerMem" name="EpisodeInjuryDetail.ClaimHandlerMemberName" style="background-color: transparent; display: none;" type="text" value="">
+                  <div id="txtSChClaimHandlerMem_tagsinput" class="tagsinput SchedAppoadjusterTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                    <span  *ngIf="searchicon" class="tag">
+                      <span><span><span class="memberdetail">{{firstName}} {{middleName}} {{lastName}} </span></span>&nbsp;&nbsp;</span>
+                              <a (click)="closeadjSearchContactags(firstName)" title="Removing tag">x</a></span>
+                    <div id="txtSChClaimHandlerMem_addTag">
+                      <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                    <input id="txtSChClaimHandlerMem_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select adjuster" placeholder="select adjuster" class="ui-autocomplete-input" autocomplete="off"></div><div class="tags_clear"></div></div>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" id="btnViewPatClaimHandlerDetails" title="View Details" class="fa fa-eye fa-3 viewmemberdetails"  (click)="OnAddadjDetailView()"></a></span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-search srchadjuster" data-orgtypeid="4" data-roleid="7" title="Search Members" (click)="adjSearchPop()">
+                      </a>
+                  </span>
+                  <span class="input-group-addon">
+                      <a href="javascript:void(0)" class="fa fa-plus addnewclaimhandlermember" title="Add New Member" (click)="OnAddAdjPop()">
+                      </a>
+                  </span>
+              </div>
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Contact Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterContactNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Extension</label>
+              <input type="text" class="form-control scheduleAppointmentControls txtOnlyNumber" id="adjusterPhoneExtension" maxlength="10" disabled="disabled">
+
+          </div>
+
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Fax Number</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterFaxNumber" maxlength="10" data-mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" disabled="disabled">
+          </div>
+          <div class="col-md-2" style="margin-top: 1%">
+              <label>Email</label>
+              <input type="text" class="form-control scheduleAppointmentControls" id="adjusterEmail" disabled="disabled">
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC" style="margin-top: 1%; display: block;">
+          <label>Payer</label>
+          <div class="input-group">
+              <input class="form-control inputPatientPayerInfo tagsPatientPayer"  id="txtSchPayerName" name="txtPayerName" type="text" value="" style="display: none;">
+              <div id="txtSchPayerName_tagsinput" class="tagsinput SchedAppoPayerTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                <span *ngFor="let item of selectedPayerarr" class="tag">
+                  <span><span><span class="memberdetail">{{item.PayerName}} ( {{item.State}} - {{item.City}} - {{item.Zip}} )</span></span>&nbsp;&nbsp;</span>
+                          <a (click)="closepayertags(item)" title="Removing tag">x</a></span>
+                <div id="txtSchPayerName_addTag">
+                  <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                  <input id="txtSchPayerName_tag" style="width: 100px; color: rgb(102, 102, 102);" value="" data-default="select payer" placeholder="select payer" class="ui-autocomplete-input" autocomplete="off"></div><div class="tags_clear"></div></div>
+              <span class="field-validation-valid" data-valmsg-for="PatientPayer.PayerId" data-valmsg-replace="true"></span>
+              <span class="input-group-addon">
+                  <a href="javascript:void(0)" id="lnkSelectPayer" class="fa fa-search" (click)="opensearch1()"></a></span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-12 Payer insurancecontrol Liability NJPIPNYNF CommercialInsurance NJWCNYWC financialsts" style="margin-top: 1%; display: block;">
+          <label><b>Financial Status</b></label>
+          <br>
+          <div class="col-md-2">
+              <label>Policy Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="text" value=" " style="color: white;"  [(ngModel)]="policyAmt"  class="form-control txtOnlyDecimal inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtPolicyamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Approximate Spent Amount</label>
+              <div class="input-group">
+                  <span class="input-group-addon noborderinput" style="background-color: #36cb95; color: white;">$</span>
+                  <input type="text" value="" style="color: white;"  [(ngModel)]="ApproxAmt"  class="form-control txtOnlyDecimal  inputPatientPayerInfo financialstatus scheduleAppointmentControls" id="txtApprxamount" maxlength="15">
+
+              </div>
+          </div>
+          <div class="col-md-2">
+              <label>Balance</label>
+              <br>
+              <span class="spnbalanceamt dollar" style="padding-left: 2px; padding-bottom: 20px;">$ {{policyAmt-ApproxAmt}}
+              </span>
+          </div>
+      </div>
+  </div>
+
+  <div class="row " id="dvmonthwiseinsurancelist">
+
+  </div>
+  <br>
+  <br>
+</div>
+
+<div id="PayerSection" class="PayerSection" style="background-color: rgb(69, 78, 92); color: white; padding: 20px; display: block;" *ngIf="SelfINS">
+
+  <div class="row">
+      <div class="col-md-2 insurancecontrol SelfPayInsurance" style="margin-top: 1%;">
+          <label>
+              Self Pay Amount
+          </label>
+          <input class="txtAmount form-control scheduleAppointmentControls inputPatientPayerInfo  txtSelfPayAmount" data-val="true" data-val-number="The field SelfPayAmount must be a number." id="txtSelfPayAmount" maxlength="15" name="PatientPayer.SelfPayAmount" type="text" value="">
+      </div>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div id="dvAccidentIncInfoBelowAddNewIns">
+</div>
+<br>
+<a href="javascript:void(0)" class="btn btn-success pull-right hide  btncommoncomplete"> Complete</a>
+<a *ngIf="isEdit == true" href="javascript:void(0)" class="btn btn-primary pull-right" style="margin-right:8px" id="btnNextAddNewSheduleAppointmentInsuranceType" >Next</a>
+<a *ngIf="isEdit == true" href="javascript:void(0)" style="margin-right: 10px" class="btn btn-warning pull-right  btnPreviousWidget" id="">Previous</a>
+</div>
+</div>
+</div>
+
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>

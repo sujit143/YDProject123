@@ -1,0 +1,24 @@
+[
+  {
+    "Id": 1,
+    "Name": "Flemington Neuro",
+    "PatientId": 1,
+    "PracticeId":1
+
+  }, {
+    "Id": 2,
+    "Name": "54 DEAN",
+    "PatientId": 2,
+    "PracticeId":2
+  }, {
+    "Id": 3,
+    "Name": "38 Astoria",
+    "PatientId": 3,
+    "PracticeId":3
+  }, {
+    "Id": 4,
+    "Name": "100A Liv Brooklyn",
+    "PatientId": 4,
+    "PracticeId":4
+  }
+]

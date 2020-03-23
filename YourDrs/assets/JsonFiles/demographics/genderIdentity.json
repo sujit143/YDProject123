@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "name": "Male"
+  },
+  {
+    "Id": 2,
+    "name": "Female"
+  },
+  {
+    "Id": 3,
+    "name": "Female-to-Male (FTM)/Transgender Male/Trans Man"
+  },
+  {
+    "Id": 4,
+    "name": "Male-to-Female (MTF)/Transgender Female/Trans Woman"
+  },
+  {
+    "Id": 5,
+    "name": "Additional gender category or other, please specify"
+  }
+]

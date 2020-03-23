@@ -1,0 +1,22 @@
+@import "~../../../assets/CSS/plugins.css";
+@import "~../../../assets/CSS/Bundle-Layout.css";
+
+
+a:not([href]) {
+  color: #FFFFFF;
+}
+.drop-seleted-btn {
+  height: fit-content;
+  color: white;
+}
+.horizontal-line{
+  margin-top: 5px!important;
+  border-top: 2px solid gray;
+}
+.input-md {
+  display: none;
+}
+.custompagination{
+  margin-bottom: 58px;
+  margin-right: 57px;
+}

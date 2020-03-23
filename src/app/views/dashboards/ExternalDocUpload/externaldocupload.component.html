@@ -1,0 +1,216 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+ <div>
+   <ul class="nav nav-tabs" >
+     <li class="active liTitle">
+       <a class="padTitle"><i class="fa fa-file"></i> Documents Details </a>
+     </li>
+   </ul>
+ </div>
+ <div class="ui-g ui-fluid">
+
+    <div  class="ui-g-12 ui-md-6 ui-lg-2">
+      <span>
+        <label>Originating Practice</label>
+        <p-dropdown id="pwsdropdown"  [options]="practiceData" optionLabel="name"
+
+          filter="true" (onChange)="origisePractice($event)"
+          ></p-dropdown>
+      </span>
+    </div>
+    <div  class="ui-g-12 ui-md-6 ui-lg-2">
+      <span>
+        <label>Originating Location</label>
+        <p-dropdown id="pwsdropdown" [options]="locationData" optionLabel="Name"
+           filter="true"   >
+        </p-dropdown>
+      </span>
+    </div>
+    <div  class="ui-g-12 ui-md-6 ui-lg-2">
+      <span>
+        <label>Treating Provider</label>
+        <p-dropdown id="pwsdropdown" [options]="providerData" optionLabel="name"
+          filter="true"  >
+        </p-dropdown>
+      </span>
+    </div>
+     <div  class="ui-g-12 ui-md-6 ui-lg-2">
+      <label>Patient FirstName</label>
+      <input type="text" id="txtPatientfirstnameSearch" class="input-medium form-control textbox-search-onenterkey"
+        placeholder="Patient FirstName"  maxlength="45">
+    </div>
+    <div  class="ui-g-12 ui-md-6 ui-lg-2">
+      <label>Patient LastName</label>
+      <input type="text" id="txtPatientlastnameSearch" class="input-medium form-control textbox-search-onenterkey"
+        placeholder="Patient LastName"  maxlength="45">
+    </div>
+    <div  class="ui-g-12 ui-md-6 ui-lg-2" id="liDOB" >
+          <span>
+        <label>Patient DOB</label>
+        <input type="text" class="form-control" placeholder="mm/dd/yyy" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker       >
+      </span>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-2 mt-4">
+      <p-checkbox label="Is Emergency addon"></p-checkbox>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-2">
+      <span>
+        <label>Document Type</label>
+        <p-dropdown id="pwsdropdown" [options]="documentData"  optionLabel="name"
+           filter="true"
+           >
+        </p-dropdown>
+            </span>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <a  href="javascript:void(0) " class="btn btn-primary " (click)="searchDocuments()">Search</a>
+      <a   href="javascript:void(0) "  class="btn btn-primary " (click)="onUpload()">Upload External Document</a>
+    </div>
+
+  </div>
+ <div class="ui-g-12 ui-md-12 ui-lg-12 mt-4">
+<p-table [value]="ListOfData" [paginator]="true" [rows]="8"  [responsive]="true" [scrollable]="true">
+  <ng-template pTemplate="header" >
+      <tr>
+        <th class="tabledHeader">Originated practise </th>
+        <th class="tabledHeader">Originated Location </th>
+        <th class="tabledHeader">Treating Provider </th>
+        <th class="tabledHeader">Patient Name </th>
+        <th class="tabledHeader"> Patient DOB </th>
+        <th class="tabledHeader"> External Document Type </th>
+        <th class="tabledHeader"> Document Description </th>
+        <th class="tabledHeader"> Status </th>
+        <th class="tabledHeader"> Is Emergency addon </th>
+        <th class="tabledHeader"> Created By </th>
+        <th class="tabledHeader"> Created Date </th>
+        <th class="tabledHeader"> Mode </th>
+        <th class="tabledHeader"> Consolidated Document </th>
+        <th class="tabledHeader"> Actions </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-upload>
+      <tr >
+          <td class="tdLines"><span class="ui-column-title">Originated practise</span>{{upload.originatedpractise}}</td>
+          <td class="tdLines"><span class="ui-column-title">Originated Location</span>{{upload.originatedlocation}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Treating Provider</span>{{upload.treatingprovider}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Patient Name</span>{{upload.patientname}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Patient DOB </span>{{upload.patientdob}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Document Type</span>{{upload.externaldocumenttype}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Document Description </span>{{upload.documentdescription}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Status</span>{{upload.status}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Is Emergency addon</span>{{upload.isemergencyaddon}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Created By</span>{{upload.createdby}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Created Date</span>{{upload.createddate}}</td>
+          <td  class="tdLines"><span class="ui-column-title">Mode</span>{{upload.mode}}</td>
+          <td  class="tdLines text-center" ><span class="ui-column-title"> Consolidated Document</span>
+            <i class="fa fa-file"  ></i>
+          </td>
+          <td  class="tdLines"><span class="ui-column-title">Actions</span>
+           <p-dropdown
+           id="actionId_{{upload.id}}"
+            [options]="checkstatus"
+            placeholder="Actions"
+            optionLabel="name"
+            [(ngModel)] = 'upload.status'
+            (onChange)='changestatus(upload)'
+            styleClass="drop">
+          </p-dropdown>
+      </td>
+      </tr>
+  </ng-template>
+</p-table>
+</div>
+<p-dialog id="addExtDocument" [closable]="false" [(visible)]="documentDisplay" [modal]="true"
+[draggable]="false" blockScroll ="false" [resizable]="false"><br><br>
+<p-header>
+  <div class="head">
+    <a href="javascript:void(0)" class="btn btn-danger btn-sm pull-right"
+      (click)="closeDocumentpop()">close</a>
+    <h5 class="popupHeading">Add External Document</h5>
+  </div>
+</p-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form)" >
+    <div formArrayName="docDetails"  *ngFor="let docUpload of form.get('docDetails')['controls']; let i = index" class="ui-g ui-fluid">
+      <ng-container [formGroupName]="i">
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <span>
+            <label>Originating Practice</label>
+            <p-dropdown formControlName="practice" id="pwsdropdown" [options]="practiceData" optionLabel="name"
+
+              ></p-dropdown>
+          </span>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <span>
+            <label>Originating Location</label>
+            <p-dropdown formControlName="location" id="pwsdropdown" [options]="locationData" optionLabel="Name"
+             filter="true"   >
+            </p-dropdown>
+          </span>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <span>
+            <label>Treating Provider</label>
+            <p-dropdown  formControlName="provider" id="pwsdropdown" [options]="providerData" optionLabel="name"
+               filter="true"  >
+            </p-dropdown>
+          </span>
+        </div>
+         <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <label>Patient FirstName</label>
+          <input type="text" formControlName="firstName" id="txtPatientfirstnameSearch" class="input-medium form-control textbox-search-onenterkey"
+            placeholder="Patient FirstName"  maxlength="45">
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <label>Patient LastName</label>
+          <input type="text" formControlName="lastName" id="txtPatientlastnameSearch" class="input-medium form-control textbox-search-onenterkey"
+            placeholder="Patient LastName"  maxlength="45">
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2" id="liDOB" >
+              <span>
+            <label>Patient DOB</label>
+            <input type="text" formControlName="patientDOB" class="form-control" placeholder="mm/dd/yyy" [minDate]="minDate" [maxDate]="maxDate" #dp="bsDatepicker" bsDatepicker       >
+          </span>
+        </div>
+
+        <div class="ui-g-12 ui-md-6 ui-lg-2 mt-4">
+          <p-checkbox  formControlName="emgAddon"  label="Is Emergency addon"></p-checkbox>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <span>
+            <label>Document Type<span class="text-danger">*</span></label>
+            <p-dropdown id="pwsdropdown" formControlName="docType" [options]="documentData"  optionLabel="name"
+              filter="true"
+        >
+            </p-dropdown>
+          </span>
+        </div>
+        <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <label>Document Description</label>
+          <input type="text" formControlName="docDesc" id="txtPatientlastnameSearch" class="input-medium form-control textbox-search-onenterkey"
+            placeholder="Document Description" maxlength="45"  >
+        </div>
+        </ng-container>
+    </div>
+
+      <br><br>
+
+      <div class="row col-md-12">
+        <label>Add New Attachment<span class="text-danger">*</span></label>
+      </div>
+           <div class="image-upload-wrap">
+        <input class="file-upload-input" id= "test" (input)="onSelectFile($event)" formControlName="addAttachment" type='file'  />
+        <div class="drag-text">
+          <i  class="fa fa-cloud-upload" ></i>
+          <h5 class="Drop-files">Drop files here or click to upload.</h5>
+        </div>
+      </div>
+
+    <p-footer>
+      <div class="text-right">
+        <button type="submit" class="btn btn-sm btn-primary">Save</button>
+
+    </div>
+    </p-footer>
+  </form>
+</p-dialog>

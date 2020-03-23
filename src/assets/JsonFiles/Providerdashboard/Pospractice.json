@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "PosPractice": "HEMA",
+    "PosPracticeId": 1
+  }, {
+    "Id": 2,
+    "PosPractice": "Eaglewood Hospital",
+    "PosPracticeId": 2
+  }, {
+    "Id": 3,
+    "PosPractice": "PWMG",
+    "PosPracticeId": 3
+  }
+]

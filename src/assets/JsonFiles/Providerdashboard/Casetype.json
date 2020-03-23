@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "CaseType": "Worker Compensation's",
+    "CaseTypeId": 1
+  }, {
+    "Id": 2,
+    "CaseType": "Liability",
+    "CaseTypeId": 2
+  }, {
+    "Id": 3,
+    "CaseType": "NJ PIP",
+    "CaseTypeId": 3
+  }
+]

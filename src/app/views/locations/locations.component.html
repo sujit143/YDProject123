@@ -1,0 +1,135 @@
+<div class="container-fluid">
+</div>
+
+<section class="title-bar">
+  <div class="title-bar-table">
+      <div class="title-bar-table-cell">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6 col-6">
+                    <h2 class="text-white" >Locations</h2>
+                    <!-- <h2 class="text-white" *ngIf="queryparams">{{name}}</h2> -->
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6 col-6">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<div style="background: #f9f9f9 !important;padding-top: 30px;">
+    <div class="container2 mgt50">
+        <div style="background: #fff; padding: 30px;">
+            <div class="row"></div>
+            <agm-map [latitude]="Lattitude" [longitude]="Longitude" [zoom]="6" [disableDefaultUI]="true"
+                [zoomControl]="true" [fullscreenControl]="true" [gestureHandling]="'coopeative'" [scrollwheel]= "null">
+
+                <agm-marker *ngFor="let loc of officehours;  let i = index" [latitude]="loc.Lattitude"
+                    [longitude]="loc.Longitude" [iconUrl]="iconpath">
+                    <agm-info-window>
+                        <strong>{{loc.Address}}</strong><br>
+                        <strong>{{loc.City}}</strong><br>
+                        <strong>{{loc.State}}</strong><br>
+                        <strong>{{loc.Country}}</strong><br>
+                        <strong>{{loc.Zipcode}}</strong>
+                    </agm-info-window>
+                </agm-marker>
+            </agm-map>
+            <br>
+            <br>
+
+            <div class="row location-sec1 pdt50">
+
+                <div class="col-md-12">
+                  <div class="container"  *ngIf="spinnerdisplay">
+                    <div class="d-flex justify-content-center">
+                      <div class="spinner-border  text-info" style="width: 5rem; height: 5rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row" *ngIf="!spinnerdisplay">
+                        <div class="col-lg-6">
+                            <h3>New Jersey</h3>
+                            <div class="row">
+                                <ul class="list-unstyled ">
+                                    <li *ngFor="let item of officehours"><span class="span1" *ngIf="item.State != 'NY'"
+                                            (click)="showDialog1(item)">{{item.Location}}</span></li>
+                                </ul>
+                            </div>
+                        </div><br><br><br><br><br><br><br>
+                        <div class="col-lg-6" id="new">
+                            <h3>New York</h3>
+                            <div class="row">
+                                <ul class="list-unstyled">
+                                    <li *ngFor="let item of officehours"><span class="span1" *ngIf="item.State != 'NJ'"
+                                            (click)="showDialog1(item)">{{item.Location}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!----------------- Location Modal Pop Up ---------------------------------->
+    <p-dialog id="location"  [(visible)]="display" [modal]="true" [responsive]="true"  [positionTop]="60"
+        [style]="{width: '500px', height: '700px'}" [closable]="false" [draggable]="false">
+        <p-header style="height:50px;">
+            <span class="loc" style="font-size: 20px roboto; color:#07244B;font-family: sans-serif;font-weight: 600;">
+                Location-{{selectedLocation.Location}}</span><br>
+            <span class="pull-right">
+                <button type="button" class="close closeBodypart" (click)="functionToCloseDialog()"
+                    data-dismiss="modal">×</button>
+            </span>
+        </p-header>
+
+        <p>
+            <span style="font-size: 19px; color:#07244B;font-family: sans-serif;font-weight: bold">
+                {{selectedLocation.City}}</span><br>
+            <span style="font-size: 19px roboto; color:#07244B;font-family: sans-serif;">{{selectedLocation.Address}}</span><br><br>
+            <agm-map [latitude]="selectedLocation.Lattitude" [longitude]="selectedLocation.Longitude" [zoom]="zoom"
+                [disableDefaultUI]="true" [zoomControl]="true" [fullscreenControl]="true" [gestureHandling]="'coopeative'" [scrollwheel]= "null">
+
+                <agm-marker [latitude]="selectedLocation.Lattitude" [longitude]="selectedLocation.Longitude"
+                    [iconUrl]="selectedLocation.iconUrl">
+
+                    <agm-info-window>
+                        <strong>{{selectedLocation.Address}}</strong><br>
+                        <strong>{{selectedLocation.City}}</strong><br>
+                        <strong>{{selectedLocation.State}}</strong><br>
+                        <strong>{{selectedLocation.Country}}</strong><br>
+                        <strong>{{selectedLocation.Zipcode}}</strong><br>
+                    </agm-info-window>
+                </agm-marker>
+            </agm-map>
+        </p>
+        <br>
+        <span style="font-size: 150%; color:#07244B;font-family:sans-serif;font-weight: bold;"> Call:<h5
+                class="list-inline-item">{{selectedLocation.PhoneNumber}}</h5></span><br>
+        <span style="font-size: 150%; color:#07244B; font-family: sans-serif; font-weight: bold;"> Fax:<h5
+                class="list-inline-item">{{selectedLocation.Fax}}</h5></span><br><br><br>
+        <a class="btn btn-primary btn-block" class="specialeffects" role="button"
+            (click)="openReqPopup()"><label>Request an Appointment</label></a><br><br>
+    </p-dialog>
+    <p-dialog blockScroll="false" id="whrHurt"  [closable]="false" [modal]="true"
+            [responsive]="true" [baseZIndex]="10000" [style]="{width: '1200px', height: '200px'}" [positionTop]="60">
+            <p-header>
+                <div class="container">
+                    <div class="row float-right">
+                    </div>
+                </div>
+            </p-header>
+            <span class="pull-right">
+                <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal">
+                    ×</button>
+            </span>
+            <div class="container">
+                <app-reqappointment></app-reqappointment>
+            </div>
+        </p-dialog>
+</div>

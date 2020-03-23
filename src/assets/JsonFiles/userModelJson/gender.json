@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "Name":"Male"
+  },
+  {
+    "Id": 2,
+    "Name":"Female"
+
+  },
+  {
+    "Id": 3,
+    "Name":"unknown"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "label": "Authorization Request",
+    "value": "Authorization Request"
+  },
+  {
+    "id": 2,
+    "label": "Appointment Request",
+    "value": "Appointment Request"
+  },
+  {
+    "id": 3,
+    "label": "General",
+    "value": "General"
+  },
+{
+    "id": 4,
+    "label": "Diagnostic Request",
+    "value": "Diagnostic Request"
+  },
+{
+    "id": 4,
+    "label": "Billing",
+    "value": "Billing"
+  },
+{
+    "id": 5,
+    "label": "Collection",
+    "value": "Collection"
+  }
+]

@@ -1,0 +1,40 @@
+[
+    {
+        "id":1,
+        "name":"New Century Spine",
+        "city":"Somerville",
+        "state":"NJ"
+        
+    },
+    {
+        "id":2,
+        "name":"Montefiore Medical Center1",
+        "city":"Englewood",
+        "state":"MA"
+        
+    },
+    {
+        "id":3,
+        "name":"Montefiore Medical Center @ Montefiore",
+        "city":"New York",
+        "state":"NJ"
+        
+    },
+    {
+        "id":4,
+        "name":"39 East 69th Street",
+        "city":"Sterling",
+        "state":"NY"
+       
+    },
+
+    {
+        "id":5,
+        "name":"54 DEAN",
+        "city":"Paramus",
+        "state":"NJ"
+       
+    }
+
+
+]

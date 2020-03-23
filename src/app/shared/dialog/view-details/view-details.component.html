@@ -1,0 +1,41 @@
+<table class="table" *ngIf="showViewDetails">
+  <tbody>
+    <tr *ngFor="let item of ViewDetailsArr">
+      <td><strong>Title</strong>
+        <br>
+        <span id="spnPatientTitle">{{item.Title}}</span>
+      </td>
+      <td><strong>First Name</strong>
+        <br>
+        <span id="spnPatientFname">{{item.FirstName}}</span>
+      </td>
+      <td><strong>Middle Name</strong>
+        <br>
+        <span id="spnPatientMname">{{item.MiddleName}}</span>
+      </td>
+      <td><strong>Last Name</strong><br>
+        <span id="spnPatientLname">{{item.LastName}}</span>
+      </td>
+      <td><strong>Gender</strong>
+        <br>{{item.Gender}}
+      </td>
+    </tr>
+    <tr *ngFor="let item of ViewDetailsArr">
+      <td><strong>Date of Birth</strong><br>{{item.DateOfBirth}}</td>
+      <td><strong>City</strong><br>
+        <span>{{item.Location}}</span>
+      </td>
+      <td><strong>State</strong><br>
+        <span style="word-wrap: break-word; display: block; width: 150px;">{{item.State}}</span>
+      </td>
+      <td><strong>Email</strong><br>{{item.Email}}</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Profile Photo</strong>
+        <br>
+        <img class="img-responsive" src="assets/Images/article2.jpg" style="width:35%">
+      </td>
+    </tr>
+  </tbody>
+</table>

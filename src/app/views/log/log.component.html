@@ -1,0 +1,263 @@
+<!-- Login Form -->
+
+<div *ngIf="display">
+  <form [formGroup]="login" (ngSubmit)="onLoginSubmit()">
+    <div class="modal-body" style="padding: 0rem; margin-top: 18px;">
+      <ul class="menu-dropdown" style="list-style: none;">
+        <li>
+
+          <div class="row" style="margin: 0px !important;">
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="book-frm">
+                <div class="form-group">
+
+                  <input  formControlName="user_name" autofocus="true" class="form-control" id="UserName" maxlength="60" name="UserName"
+                    placeholder="Email" style="border-radius: 20px;height: 40px;    font-size: initial;" type="text" value="">
+                    <label *ngIf="login.get('user_name').hasError('required') && !login.get('user_name').pristine" class="text"><span style="color:red">Username is required</span></label>
+
+                </div>
+                <div class="form-group">
+
+                  <input class=" form-control"  formControlName="user_password" data-val="true"
+                    data-val-required="The Password field is required." id="Password" maxlength="20" name="Password"
+                    placeholder="Password" style="border-radius: 20px;height: 40px;    font-size: initial;" type="password">
+                    <label *ngIf="login.get('user_password').hasError('required') && !login.get('user_password').pristine" class="text"><span style="color:red">Password is required</span></label>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+
+              <div class="row">
+                <div class="col-sm-12" style="color: white; ">
+                  <a id="btnForgotPassword" data-updatecontainer="#resetpassword"
+                    style="font-size: 10pt; line-height: 10pt; background: none!important; border: none; padding: 0!important; cursor: pointer; text-align: left; color: #404040; font-weight: 600;" (click)="forgetpassword()">Forgot
+
+                    password?</a>
+                </div>
+                <div class="col-sm-12" style="color: white;">
+                  <a id="btnCreateRegister"  style="font-size: 9pt; line-height: 10pt; background: none!important; border: none; padding: 0!important;cursor: pointer; text-align: left; color:#404040; font-weight: 600;"(click)="signin()">NEW
+                    USER?
+                    REQUEST ACCESS</a>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-md-5"> <input type="submit" id="btnLoginSubmit" style="float:right" value="Sign In"
+                class="btn btn-secondary "></div>
+          </div>
+          <div class="row">
+          </div>
+          <div>
+
+          </div>
+          <div>
+
+          </div>
+          <input id="ReturnUrl" name="ReturnUrl" type="hidden" value="">
+
+          <input id="hddLoginErrorMsg" name="hddLoginErrorMsg" type="hidden" value="">
+
+
+        </li>
+        <li></li>
+      </ul>
+    </div>
+  </form>
+
+
+</div>
+
+
+
+<!-- Forget Password -->
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
+<div >
+  <p-dialog  id="custom" [positionTop]="50" header="Reset Password" [(visible)]="forget" [modal]="true"
+    [responsive]="true"  [style]="{width: '510px', minWidth: '410px',top:'30px'}" [minY]="70" [baseZIndex]="10" [positionTop]="10"
+    [draggable]="false" [closable]="false">
+    <p-header>
+      <span class="pull-right">
+        <button class="btn-lg" (click)="closeForgetDialog()" style="color: white;background-color: #3495B6;
+        border-color: #3495B6;"><b>X</b></button>
+      </span>
+    </p-header>
+    <form [formGroup]="ForgotPwdForm" (ngSubmit)="onforgetpassword(ForgotPwdForm)">
+      <div class="modal-body forgo " style="line-height: 2; padding:10px 30px 0px 30px;">
+        <div class="alert alert-danger hide d-none" id="dvresetpassworderror"></div>
+        <div class="alert alert-success hide d-none" id="dvresetpasswordsuccess"></div>
+        <div id="dvresetpassword">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                           <label style="font-weight: 600;color: #07244b;font-size: 16px;">Enter your registered email address<span style="color: red">*</span></label>
+
+
+<br>
+                        <input type="text" formControlName="Email" name="emailaddres" class="form-control"  maxlength="60" style="width: 100%;border: 1px solid #9799BF;border-radius: 0px;height: 46px;">
+                        <label *ngIf="ForgotPwdForm.get('Email').hasError('required') && !ForgotPwdForm.get('Email').pristine"
+                        class="text"><span style="color:red">Email is required</span></label>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" style="padding: 24px 31px 37px 30px;border-top:0px;">
+
+      <button href="javascript:;" class="btn btn-secondary1" style="-moz-border-radius:0px;
+-webkit-border-radius:0px;
+border-radius:0px; width:100%;  padding:10px 15px;    font-size: 16px;
+font-weight: 600 !important;
+border: 0px;" >Continue</button>
+
+
+
+  </div>
+
+    </form>
+  </p-dialog>
+</div>
+
+<!-- New Users -->
+
+<p-dialog  header="Request Access" [(visible)]="nuser" id="signup" [modal]="true" [responsive]="true"
+  [style]="{width:'800px', minwidth:'500px'}" [minY]="60" [baseZIndex]="10" [positionTop]="10" [draggable]="false" [closable]="false">
+  <p-header>
+    <span class="pull-right">
+      <button class="btn-lg" (click)="closeregisterDialog()" style="color: white;background-color: #3495B6;
+      border-color: #3495B6;"><b>X</b></button>
+    </span>
+  </p-header>
+  <form [formGroup]="newuser" (ngSubmit)="onNewUserSubmit(newuser)">
+    <div class="modal-body access-req" style="padding:12px 18px 18px 18px;">
+
+      <div class="row">
+        <div class="col-md-4">
+          <label class="lab1">I am a </label><br>
+          <select class="form-control" style="width: 100%;border: 1px solid #9799BF;border-radius: 0px;height: 46px;    font-family: sans-serif;
+          font-size: initial;color:black;
+          line-height: inherit;">
+            <option value="">Select</option>
+            <option value="Attorney">Attorney</option>
+            <option value="Physician">Physician</option>
+            <option value="Payor">Payor</option>
+            <option value="Carrier">Carrier</option>
+            <option value="Employer">Employer</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label class="lab1"style="">Full Name<span style="color: red;">*</span></label><br>
+          <input  formControlName="fname" class="form-control inputbox" maxlength="75"
+            type="text">
+          <label *ngIf="newuser.get('fname').hasError('required') && !newuser.get('fname').pristine" class="text"><span
+              style="color:red">Fullname is required</span></label>
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Date Of Birth</label><br>
+          <input  formControlName="dob" class="form-control inputbox" placeholder="mm/dd/yyyy"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Gender<span style="color: red">*</span></label>
+          <br>
+          <select class="form-control" style="width: 100%;border: 1px solid #9799BF;border-radius: 0px;height: 46px;    font-family: sans-serif;
+          font-size: initial;color:black;
+          line-height: inherit;">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label class="lab1">Cell</label><br>
+          <input  formControlName="cell" class="form-control inputbox" maxlength="10"
+            placeholder="(xxx)xxx-xxxx" type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Specialty</label><br>
+          <input  formControlName="speciality" class="form-control inputbox" maxlength="50"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Email<span style="color: red">*</span></label><br>
+          <input  formControlName="email" class="form-control inputbox" maxlength="75"
+            name="Email" type="email">
+          <label *ngIf="newuser.get('email').hasError('required') && !newuser.get('email').pristine" class="text"><span
+              style="color:red">email is required</span></label>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <label class="lab1">Practice / Healthcare Facility</label><br>
+          <input  formControlName="practice" class="form-control inputbox" maxlength="75"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Work Phone</label><br>
+          <input  formControlName="wphone" class="form-control inputbox" maxlength="20"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">Address</label><br>
+          <input  formControlName="address" class="form-control inputbox" maxlength="110"
+            type="text">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label class="lab1">City</label><br>
+          <input  formControlName="city" class="form-control inputbox" maxlength="50"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">State</label><br>
+          <input  formControlName="state" class="form-control inputbox" maxlength="50"
+            type="text">
+
+        </div>
+        <div class="col-md-4">
+          <label class="lab1">ZIP</label><br>
+          <input formControlName="zip" class="form-control inputbox" maxlength="15"
+            name="ZipCode" placeholder="xxxxx" type="text">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-6 pull-right">
+
+          <button href="javascript:void(0)" class="btn btn-sm btn-warning" id="btnSaveRequestAccess" style="-moz-border-radius:0px;
+              -webkit-border-radius:0px;
+              border-radius:0px; width:150px;  padding:10px 15px;    font-size: 16px;
+                  font-weight: 600 !important;
+                  border: 0px;" data-post-url="/Account/RequestForRegister">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</p-dialog>

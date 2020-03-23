@@ -1,0 +1,201 @@
+<div id="dvEpisodeDetails_dvEmergencyContactsSection" class="" aria-expanded="true">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Authorized Representative/Emergency Contact
+        </h4>
+        <hr class="horizontal-line">
+        <div id="dvEmergencyContact">
+          <a (click)="openDialog('emergencyContact')" id="btnAddNewConatact" class="btn btn-primary pull-right">Add
+            New</a>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Relationship with Patient
+                </th>
+                <th>Contact Number</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contact of contactsData">
+                <td>{{contact.FirstName}}</td>
+                <td>
+                  {{contact.RelationshipType}}
+                </td>
+                <td>
+                  <div *ngFor="let item of contact.Phone">
+                    <div *ngIf="item.PhoneType === ''; else isPhoneType">
+                      --Not Assigned--
+                    </div>
+                    <ng-template #isPhoneType>
+                      <div >
+                        {{item.PhoneType}}: {{item.PhoneNumber}}<span *ngIf="item.Extension">-{{item.Extension}}</span>
+                      </div>
+                    </ng-template>
+                  </div>
+                </td>
+                <td>
+                  <a (click)="openDialog('emergencyContact',contact)"
+                    class="btn btn-warning btn-sm pull-right ">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="RecordsCount pull-right" style="margin-top:-17px">
+            <span class="label pagerInfo">Total Items <strong>{{contactDataLength}}</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog [(visible)]="emergencyContact" [modal]="true" [blockScroll]="true" [(closeOnEscape)]="haltEscapeDialogClose"
+  [responsive]="true" [draggable]="false" [closable]="false" id="customDialog">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('emergencyContact')">Close</a>
+      <h3 class="dialog-title">Authorized Representative/Emergency Contact
+      </h3>
+    </div>
+  </p-header>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row ui-g ui-fluid">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+          <form [formGroup]="contactForm">
+            <div class="row">
+              <div class="col-md-6 ui-g-12 ui-md-6 ui-lg-4">
+                <label>First Name <span class="mandatoryBorder">*</span></label>
+                <input class="form-control" data-val="true" data-val-required="The First Name field is required."
+                  id="txtEmrFirstName" maxlength="200" name="FirstName" type="text" formControlName="FirstName">
+              </div>
+              <div class="col-md-6 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Last Name <span class="mandatoryBorder">*</span></label>
+                <input class="form-control" data-val="true" data-val-required="The Last Name field is required."
+                  id="txtEmrLastName" maxlength="200" name="LastName" type="text" formControlName="LastName">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-6 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Address Line1 </label>
+                <input class="form-control"  maxlength="500" type="text"
+                  formControlName="AddressLine1">
+              </div>
+              <div class="col-md-6 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Address Line2 </label>
+                <input class="form-control" maxlength="500" type="text"
+                  formControlName="AddressLine2">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>ZIP</label>
+                <p-inputMask mask="99999-9999" placeholder="xxxxx-xxxx" formControlName="Zip"></p-inputMask>
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>City</label>
+                <input class="form-control" id="txtEmrCity" maxlength="100" name="City" type="text"
+                  formControlName="City">
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>State</label>
+                <p-dropdown [options]="statesOpt" placeholder="select" filter="true" formControlName="State">
+                </p-dropdown>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Email <span class="mandatoryBorder">*</span></label>
+                <input class="form-control" data-val-email="The Email Address field is not a valid e-mail address."
+                  id="txtEmrEmailAddress" maxlength="120" name="EmailAddress" type="text" formControlName="Email">
+              </div>
+              <div class="col-md-4 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Relationship Types<span class="mandatoryBorder">*</span></label>
+                <p-dropdown [options]="relationOpt" placeholder="select" filter="true" formControlName="RelationshipType">
+                </p-dropdown>
+              </div>
+            </div>
+            <br>
+            <h3>Contact Info</h3>
+            <hr>
+            <div class="form-group row" [formGroup]="ContactInfoForm">
+              <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Phone Type <span class="mandatoryBorder">*</span></label>
+                <div>
+                  <p-dropdown [options]="phoneOpt" (onChange)="onSelectPhoneType($event)" placeholder="select" filter="true" formControlName="PhoneType">
+                  </p-dropdown>
+                </div>
+              </div>
+              <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showOtherPhoneType" >
+                <label>Other Phone Type </label>
+                <input class="form-control" maxlength="100" type="text" formControlName="OtherPhoneType">
+              </div>
+              <div class="col-md-3 ui-g-12 ui-md-6 ui-lg-4">
+                <label>Phone # <span class="mandatoryBorder">*</span></label>
+                <p-inputMask mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" formControlName="PhoneNumber">
+                </p-inputMask>
+              </div>
+              <div class="col-md-2 ui-g-12 ui-md-6 ui-lg-4" *ngIf="showExtensionControl" >
+                <label>Extn</label>
+                <input class="form-control" maxlength="6" type="text" formControlName="Extension">
+              </div>
+              <div class="col-md-1 ui-g-12 ui-md-2 ui-lg-2">
+                <br>
+                <a type="button" class="btn-sm btn-primary" style="margin-top: 4px;margin-right: 10px;" (click)="addNewContactInfo()">{{btnTitle}}</a>
+              </div>
+              <div *ngIf="btnTitle=='Update'" class="col-md-1 ui-g-12 ui-md-2 ui-lg-2">
+                <br>
+                <a class="btn-sm btn-danger" style="margin-top: 4px;" type="button" (click)="resetForm()">Cancel</a>
+              </div>
+            </div>
+            <div class="form-group row" id="dvEmergencyPhoneDtlsContainer">
+              <table class="table table-striped table-condensed table-responsive">
+                <tbody>
+                  <tr>
+                    <th>Phone Type</th>
+                    <th>Phone #</th>
+                  </tr>
+                  <tr *ngFor="let contactInfo of contactFormInfoArr; let i=index">
+                    <td *ngIf="contactInfo.OtherPhoneType;else phoneType">{{contactInfo.OtherPhoneType}}</td>
+                    <ng-template #phoneType><td>{{contactInfo.PhoneType}}</td></ng-template>
+                    <td>{{contactInfo.PhoneNumber}} <span>-{{contactInfo.Extension}}</span></td>
+                    <td>
+                      <a class="btn btn-primary" (click)="onFormEdit(contactInfo,'Update',i)">Edit</a>
+                      <a class="btn btn-danger p-l-sm" (click)="onFormDelete(contactInfo,i)">Delete</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-md-12 ui-g-12 ui-md-12 ui-lg-12">
+                <label>Comments</label>
+                <textarea class="form-control" cols="20" id="txtEmrComments" maxlength="2000" name="Comments" rows="2"
+                  formControlName="Comments"></textarea>
+              </div>
+            </div>
+            <br>
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="modal-footer">
+      <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+      <a class="btn btn-danger" (click)="closeDialog('emergencyContact')">Cancel</a>
+    </div>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,608 @@
+
+
+
+<div class="panel blank-panel" style="background: #969696; border: none; border-radius: 0px;">
+    <div class="row wrapper border-bottom white-bg page-heading" style="background: none; padding: 0px;">
+        <div class="col-sm-10" style="color: #FFF;">
+            <h2 style="margin: 10px 0px 10px 20px; font-size: 20px;font-weight: 100;">Schedule An Appointment
+            </h2>
+        </div>
+    </div>
+</div>
+
+
+<div class="ibox float-e-margins" style="margin: 10px;">
+    <div class="ibox-content">
+        <div class="row clsCaseNumberPatientName hide" *ngIf="!demo">
+            <div class="col-md-3" >
+                <h4>Patient Name : <span id="headerPatientName">{{details.value.patientname}},{{general.value.lastname}}</span></h4>
+            </div>
+            <div class="col-md-3">
+                <h4>Case Number : <span id="headerCaseNumber"></span></h4>
+            </div>
+        </div>
+        <div class="row tabscontainer">
+            <div class="col-md-2 tbs tbswidth " style="width: 170px !important" [ngClass]="demo || Exist || notexist? 'tabActive h3' : ''" id="TabDemographics" (click)="Demo()" >
+                <h3><span class="badge badge-warning">P1</span>&nbsp;Demographics <span id="spnTabDemographics" style="margin-right: 10px;"></span></h3>
+            </div>
+            <div class="col-md-2 tbs tbswidth " id="TabInsurance" (click)="Ins()" [ngClass]="memo ? 'tabActive h3' : ''">
+                <h3><span class="badge badge-warning">P2</span>&nbsp;Insurance <span id="spnTabInsurance" style="margin-right: 10px;"></span></h3>
+
+
+            </div>
+            <div class="col-md-2 tbs tbswidth" id="TabAppointments" (click)="AppointmentsTab()" [ngClass]="appntmns ? 'tabActive h3' : ''" >
+                <h3><span class="badge badge-warning">P3</span>&nbsp;Appointments <span id="spnTabAppointments" style="margin-right: 10px;"></span></h3>
+            </div>
+            <!-- <div class="col-md-2 tbs hide" id="TabSurgery">
+                <h3><span class="badge badge-warning">P4</span>&nbsp;Surgery</h3>
+            </div> -->
+            <div class="col-md-2 tbs tbswidth" id="TabReferralSource" (click)="ReferralSourceTab()" [ngClass]="reffsource ? 'tabActive h3' : ''">
+                <h3><span class="badge badge-warning">P4</span>&nbsp;Referral Source</h3>
+            </div>
+            <div class="col-md-2 tbs tbswidth" id="TabDocuments"(click)="DocumentsTab()" [ngClass]="documents ? 'tabActive h3' : ''">
+                <h3><span class="badge badge-warning">P5</span>&nbsp;Documents<span id="spnTabDocuments" style="margin-right: 10px;"></span></h3>
+            </div>
+            <div class="col-md-2 tbs tbswidth" id="TabCareTeam"(click)="CareTeamTab()" [ngClass]="careteam ? 'tabActive h3' : ''">
+                <h3><span class="badge badge-warning">P6</span>&nbsp;Care Team<span id="spnTabCareTeam" style="margin-right: 10px;"></span></h3>
+            </div>
+            <div class="col-md-2 tbs " style="width: 174px" id="TabCaseMemo"(click)="AppointmentmemoTab()" [ngClass]="apptmemo ? 'tabActive h3' : ''">
+                <h3><span class="badge badge-warning">P7</span>&nbsp;Appointment Memo</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="ibox float-e-margins tabpages" id="dvPatientInfo" *ngIf="demo">
+    <div class="ibox-title">
+        <h5>Enter Patient Information</h5>
+    </div>
+
+
+    <div class="ibox-content" style="padding-left: 15px; padding-right: 15px; padding-top: 0px; padding-bottom: 0px;">
+        <div class="row" style="background-color: #454e5c; color: white; padding: 20px;">
+
+            <div class="col-md-12">
+                <form [formGroup]="details" (ngSubmit)="SearchPatient(searchInput.value)">
+<div class="col-md-2">
+    <label>Patient Name <span style="color: red">*</span></label>
+    <input #searchInput formControlName="patientname"  style="color: white;" class="form-control  scheduleAppointmentControls " maxlength="100" minlength="2"  placeholder="Patient Name" type="text" value="">
+
+</div>
+
+
+<div class="col-md-2">
+    <label>Patient DOB</label>
+    <input bsDatepicker style="color: white;" class="form-control datepicker ScApptxtEpsPtDOB scheduleAppointmentControls textbox-search-onenterkey hasDatepicker" data-enterkey-pressed="#btnCheckForExistingPatientScheduleAppointment" data-mask="99/99/9999" id="ScApptxtEpsPtDOB" maxlength="100" name="EpisodePatient.DOB" placeholder="mm/dd/yyyy" type="text" value="">
+</div>
+<div class="col-md-2">
+    <label>Phone <span class="hide" id="spnptphone" style="color:red">*</span></label>
+    <input style="color: white;" class="form-control scheduleAppointmentControls textbox-search-onenterkey" phoneMask
+      id="tel" placeholder="(xxx)xxx-xxxx"  [preValue]="details.value.phone"  [phoneControl]="details.controls['phone']"
+     formControlName="phone" maxlength="14" [ngClass]="(details.controls['phone'].invalid)? 'errmsg' : 'validmsg'">
+
+</div>
+<div class="col-md-3">
+    <label>Email</label>
+    <input formControlName="email" style="color: white;" type="text" id="txtScAppEpsptEmail" maxlength="100" class="form-control scheduleAppointmentControls textbox-search-onenterkey" data-enterkey-pressed="#btnCheckForExistingPatientScheduleAppointment" placeholder="Email">
+    <label class="alert alert-danger" *ngIf="details.get('email').hasError('email')">Email
+        is invalid.</label>
+</div>
+<div class="col-md-2">
+    <!-- <p-growl [(value)]="msgs"></p-growl> -->
+    <p-toast [style]="{ marginTop: '80px' }"></p-toast>
+    <button *ngIf="!checked" type="submit" id="btnCheckForExistingPatientScheduleAppointment"  class="btn btn-primary btnprocessing" style="margin-top: 25px;">Continue</button>
+</div>
+</form>
+</div>
+
+
+<div class="col-md-12">
+  <form [formGroup]="callerdetails" (ngSubmit)="openCallerDetails()">
+<br>
+  <h3>Caller Details</h3>
+<hr>
+
+<div class="col-md-2">
+    <label>Name <span class="hide" id="spncallername" style="color:red" *ngIf="checked">*</span></label>
+    <input formControlName="callername" style="color: white;" autocomplete="off" class="form-control scheduleAppointmentControls" id="ScApptxtEpsCallername" maxlength="100" minlength="2" name="EpisodePatient.FirstName" placeholder="Caller Name" type="text" value="">
+</div>
+<div class="col-md-2">
+    <label>Phone <span class="hide" id="spncallerPhone" style="color:red" *ngIf="checked">*</span></label>
+    <input style="color: white;" id="tel" class="form-control scheduleAppointmentControls" phoneMask
+    [preValue]="callerdetails.value.phoneno"
+    [phoneControl]="callerdetails.controls['phoneno']" formControlName="phoneno"
+    maxlength="14"
+    [ngClass]="(callerdetails.controls['phoneno'].invalid)? 'errmsg' : 'validmsg'"
+    placeholder="(xxx)xxx-xxxx" >
+
+
+</div>
+<div class="col-md-2">
+    <label>Relationship to Patient <span class="hide" id="spncallerRelationship" style="color:red"*ngIf="checked">*</span></label>
+    <p-dropdown
+    styleClass="input-md formcontrol chosen-select"
+    filter="true"
+    [options]="Relationshiptopat" formControlName="relation"
+    placeholder="select"
+    optionLabel="label"
+    [autoWidth]="true">
+</p-dropdown>
+
+</div>
+
+<div class="col-md-1" style="margin-top:24px;">
+    <span>
+        <input style="color: white;" type="checkbox" value="true" name="chkCallPatientBookApp" id="chkCallPatientBookApp" class="form-control chkCallPatientBookApp" style="zoom:50%;" (change)="OnPatCheckbox($event)">
+    </span>
+</div>
+<div class="col-md-3" style="margin-left:-40px;margin-top:28px">
+   <label>Call patient to book appointment ?</label>
+
+</div>
+
+<div class="col-md-2">
+  <p-toast [style]="{ marginTop: '80px' }"></p-toast>
+<button *ngIf="checked" href="javascript:void(0)" id="btnsavepatientcallerdetails" class="btn btn-warning btnprocessing hide" type="submit" style="margin-top: 25px;">Finish</button>
+</div>
+</form>
+</div>
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br>
+</div>
+
+<!-- Patient Infrmation -->
+<div class="ibox float-e-margins tabpages" id="dvPatientDemographics" *ngIf="notexist" >
+    <div class="ibox-title">
+        <h5>Patient Information</h5>
+    </div>
+    <div class="ibox-content" style="padding-bottom: 200px;">
+        <div class="row">
+            <div id="dvPatientDemographicsContainer">
+<div class="col-md-12 ">
+<div class="row ">
+    <div class="col-md-6">
+        <div style="padding: 24px; border: 1px solid lightgray; border-radius: 10px; background-color: #454e5c; color: white;">
+            <form [formGroup]="general">
+            <table style="width: 100%">
+                <tbody>
+                  <tr>
+                    <td colspan="3">
+                        <b>General Information</b>
+                        <hr style="margin: 10px 0px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;">
+                        <label>First Name <span style="color: red">*</span></label><br>
+                        <input formControlName="firstname" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" data-val="true" data-val-required="The First Name field is required." id="ScAppointmenttxtEpsPtFN" maxlength="100" minlength="2" name="EpisodePatient.Patient.FirstName" type="text" value="">
+
+                    </td>
+                    <td style="margin-left: 10px; width: 33%;">
+                        <label>Middle Name </label>
+                        <br>
+                        <input style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtMiddlename" maxlength="100" name="EpisodePatient.Patient.MiddleName" type="text" value="">
+
+                    </td>
+                    <td style="margin-left: 10px; width: 33%;">
+                        <label>Last Name <span style="color: red">*</span></label><br>
+                        <input formControlName="lastname" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" data-val="true" data-val-required="The Last Name field is required." id="ScAppointmenttxtEpsPtLN" maxlength="100" name="EpisodePatient.Patient.LastName" type="text" value="">
+
+                    </td>
+                </tr>
+                <tr>
+
+                    <td style="width: 33%; padding-top: 18px;">
+                        <label>Birth Gender <span style="color: red">*</span></label><br>
+                        <p-dropdown  formControlName="gender" styleClass="input-md formcontrol chosen-select" filter="true" [options]="Gender" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+ </td>
+                    <td style="margin-right: 10px; width: 33%;padding-top: 18px; ">
+                        <label style="padding-left:10px;">Sexual Orientation <span style="color: red">*</span></label>
+                        <p-dropdown formControlName="sexualOrientation" styleClass="input-md formcontrol chosen-select" filter="true" [options]="SexualOrientation" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+                    </td>
+                    <td style="margin-left: 10px; width: 33%;padding-top: 18px; ">
+                        <label style="padding-left:10px;">Gender Identity</label>
+                        <p-dropdown  formControlName="genderIdentity" styleClass="input-md formcontrol chosen-select" filter="true" [options]="GenderIdentity" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+                      </td>
+
+                </tr>
+                <tr>
+
+                    <td style="margin-left: 10px; width: 33%; padding-top: 18px;">
+                        <label>DOB </label><br>
+                        <input bsDatepicker style="color: white;" formControlName="dob" class="form-control form-control-new datepicker disablefuturedates ScAppointmenttxtEpsPtDOB scheduleAppointmentControls hasDatepicker" data-mask="99/99/9999" data-val="true" data-val-required="The Date Of Birth field is required." id="ScAppointmenttxtEpsPtDOB" maxlength="100" name="EpisodePatient.Patient.DOB" placeholder="mm/dd/yyyy" type="text" value="">
+                        <input style="color: white;" id="hddPatDOB" name="EpisodePatient.Patient.DOB" type="hidden" value="">
+                    </td>
+
+                    <td style="margin-left: 10px; padding-top: 18px; width: 33%;">
+                        <label>Suffix </label>
+                        <br>
+                        <input style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtSuffix" maxlength="10" name="EpisodePatient.Patient.Suffix" type="text" value="">
+                        <input style="color: white;" id="hddPatSuffix" name="EpisodePatient.Patient.Suffix" type="hidden" value="">
+                    </td>
+
+                    <td style="margin-left: 10px; padding-top: 18px; width: 33%;">
+                        <label>Previous Name </label>
+                        <br>
+                        <input style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtPreName" maxlength="30" name="EpisodePatient.Patient.PreviousName" type="text" value="">
+                        <input style="color: white;" id="hddPatPreName" name="EpisodePatient.Patient.PreviousName" type="hidden" value="">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>Race</label>
+                                <div>
+                                  <p-dropdown formControlName="race" styleClass="input-md formcontrol chosen-select" filter="true" [options]="Race" placeholder="select" optionLabel="label" [autoWidth]="true" (onChange)="selectedRace($event)">
+                                  </p-dropdown>
+                                </div>
+                            </div>
+
+                            <div *ngIf="showRace" id="dvRace" class="tagsinput col-sm-6"style="width: 100%; min-height: auto; height: auto;">
+
+                              <span class="tag colorSpan" *ngFor="let item of selectedrace; let i = index">
+                                <span>
+                                  <span class="spnRace">
+                                    <span data-id="1" class="spRace">
+                                      {{ item }}
+                                    </span> </span>&nbsp;&nbsp; </span>
+                                <a (click)="unSelectRace(i)" title="Removing tag" style="cursor: pointer">x</a>
+                              </span>
+                              <div id="txtMemberPracLoc_addTag"></div>
+                              <div class="tags_clear"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <div class=" form-group row">
+                            <div class="col-md-6">
+                                <label>Ethnicity</label>
+                                <p-dropdown formControlName="ethnicity"  (onChange)="selectedEthnicity($event)" styleClass="input-md formcontrol chosen-select" filter="true" [options]="Ethnicity" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                                </p-dropdown>
+                            </div>
+
+                            <div *ngIf="showEthnicity" id="dvRace" class="tagsinput col-sm-6"style="width: 100%; min-height: auto; height: auto;">
+
+                              <span class="tag colorSpan" *ngFor="let item of selectedethnicity; let i = index">
+                                <span>
+                                  <span class="spnRace">
+                                    <span data-id="1" class="spRace">
+                                      {{ item }}
+                                    </span> </span>&nbsp;&nbsp; </span>
+                                <a (click)="unSelectEthnicity(i)" title="Removing tag" style="cursor: pointer">x</a>
+                              </span>
+                              <div id="txtMemberPracLoc_addTag"></div>
+                              <div class="tags_clear"></div>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            </form>
+        </div>
+
+
+        <!-- Contact Information------------------------------------------------------------------------------------------------------------------- -->
+        <div style="padding: 24px; border: 1px solid lightgray; border-radius: 10px; background-color: #454e5c; color: white; margin-top: 20px;">
+            <form [formGroup]="contact">
+            <table style="width: 100%">
+                <tbody><tr>
+                    <td colspan="3">
+                        <b>Contact Information</b>
+                        <hr style="margin: 10px 0px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;">
+
+                        <label>Home # <span style="color: red">*</span></label>&nbsp;&nbsp;
+                        <input  type='radio' name='Primary' />
+                           Primary
+                        <br>
+                        <!-- // <p-inputMask formControlName="home"  mask="(999) 999-9999"  placeholder="(xxx) xxx-xxxx"></p-inputMask> -->
+                         <input style="color: white;" id="tel" class="form-control scheduleAppointmentControls" phoneMask
+                         [preValue]="contact.value.home"
+                         [phoneControl]="contact.controls['home']" formControlName="home"
+                         maxlength="14"
+                         [ngClass]="(contact.controls['home'].invalid)? 'errmsg' : 'validmsg'"
+                         placeholder="(xxx)xxx-xxxx" >
+
+                    </td>
+                    <td style="width: 33%; margin-left: 10px;">
+
+                        <label>Cell #</label>&nbsp;&nbsp;
+                        <input type='radio' name='Primary' /> Primary
+                        <br>
+                        <!-- //<p-inputMask formControlName="cell" mask="(999) 999-9999"  placeholder="(xxx) xxx-xxxx"></p-inputMask> -->
+                        <input style="color: white;" id="tel" class="form-control scheduleAppointmentControls" phoneMask
+                        [preValue]="contact.value.cell"
+                        [phoneControl]="contact.controls['cell']" formControlName="cell"
+                        maxlength="14"
+                        [ngClass]="(contact.controls['cell'].invalid)? 'errmsg' : 'validmsg'"
+                        placeholder="(xxx)xxx-xxxx" >
+                    </td>
+                    <td style="width: 33%; margin-left: 10px;">
+
+                        <label>Work Phone #</label>&nbsp;&nbsp;
+                        <input type='radio' name='Primary' />   Primary
+                        <br>
+                         <!-- <input class="form-control form-control-new " formControlName="workphone" maxlength="10" mask="(999) 999-9999" inputmode="numeric"  style="max-width:114px !important;float:left;color:white;background-color: transparent;"  placeholder="(xxx) xxx-xxxx">-->
+                     <input style="color: white;" id="tel" class="form-control form-control-new" style="max-width:114px !important;float:left;color:white;background-color: transparent;" phoneMask
+                        [preValue]="contact.value.workphone" [phoneControl]="contact.controls['workphone']" formControlName="workphone" maxlength="14" [ngClass]="(contact.controls['workphone'].invalid)? 'errmsg' : 'validmsg'"
+                        placeholder="(xxx)xxx-xxxx" >
+                     <input  class="form-control form-control-new" data-mask="9999"  maxlength="4" placeholder="EXTN" style="max-width:64px;background-color: transparent;color:white" type="text" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 18px;" colspan="2">
+                        <label>Email </label>
+                        <br>
+                        <input formControlName="email" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtEmail" maxlength="100" name="EpisodePatient.Patient.EmailAddress" type="text" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%; margin-left: 10px; padding-top: 18px;">
+                        <label>Preferred Mode of Contact </label>
+                        <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" [options]="PreferredModeofContact" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+                  </td>
+                </tr>
+            </tbody></table>
+        </form>
+        </div>
+         <!--END OF Contact Information------------------------------------------------------------------------------------------------------------------- -->
+    </div>
+
+    <!-- Address Information----------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="col-md-6">
+        <div style="padding: 20px; border: 1px solid lightgray; border-radius: 10px; background-color: #454e5c; color: white;">
+            <form [formGroup]="address">
+
+
+            <table style="width: 100%">
+                <tbody><tr>
+                    <td colspan="3">
+                        <b>Address Information</b>
+                        <hr class="addres" style="margin: 10px 0px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-right: 40px">
+                        <label>Address 1 </label>
+                        <input formControlName="address1" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtAddr1" maxlength="100" name="EpisodePatient.Patient.AddressLine1" type="text" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-top:18px; padding-right: 40px">
+                        <label>Address 2 </label>
+                        <input formControlName="address2" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtAddr2" maxlength="100" name="EpisodePatient.Patient.AddressLine2" type="text" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="margin-left: 10px; width: 33%;padding-top: 18px;padding-right: 400px;">
+                        <label>ZIP </label>
+                        <input formControlName="zip" style="color: white;" class="form-control form-control-new ZipCodeChange scheduleAppointmentControls" data-cityfield="#ScAppointmenttxtEpsPtCity" data-statefield="#ScAppointmentddlPtState" data-req-url="/Admin/GetCityStateFromZip" id="ScAppointmenttxtEpsPtZip" maxlength="10" name="EpisodePatient.Patient.PostalCode" placeholder="xxxxx-xxxx" type="text" value="">
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 33%; padding-top: 18px;padding-right: 400px;">
+                      <label>City </label>
+                      <input formControlName="city" style="color: white;" class="form-control form-control-new scheduleAppointmentControls" id="ScAppointmenttxtEpsPtCity" maxlength="100" name="EpisodePatient.Patient.City" type="text" value="">
+                  </td>
+                  </tr>
+                   <tr>
+                    <td style="margin-left: 10px; width: 33%; padding-top: 18px;padding-right: 400px;">
+                        <label>State </label>
+                         <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" [options]="StatesDrop" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+                      </td>
+                </tr>
+            </tbody></table>
+        </form>
+        </div>
+
+        <div style="padding: 20px; border: 1px solid lightgray; border-radius: 10px; background-color: #454e5c; color: white; margin-top: 20px;">
+            <form [formGroup]="other">
+
+
+            <table style="width: 100%">
+                <tbody><tr>
+                    <td colspan="3">
+                        <b>Other Information</b>
+                        <hr style="margin: 10px 0px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;">
+
+                        <label>SSN </label>
+                        <!-- <p-inputMask formControlName="ssn" mask="999-99-9999"  placeholder="xxx-xx-xxxx"></p-inputMask> -->
+                        <input style="color: white;" id="tel" class="form-control form-control-new scheduleAppointmentControls" phoneMask [preValue]="other.value.ssn"
+                        [phoneControl]="other.controls['ssn']" formControlName="ssn" maxlength="14" [ngClass]="(other.controls['ssn'].invalid)? 'errmsg' : 'validmsg'"
+                        placeholder="(xxx)xxx-xxxx" >
+                    </td>
+                    <td style="margin-left: 10px; width: 33%;">
+                        <label>Preferred Language </label>
+                        <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" [options]="PreferredLanguage" placeholder="select" optionLabel="label" [autoWidth]="true" >
+                        </p-dropdown>
+                      </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-top: 18px;">
+                        <b>Authorization to Contact Patient</b>
+                        <hr style="margin: 10px 0px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="width: 33%;">
+                            <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                                <div class="ui-chkbox ui-widget" >
+                                    <div class="ui-helper-hidden-accessible">
+                                        <input type="checkbox" >
+                                    </div>
+                                </div>
+                            </p-checkbox>
+                            &nbsp;Email
+                        &nbsp;
+                        <label class="checkbox-inline i-checks">
+                            <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                                <div class="ui-chkbox ui-widget" >
+                                    <div class="ui-helper-hidden-accessible">
+                                        <input type="checkbox" >
+                                    </div>
+                                </div>
+                            </p-checkbox> &nbsp;Phone
+                        </label>
+                        &nbsp;
+                        <label class="checkbox-inline i-checks">
+                            <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                                <div class="ui-chkbox ui-widget" >
+                                    <div class="ui-helper-hidden-accessible">
+                                        <input type="checkbox" >
+                                    </div>
+                                </div>
+                            </p-checkbox>&nbsp;Text
+                        </label>
+                    </td>
+                </tr>
+            </tbody></table>
+        </form>
+        </div>
+    </div>
+<!--END OF Address Information----------------------------------------------------------------------------------------------------------------------------------------->
+
+</div>
+
+</div>
+<div class="pull-right" style="margin-top: 20px;">
+
+    <!-- <p-growl [(value)]="msgs"></p-growl> -->
+    <p-toast [style]="{ marginTop: '80px' }"></p-toast>
+<a (click)="OnPreviousclick()" style="color:white" class="btn btn-warning  btnPreviousWidget" id="">Previous</a>
+&nbsp;
+<button (click)="OnSchNextClick()" style="color:white" class="btn btn-primary"   >Next</button>
+<!-- <a href="javascript:void(0)" class="btn btn-success hide btncommoncomplete" data-nextbuttonid="#btnNextPatientDemographics">Complete</a> -->
+</div>
+
+<div>
+</div></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Patient Infrmation -->
+
+
+<!-- Existing Episodes ---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<div *ngIf="Exist">
+<div class="ibox float-e-margins tabpages" id="dvPatientInfo" >
+    <div class="ibox-title">
+        <h5>Existing Episodes</h5>
+    </div>
+        <form [formGroup]="radiotab">
+                <div class="modal-body">
+
+                  <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Case #</th>
+                                    <th>Account #</th>
+                                    <th>Name</th>
+                                    <th>Episode</th>
+                                    <th>DOB</th>
+                                    <th>Gender</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip</th>
+                                    <th>Telephone</th>
+                                    <th>Status</th>
+                                    <th>Quarter Backing</th>
+                                    <th>Case Manager</th>
+                                    <th>Case Type</th>
+                                    <th>Date Of Accident</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of arr2; let i=index">
+                                    <td><input formControlName="radiogroup" type="radio" name="radiogroup" [value]="item" (change)="onSelectionChange(item)">
+                                    </td>
+                                    <td>{{item.CaseNo }}</td>
+                                    <td>{{item.AccountNo}}</td>
+                                    <td>{{item.Name}}</td>
+                                    <td>{{item.Episode}}</td>
+                                    <td>{{item.Dob}}</td>
+                                    <td>{{item.Gender}}</td>
+                                    <td>{{item.City}}</td>
+                                    <td>{{item.State}}</td>
+                                    <td>{{item.Zip}}</td>
+                                    <td>{{item.Telephone}}</td>
+                                    <td>{{item.Status}}</td>
+                                    <td>{{item.Quarterbacking}}</td>
+                                    <td>{{item.Casemanager}}</td>
+                                    <td>{{item.Casetype}}</td>
+                                    <td>{{item.Dateofaccident}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="pull-right" style="margin-top: 20px;">
+
+                    <!-- <p-growl [(value)]="msgs"></p-growl> -->
+                    <p-toast [style]="{ marginTop: '80px' }"></p-toast>
+                    <button class="btn btn-warning" (click)='onclickprev()'>Previous</button>&nbsp;
+                    <button class="btn btn-secondary btn-next" (click)='onclickcontinue()'>Continue</button>&nbsp;
+                    <button class="btn btn-secondary btn-complete" (click)='onclicknewcase()'>Create New Case</button>&nbsp;
+                    <button class="btn btn-secondary btn-complete" (click)='onclicknewpatient()'>Create New Patient</button>
+
+               </div>
+
+            </form>
+        </div>
+
+    </div>
+
+<!-- Existing Episodes ---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!-- Insurence -->
+<app-sch-insurance *ngIf="memo"></app-sch-insurance>
+<!-- Insurence -->
+
+<!-- Appointments -->
+<app-sch-appointments *ngIf="appntmns"></app-sch-appointments>
+<!-- Appointments -->
+
+<!-- Referral Source -->
+<app-sch-referralsource *ngIf="reffsource"></app-sch-referralsource>
+<!-- Referral Source -->
+
+<!-- Documents -->
+<app-sch-documents *ngIf="documents"></app-sch-documents>
+<!-- Documents -->
+
+<!-- Care Team -->
+<app-sch-care-team *ngIf="careteam"></app-sch-care-team>
+<!-- Documents -->
+
+<!-- Appointment Memo -->
+<app-sch-appointmemtmemo *ngIf="apptmemo"></app-sch-appointmemtmemo>
+<!-- Appointment Memo -->

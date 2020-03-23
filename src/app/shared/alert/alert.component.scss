@@ -1,0 +1,33 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "~../../../assets/CSS/plugins.css";
+
+a:not([href]) {
+  color: #ffffff;
+}
+
+.alert-horizontal-line {
+  margin-top: 5px !important;
+  border-top: 2px solid gray;
+}
+
+.dialog-title {
+  text-transform: none;
+  text-align: center;
+  font-weight: 1000;
+}
+.custompagination {
+  margin-top: -17px;
+}
+
+.mandatoryBorder {
+  color: red;
+}
+.radio-inline {
+  padding-bottom: 5px;
+}
+.icheckbox_square-green {
+  position: relative;
+}
+.input-box {
+  position: absolute;
+}

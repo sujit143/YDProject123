@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "Annulled"
+  },
+  {
+    "Id": 2,
+    "Name": "Common law"
+  },
+  {
+    "Id": 3,
+    "Name": "Divorced"
+  },
+  {
+    "Id": 4,
+    "Name": "Domestic partner"
+  }
+]

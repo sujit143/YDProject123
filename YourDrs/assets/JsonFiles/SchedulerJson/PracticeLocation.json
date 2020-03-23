@@ -1,0 +1,125 @@
+[
+  {
+    "Id": 1,
+    "Practice": "HAMG",
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "HAMG@Flemington Neuro",
+    "PatientId": 1
+  }, {
+    "Id": 2,
+    "Practice": "HAMG",
+    "Location": "54 DEAN",
+    "PracticeLocation": "HAMG@54 DEAN",
+    "PatientId": 2
+  }, {
+    "Id": 3,
+    "Practice": "HAMG",
+    "Location": "38 Astoria",
+    "PracticeLocation": "HAMG@38 Astoria",
+    "PatientId": 3
+  }, {
+    "Id": 4,
+    "Practice": "HAMG",
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "HAMG@100A Liv Brooklyn",
+    "PatientId": 4
+  },   {
+    "Id": 5,
+    "Practice": "New Horizons ASC",
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "New Horizons ASC@Flemington Neuro",
+    "PatientId":5
+  }, {
+    "Id": 6,
+    "Practice": "New Horizons ASC",
+    "Location": "54 DEAN",
+    "PracticeLocation": "New Horizons ASC@54 DEAN",
+    "PatientId": 6
+  }, {
+    "Id": 7,
+    "Practice": "New Horizons ASC",
+    "Location": "38 Astoria",
+    "PracticeLocation": "New Horizons ASC@38 Astoria",
+    "PatientId": 7
+  }, {
+    "Id": 8,
+    "Practice": "New Horizons ASC",
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "New Horizons ASC@100A Liv Brooklyn",
+    "PatientId": 8
+  },  {
+    "Id": 9,
+    "Practice": "Mount Sinai Beth Israel",
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "Mount Sinai Beth Israel@Flemington Neuro",
+    "PatientId": 9
+
+  }, {
+    "Id": 10,
+    "Practice": "Mount Sinai Beth Israel",
+    "Location": "54 DEAN",
+    "PracticeLocation": "Mount Sinai Beth Israel@54 DEAN",
+    "PatientId": 10
+  }, {
+    "Id": 11,
+    "Practice": "Mount Sinai Beth Israel",
+    "Location": "38 Astoria",
+    "PracticeLocation": "Mount Sinai Beth Israel@38 Astoria",
+    "PatientId": 11
+  }, {
+    "Id": 12,
+    "Practice": "Mount Sinai Beth Israel",
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "Mount Sinai Beth Israel@100A Liv Brooklyn",
+    "PatientId": 12
+  },   {
+    "Id": 13,
+    "Practice": "Englewood Hospital",
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "Englewood Hospital@Flemington Neuro",
+    "PatientId": 13
+  }, {
+    "Id": 14,
+    "Practice": "Englewood Hospital",
+    "Location": "54 DEAN",
+    "PracticeLocation": "Englewood Hospital@54 DEAN",
+    "PatientId": 14
+  }, {
+    "Id": 15,
+    "Practice": "Englewood Hospital",
+    "Location": "38 Astoria",
+    "PracticeLocation": "Englewood Hospital@38 Astoria",
+    "PatientId": 15
+  }, {
+    "Id": 16,
+    "Practice": "Englewood Hospital",
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "Englewood Hospital@100A Liv Brooklyn",
+    "PatientId": 16
+  },   {
+    "Id": 17,
+    "Practice": "HEMA",
+    "Location": "Flemington Neuro",
+    "PracticeLocation": "HEMA@Flemington Neuro",
+    "PatientId": 17
+  }, {
+    "Id": 18,
+    "Practice": "HEMA",
+    "Location": "54 DEAN",
+    "PracticeLocation": "HEMA@54 DEAN",
+    "PatientId": 18
+  }, {
+    "Id": 19,
+    "Practice": "HEMA",
+    "Location": "38 Astoria",
+    "PracticeLocation": "HEMA@38 Astoria",
+    "PatientId": 17
+  }, {
+    "Id": 20,
+    "Practice": "HEMA",
+    "Location": "100A Liv Brooklyn",
+    "PracticeLocation": "HEMA@100A Liv Brooklyn",
+    "PatientId": 20
+  }
+
+]

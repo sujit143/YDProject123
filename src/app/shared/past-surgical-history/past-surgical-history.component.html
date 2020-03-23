@@ -1,0 +1,881 @@
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Past Surgical History</h4>
+      <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+      <div class="col-md-12">
+        <a class="btn btn-primary btn-sm pull-right" id="btnAddPastHistory"
+          (click)="openDialog('pastSurgicalAddDialog')">Add</a>
+      </div>
+      <div id="dvPastSurList">
+        <div class="ibox-content forum-container table-striped table-responsive">
+          <table class="table" style="width: 100%">
+            <thead>
+              <tr>
+                <th>Procedure Name </th>
+                <th>Date Of Procedure</th>
+                <th>Surgeon</th>
+                <th>Facility</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>PhoneNumber</th>
+                <th>Implantable Device</th>
+                <th colspan="2">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="pastSurgicalArrLength ===0">
+                <td colspan="10" class="alert alert-warning">
+                  Past Surgical History Not Found.
+                </td>
+              </tr>
+              <tr *ngFor="let pastSurgicalItem of pastSurgicalRecord; let i=index">
+                <td>{{pastSurgicalItem.ProcedureName}} </td>
+                <td>{{pastSurgicalItem.ProcedureDate}}</td>
+                <td>{{pastSurgicalItem.Surgeon}}</td>
+                <td>{{pastSurgicalItem.Facility}}</td>
+                <td>{{pastSurgicalItem.City}}</td>
+                <td>{{pastSurgicalItem.State}}</td>
+                <td>{{pastSurgicalItem.Zip}}</td>
+                <td>{{pastSurgicalItem.PhoneNumber}}</td>
+                <td>{{pastSurgicalItem.ImplantableDevice}}</td>
+                <td>
+                  <a class="btn btn-warning btn-sm lnkEditImplantdevice" id="lnkEditImplantdevice"
+                    (click)="openDialog('implantableDeviceDialog')">Add Implantable Device</a>
+                </td>
+                <td><a class="btn btn-danger btn-sm btndeletepastsurgery" id="lnkpastsurg"
+                    (click)="confirmDelete(i)">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="custompagination pull-right pgpastsurlist" style="margin-top:-17px" *ngIf="pastSurgicalArrLength > 0">
+            <span class="label pagerInfo">Total Items <strong>{{pastSurgicalArrLength}}</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog id="customDialog" [(visible)]="pastSurgicalAddDialog" [modal]="true" [blockScroll]="true"
+  [(closeOnEscape)]="haltEscapeDialogClose" [responsive]="true" [draggable]="false" [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('pastSurgicalAddDialog')">Close</a>
+      <h3 class="dialog-title">Add
+      </h3>
+    </div>
+  </p-header>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row ui-g ui-fluid">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <form [formGroup]="pastSurgicalForm">
+            <div class="row">
+              <div class="col-md-5 col-lg-4 ui-g-12 ui-md-5 ui-lg-4">
+                <span>
+                  <label>Procedure<span style="color:red;">*</span></label></span>
+                <div class="input-group">
+                  <div id="tags1581161810655_tagsinput" class="tagsinput ReferralSourceFromTagsInput"
+                    style="width: 100%; min-height: auto; height: auto;">
+                    <div id="tags1581161810655_addTag"><span *ngIf="selectedProcedure == undefined" role="status"
+                        aria-live="polite" class="ui-helper-hidden-accessible">No search results.</span>
+                      <span class="tag" *ngIf="selectedProcedure != undefined">
+                        <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                          {{selectedProcedure}}
+                        </span>&nbsp;&nbsp;
+                        <a title="Removing tag" (click)="closeTag()">x</a>
+                      </span>
+                      <p-autoComplete [suggestions]="filteredProcedure" appendTo="body"
+                        (onSelect)="selectProcedure($event)" (completeMethod)="filterProcedure($event)" field="name"
+                        [size]="30" placeholder="Select a Member" [minLength]="1" formControlName="ProcedureName">
+                      </p-autoComplete>
+                    </div>
+                    <div class="tags_clear"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-lg-4 ui-g-12 ui-md- ui-lg-4">
+                <label>Date Of Procedure<span style="color: red">*</span></label>
+                <input type="text" class="form-control" placeholder="mm/dd/yyyy" bsDatepicker
+                  formControlName="ProcedureDate">
+              </div>
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-5 ui-lg-4">
+                <label>Surgeon<span style="color: red">*</span></label>
+                <input type="text" maxlength="200" id="txtSurgeon" class="form-control" formControlName="Surgeon">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-4 ui-lg-4">
+                <label>ZIP<span style="color: red">*</span></label>
+                <p-inputMask mask="99999-9999" placeholder="xxxxx-xxxx" formControlName="Zip"></p-inputMask>
+              </div>
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-4 ui-lg-4">
+                <label>City<span style="color: red">*</span></label>
+                <input type="text" id="txtPastCity" class="form-control" maxlength="100" formControlName="City">
+              </div>
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-4 ui-lg-4">
+                <label>State<span style="color: red">*</span></label>
+                <p-dropdown [options]="statesOpt" placeholder="select" filter="true" formControlName="State">
+                </p-dropdown>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-4 ui-lg-4">
+                <label>Phone # <span style="color: red;">*</span></label>
+                <p-inputMask mask="(999)999-9999" placeholder="(xxx)xxx-xxxx" formControlName="PhoneNumber">
+                </p-inputMask>
+              </div>
+              <div class="col-md-4 col-lg-4 ui-g-12 ui-md-5 ui-lg-4">
+                <label>Facility<span style="color: red">*</span></label>
+                <input type="text" maxlength="200" id="txtFacility" class="form-control" formControlName="Facility">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="modal-footer">
+      <a class="btn btn-primary" (click)="submit()">Save</a>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog id="customDialog" [(visible)]="implantableDeviceDialog" [modal]="true" [blockScroll]="true"
+  [(closeOnEscape)]="haltEscapeDialogClose" [responsive]="true" [draggable]="false" [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('implantableDeviceDialog')">Close</a>
+      <h3 class="dialog-title">Add ImplantableDevice
+      </h3>
+    </div>
+  </p-header>
+  <div class="modal-body" id="dvimpdevpastsur">
+    <div class="container" style="width:auto; padding:0px">
+      <div class="panel-group">
+        <div class="panel panel-primary dvUniqueDevicesec">
+          <div class="panel-heading">
+            <label style="padding:10px;">Unique Device Identifier</label>
+            <input id="txtUdi" maxlength="100" name="txtUdi" style="color:black; width:400px;" type="text" value="">
+            <span style="padding:10px;"><input type="button" id="btnSearchImplantableDevice" value="Search" class=" "
+                style="color: black;" data-searchurl="/Patient/SearchImplantableDevice"
+                data-updatecontainer="#dvImplantableDeviceDetails" data-pastsurgeryid="92"></span>
+          </div>
+          <div class="panel-body">
+            <div id="dvImplantableDeviceDetails" style="display:none;">
+              <div class="panel-heading" style="background-color:#1ab394;">
+                <label style="color:white;">Device Details</label>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Public Device Record Key</strong><br>
+                          <span id="spnJsonPublicDeviceRecordKey" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Public Version Status</strong><br>
+                          <span id="spnJsonPublicVersionStatus" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Record Status</strong><br>
+                          <span id="spnJsonDeviceRecordStatus" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Public Version Number</strong><br>
+                          <span id="spnJsonPublicVersionNumber" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Public Version Date</strong><br>
+                          <span id="spnJsonPublicVersionDate" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Publish Date</strong><br>
+                          <span id="spnJsonDevicePublishDate" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Comm Distribution End Date</strong><br>
+                          <span id="spnJsonDeviceCommDistributionEndDate" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Comm Distribution Status</strong><br>
+                          <span id="spnJsonDeviceCommDistributionStatus" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Brand Name</strong><br>
+                          <span id="spnJsonBrandName" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Version Model Number</strong><br>
+                          <span id="spnJsonVersionModelNumber" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Catalog Number</strong><br>
+                          <span id="spnJsonCatalogNumber" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Duns Number</strong><br>
+                          <span id="spnJsonDunsNumber" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Company Name</strong><br>
+                          <span id="spnJsonCompanyName" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Count</strong><br>
+                          <span id="spnJsonDeviceCount" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Description</strong><br>
+                          <span id="spnJsonDeviceDescription" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>DM Exempt</strong><br>
+                          <span id="spnJsonDMExempt" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Premarket Exempt</strong><br>
+                          <span id="spnJsonPremarketExempt" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device HCTP</strong><br>
+                          <span id="spnJsonDeviceHCTP" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Kit</strong><br>
+                          <span id="spnJsonDeviceKit" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Combination Product</strong><br>
+                          <span id="spnJsonDeviceCombinationProduct" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Single Use</strong><br>
+                          <span id="spnJsonSingleUse" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Lot Batch</strong><br>
+                          <span id="spnJsonLotBatch" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Serial Number</strong><br>
+                          <span id="spnJsonSerialNumber" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Manufacturing Date</strong><br>
+                          <span id="spnJsonManufacturingDate" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Expiration Date</strong><br>
+                          <span id="spnJsonExpirationDate" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Donation Id Number</strong><br>
+                          <span id="spnJsonDonationIdNumber" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Labeled Contains NRL</strong><br>
+                          <span id="spnJsonLabeledContainsNRL" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Labeled No NRL</strong><br>
+                          <span id="spnJsonLabeledNoNRL" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>MRI Safety Status</strong><br>
+                          <span id="spnJsonMRISafetyStatus" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Rx</strong><br>
+                          <span id="spnJsonRx" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Otc</strong><br>
+                          <span id="spnJsonOtc" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Sizes</strong><br>
+                          <span id="spnJsonDeviceSizes" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="row ImplantableDeviceMoreDetails">
+                <div class="col-md-12">
+                  <div class="panel-group" style="margin-bottom: 10px;">
+                    <div class="">
+                      <div class="panel panel-primary">
+                        <div class="panel-heading rea" style="background-color: #1ab394; padding: 1px 12px;">
+                          <h4>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#dvImplantableDeviceMoreDetails"
+                              style="color: white;" class="awvAccordionanc collapsed ancImplantableDeviceMoreDetails">+
+                              Show More Details</a>
+                          </h4>
+                        </div>
+                        <div id="dvImplantableDeviceMoreDetails" class="panel-body panel-collapse collapse">
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Identifier Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>DeviceId</strong><br>
+                                      <span id="spnJsonDeviceIdentifierDeviceId"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>DeviceId Type</strong><br>
+                                      <span id="spnJsonDeviceIdentifierDeviceIdType"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>DeviceId Issuing Agency</strong><br>
+                                      <span id="spnJsonDeviceIdentifierDeviceIdIssuingAgency"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Contains DI Number</strong><br>
+                                      <span id="spnJsonDeviceIdentifierContainsDINumber"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Pkg Quantity</strong><br>
+                                      <span id="spnJsonDeviceIdentifierPkgQuantity"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Pkg Discontinue Date</strong><br>
+                                      <span id="spnJsonDeviceIdentifierPkgDiscontinueDate"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Pkg Status</strong><br>
+                                      <span id="spnJsonDeviceIdentifierPkgStatus"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>PkgType</strong><br>
+                                      <span id="spnJsonDeviceIdentifierPkgType"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Contact Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Phone</strong><br>
+                                      <span id="spnJsonDeviceContactsphone" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Phone Extension</strong><br>
+                                      <span id="spnJsonDeviceContactsPhoneExtension"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Email</strong><br>
+                                      <span id="spnJsonDeviceContactsEmail" style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Gmdn Terms Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Gmdn PT Name</strong><br>
+                                      <span id="spnJsonDeviceGmdnTermsGmdnPTName"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Gmdn PT Definition</strong><br>
+                                      <span id="spnJsonDeviceGmdnTermsGmdnPTDefinition"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Product Code Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Gmdn PT Name</strong><br>
+                                      <span id="spnJsonDeviceProductCodeProductCode"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Gmdn PT Definition</strong><br>
+                                      <span id="spnJsonDeviceProductCodeProductCodeName"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Sterilization Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Device Sterile</strong><br>
+                                      <span id="spnJsonDeviceSterilizationDeviceSterile"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Sterilization Prior To Use</strong><br>
+                                      <span id="spnJsonDeviceSterilizationSterilizationPriorToUse"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Method Types</strong><br>
+                                      <span id="spnJsonDeviceSterilizationMethodTypes"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Device Environmental Conditions Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped" id="tblGudidDeviceEnvironmentalConditionsDetails">
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Product Code Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Product Code</strong><br>
+                                      <span id="spnJsonProductCodeProductCode"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Physical State</strong><br>
+                                      <span id="spnJsonProductCodePhysicalState"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Device Class</strong><br>
+                                      <span id="spnJsonProductCodeDeviceClass"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Third Party Flag</strong><br>
+                                      <span id="spnJsonProductCodeThirdPartyFlag"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Definition</strong><br>
+                                      <span id="spnJsonProductCodeDefinition" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Submission TypeID</strong><br>
+                                      <span id="spnJsonProductCodeSubmissionTypeID"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Review Panel</strong><br>
+                                      <span id="spnJsonProductCodeReviewPanel"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Gmp Exempt Flag</strong><br>
+                                      <span id="spnJsonProductCodeGmpExemptFlag"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Technical Method</strong><br>
+                                      <span id="spnJsonProductCodeTechnicalMethod"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Review Code</strong><br>
+                                      <span id="spnJsonProductCodeReviewCode" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Life Sustain Support Flag</strong><br>
+                                      <span id="spnJsonProductCodeLifeSustainSupportFlag"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Unclassified Reason</strong><br>
+                                      <span id="spnJsonProductCodeUnclassifiedReason"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Implant Flag</strong><br>
+                                      <span id="spnJsonProductCodeImplantFlag"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Target Area</strong><br>
+                                      <span id="spnJsonProductCodeTargetArea" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Regulation Number</strong><br>
+                                      <span id="spnJsonProductCodeRegulationNumber"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Device Name</strong><br>
+                                      <span id="spnJsonProductCodeDeviceName" style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Medical Specialty</strong><br>
+                                      <span id="spnJsonProductCodeMedicalSpecialty"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">UDI Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Udi</strong><br>
+                                      <span id="spnJsonUdiUdi" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Issuing Agency</strong><br>
+                                      <span id="spnJsonUdiIssuingAgency" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Di</strong><br>
+                                      <span id="spnJsonUdiDi" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Serial Number</strong><br>
+                                      <span id="spnJsonUdiSerialNumber" style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Donation Id</strong><br>
+                                      <span id="spnJsonUdiDonationId" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Expiration Date Original</strong><br>
+                                      <span id="spnJsonUdiExpirationDateOriginal"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Expiration Date</strong><br>
+                                      <span id="spnJsonUdiExpirationDate" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Manufacturing Date Original</strong><br>
+                                      <span id="spnJsonUdiManufacturingDateOriginal"
+                                        style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <strong>Manufacturing Date</strong><br>
+                                      <span id="spnJsonUdiManufacturingDate" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Lot Number</strong><br>
+                                      <span id="spnJsonUdiLotNumber" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="panel-heading" style="background-color:#1ab394;">
+                            <label style="color:white;">Snomed Details</label>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <strong>Snomed Ct</strong><br>
+                                      <span id="spnJsonSnomedCt" style="text-transform: capitalize"></span>
+                                    </td>
+                                    <td>
+                                      <strong>Snomed Identifier</strong><br>
+                                      <span id="spnJsonSnomedIdentifier" style="text-transform: capitalize"></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row ">
+                    <div class="col-md-3 hide" style="padding-right: 10px;text-align: right;padding-top: 5px;">
+                      <span> Select an appointment to map Implantable Device</span>
+                    </div>
+                    <div class="col-md-6 hide" style="padding:0px">
+                      <select class="form-control chosen-select ddlAppointment" id="ddlPatientsAppointment"
+                        style="display: none;">
+                        <option value="-1">Select</option>
+                      </select>
+                      <div class="chosen-container chosen-container-single" style="width: 100%" title=""
+                        id="ddlPatientsAppointment_chosen">
+                        <a class="chosen-single">
+                          <span>Select</span>
+                          <div><b></b></div>
+                        </a>
+                        <div class="chosen-drop">
+                          <div class="chosen-search"><input type="text" autocomplete="off"></div>
+                          <ul class="chosen-results"></ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <input type="button" id="btnSaveImplantableDevice" value="Save" class="clsSaveImplantableDevice"
+                        data-saveurl="/Patient/InsUpdPatientImplantableDevice"
+                        data-updatecontainer=".dvPatientImplantableDevice" style="width: 70px; padding: 5px">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="dvImplantableDeviceDetailsHidden" style="display:none;">
+              <div class="panel-heading" style="background-color:#1ab394;">
+                <label style="color:white;">Header Details</label>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Device Identifier</strong><br>
+                          <span id="spnDeviceIdentifier" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Global Unique Device Identifier</strong><br>
+                          <span id="spnGlobalUniqueDeviceIdentifier" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Lot/Batch</strong><br>
+                          <span id="spnBatchNumber" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Serial Number</strong><br>
+                          <span id="spnSerialNumber" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Manufactured Date</strong><br>
+                          <span id="spnManufacturedDate" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Expiration Date</strong><br>
+                          <span id="spnExpirationDate" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="panel-heading" style="background-color:#1ab394;">
+                <label style="color:white;">Child Details</label>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <strong>Brand Name</strong><br>
+                          <span id="spnBrandName" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Version / Model</strong><br>
+                          <span id="spnVersionOrModel" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Company Name</strong><br>
+                          <span id="spnCompanyName" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>SNOMED CT</strong>
+                          <br>
+                          <span id="spnSNOMEDCT" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>GMDN PT Name</strong><br>
+                          <span id="spnGMDNPTName" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>MRI Safety Information</strong><br>
+                          <span id="spnMRISafetyInformation" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="hide">
+                          <strong>Identification Code </strong>
+                          <br>
+                          <span id="spnIdentificationCode" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Name </strong>
+                          <br>
+                          <span id="spnDeviceName" style="text-transform: capitalize"></span>
+                        </td>
+                        <td>
+                          <strong>Device Description </strong>
+                          <br>
+                          <span id="spnDeviceDescription" style="text-transform: capitalize"></span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="width:auto;padding:0px">
+      <div class="panel-group">
+        <div class="panel panel-primary">
+          <div class="panel-body" style="padding:0px">
+            <div id="dvImplantableDeviceList">
+              <div class="panel-heading">
+                <h4>Existing Implantable Device List</h4>
+              </div>
+              <div class="panel-body" style="padding:0px;overflow-x:auto;">
+                <table class="table table-striped" id="tblPatientImplantableDevices">
+                  <thead>
+                    <tr style="background-color:#1ab394">
+                      <th style="color:white;font:bold">Implantable Device</th>
+                      <th style="color:white;font:bold">Appointment</th>
+                      <th style="color:white;font:bold">Lot/Batch</th>
+                      <th style="color:white;font:bold">Serial Number</th>
+                      <th style="color:white;font:bold">Manufactured Date</th>
+                      <th style="color:white;font:bold">Expiration Date</th>
+                      <th style="color:white;font:bold">Brand Name</th>
+                      <th style="color:white;font:bold">Version Or Model</th>
+                      <th style="color:white;font:bold">Company Name</th>
+                      <th style="color:white;font:bold">SNOMED CT</th>
+                      <th style="color:white;font:bold">GMDN PT Name</th>
+                      <th style="color:white;font:bold">Global Unique Device Identifier</th>
+                      <th style="color:white;font:bold">MRI Safety Information</th>
+                      <th style="color:white;font:bold">Device Identifier</th>
+                      <th style="color:white;font:bold">Device Name</th>
+                      <th style="color:white;font:bold">Device Description</th>
+                      <th style="color:white;font:bold">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="4">
+                        No Records Found.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="hdnImplantableDevice" data-device-get-url="/Patient/GetPatientImplantableDevices"
+      data-device-updatecontainer="#dvImplantableDeviceList">
+    <input type="hidden" id="hedUdiId" value="a">
+    <input type="hidden" id="hdnDeviceOtherDetails">
+    <input type="hidden" id="hdnImplantableDeviceJsonObj" data-implantabledevicejsonobj=""
+      data-implantabledevicesnomedjsonobj="">
+  </div>
+</p-dialog>

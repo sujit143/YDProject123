@@ -1,0 +1,42 @@
+[
+  {
+    "Id":1,
+    "Name":"Albanian"
+  },
+  {
+    "Id":2,
+    "Name":"Altaic languages"
+  },
+  {
+    "Id":3,
+    "Name":"Arabic"
+  },
+  {
+    "Id":4,
+    "Name":"Austronesian languages"
+  },
+  {
+    "Id":5,
+    "Name":"Blissymbols Blissymbolics Bliss"
+  },
+  {
+    "Id":6,
+    "Name":"Japanese"
+  },
+  {
+    "Id":7,
+    "Name":"Kongo"
+  },
+  {
+    "Id":8,
+    "Name":"Kurdish"
+  },
+  {
+    "Id":9,
+    "Name":"Lingala"
+  },
+  {
+    "Id":10,
+    "Name":"Romany"
+  }
+]

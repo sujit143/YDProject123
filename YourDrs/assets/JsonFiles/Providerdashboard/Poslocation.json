@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "PosLocation": "Fort Lee",
+    "PosLocationId": 1
+  }, {
+    "Id": 2,
+    "PosLocation": "Bronux",
+    "PosLocationId": 2
+  }, {
+    "Id": 3,
+    "PosLocation": "54 Dean",
+    "PosLocationId": 3
+  }
+]

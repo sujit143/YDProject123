@@ -1,0 +1,535 @@
+<div class="tabpagescontainer">
+    <div class="ibox float-e-margins tabpages" id="dvAppointmentReason" style="" *ngIf="SchAppoint">
+        <div class="ibox-title">
+            <h5>Appointment Reason</h5>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div id="dvAppointmentReasonInfo">
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12 idScheduleAppointmentReason" id="idScheduleAppointmentReason">
+
+                <div class="items-collection">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default button radioBtn active" (click)="OnadminreqClick()">
+
+                            <input type="radio" class="rdoAppointmentType" value="30" name="rdoAppointmentType">
+
+                            Administrative Request
+                        </label>
+                        <br>
+                        <br>
+                        <br>
+                            <div class="col-lg-3" style="border-left:2px dashed lightgray;">
+
+
+
+                                <div style="float: left; display: inline-block; width: 100%; margin-top: 10px;">
+                                    <h4>General office visits</h4>
+                                </div>
+
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="32" name="rdoAppointmentType">
+                                        Consultation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="38" name="rdoAppointmentType">
+                                        Depo
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="39" name="rdoAppointmentType">
+                                        Emergency Add On
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="1" name="rdoAppointmentType">
+                                        Follow Up Visit
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="37" name="rdoAppointmentType">
+                                        IME
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="6" name="rdoAppointmentType">
+                                        Initial Evaluation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="41" name="rdoAppointmentType">
+                                        Life Plan Report
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="22" name="rdoAppointmentType">
+                                        Narrative Report
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="31" name="rdoAppointmentType">
+                                        Other
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="23" name="rdoAppointmentType">
+                                        Permanency Report
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="24" name="rdoAppointmentType">
+                                        Post-Op-Visit
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="36" name="rdoAppointmentType">
+                                        Scheduled Loss Of Use
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="7" name="rdoAppointmentType">
+                                        Surgery
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="34" name="rdoAppointmentType">
+                                        Surgery Consultation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="35" name="rdoAppointmentType">
+                                        Urgent Doctor Visit
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="4" name="rdoAppointmentType">
+                                        Urgent Visit
+                                    </label>
+                                    <label class="btn btn-default button radioBtn" (click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="5" name="rdoAppointmentType">
+                                        Wellness Exam
+                                    </label>
+
+                            </div>
+                            <div class="col-lg-3" style="border-left:2px dashed lightgray;">
+
+
+
+                                <div style="float: left; display: inline-block; width: 100%; margin-top: 10px;">
+                                    <h4></h4>
+                                </div>
+
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="52" name="rdoAppointmentType">
+                                        APOS Therapy
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="53" name="rdoAppointmentType">
+                                        Apos Therapy Initial visit
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="54" name="rdoAppointmentType">
+                                        Blocked Time To Review Recommendation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="51" name="rdoAppointmentType">
+                                        C.27 Evaluation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="46" name="rdoAppointmentType">
+                                        Hospital Consultation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="42" name="rdoAppointmentType">
+                                        Lower EMG and Lower NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="43" name="rdoAppointmentType">
+                                        Lower EMG and Upper NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="55" name="rdoAppointmentType">
+                                        Phone Call - Medical Discussion
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="49" name="rdoAppointmentType">
+                                        Physician Affirmation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="50" name="rdoAppointmentType">
+                                        Upper and Lower EMG
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="45" name="rdoAppointmentType">
+                                        Upper EMG and Lower NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="44" name="rdoAppointmentType">
+                                        Upper EMG and Upper NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="47" name="rdoAppointmentType">
+                                        Virtual Visit
+                                    </label>
+                            </div>
+                            <div class="col-lg-3" style="border-left:2px dashed lightgray;">
+                                <div style="float: left; display: inline-block; width: 100%; margin-top: 10px;">
+                                    <h4>Diagnostic Appointments</h4>
+                                </div>
+
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="27" name="rdoAppointmentType">
+                                        Diagnostic Ultrasound
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="14" name="rdoAppointmentType">
+                                        Lower EMG
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="16" name="rdoAppointmentType">
+                                        Lower NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="21" name="rdoAppointmentType">
+                                        MRI
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="17" name="rdoAppointmentType">
+                                        ROM
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="13" name="rdoAppointmentType">
+                                        Upper EMG
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="15" name="rdoAppointmentType">
+                                        Upper NCV
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="26" name="rdoAppointmentType">
+                                        Urine Screening
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="20" name="rdoAppointmentType">
+                                        X-Ray
+                                    </label>
+                            </div>
+                            <div class="col-lg-3" style="border-left:2px dashed lightgray;">
+                                <div style="float: left; display: inline-block; width: 100%; margin-top: 10px;">
+                                    <h4>In Office Procedure</h4>
+                                </div>
+
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="10" name="rdoAppointmentType">
+                                        In Office Procedure
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="18" name="rdoAppointmentType">
+                                        Osteopathic Manipulation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="29" name="rdoAppointmentType">
+                                        PRP Injections
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="28" name="rdoAppointmentType">
+                                        Steroid Injections
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="25" name="rdoAppointmentType">
+                                        Trigger Point Injection
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="19" name="rdoAppointmentType">
+                                        Ultrasound Guided Injection
+                                    </label>
+                            </div>
+                            <div class="col-lg-3" style="border-left:2px dashed lightgray;">
+                                <div style="float: left; display: inline-block; width: 100%; margin-top: 10px;">
+                                    <h4>Physical Therapy</h4>
+                                </div>
+
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="11" name="rdoAppointmentType">
+                                        Physical Therapy Initial Evaluation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="33" name="rdoAppointmentType">
+                                        Physical Therapy Reevaluation
+                                    </label>
+                                    <label class="btn btn-default button radioBtn"(click)="AppointmentReasonClick()">
+                                        <input type="radio" class="rdoAppointmentType" value="9" name="rdoAppointmentType">
+                                        Physical Therapy Visit
+                                    </label>
+                            </div>
+
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+    <!-- <div class="row" style="margin-top: 20px; margin-left: 900px;">
+        <div class="col-md-3 pull-right btnnextcareteam hide">
+            <a  class="btn btn-primary pull-right btnDisplayCareTeamMem" style="margin-right:8px" >Next</a>
+        </div>
+    </div> -->
+</div>
+</div>
+
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
+                <button class="btn btn-success pull-right hide btncommoncomplete" >Complete</button>
+                <button  class="btn btn-primary pull-right" style="margin-right:8px" (click)="OnSchApptNext_Click()" >Next</button>
+                <button  style="margin-right: 10px" class="btn btn-warning pull-right  btnPreviousWidget"  >Previous</button >
+            </div>
+        </div>
+    </div>
+
+    <!-- Administrative Request ----------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="ibox float-e-margins tabpages" id="dvScheduleAppointmentRequestInformation" *ngIf="AdminReq">
+    <div class="ibox-title">
+        <h5>Administrative Request</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="row">
+<div class="col-md-12">
+
+
+    <div class="col-md-8">
+
+        <textarea placeholder="Request Information" class="form-control" maxlength="5000" id="txtScheduleAppointmentRequestInformation" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 35px;"></textarea>
+
+
+    </div>
+
+</div>
+<br>
+<div class="pull-right">
+     <a  style="margin-right:10px" class="btn btn-warning  btnPreviousWidget" id="" (click)="OnAdminReqPreviousClick()">Previous</a>
+     <a  class="btn btn-success" style="margin-right:20px" >Complete</a>
+</div>
+</div>
+
+        </div>
+    </div>
+    </div>
+    <!-- END OFAdministrative Request ----------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Select Appointment Provider/Location -->
+    <div class="ibox float-e-margins tabpages" id="dvScheduleAppointmentRequestInformation" *ngIf="SelectApptProvider">
+        <div class="ibox-title">
+            <h5>Select Appointment Provider/Location</h5>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div id="dvSheduleAppointmentProvidersContainer">
+                    <div class="panel-group" id="accordion-home">
+    <div class="panel panel-default dvappointmenthistory" style="margin-bottom: 2px;">
+        <div class="panel-heading rea" style="background-color: #003366; padding: 5px 15px;">
+            <h3>
+                <a data-toggle="collapse" style="color: white;" href="#Documents" class="awvAccordionanc" aria-expanded="false">Appointment History</a>
+            </h3>
+        </div>
+        <div id="Documents" class="panel-collapse in"  style="height: 0px;">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Appointment History</h4>
+                        <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+                        <div id="dvEpisodeScheduledAppointment">
+                            <div class="">
+        <div class="alert alert-warning">No Appointments found. </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="h3title">Where do you want to see the doctor?</h3>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-8">
+            <div class="ibox-content m-b-sm border-bottom" style="display: -webkit-box; background-color: #eeeeee;">
+                <div class="col-md-4">
+                    <label>Location</label>
+                    <input type="text" class="form-control textbox-search-onenterkey" id="txtzipcityStateLocation" maxlength="100" placeholder="Search By Zip or City or State" data-enterkey-pressed=".btnSearchProvider">
+                </div>
+                <div class="col-md-4">
+                    <label>Category</label>
+                    <p-dropdown
+                    styleClass="input-md formcontrol chosen-select"
+                    filter="true"
+                    [options]="Category"
+                    placeholder="select"
+                    optionLabel="label"
+                    [autoWidth]="true">
+                </p-dropdown>
+                </div>
+                <div class="col-md-4">
+                    <label>Specialty</label>
+                    <p-dropdown
+                    styleClass="input-md formcontrol chosen-select"
+                    filter="true"
+                    [options]="speciality"
+                    placeholder="select"
+                    optionLabel="label"
+                    [autoWidth]="true">
+                </p-dropdown>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="ibox-content m-b-sm border-bottom" style="display: -webkit-box; background-color: #eeeeee;">
+                <div class="col-md-8">
+                    <label>Provider / Care Team</label>
+                    <input type="text" class="form-control textbox-search-onenterkey" id="txtProviderSpeciality" maxlength="100" placeholder="Search Provider / Care Team" data-enterkey-pressed=".btnSearchProvider">
+                </div>
+                <div class="col-md-4">
+                    <a href="javascript:void(0)" style="margin-top: 17px;" id="btnSearchProviderLocation" class="btn btn-primary btnSearchProvider" data-req-url="/Patient/SearchProviders" data-updatecontainer="#dvProviderSearchResult">Search</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<div class="col-md-12">
+    <div class="col-md-6 dvExistingCareTeamMembers">
+
+    </div>
+
+    <div class="col-md-6" id="dvProviderSearchResult">
+
+    <h4>Locations</h4>
+    <hr>
+    <div class="items-collection">
+        <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default button btn-xs lblRadio active" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="188" name="rdoCareTeamProvider" data-locationid="188" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title=" Baarn Rehab &amp; Pain Clinic, Flushing, NY"> Baarn Rehab &amp; Pain Clinic, Flushing, NY</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="199" name="rdoCareTeamProvider" data-locationid="199" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title=" Flemington Neuro"> Flemington Neuro</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="158" name="rdoCareTeamProvider" data-locationid="158" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="100A Liv, Brooklyn">100A Liv, Brooklyn</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="483" name="rdoCareTeamProvider" data-locationid="483" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="209- 35 Northern Blvd">209- 35 Northern Blvd</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="574" name="rdoCareTeamProvider" data-locationid="574" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="330 9th Street, Brooklyn NY 11215">330 9th Street, Brooklyn NY 11215</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="165" name="rdoCareTeamProvider" data-locationid="165" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="38 Astoria">38 Astoria</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="182" name="rdoCareTeamProvider" data-locationid="182" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="39 East 69th Street">39 East 69th Street</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="149" name="rdoCareTeamProvider" data-locationid="149" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="54 DEAN">54 DEAN</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="576" name="rdoCareTeamProvider" data-locationid="576" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="75 Central Park West">75 Central Park West</strong>
+                        </div>
+                    </div>
+                </label>
+                <label class="btn btn-default button btn-xs lblRadio" style="margin: 5px 5px 0px 0px; padding: 10px 10px 10px 0px; border-radius: 4px;">
+                    <input type="radio" id="option1" autocomplete="off" class="rdolocation rdoSelectProviderLocation" value="121" name="rdoCareTeamProvider" data-locationid="121" data-speccatid="" data-specid="" data-providerid="">
+                    <div class="row" style="margin: 0px; padding: 1px 1px 0px 1px;">
+                        <div class="col-lg-12" style="margin: 0px 0px 0px 10px; padding: 0px; text-align: left;">
+                            <strong title="Bronx">Bronx</strong>
+                        </div>
+                    </div>
+                </label>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<!-- <div class="col-md-12 dvPPAppDateandTime hide">
+   <div class="row">
+    <div class="table-responsive white_section" style="overflow-x: inherit !important">
+
+        <table class="table timetable_big" id="tblAppointmentFileds">
+            <thead>
+                <tr>
+                    <th>Preferred Date <span style="color: red;">*</span></th>
+                    <th>Start Time <span style="color: red;">*</span></th>
+                    <th>End Time <span style="color: red;">*</span></th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr class="trTimeSlots">
+                        <td style="width: 272px;">
+                            <input class="txtAppointmentRequestDate form-control datepicker appdatelist changeAppointmentSchedule hasDatepicker" data-init-val="" data-mask="99/99/9999" data-val="true" data-val-date="The field ApoointmentDate must be a date." id="tsts" name="EpisodeAppointmentRequest.ApoointmentDate" placeholder="mm/dd/yyyy" type="text" value="">
+                        </td>
+                        <td style="width: 252px;"><select class="input-md fromtime form-control chosen-select " data-update-container="#endttime" id="starttime" name="EpisodeAppointmentRequest.StartTime" style="display: none;"><option value="">Select Time</option>
+</select><div class="chosen-container chosen-container-single" style="width: 100%" title="" id="starttime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div></td>
+
+                        <td style="width: 252px;"><select class="input-md totime form-control chosen-select " id="endttime" name="EpisodeAppointmentRequest.EndTime" style="display: none;"><option value="">Select Time</option>
+</select><div class="chosen-container chosen-container-single" style="width: 100%" title="" id="endttime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div></td>
+                        <td><a href="javascript:void(0)" class="btn btn-sm btn-primary hide" id="btnAddTimeslotTextFields">Add Row</a></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div> -->
+
+<div class="col-md-12" style="margin-top: 10px;">
+    <a  class="btn btn-success pull-right hide btncommoncomplete">Complete</a>
+    <a  class="btn btn-primary pull-right" style="margin-right: 8px;">Next</a>
+    <a  style="margin-right: 10px" class="btn btn-warning pull-right  btnPreviousWidget" (click)="OnScheduleApptProvider_PreviousClick()" id="">Previous</a>
+</div>
+</div>
+            </div>
+        </div>
+
+    </div>
+
+
+<!-- END OF Select Appointment Provider/Location -->
+
+</div>

@@ -1,0 +1,227 @@
+<div class="panel-body ">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Referral Source</h4>
+      <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+      <div id="dvReferralSource">
+        <div class="row">
+          <div class="col-md-12" style="margin-bottom: 10px;">
+            <a (click)="openDialog('referralSourceDialog')" class="btn btn-primary"
+              style="display: inline;float: right;" class="btn btn-small btn-primary btnAddEditReferralSource">Add
+              Referral Source</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin: 0 auto;">
+            <div class="panel-group" id="accordion-home">
+              <div class="panel panel-default" style="margin-bottom: 2px;">
+                <div class="panel-heading rea" style="background-color: #1c84c6; padding: 5px 15px;">
+                  <h3>
+                    <a data-toggle="collapse" data-parent="#accordion" style="color: white;"
+                      class="awvAccordionanc">Referral Source Details
+                    </a>
+                  </h3>
+                </div>
+                <div id="refsource" class="panel-collapse in">
+                  <div class="panel-body ">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Type</th>
+                          <th>From</th>
+                          <th>Type</th>
+                          <th>To</th>
+                          <th>On</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngIf="referralArr.length===0" >
+                          <td colspan="7" class="alert alert-warning">No Records Found</td>
+                         </tr>
+                        <tr *ngFor="let referralItem of referralArr; index as i">
+                          <td>{{referralItem.FromReferralSource}}</td>
+                          <td>
+                            <span>{{referralItem.ReferralSourceFromMember.Name}}
+                              <br>
+                              <br>
+                              <br>
+                              <span style="margin-left: 6px"><a class="label twiliocall hide"
+                                  style="color:white; background-color:lightgreen;" data-phnumber="">
+                                  <i class="fa fa-phone" data-phnumber="" title="Call" aria-hidden="true"></i></a>
+                              </span>
+                            </span>
+                          </td>
+                          <td>{{referralItem.ToReferralSource}}</td>
+                          <td>
+                            <span>
+                              {{referralItem.ReferralSourceToMember.Name}}
+                              {{referralItem.ReferredDate}}
+                              <span style="margin-left: 6px"><a class="label twiliocall "
+                                  style="color:white; background-color:lightgreen;" data-phnumber="201-816-0300">
+                                  <i class="fa fa-phone" data-phnumber="201-816-0300" title="Call"
+                                    aria-hidden="true"></i></a>
+                              </span>
+                            </span>
+                          </td>
+                          <td>
+                            <i
+                            (click)="openDialog('referralSourceDialog',referralItem)" style="cursor: pointer;" class="fa fa-pencil"></i>
+                          </td>
+                          <td>
+                            <i (click)="confirmDelete(referralItem,i)" style="cursor: pointer;" class="fa fa-trash"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-dialog id="dialogbounceright" [showHeader]="false" header="Referral Source" [(visible)]="referralSourceDialog"
+  styleClass="dialog" [modal]="true" [blockScroll]="true" [(closeOnEscape)]="dialogClose" [resizable]="false">
+  <div class="head">
+    <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('referralSourceDialog')">Close</a>
+    <h3 class="dialog-title">Referral Source
+    </h3>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="referralForm">
+      <div class="row">
+        <div class="ui-g-12 ui-md-3 ui-lg-3 ui-xl-3">
+          <label>From Source of Referral <span style="color: red">*</span></label>
+          <p-dropdown [options]="fromReferralOpt" placeholder="select" filter="true" (onChange)="onSelectedFromSource($event)" formControlName="SelectFromReferralSource">
+          </p-dropdown>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6" *ngIf="!showSelfValues">
+          <label>Select Referral Source Member <span style="color: red">*</span></label>
+          <br>
+          <div class="input-group" >
+            <div id="tags1581161810655_tagsinput" class="tagsinput ReferralSourceFromTagsInput"
+              style="width: 100%; min-height: auto; height: auto;">
+              <div id="tags1581161810655_addTag"><span role="status" aria-live="polite"
+                  class="ui-helper-hidden-accessible">No search results.</span>
+                <span class="tag" *ngIf="selectedFromSource != undefined">
+                  <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                    {{selectedFromSource}}
+                  </span>&nbsp;&nbsp;
+                  <a title="Removing tag" (click)="closeTag('removeReferralSourceFromTag')">x</a>
+                </span>
+                <p-autoComplete [suggestions]="filteredSourceToMember" appendTo="body"
+                  (onSelect)="selectFromSource($event)" (completeMethod)="filterSourceToMember($event)" field="Name"
+                  [size]="30" placeholder="Select a Member" [minLength]="1" formControlName="ReferralSourceFromMember">
+                </p-autoComplete>
+              </div>
+              <div class="tags_clear"></div>
+            </div>
+
+            <span class="input-group-addon" *ngIf="showFromDetailsbtn"><a (click)="openDialog('memberDetailsDialog')" id="viewbtn"
+                class="fa fa-eye fa-3" title="View Details"><span></span></a>
+            </span>
+            <span class="input-group-addon"><a (click)="openDialog('searchContactDialog')" id="viewbtn"
+                class="fa fa-search " title="Search Member"></a></span>
+            <span class="input-group-addon hide"><a class="fa fa-plus" title="Add New Member"></a></span>
+          </div>
+        </div>
+        <div class="ui-g-12 ui-md-5 ui-lg-5 ui-xl-5" *ngIf="showSelfValues">
+          <label>Where did you hear about YourDrs ?</label>
+          <br>
+          <p-dropdown [options]="whereDidYouHearAboutUsOpt" placeholder="select" filter="true" formControlName="SelectFromReferralSource">
+          </p-dropdown>
+        </div>
+
+        <div class="col-md-4 refsourcemediumdescription hide">
+          <label>Comments</label>
+          <textarea class="form-control" cols="20" id="txtSourceMediumDescription" maxlength="1000" rows="2"></textarea>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="ui-g-12 ui-md-3 ui-lg-3 ui-xl-3">
+          <label>To Source of Referral <span style="color: red">*</span></label>
+          <p-dropdown [options]="toReferralOpt" placeholder="select" filter="true" formControlName="SelectToReferralSource" (onChange)="onSelectedToSource($event)">
+          </p-dropdown>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6">
+
+          <label>Select Referral Source Member <span style="color: red">*</span></label>
+          <br>
+          <div class="input-group">
+            <input class="form-control mandatoryFieldBorder episodereferralSourceToTag"
+              name="EpisodeReferralSource.ReferralSourceToMember.DisplayName" type="text" value=""
+              id="tags1581161810648" style="display: none;">
+            <div id="tags1581161810648_tagsinput" class="tagsinput ReferralSourceToTagsInput"
+              style="width: 100%; min-height: auto; height: auto;">
+              <div id="tags1581161810648_addTag">
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                <span class="tag" *ngIf="selectedToSource != undefined">
+                  <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                    {{selectedToSource}}
+                  </span>&nbsp;&nbsp;
+                  <a title="Removing tag" (click)="closeTag('removeReferralSourceToTag')">x</a>
+                </span>
+                <p-autoComplete [suggestions]="filteredSourceToMember" (onSelect)="selectToSource($event)"
+                  appendTo="body" (completeMethod)="filterSourceToMember($event)" field="Name" [size]="30"
+                  placeholder="Select a Member" [minLength]="1" formControlName="ReferralSourceToMember">
+                </p-autoComplete>
+              </div>
+              <div class="tags_clear"></div>
+            </div>
+            <span class="input-group-addon" *ngIf="showToDetailsbtn"><a (click)="openDialog('memberDetailsDialog')" id="viewbtn"
+                class="fa fa-eye fa-3 " title="View Details"></a>
+            </span>
+            <span class="input-group-addon"><a (click)="openDialog('searchContactDialog')" id="viewbtn"
+                class="fa fa-search " title="Search Member"></a></span>
+            <span class="input-group-addon hide"><a class="fa fa-plus" title="Add New Member"></a></span>
+          </div>
+
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3">
+          <label>Date <span style="color: red">*</span></label>
+          <input type="text" class="form-control" placeholder="mm/dd/yyyy" bsDatepicker formControlName="ReferredDate">
+        </div>
+      </div>
+    </form>
+    <br>
+  </div>
+
+  <div class="modal-footer">
+    <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+  </div>
+</p-dialog>
+
+<p-dialog id="dialogbounceright" [showHeader]="false" header="Search - Select Contact" [(visible)]="searchContactDialog"
+  styleClass="dialog" [style]="{width:'50%'}" [modal]="true" [blockScroll]="true" [(closeOnEscape)]="dialogClose">
+
+  <div class="head">
+    <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('searchContactDialog')">Close</a>
+    <h3 class="dialog-title">Search - {{searchDialogTitle}} Contact
+    </h3>
+  </div>
+  <div class="modal-body">
+    <app-common-search></app-common-search>
+  </div>
+  <div class="modal-footer">
+    <a class="btn btn-primary" (click)="closeDialog('searchContactDialog')">Close</a>
+  </div>
+</p-dialog>
+
+
+<p-dialog id="dialogbounceright" [showHeader]="false" header="Member Details" [(visible)]="memberDetailsDialog"
+  styleClass="dialog" [style]="{width:'50%'}" [modal]="true" [blockScroll]="true" [(closeOnEscape)]="dialogClose">
+
+  <div class="head">
+    <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('memberDetailsDialog')">Close</a>
+    <h3 class="dialog-title">Member Details
+    </h3>
+  </div>
+  <div class="modal-body">
+    <app-view-details></app-view-details>
+  </div>
+</p-dialog>

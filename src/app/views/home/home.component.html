@@ -1,0 +1,563 @@
+<div class="container-fluid" >
+    <section >
+      <div  class="bgimage">
+        <section class="wherehurt-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div>
+                            <h2>Where does it <span>hurt? </span></h2>
+                            <p class="">( Select a body part )</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container banner-padd">
+                <div class="row">
+                    <div id="front-1" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 offset-xl-1  head-pd  ">
+                        <div class="text-center mgt5">
+                            <img src=" https://qa.yourdrs.com/Images/NewYourDrsHome/front-1.png" id="front"
+                                style="width: 569px; max-width: 100%; height: auto; position: relative" alt=""
+                                usemap="#map" />
+                            <map name="map">
+                                <area shape="circle" class="tip-1 clshumanbdypart" data-bodypartid="16"
+                                    (click)="bodypartDialog(12)" tooltip="Foot" data-tippy-content=" Foot"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="227,570,20" style="cursor: pointer;" />
+                                <area shape="circle" class="tip-2 clshumanbdypart" data-bodypartid="4"
+                                    (click)="bodypartDialog(11)" tooltip="Ankle" data-tippy-content="Ankle"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="325,531,21" style="cursor: pointer;" />
+                                <area shape="circle" class="tip-3 clshumanbdypart" data-bodypartid="15"
+                                    (click)="bodypartDialog(10)" tooltip="Knee" data-tippy-content="Knee"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="319,468,24" style="cursor: pointer;" />
+                                <area shape="circle" class="tip-4 clshumanbdypart" data-bodypartid="18"
+                                    (click)="bodypartDialog(18)" tooltip="Thigh" data-tippy-content="Thigh"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="239,425,20" style="cursor: pointer;"/>
+                                <!--NEED Popup for thigh-->
+                                <area shape="circle" class="tip-5 clshumanbdypart" data-bodypartid="11"
+                                    (click)="bodypartDialog(6)" tooltip="Hip" data-tippy-content="Hip"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="310,377,24" style="cursor: pointer;"/>
+
+                                <area shape="circle" class="tip-6 clshumanbdypart" data-bodypartid="17"
+                                    (click)="bodypartDialog(15)" tooltip="Biceps" data-tippy-content="Biceps"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="377,232,22" style="cursor: pointer;"/>
+                                <!--NEED Popup for biceps-->
+                                <area shape="circle" class="tip-7  clshumanbdypart" data-bodypartid="12"
+                                    (click)="bodypartDialog(7)" tooltip="Shoulder" data-tippy-content="Shoulder"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="226,227,25" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-8 clshumanbdypart" data-bodypartid="10"
+                                    (click)="bodypartDialog(5)" tooltip="Hand" data-tippy-content="Hand"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="61,234,22" style="cursor: pointer;"/>
+
+                            </map>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-lg-2 head-pd d-none d-xl-block"></div>
+                    <div id="back-1" class="col-sm-12 col-md-6 col-lg-6 col-xl-4 head-pd back-mob">
+                        <div class=" text-center">
+                            <img src=" https://qa.yourdrs.com/Images/NewYourDrsHome/back.png" id="back"
+                                style="width: 569px; max-width: 100%; height: auto; position: relative;" alt=""
+                                usemap="#Back-hurt" />
+                            <map name="Back-hurt">
+                                <area shape="circle" class="tip-9 clshumanbdypart" data-bodypartid="16"
+                                    data-tippy-content="Foot" (click)="bodypartDialog(12)" tooltip="Foot"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="231,529,22" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-10 clshumanbdypart" data-bodypartid="19"
+                                    data-tippy-content="Leg" (click)="bodypartDialog(19)" tooltip="Leg"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="314,435,21" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-11 clshumanbdypart" data-bodypartid="8"
+                                    data-tippy-content="Low Back" (click)="bodypartDialog(3)" tooltip="Low Back"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="280,378,20" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-12 clshumanbdypart" data-bodypartid="13"
+                                    data-tippy-content="Elbow" (click)="bodypartDialog(8)" tooltip="Elbow"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="419,255,22" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-13 clshumanbdypart" data-bodypartid="7"
+                                    data-tippy-content="Mid Back" (click)="bodypartDialog(2)" tooltip="Mid Back"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="280,299,21" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-14 clshumanbdypart" data-bodypartid="3"
+                                    data-tippy-content="Arm" (click)="bodypartDialog(24)" tooltip="Arm"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="80,242,22" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-15 clshumanbdypart" data-bodypartid="1"
+                                    data-tippy-content="Neck" (click)="bodypartDialog(1)" tooltip="Neck"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="280,214,21" style="cursor: pointer;"/>
+                                <area shape="circle" class="tip-16 clshumanbdypart" data-bodypartid="9"
+                                    data-tippy-content="Head" (click)="bodypartDialog(4)" tooltip="Head"
+                                    data-tippy-arrow="true" data-tippy-animation="scale" coords="280,90,22" style="cursor: pointer;"/>
+                            </map>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" text-center frontback-btn d-block d-sm-block d-md-none">
+                <button class="btn SeeMore2 Button1  mx-auto btn-tap" type="button" (click)="switchVisible();">Tap for
+                    {{view}} view</button>
+            </div>
+        </section>
+      </div>
+        <!-- </div> -->
+        <section class="virtual-visits">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div>
+                            <h2>Virtual <span>Visits </span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <div class="text-md-center">
+                            <img src="https://qa.yourdrs.com/images/NewYourDrsHome/virtual-visit1.png"
+                                class="img-fluid virtual-img" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <h3>For when you can’t make it to one of our locations </h3>
+                        <h4>• Video chat with your doctor on your mobile device, tablet, or
+                            computer</h4>
+                        <h4>• Get a prescription</h4>
+                        <h4>• Simple pricing and payments</h4>
+                        <!-- <div class="pdt30"> <img src="https://qa.yourdrs.com/images/NewYourDrsHome/dummy-callender.png" class="img-fluid float-right " alt=""/> </div> -->
+                        <div class="clearfix"></div>
+                        <div class="pdt45 text-lg-left">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a routerLink="/virtualvisits" href="javascript:void(0)"
+                                        class="btn btn-secondary ">Learn More</a> </li>
+                                <li class="list-inline-item d-none">
+                                    <button class="btn btn-outline-secondary ">Schedule</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="find-doctor">
+            <div class="container ">
+                <div style="background: #F9F9F9; box-shadow: 0px -11px 28px -3px rgba(0, 0, 0, 0.1); height: 180px">
+                </div>
+                <div class="f-doct">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div>
+                                <h2>Find the right <span>doctor </span></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div id="dr1" class="dr-short-summary ">
+                            <div class="row" *ngIf="filterdDoctors == undefined">
+                                <div class="col-sm-3 col-md-12 col-lg-4 col-xl-3">
+                                    <div>
+                                        <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/doctor-small-bg.png"
+                                            class="dr-back-pink img-fluid d-none d-xl-block">
+                                        <img src="https://qa.yourdrs.com/Images/Profile/dr-scilaris.jpg"
+                                            class="dr-img-sec img-fluid" style="width:275px;height:275px"
+                                            onerror="this.src='/images/specialitydetails/noresult.jpg'">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-md-12 col-lg-8 col-xl-9 dr-col-padd">
+                                    <div class="dr-pink-bg">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="dr-detail-wraper">
+                                                    <h3>Scilaris Thomas </h3>
+                                                    <ul class="list-inline">
+                                                        <li class=" dr-first-li">
+                                                            <p>Specialities :</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+                                                            <p>
+                                                                Orthopaedics, Spine Care, Anesthesia, Reconstructive
+                                                                &amp; Plastic Surgery, Podiatry, OB / GYN, Radiology,
+                                                                Others, Medical Weight Loss Surgery, Orthopedic Spine
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-inline d-none d-xl-block">
+                                                        <li class=" dr-first-li">
+                                                            <p>Locations:</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+                                                            <p>
+                                                                <span
+                                                                    title="38 Astoria | 75 Central Park West | HEASC @ 54 Dean | CPW | Freehold Neuro | New Brunswick Neuro | 54 DEAN | 100A Liv, Brooklyn | 39 East 69th Street | West Milford | Edison | Hedrych (Brooklyn) | West NY | Astoria |  Flemington Neuro | Freehold">
+                                                                    <span class="dr-first-li"></span>38 Astoria | 75
+                                                                    Central Park West | HEASC @ 54 Dean | CPW | Freehold
+                                                                    Neuro | New Brunswick Neuro | 5...</span>
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-inline  d-none d-md-block">
+                                                        <li class=" dr-first-li">
+                                                            <p>Education:</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+
+
+                                                            <p> Bachelor of Science, Medicine Doctors Degree, Master in
+                                                                Science </p>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="row ">
+                                                        <div class="col-md-12 col-lg-12 col-xl-6 dr-detp"><a
+                                                                href="/Home/DoctorProfileDetails?MemberId=15"
+                                                                class="btn btn-secondary  btn-block">Learn about
+                                                                Scilaris Thomas </a> </div>
+                                                        <div class="col-md-12 col-lg-12 col-xl-6 dr-detp">
+                                                            <a href="javascript:void(0)"
+                                                                class="btn btn-outline-secondary d-none d-md-block btnrequestappointmentnew"
+                                                                data-providerid="15"
+                                                                data-req-url="/Home/GetBodyPartRangeCMS"
+                                                                data-update-container="#dvPopupTopNode1"><span>Request
+                                                                    an Appointment</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row" *ngIf="filterdDoctors != undefined">
+                                <div class="col-sm-3 col-md-12 col-lg-4 col-xl-3">
+                                    <div>
+                                        <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/doctor-small-bg.png"
+                                            class="dr-back-pink img-fluid d-none d-xl-block">
+                                        <img src="{{filterdDoctors?.ProfilePhoto}}" class="dr-img-sec img-fluid"
+                                            style="width:275px;height:275px"
+                                            onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9 col-md-12 col-lg-8 col-xl-9 dr-col-padd">
+                                    <div class="dr-pink-bg">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="dr-detail-wraper">
+                                                    <h3>{{filterdDoctors?.DisplayName}}</h3>
+                                                    <ul class="list-inline">
+                                                        <li class=" dr-first-li">
+                                                            <p>Specialities :</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+                                                            <p>
+                                                                {{filterdDoctors?.Specialities}}
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-inline d-none d-xl-block">
+                                                        <li class=" dr-first-li">
+                                                            <p>Locations:</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+                                                            <p>
+                                                                <span
+                                                                    *ngFor="let location of filterdDoctors?.MemberLocations">{{location.Name}}
+                                                                    |</span>
+                                                                <!-- <span title="38 Astoria | 75 Central Park West | HEASC @ 54 Dean | CPW | Freehold Neuro | New Brunswick Neuro | 54 DEAN | 100A Liv, Brooklyn | 39 East 69th Street | West Milford | Edison | Hedrych (Brooklyn) | West NY | Astoria |  Flemington Neuro | Freehold"> <span class="dr-first-li"></span>38 Astoria | 75 Central Park West | HEASC @ 54 Dean | CPW | Freehold Neuro | New Brunswick Neuro | 5...</span> -->
+                                                            </p>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-inline  d-none d-md-block">
+                                                        <li class=" dr-first-li">
+                                                            <p>Education:</p>
+                                                        </li>
+                                                        <li class="list-inline-item dr-second-li">
+
+
+                                                            <p> {{filterdDoctors?.Educations}}</p>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="row ">
+                                                        <div class="col-md-12 col-lg-12 col-xl-6 dr-detp"><a
+                                                                href="javascript:void(0);"
+                                                                (click)="Learnmore(filterdDoctors.Id)"
+                                                                class="btn btn-secondary  btn-block">Learn More </a>
+                                                        </div>
+                                                        <div class="col-md-12 col-lg-12 col-xl-6 dr-detp">
+                                                            <a href="javascript:void(0)"
+                                                                class="btn btn-outline-secondary d-none d-md-block btnrequestappointmentnew"
+                                                                data-providerid="15"
+                                                                data-req-url="/Home/GetBodyPartRangeCMS"
+                                                                (click)="openReqApp()"
+                                                                data-update-container="#dvPopupTopNode1"><span>Request
+                                                                    an Appointment</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="meetdoctors-scroll">
+              <div class="d-flex justify-content-center">
+                <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+              </div>
+                <div class="container mobile-container ">
+                    <div id="owl-1" class="owl-carousel owl-theme ">
+
+                        <p-carousel [value]="docterData" styleClass="custom-carousel" id="doctCorousel" [numVisible]="5"
+                            [responsiveOptions]="responsiveOptions">
+                            <ng-template let-Data pTemplate="item">
+
+                                <div class="p-grid p-nogutter" >
+                                    <div class="p-col-12  text-center" >
+                                        <img src="{{Data.ProfilePhoto}}" (click)="getdocterDetails(Data.Id)"
+                                            onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'"
+                                            class="imgslide" style="cursor: pointer;">
+                                    </div>
+                                    <div class="p-col-12 text-center" style="cursor: pointer;">
+                                        <!-- <p class="">{{Data.DisplayName}}</p>
+                                <p class="">{{Data.Specialities[0]}} | {{Data.Specialities}}</p> -->
+                                        <h4 class="carousal-text" (click)="getdocterDetails(Data.Id)">
+                                            {{Data.DisplayName}}
+                                            <span>{{Data.Specialities[0]}} | {{Data.Specialities}}</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-carousel>
+                    </div>
+                    <div class="owl-theme">
+                        <div class="owl-controls">
+                            <div class="custom-nav owl-nav"></div>
+                        </div>
+                    </div>
+                    <div class="text-center pdt20"><a href="javascript:void(0)" (click)="browseAllDoctors()"
+                            class="btn btn-secondary ">Browse all of YourDRs</a> </div>
+                </div>
+                <!-- .container -->
+            </div>
+        </section>
+        <section class="elctronic-health">
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div>
+                                <h2>Electronic <span>Health Records</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-12 col-lg-6 order-2  order-sm-2 order-md-2 order-lg-1">
+                            <div class="">
+                                <h3>Your DRs makes your life easier by securely storing your medical records and
+                                    ensuring easy access to them by any doctor you visit. </h3>
+                                <h4>• Government-grade security</h4>
+                                <h4>• Easy, remote access</h4>
+                                <h4>• Share with anyone</h4>
+                                <div class="clearfix"></div>
+                                <div class=" pdt45"><a routerLink="/Yourdrs-ehr" href="/Home/YourdrsEhr"
+                                        class="btn btn-secondary ">Learn More</a> </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-6 order-1  order-sm-1 order-md-1 order-lg-2">
+                            <div>
+                                <img src="https://qa.yourdrs.com/images/NewYourDrsHome/virtual3.png"
+                                    class="img-fluid float-right electronin-img" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="location-sec">
+          <div class="container">
+            <h2 style="font-size: 32px;">Locations</h2>
+            <div class="d-flex justify-content-center">
+              <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+            </div>
+
+            <div class="row" *ngIf="!spinnerdisplay">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h3 style="font-size: 21px; padding-top: 0px; ">New Jersey</h3>
+                                <div class="row">
+                                    <ul class="list-unstyled">
+                                        <li class="lists" *ngFor="let item of officehours"><span class="span1" *ngIf="item.State != 'NY'"
+                                                (click)="showDialog1(item)">{{item.Location}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h3 style="font-size: 21px; padding-top: 0px;">New York</h3>
+                                            <div class="row">
+                                            <ul class="list-unstyled">
+                                                <li class="lists" *ngFor="let item of officehours"><span class="span1" *ngIf="item.State != 'NJ'"
+                                                        (click)="showDialog1(item)">{{item.Location}}</span></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+  </section>
+
+
+<!--   location dailog   -->
+
+<p-dialog id="location" [(visible)]="display1" [modal]="true" [responsive]="true" [positionTop]="60"
+  [style]="{width: '500px', height: '700px'}" [closable]="false" [draggable]="false">
+  <p-header style="height:50px;">
+    <span class="heading" style="font-size: 20px roboto; color:#07244B;font-family: sans-serif;font-weight: 600;">
+      Location-{{selectedLocation.Location}}</span><br>
+    <span class="pull-right">
+      <button type="button" class="close closeBodypart" (click)="functionToCloseDialog()"
+        data-dismiss="modal">×</button>
+    </span>
+  </p-header>
+
+  <p>
+    <span class="city">
+      {{selectedLocation.City}}</span><br>
+    <span class="address">{{selectedLocation.Address}}</span><br><br>
+    <agm-map [latitude]="selectedLocation.Lattitude" [longitude]="selectedLocation.Longitude" [zoom]="zoom"
+      [disableDefaultUI]="true" [zoomControl]="true" [fullscreenControl]="true" [gestureHandling]="'coopeative'"
+      [scrollwheel]="null">
+
+      <agm-marker [latitude]="selectedLocation.Lattitude" [longitude]="selectedLocation.Longitude"
+        [iconUrl]="selectedLocation.iconUrl">
+
+        <agm-info-window>
+          <strong>{{selectedLocation.Address}}</strong><br>
+          <strong>{{selectedLocation.City}}</strong><br>
+          <strong>{{selectedLocation.State}}</strong><br>
+          <strong>{{selectedLocation.Country}}</strong><br>
+          <strong>{{selectedLocation.Zipcode}}</strong><br>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </p>
+  <br>
+  <span style="font-size: 150%; color:#07244B;font-family:sans-serif;font-weight: bold;"> Call:<h5
+      class="list-inline-item">{{selectedLocation.PhoneNumber}}</h5></span><br>
+  <span style="font-size: 150%; color:#07244B; font-family: sans-serif; font-weight: bold;"> Fax:<h5
+      class="list-inline-item">{{selectedLocation.Fax}}</h5></span><br><br><br>
+  <a class="btn btn-primary btn-block" class="specialeffects" role="button" (click)="openReqApp()"><label class="send">Request an
+      Appointment</label></a><br><br>
+</p-dialog>
+
+
+
+
+
+        <!--	  Modals for  location starts-->
+
+        <p-dialog id="getbodyParts"  [positionTop]="10" [responsive]="true" [style]="{width: '800px', height: '200px'}" blockScroll="false"   [(visible)]="display" [draggable]="false" [modal]="true">
+              <span class="pull-right">
+                <button type="button" class="close closeBodypart " (click)="closegetbodypartdetailPopup()" data-dismiss="modal">×</button>
+              </span>
+
+            <div class="">
+              <div class="">
+                  <div class="row">
+
+                      <div class="col-md-6">
+                          <div class="body-popup-img">
+                              <img src="{{bodyparts_imagepath}}" class="bodypartimage" alt=""  onerror="this.src='https://qa.yourdrs.com/BodyRangeCMSImages/sonophoto.jpg'">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <!-- <label>{{bodyparts_name}}</label> -->
+                        <div>
+                          <h3>{{bodyparts_name}}</h3>
+                        </div>
+
+
+                          <p class="modal-text-size">
+                            {{bodyparts_content}}
+                          </p>
+                      </div>
+                  </div>
+
+                  <div class="row">
+
+                      <div class="col-md-12">
+                        <div class="d-flex justify-content-center">
+                          <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+                        </div>
+                        <div id="owl-1" class="owl-carousel owl-theme ">
+
+                          <p-carousel [value]="doctorsListForPopup" styleClass="custom-carousel" id="doctCorousel" [numVisible]="5"
+                              [responsiveOptions]="responsiveOptions">
+                              <ng-template let-Data pTemplate="item">
+
+                                  <div class="p-grid p-nogutter" >
+                                    <div class="item text-center pop-img">
+                                      <div class="p-col-12  text-center" >
+                                          <img src="{{Data.ProfilePhoto}}" (click)="getdocterDetails(Data.Id)"
+                                              onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'"
+                                              class="imgslideinpopup" style="cursor: pointer;">
+                                      </div>
+                                    </div>
+                                      <div class="p-col-12 text-center" style="cursor: pointer;">
+                                          <!-- <p class="">{{Data.DisplayName}}</p>
+                                  <p class="">{{Data.Specialities[0]}} | {{Data.Specialities}}</p> -->
+                                          <h6 class="carousal-text" (click)="getdocterDetails(Data.Id)">
+                                              {{Data.DisplayName}}
+                                          </h6>
+                                      </div>
+                                  </div>
+                              </ng-template>
+                          </p-carousel>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <p-footer>
+                <div class="row">
+                    <div class="col-md-12 col-lg-6"><a href="#" class="btn btn-secondary btn-block">Virtual View</a>
+                    </div>
+
+                    <div class="col-md-12 col-lg-6"><a href="javascript:void(0)"
+                            class="btn btn-outline-secondary btn-block btnrequestappointmentnew"
+                            data-req-url="/Home/GetBodyPartRangeCMS" (click)="openReqApp()" data-bodypartid="17"
+                            data-update-container="#dvPopupTopNode1">Request an Appointment</a> </div>
+
+                </div>
+            </p-footer>
+        </p-dialog>
+        <p-dialog blockScroll="false" id="whrHurt"  [closable]="false" [modal]="true"
+            [responsive]="true" [baseZIndex]="10000" [style]="{width: '1200px', height: '200px'}" [positionTop]="60">
+            <p-header>
+                <div class="container">
+                    <div class="row float-right">
+
+                        <!-- <span class="pull-right">
+      <button type="button" class="close closeBodypart bgColor" (click)="closeDialog()" data-dismiss="modal">×</button>
+      </span> -->
+                    </div>
+                </div>
+            </p-header>
+            <span class="pull-right">
+                <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal">
+                    ×</button>
+            </span>
+            <div class="container">
+                <app-reqappointment></app-reqappointment>
+            </div>
+        </p-dialog>

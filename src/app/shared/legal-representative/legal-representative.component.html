@@ -1,0 +1,721 @@
+<div class="row">
+  <!-- <p-toast [style]="{marginTop: '80px'}" position="top-left" key="tl"></p-toast> -->
+  <div class="col-md-12">
+    <!-- <label >Legal Representative</label>
+    <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+
+    -->
+
+    <div id="dvLegalRep">
+      <div class="row">
+        <div class="col-md-6">
+          <label>Add Legal Representative</label>
+          <div class="input-group">
+            <span class="form-control" data-mem-id="" disabled="disabled" id="txtlegalrepmemid" maxlength="45"
+              name="txtlegalrepmemid" type="text" value="">{{selectedVal}}</span>
+            <span class="input-group-addon" (click)="ViewContent()">
+              <a title="View Details" class="fa fa-eye fa-3 ViewpartorgMem" href="javascript:void(0)"></a>
+            </span>
+            <span class="input-group-addon" (click)="opensearch1popup()">
+              <a title="Search Member" class="fa fa-search searchpartorgmem" href="javascript:void(0)"></a>
+            </span>
+
+
+            <span class="input-group-addon" (click)="openOrganizationpopup()">
+              <a title="Add New Member" class="fa fa-plus ancaddorgmem haspopup" href="javascript:void(0)"></a>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="pull-right">
+            <a class="btn btn-primary p-t-md" id="btnSaveLegalReprasentation"
+              (click)="saveLegalRepresentative()">Save</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dvLegalRepList"><br><br>
+      <div class="row">
+        <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped authoReprestbl">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+                <th>Cell Number</th>
+                <th>Office Number</th>
+                <th>Email Id</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="selectedValArr1.length>0">
+              <tr *ngFor="let item of selectedValArr1">
+                <td>{{item.FirstName}}</td>
+                <td>
+                  <span class="badge badge-info">{{item.Status}}</span>
+                </td>
+                <td>{{item.Created_By}}</td>
+                <td>{{item.Created_Date}}</td>
+                <td>{{item.Cell_Number}}</td>
+                <td>{{item.Office_Number}}</td>
+                <td>{{item.Email_Id}}</td>
+                <td *ngIf="showxray">
+                    <button class="btn btn-xs btn-danger btnRemovelegalRep" (click)="showXRay(showxray)" >Remove</button>
+                    <button class="btn btn-warning btn-xs">Add New Documents</button>
+                    <button class="btn btn-success btn-xs" (click)="DocumentView()"> View Documents </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog id="add" [(visible)]="ViewDetailsPopup" [modal]="true" [positionTop]="30" [responsive]="true"
+  [maximizable]="false" [closable]="false" [blockScroll]="true" [resizable]="false">
+  <div class="container">
+    <a class="btn btn-danger pull-right" (click)="closeViewdedetail()"
+      style="width: 60px;background: red;color: white;">close</a>
+    <h3 style=" text-align: center">Legal Representative Documents</h3>
+    -No Records Found
+  </div>
+</p-dialog>
+
+
+
+<p-dialog id="add" [(visible)]="showDetailsPopupdisp" [modal]="true" [positionTop]="30" [responsive]="true"
+  [maximizable]="false" [closable]="false" [blockScroll]="true" [resizable]="false">
+  <div class="container">
+    <a class="btn btn-danger pull-right" (click)="closeDetailsPopup()"
+      style="width: 60px;background: red;color: white;">close</a>
+    <h3 style=" text-align: center">Organization Member Details</h3>
+    <form [formGroup]="showDetails">
+      <div class="modal-body">
+        <table class="table" *ngIf="viewDetails">
+          <!-- <tbody>
+            <tr>
+              <td>
+                <strong>First Name</strong><br>
+                <span id="spnPatientFname">
+
+                  {{selectedValArr.FirstName}}
+                </span>
+              </td>
+              <td>
+                <strong>Middle Name</strong><br>
+                <span id="spnPatientMname"></span>
+              </td>
+              <td>
+                <strong>Last Name</strong><br>
+                <span id="spnPatientLname">
+
+                  {{selectedValArr.LastName}}
+                </span>
+              </td>
+              <td>
+                <strong>Gender</strong><br>NA
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Date of Birth</strong><br>
+              </td>
+              <td>
+                <strong>City</strong><br>
+                <span>
+
+                  {{selectedValArr.City}}
+                </span>
+              </td>
+              <td>
+                <strong>State</strong><br>
+                <span style="word-wrap: break-word; display: block; width: 150px;">
+
+                  {{selectedValArr.State}}
+                </span>
+              </td>
+              <td>
+                <strong>Email</strong><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Profile Photo</strong><br>
+
+              </td>
+              <td>
+                <strong>Associated Organization</strong><br>
+              </td>
+              <td>
+                <strong>Cell Phone</strong><br>
+              </td>
+              <td>
+                <strong>Office Number</strong><br>(718)626-7730
+              </td>
+            </tr>
+          </tbody> -->
+        </table>
+      </div>
+    </form>
+  </div>
+</p-dialog>
+<!--------------- Search - Legal Representative Contact START  ---------------->
+
+<p-dialog id="add" [(visible)]="search1" [modal]="true" [responsive]="true"
+  [style]="{width: '900px', minWidth: '410px'}" [positionTop]="30" [draggable]="false" [closable]="false">
+  <p-header>
+    <a class="btn btn-small btn-danger pull-right" (click)="closesearch1popup()" style="color: white;">close</a>
+    <h4>Search - Legal Representative Contact</h4>
+  </p-header>
+  <div class="container-fluid">
+    <form [formGroup]="searchLegalRepresentative">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Name</label>
+          <input type="text" id="txtEpiSodeMemberFirstName" class="form-control textbox-search-onenterkey"
+            formControlName="FirstName">
+        </div>
+        <div class="col-md-3">
+          <label>Firm Name</label>
+          <input type="text" id="txtEpiSodeMemberFirmName" class="form-control textbox-search-onenterkey"
+            formControlName="Firm_Name">
+        </div>
+        <div class="col-md-3">
+          <label>City</label>
+          <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" formControlName="City">
+        </div>
+
+
+        <!-- <div class="ui-g-12 ui-md-6 ui-lg-2">
+          <span>
+            <label>Originating Practice</label>
+            <p-dropdown formControlName="practice" id="pwsdropdown" [options]="originatedpractise"
+
+              ></p-dropdown>
+          </span>
+        </div> -->
+        <div class="col-md-3">
+          <label>State</label>
+          <p-dropdown formControlName="State" id="pwsdropdown" [options]="legalState" filter="true">
+
+          </p-dropdown>
+        </div>
+        <div class="col-md-2" style="margin-top: 20px;margin-left: 740px;">
+          <button href="javascript:void(0)" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember"
+            (click)="showDataContaint()">Search</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="dvSearchEpisodeAdminMemResult" class="dvSearchEpisodeAdminMemResult">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="wrapper wrapper-content table-responsive">
+        <div id="dvSearchResult">
+          <table class="table table-striped table-hover table-condensed" *ngIf="legalRecords">
+            <thead>
+              <tr style="width: 100%;">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Firm Name </th>
+                <th>City</th>
+                <th>State</th>
+                <th style="max-width: 10%; text-align: center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of legalRepresentativeArr">
+                <td>{{ item.FirstName }} </td>
+                <td>{{ item.LastName }}</td>
+                <td>{{ item.FirmName}}</td>
+                <td>{{ item.City }}</td>
+                <td>{{ item.State }}</td>
+                <td>
+                  <a (click)="selectSearch(item)" class="selectedEpisodeSurgeon" style="color: #337ab7">Select</a>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="custompagination pull-right pagRefSrcMemList" style="margin-top:-17px">
+            <span class="label pagerInfo">Total Items <strong>{{searchedRecordLength}}</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+<!----------------  Search - Legal Representative Contact End ------------------->
+
+
+<!------------------ Add New Organization start --------------->
+<p-dialog [(visible)]="organizationDisplay" [modal]="true" [responsive]="true" [positionTop]="30" [draggable]="false"
+  [closable]="false" [blockScroll]="true" [(closeOnEscape)]="haltEscapedialogClose">
+  <p-header>
+    <a class="btn btn-small btn-danger pull-right" (click)="closeOrganizationpopup()" style="color: white;">close</a>
+    <h4>Add New Organization</h4>
+  </p-header>
+  <div class="modal-bi">
+    <form [formGroup]="addOrganization" (ngSubmit)="addNewOrg(addOrganization.value)">
+      <div class="ibox-content" id="dvPralocmemid">
+        <div class="row">
+          <div class="col-md-12">
+            <label>Select Organization <span style="color: red;">*</span></label>
+            <div class="input-group">
+              <input name="LocationName" disabled="disabled" class="form-control" id="txtProviderPractice" type="text"
+                formControlName="OrganisationName">
+              <span class="input-group-addon">
+                <a title="View Details" class="fa fa-eye fa-3 ViewpartorgMem" href="javascript:void(0)"
+                  (click)="showOrganisation()"></a>
+              </span>
+              <span class="input-group-addon">
+                <a title="Search Member" class="fa fa-search" href="javascript:void(0)"
+                  (click)="searchOrganisationpopup()"></a>
+              </span>
+              <span class="input-group-addon">
+                <a title="Add New Member" class="fa fa-plus" href="javascript:void(0)" (click)="openadd3popup()"></a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>Title </label>
+            <input name="Title" class="form-control txtProviderTitle" id="txtProviderTitle" type="text" maxlength="45"
+              placeholder="Title" formControlName="Title">
+          </div>
+          <div class="col-sm-3">
+            <label>First Name <span style="color: red;">*</span></label>
+            <input name="FirstName" class="form-control txtProviderfirstname" id="txtProviderfirstname" type="text"
+              maxlength="45" placeholder="First Name" formControlName="FirstName">
+          </div>
+          <div class="col-sm-3">
+            <label>Middle Name<span style="color: red;">&nbsp;</span></label>
+            <input name="MiddleName" class="form-control txtProviderMiddelname" id="txtProviderMiddelname" type="text"
+              maxlength="45" placeholder="Middle Name" formControlName="MiddleName">
+          </div>
+          <div class="col-sm-3">
+            <label>Last Name <span style="color: red;">*</span></label>
+            <input name="LastName" class="form-control txtProviderlastname" id="txtProviderlastname" type="text"
+              maxlength="45" placeholder="Last Name" formControlName="LastName">
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Suffix </label>
+            <input name="Sufix" class="form-control" id="txtProvidersuffix" type="text" maxlength="45"
+              placeholder="Suffix" formControlName="Suffix">
+          </div>
+          <div class="col-sm-4">
+            <label>Speciality </label>
+            <p-dropdown formControlName="State" id="pwsdropdown" [options]="legalspecialities" filter="true">
+            </p-dropdown>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-sm-3" id="litOffice">
+            <label>Office # </label>
+            <input class="form-control txtProviderPhoneNumber" id="txtProviderPhoneNumber" type="text" maxlength="10"
+              placeholder="(xxx)xxx-xxxx" formControlName="Office">
+            <span style="color: red;">Fill either Office # or Cell #</span>
+          </div>
+          <div class=" col-sm-3" id="litExtension">
+            <label>Extension </label>
+            <input name="Extension" class="form-control txtproviderExtension" id="txtproviderExtension" type="text"
+              maxlength="5" placeholder="xxxxx" formControlName="Extension">
+          </div>
+          <div class="col-sm-3" id="litCell">
+            <label>Cell # </label>
+            <input name="CellNumber" class="form-control txtProviderCellNumber" id="txtProviderCellNumber" type="text"
+              maxlength="10" placeholder="(xxx)xxx-xxxx" formControlName="Cell">
+          </div>
+          <div class="col-sm-3" id="litEmail">
+            <label>Email </label>
+            <input name="Email" class="form-control txtProvideremail" id="txtProvideremail" type="text" maxlength="100"
+              placeholder="Email" formControlName="Email">
+          </div>
+        </div>
+      </div><br>
+      <div class="ibox-content" id="dvIsYourdrsMem">
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label class="radio-inline i-checks">
+              <div class="icheckbox_square-green" style="position: relative;">
+                <input name="IsYourdrsMember" class="form-control " id="chkIsYourdrsProvider"
+                  style="position: absolute;" type="checkbox" value="true">
+                <ins class="iCheck-helper"
+                  style="background: rgb(255, 255, 255); margin: 0px; padding: 0px; border: 0px; border-image: none; left: 0%; top: 0%; width: 100%; height: 100%; display: block; position: absolute; opacity: 0;"></ins>
+              </div>
+              <input name="IsYourdrsMember" type="hidden" value="false"> Make Member Of YourDrs ?
+            </label>
+          </div>
+        </div>
+      </div><br>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label class="radio-inline i-checks">
+              <div class="icheckbox_square-green checked" style="position: relative;">
+                <input name="IsCompelteExpandedInfo" class="form-control " id="chkCompleteIfoforProvider"
+                  style="position: absolute; opacity: 0;" type="checkbox" value="true">
+                <ins class="iCheck-helper"
+                  style="background: rgb(255, 255, 255); margin: 0px; padding: 0px; border: 0px; border-image: none; left: 0%; top: 0%; width: 100%; height: 100%; display: block; position: absolute; opacity: 0;"></ins>
+              </div>
+              <input name="IsCompelteExpandedInfo" type="hidden" value="false"> Complete Expanded Information
+            </label>
+          </div>
+        </div>
+        <div id="dvaddressgroupProvider" style="display: block;">
+          <div class="row">
+            <div class="staff form-group col-sm-6">
+              <label>Address Line 1</label>
+              <input name="AddressLine1" class="form-control txtProviderAddressLine1" id="txtProviderAddressLine1"
+                type="text" maxlength="45" placeholder="Address Line 1" formControlName="addressLine1">
+            </div>
+            <div class="staff form-group col-sm-6">
+              <label>Address Line 2</label>
+              <input name="AddressLine2" class="form-control txtProviderAddressLine2" id="txtProviderAddressLine2"
+                type="text" maxlength="45" placeholder="Address Line 2" formControlName="addressLine2">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class=" col-md-3">
+              <label>ZIP</label>
+              <input name="PostalCode" class="form-control txtProviderZipcode ZipCodeChange" id="txtProviderZipcode"
+                type="text" maxlength="10" placeholder="xxxxx-xxxx" formControlName="ZIP">
+            </div>
+            <div class=" col-md-3 ">
+              <label>City</label>
+              <input name="City" class="form-control txtProviderCity" id="txtProviderCity" type="text" maxlength="80"
+                formControlName="City">
+            </div>
+            <div class="col-md-3">
+              <label>State</label>
+              <p-dropdown formControlName="State" id="pwsdropdown" [options]="legalState" filter="true">
+
+              </p-dropdown>
+            </div>
+            <div class="col-sm-3">
+              <label>Fax #</label>
+              <input name="Fax" class="form-control txtProviderFax" id="txtProviderFax" type="text" maxlength="10"
+                placeholder="(xxx)xxx-xxxx" formControlName="Fax">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class=" col-md-12">
+              <label>Comments</label>
+              <textarea name="Comments" class="form-control txtProviderComments" id="txtProviderComments"
+                maxlength="500" rows="2" cols="20" formControlName="Comments"></textarea>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <p-footer>
+        <div class="row">
+          <div class="col-sm-12 pull-right">
+            <input type="Submit" class="btn btn-primary" value="Save" id="btnSaveNewProvider">
+          </div>
+        </div>
+      </p-footer>
+
+    </form>
+  </div>
+</p-dialog>
+<!------------------ Add New Organization end  --------------->
+
+<p-dialog id="add" [(visible)]="searchOrganisationdisp" [modal]="true" [responsive]="true"
+  [style]="{width: '900px', minWidth: '410px'}" [positionTop]="30" [draggable]="false" [closable]="false">
+  <p-header>
+    <a class="btn btn-small btn-danger pull-right" (click)="closeSearchOrganisationPopup()"
+      style="color: white;">close</a>
+    <h4>Search Organization</h4>
+  </p-header>
+  <div class="container-fluid">
+    <form [formGroup]="searchOrganisation" (ngSubmit)="displayOrganization()">
+      <div class="row">
+        <div class="col-md-3">
+          <label>Name</label>
+          <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey" placeholder="Name"
+            formControlName="OrganisationName">
+        </div>
+        <div class="col-md-3">
+          <label>First Name</label>
+          <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+            formControlName="FirstName">
+        </div>
+        <div class="col-md-3">
+          <label>City</label>
+          <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+            formControlName="City">
+        </div>
+        <div class="col-md-3">
+          <label>State</label>
+          <p-dropdown formControlName="State" id="pwsdropdown" [options]="legalState" filter="true">
+
+          </p-dropdown>
+        </div>
+        <div class="col-md-2" style="margin-top: 20px;margin-left: 740px;">
+          <button type="submit" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember">Search</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="dvSearchEpisodeAdminMemResult" class="dvSearchEpisodeAdminMemResult">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content table-responsive">
+            <div id="dvSearchResult">
+              <table class="table table-striped table-hover table-condensed" *ngIf="showOrganisationTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th style="max-width: 10%; text-align: center"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of OrganisationArr">
+                    <td>{{ item.OrganisationName }} </td>
+                    <td>{{ item.City }}</td>
+                    <td>{{ item.State[0].name }}</td>
+                    <td>
+                      <a (click)="selectOrganisation(item)" class="selectedEpisodeSurgeon"
+                        style="color: #337ab7">Select</a>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</p-dialog>
+
+<p-dialog id="add" [(visible)]="organisationdisp" [modal]="true" [responsive]="true" [maximizable]="false"
+  [style]="{width: '900px', minWidth: '410px'}" [closable]="false" [blockScroll]='false'>
+  <div class="head">
+    <a class="btn btn-danger pull-right" (click)="closeOrganisationDetails()" style="width: 60px;">close
+    </a>
+    <h5>Organization Details</h5>
+    <form [formGroup]="showOrganisationDetails">
+      <div class="modal-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <strong>Name</strong><br>
+                <span id="spnPatientFname">
+                  <!-- <input type="text" formControlName="OrganisationName"> -->
+                  {{selectOrganisationData.OrganisationName}}
+                </span>
+              </td>
+              <td>
+                <strong>Phone</strong><br>
+                <span id="spnPatientMname"></span>
+              </td>
+              <td>
+                <strong>Email</strong><br>
+                <span></span>
+              </td>
+              <td>
+                <strong>Fax</strong><br>
+                <span>-NA-</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Address</strong><br>
+                -NA-
+              </td>
+              <td>
+                <strong>City</strong><br>
+                <span>
+                  <!-- <input type="text" formControlName="City"> -->
+                  {{selectOrganisationData.City}}
+                </span>
+              </td>
+              <td>
+                <strong>State</strong><br>
+                <span>
+                  <!-- <input type="text" formControlName="State"> -->
+                  <!-- {{selectOrganisationData.State}} -->
+                </span>
+              </td>
+              <td>
+                <strong>Website</strong><br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</p-dialog>
+
+
+
+
+<!------------------ Add New Organization 2nd START  --------------->
+<p-dialog id="add" [(visible)]="add3" [modal]="true" [responsive]="true" [positionTop]="30" [draggable]="false"
+  [closable]="false">
+  <p-header>
+    <a class="btn btn-small btn-danger pull-right" (click)="closeadd3popup()" style="color: white;">close</a>
+    <h4>Add New Organization</h4>
+  </p-header>
+  <form [formGroup]="addNewOrganisation">
+    <div id="dvNewEmployerModal">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-md-4">
+              <label>Organization Type<span style="color: red">*</span></label>
+              <p-dropdown [options]="orgnisationList" [filter]="true" optionLabel="OrganisationName"
+                formControlName="OrganisationType"></p-dropdown>
+            </div>
+            <div class="col-md-4">
+              <label>Name<span style="color: red">*</span></label>
+              <input class="form-control" id="txtParName" maxlength="400" type="text"
+                formControlName="OrganisationName">
+            </div>
+            <div class="col-md-4">
+              <label>Phone</label>
+              <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="Phone">
+              </p-inputMask>
+              <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtphn" maxlength="10" name="phone" type="text" > -->
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Email</label>
+              <input class="form-control" id="txtEmail" maxlength="50" name="email" type="email"
+                formControlName="Email">
+            </div>
+            <div class="col-md-4">
+              <label>Fax</label>
+              <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="Fax">
+              </p-inputMask>
+              <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtfax" maxlength="15" name="fax" type="text"> -->
+            </div>
+            <div class="col-md-4">
+              <label>Address</label>
+              <input class="form-control" id="txtadrs" maxlength="500" name="address" type="text"
+                formControlName="Address">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-4">
+              <label>ZIP</label>
+              <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="ZIP">
+              </p-inputMask>
+              <!-- <input class="form-control ZipCodeChange" data-mask1="99999-9999" id="txtorgzp" maxlength="10"
+                name="ZipCode" placeholder="xxxxx-xxxx" type="text"> -->
+            </div>
+            <div class="col-md-4">
+              <label>City</label>
+              <input class="form-control txtorgcity" id="txtorgcity" maxlength="50" name="city" type="text"
+                formControlName="City">
+            </div>
+            <div class="col-md-4">
+              <label>State</label>
+              <p-dropdown [options]="stateList" [filter]="true" optionLabel="name" formControlName="State"></p-dropdown>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Website</label>
+              <input class="form-control" id="txtwebsite" maxlength="50" name="WebSite" type="text"
+                formControlName="Website">
+            </div>
+            <div class="col-md-4">
+              <label>Contact</label>
+              <input class="form-control" id="txtcontact" maxlength="30" name="Contact" type="text"
+                formControlName="Contact">
+            </div>
+            <div class="col-md-4">
+              <label>Contact Phone</label>
+              <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx"
+                formControlName="ContactPhone"></p-inputMask>
+              <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtcontactphone" maxlength="15"
+                name="ContactPhone" placeholder="(xxx)-xxx-xxxx" type="text"> -->
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-8">
+              <label>Comments</label>
+              <textarea class="form-control" cols="20" id="txtcmmnts" maxlength="500" name="Comments" rows="2"
+                formControlName="Comments"></textarea>
+            </div>
+          </div>
+          <div class="row " id="" style="margin-top: 10px;">
+            <div class=" form-group col-sm-3">
+              <label>Practice</label>
+              <p-dropdown [options]="practiceList" [filter]="true" optionLabel="name" formControlName="Practice">
+              </p-dropdown>
+            </div>
+            <div class="form-group col-md-3">
+              <label>Location</label>
+              <p-dropdown [options]="LocationList" [filter]="true" optionLabel="name" formControlName="Location">
+              </p-dropdown>
+            </div>
+            <div class="form-group col-md-2" style="margin-top:25px;">
+              <button type="submit" class="btn btn-primary btnOrganAddPracticeLoc"
+                (click)="showPracLoc(addNewOrganisation.value)">Add</button>
+            </div>
+          </div>
+          <table class="table table-striped table-condensed table-responsive 0 > 0 ?'':'hide'" id="tblpraLocDetails">
+            <thead>
+              <tr>
+                <th>Practice</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of addPracLocArr">
+                <td>{{item.Practice.name}}</td>
+                <td>{{item.Location.name}}</td>
+                <td>
+                  <button type="submit" class="btn btn-danger btnOrganAddPracticeLoc"
+                    (click)="deletePracLoc()">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="pull-right" style="margin-top: 30px">
+              <a class="btn btn-primary" id="btnSaveParOrg"
+                (click)="addNewOrganisationData(addNewOrganisation.value)">Save</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="hddparorgid">
+    </div>
+  </form>
+</p-dialog>
+<!------------------ Add New Organization 2nd END  --------------->

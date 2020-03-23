@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "label": "Intake",
+    "value": "Intake"
+  },
+  {
+    "id": 2,
+    "label": "Billing",
+    "value": "Billing"
+  },
+  {
+    "id": 3,
+    "label": "Diagnostic Testing",
+    "value": "Diagnostic Testing"
+  },
+{
+    "id": 4,
+    "label": "Insurance Correspondence",
+    "value": "Insurance Correspondence"
+  },
+{
+    "id": 4,
+    "label": "Medical records",
+    "value": "Medical records"
+  },
+{
+    "id": 5,
+    "label": "Plan of action",
+    "value": "Plan of action"
+  },
+{
+    "id": 6,
+    "label": "Referrals(RX)",
+    "value": "Referrals(RX)"
+  },
+{
+    "id": 7,
+    "label": "pre-surgical charts",
+    "value": "pre-surgical charts"
+  },
+{
+    "id": 8,
+    "label": "physical theraphy",
+    "value": "physical theraphy"
+  },
+{
+    "id": 9,
+    "label": "surgical chart",
+    "value": "surgical chart"
+  }
+
+
+]

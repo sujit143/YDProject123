@@ -1,0 +1,1153 @@
+<div class="row dvCaseNotesTopSection" style="margin-bottom: 15px;">
+    <p-toast position="top-right"></p-toast>
+    <div class="col-md-7">
+        <div class="items-collection">
+            <div class="btn-group" data-toggle="buttons">
+                <label id="lbl_1" (click)="selectedLabel('lbl_1','All')" [ngClass]="{'active': labelId == 'lbl_1' }"
+                    class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="" name="inputCaseNote">
+                    All
+                </label>
+                <label id="lbl_2" (click)="selectedLabel('lbl_2','Case Manager')"
+                    [ngClass]="{'active': labelId == 'lbl_2' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="11" name="inputCaseNote">
+                    Case Manager
+                </label>
+
+                <label id="lbl_3" (click)="selectedLabel('lbl_3','Physician')"
+                    [ngClass]="{'active': labelId == 'lbl_3' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="2" name="inputCaseNote">
+                    Physician
+                </label>
+                <label id="lbl_4" (click)="selectedLabel('lbl_4','Verifier')"
+                    [ngClass]="{'active': labelId == 'lbl_4' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="22" name="inputCaseNote">
+                    Verifier
+                </label>
+                <label id="lbl_5" (click)="selectedLabel('lbl_5','Coordinator')"
+                    [ngClass]="{'active': labelId == 'lbl_5' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="18" name="inputCaseNote">
+                    Coordinator
+                </label>
+                <label id="lbl_6" (click)="selectedLabel('lbl_6','RN')" [ngClass]="{'active': labelId == 'lbl_6' }"
+                    class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="21" name="inputCaseNote">
+                    RN
+                </label>
+                <label id="lbl_7" (click)="selectedLabel('lbl_7','MA')" [ngClass]="{'active': labelId == 'lbl_7' }"
+                    class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="20" name="inputCaseNote">
+                    MA
+                </label>
+                <label id="lbl_8" (click)="selectedLabel('lbl_8','Billing')" [ngClass]="{'active': labelId == 'lbl_8' }"
+                    class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="23" name="inputCaseNote">
+                    Billing
+                </label>
+                <label id="lbl_9" (click)="selectedLabel('lbl_9','Front Desk')"
+                    [ngClass]="{'active': labelId == 'lbl_9' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="12" name="inputCaseNote">
+                    Front Desk
+                </label>
+                <label id="lbl_10" (click)="selectedLabel('lbl_10','Collection')"
+                    [ngClass]="{'active': labelId == 'lbl_10' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="47" name="inputCaseNote">
+                    Collection
+                </label>
+                <label id="lbl_11" (click)="selectedLabel('lbl_11','Legal')"
+                    [ngClass]="{'active': labelId == 'lbl_11' }" class="btn btn-default button radioBtn">
+                    <input type="radio" class="styled inputCaseNote" value="48" name="inputCaseNote">
+                    Legal
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <p-dropdown styleClass="input-md formcontrol chosen-select" class="choosenDropdpown chosen-container-single"
+            [style]="{'width': '80%'}" id="dropdown" (onChange)="selectedappointment($event)" [options]="cars" #pDropId
+            optionLabel="label" filter="true" [autoWidth]="false">
+        </p-dropdown>
+    </div>
+    
+    <div class="col-md-2">
+
+        <a id="btnAddCaseNotesComments" class="btn btn-primary btnAddCaseNotesComments pull-right" title="Add Comments"
+            (click)="showDialog('')">Add
+            New Comments</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="col-md-1">
+            Legends &nbsp;
+        </div>
+        <div class="col-md-3" style="margin-left:2%">
+            <span title="Un Read Comments" data-content="Un Read Case Notes"
+                style="background: #fea; width: 10px; height: 10px; display: inline-block"></span>&nbsp;
+            <span>Un Read Case Notes</span>
+        </div>
+        <div class="col-md-3" style="margin-left:-2%">
+            <span title="Universal Comments"
+                style="background-color:#0d1d4c ; width: 10px; height: 10px; display: inline-block"></span>&nbsp;
+            <span>Universal Comments</span>
+        </div>
+    </div>
+</div>
+
+<div class="dvCaseNoteContainer">
+    <table class="table table-striped tblCaseNotes phstopsection" style="margin-bottom: 10px">
+        <thead>
+            <tr>
+                <td style="width: 10%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Who</td>
+                <td style="width: 10%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">When</td>
+                <td style="width: 10%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Role</td>
+                <td style="width: 10%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Target Role</td>
+                <td style="width: 30%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Notes</td>
+                <td style="width: 10%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Tagged Members</td>
+                <td style="width: 25%; background: #CCC; border-right: 1px solid #FFF; color: #FFF;">Actions</td>
+                <td style="width: 5%; background: #CCC; color: #FFF;"></td>
+                <td style="width: 5%; background: #CCC; color: #FFF;"></td>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="trGeneral showhidecoms" style="cursor:pointer;">
+                <td colspan="9" style="background-color: #969696;">
+                    <h4 style="color: white; margin: 0px;">General</h4>
+                </td>
+            </tr>
+            <ng-container *ngFor="let item of casedisplay">
+                <tr style="background-color: rgb(13, 29, 76); color: rgb(255, 255, 255);"
+                    class="trGeneralCaseNotes trCaseNotes secGeneralCN" data-cmtrplctrl="">
+
+                    <td style="padding-left: 50px;">{{item.who}}</td>
+                    <td>
+                        <p>{{ dateObj | date:'medium' }}</p>
+                        <!-- {{item.when}} -->
+                    </td>
+                    <td class="tdRoleName" data-rolename="Tool Admin">{{item.Role}}</td>
+                    <td>{{item.targetroledisplay}}</td>
+                    <td>{{item.Notes}}</td>
+                    <td>{{item.taggedmembers}}</td>
+
+
+                    <td class="dvcomcasenotes">
+
+                        <a style="color:#fff" class="btnCommentReply" (click)="showReply(item)">Reply</a> |
+                        <a href="javascript:void(0)" style="color:#fff" class="btnTagMemberToComment"
+                            (click)="showTag(item)">Tag</a> |
+                        <a href="javascript:void(0)" style="color:#fff" class="btnReminderToComments"
+                            (click)="showReminder(item)">Reminder</a> |
+                        <a href="javascript:void(0);" class="btnCreateTask" (click)="showTask()">Task</a>
+
+                    </td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+            </ng-container>
+
+            <!-- </div> -->
+
+            <!--reply display-->
+
+            <tr *ngFor="let item of replydisplayarray" style="background-color: rgb(255, 238, 170);"
+                class="trGeneralCaseNoteReplies trCaseNoteReplies secGeneralCN">
+                <td style="padding-left: 43px;"><i class="pi pi-angle-double-right"
+                        style="color: #1ab394; font-weight: bold; font-size: 14px;"
+                        aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;{{selectedadmin}}
+                </td>
+
+                <td>{{ dateObj | date:'medium' }}</td>
+                <!-- <td>{{item.Role}}</td> -->
+                <td>{{selectedRole}}</td>
+                <!-- <td>{{item.targetroledisplay}}</td> -->
+                <td>{{selectedtargetroledisplay}}</td>
+                <td>{{item.Notes}}</td>
+                <td>{{item.taggedmembers}}</td>
+
+                <td class="dvcomcasenotes">
+                    <a href="javascript:void(0)" class="btnTagMemberToComment" (click)="showTag(item)">Tag</a> |
+                    <a href="javascript:void(0)" class="btnReminderToComments" (click)="showReminder(item)">Reminder</a>
+                    |
+                    <a href="javascript:void(0);" class="btnCreateTask" (click)="showTask()">Task</a>
+                    <span>| </span>
+                    <a class="btnMarkTagRead" title="Mark As Read"  [ngClass]="mark ? 'markchange' : ''" (click)="showMark()"  >Mark As Read</a>
+                    <span>&nbsp;&nbsp;<i class="pi pi-tag" style="color: #ed5565; font-size: 14px;"
+                            aria-hidden="true"></i></span>
+
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+            <!--kyriakedes provider table-->
+
+
+            <ng-container *ngIf="displayrecord">
+                <tr *ngIf="allfilterdata.length > 0" class="trGeneral showhidecoms" style="cursor:pointer;">
+
+
+                    <td colspan="9" style="background-color: #969696;">
+
+                        <h4 style="color: white; margin: 0px;">Dr. Kyriakides Christopher , Initial evaluation,1/27/2020
+                        </h4>
+                    </td>
+                </tr>
+                <tr *ngFor="let item of allfilterdata" style="background-color: #969696; color: rgb(255, 255, 255);"
+                    class="trGeneralCaseNotes trCaseNotes secGeneralCN" data-cmtrplctrl="">
+
+                    <td style="padding-left: 50px;">{{item.who}}</td>
+                    <td>
+                        <p>{{ dateObj | date:'medium' }}</p>
+                    </td>
+                    <td class="tdRoleName" data-rolename="Tool Admin">{{item.Role}}</td>
+                    <td>{{item.targetroledisplay}}</td>
+                    <td>{{item.Notes}}</td>
+                    <td>{{item.taggedmembers}}</td>
+
+
+                    <td class="dvcomcasenotes">
+
+                        <a style="color:#fff" class="btnCommentReply" (click)="showReply(item)">Reply</a> |
+                        <a href="javascript:void(0)" style="color:#fff" class="btnTagMemberToComment"
+                            (click)="showTag(item)">Tag</a> |
+                        <a href="javascript:void(0)" style="color:#fff" class="btnReminderToComments"
+                            (click)="showReminder(item)">Reminder</a> |
+                        <a href="javascript:void(0);" class="btnCreateTask" (click)="showTask()">Task</a>
+
+                    </td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+
+<!--Add new comments popup-->
+<p-dialog id="addcomments" [(visible)]="display" [modal]="true" [responsive]="true"
+    [style]="{width: '900px', minWidth: '410px',top:'30px'}" [minY]="40" [baseZIndex]="1000" [positionTop]="10"
+    [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger btn-sm pull-right" (click)="closeadd()">close</a>
+            <h3 style="text-align: center;">Comments</h3>
+        </div>
+    </p-header>
+
+    <div class="modal-body">
+        <form [formGroup]="caseForm">
+            <div class="row">
+                <div class="col-md-3 m-t-xs noneAboveCheck" id="dvchkunvrsalcomment">
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <input type="checkbox" id="universalcheck" class="chkIsUnerversalcomment"
+                                style="zoom: 1.5;"></li>
+                        <li>
+                            <p class="c-box-text">Is Universal Comment ? </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 m-t-xs noneAboveCheck" id="dvchksurgicaalcomment">
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <input type="checkbox" id="surgicalcheck" class="chkIsSurgicalcomment" style="zoom: 1.5;">
+                        </li>
+                        <li>
+                            <p class="c-box-text">Is Surgical Comment ? </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <br>
+                    <p-dropdown formControlName="Generalepisode" styleClass="input-md formcontrol chosen-select"
+                        class="choosenDropdpown chosen-container-single" [style]="{'width': '200%'}" id="dropdown"
+                        (onChange)="selectedadd($event)" [options]="addappointpop" #pDropId filter="true"
+                        [autoWidth]="false">
+
+                    </p-dropdown>
+
+                </div>
+
+                <div class="col-md-6" style="margin-top: 5px">
+                    <label>
+                        Target Role<span style="color: red">*</span>
+                    </label><br>
+                    <p-dropdown formControlName="targetrole" styleClass="input-md formcontrol chosen-select"
+                        class="chosen-container chosen-container-single" id="targetdropdown" [options]="role"
+                        filter="true" #pDropId placeholder="select">
+                    </p-dropdown>
+                    <label
+                        *ngIf="caseForm.get('targetrole').hasError('required') && !caseForm.get('targetrole').pristine"
+                        class="text"><span style="color:red">targetrole is required</span></label>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <label><span class="titlename">Comments</span><span style="color: red">*</span></label>
+                    <textarea formControlName="comment" maxlength="5000" id="txtPresurgicalComments"
+                        class="form-control" rows="3" style="height: 115px !important"></textarea>
+                    <label *ngIf="caseForm.get('comment').hasError('required') && !caseForm.get('comment').pristine"
+                        class="text"><span style="color:red">Comment is required</span></label>
+                </div>
+            </div>
+            <br>
+
+            <br>
+            <div class="row dvpt">
+
+                <br>
+                <div class="row">
+                    <div class="col-md-4" id="search">
+                        <label>Search Tag To Member</label>
+                        <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                            placeholder="Enter Name" formControlName="searchmember">
+                    </div>
+                    <div class="col-md-2 m-t-md">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btnSearchMemberForReminderAlert"
+                            (click)="onSearchClick()">
+                            Search Tag To</a>
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <br>
+                        <h4><span class="hide ReplyTagSpan">Reply will be tagged to <i><span
+                                        class="spnCreatedByMember"></span></i></span></h4>
+                    </div>
+                </div>
+
+
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divReminderMembersSelected" id="divReminderMembersSelected">
+                            <div class="tagsinput" *ngIf="showTextBox"
+                                style="width: 85%; min-height: 50px; height: auto;">
+                                <span *ngFor="let item of addsearcheck" class="tag">
+                                    <span><span><span class="memberdetail">{{item.name}}
+                                            </span></span>&nbsp;&nbsp;</span>
+
+                                    <a title="Removing tag">x</a></span>
+                                <div id="tags1580128833988_addTag"></div>
+                                <div class="tags_clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <div *ngIf="search" class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div id="dvSearchMemberResultForTag">
+                            <div *ngIf="table" class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <thead>
+                                        <tr style="width: 100%;">
+                                            <th>
+                                                <!-- <label class="radio-inline i-checks" title="Select All Members">
+                                                    <div class="icheckbox_square-green" style="position: relative;">
+                                                       
+                                                    </div>
+                                                </label> -->
+                                            </th>
+                                            <th style="max-width: 10%;">Name</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Practice</th>
+                                            <th>Location</th>
+
+                                            <th style="max-width: 10%; text-align: center"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of searchdata|paginate: config; let i=index">
+                                            <td><label class="radio-inline i-checks">
+                                                    <div class="icheckbox_square-green" style="position: relative;">
+                                                        <p-checkbox name="group2"
+                                                            (onChange)="selectedaddcheck($event,item)"
+                                                            [value]="searchdata" inputId="finance"></p-checkbox>
+                                                    </div>
+                                                </label></td>
+
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.city}}</td>
+                                            <td>{{item.state}}</td>
+                                            <td>{{item.practice}}</td>
+                                            <td>{{item.location}}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                                </pagination-controls>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-footer>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary pull-right" (click)="saveComments()"
+                style="width: 60px;">Save</button>
+        </div>
+    </p-footer>
+
+</p-dialog>
+
+
+<!--Reply popup-->
+<p-dialog id="Reply" [(visible)]="display1" [modal]="true" [responsive]="true"
+    [style]="{width: '900px', minWidth: '410px',top:'30px'}" [minY]="40" [baseZIndex]="1000" [positionTop]="10"
+    [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right" (click)="closereplay()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Reply</h5>
+        </div>
+    </p-header>
+    <div class="modal-body">
+        <form [formGroup]="replyForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <br>
+                    <div class="chosen-container chosen-container-single chosen-disabled" style="width: 100%" title=""
+                        id="ddlAddCaseNotesAppointmentType_chosen">
+                        <a class="chosen-single"><span>{{general}}</span>
+                            <div><b></b></div>
+                        </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" value="{{general}}" formControlName="general"
+                                    autocomplete="off" disabled=""></div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="margin-top: -6px">
+                    <label>
+                        Target Role<span style="color: red">*</span>
+                    </label>
+                    <div class="chosen-container chosen-container-single chosen-disabled" style="width: 100%" title="">
+                        <a class="chosen-single"><span>{{targetroledisplay}}</span>
+                            <div><b></b></div>
+                        </a>
+                        <div class="chosen-drop">
+                            <div class="chosen-search"><input type="text" value="{{targetroledisplay}}"
+                                    formControlName="targetroledisplay" autocomplete="off" disabled=""></div>
+                            <ul class="chosen-results"></ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <label><span class="titlename">Reply</span><span style="color: red">*</span></label>
+                    <textarea formControlName="Notes" maxlength="5000" id="txtPresurgicalComments" class="form-control"
+                        rows="3" style="height: 115px !important"></textarea>
+                    <label *ngIf="replyForm.get('Notes').hasError('required') && !replyForm.get('Notes').pristine"
+                        class="text"><span style="color:red">Reply Note is required</span></label>
+                </div>
+            </div>
+            <br>
+
+            <br>
+
+            <div class="row dvpt">
+
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Search Tag To Member</label>
+                        <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                            placeholder="Enter First Name" formControlName="replysearch">
+                    </div>
+                    <div class="col-md-2 m-t-md">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btnSearchMemberForReminderAlert"
+                            (click)="onSearchreplyClick()">Search Tag To</a>
+                    </div>
+
+                    <div class="col-md-4">
+                        <br>
+                        <h4><span class="ReplyTagSpan">Reply will be tagged to <i><span class="spnCreatedByMember">admin
+                                        dev</span></i></span></h4>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divReminderMembersSelected" id="divReminderMembersSelected">
+                            <div class="tagsinput" *ngIf="showTextBox"
+                                style="width: 85%; min-height: 50px; height: auto;">
+                                <span *ngFor="let item of replysearcheck" class="tag">
+                                    <span><span><span class="memberdetail">{{item.name}}
+                                            </span></span>&nbsp;&nbsp;</span>
+                                    <a (click)="closereplaytag(item)" title="Removing tag">x</a></span>
+                                <div id="tags1580128833988_addTag"></div>
+                                <div class="tags_clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                <div *ngIf="search1" class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div id="dvSearchMemberResultForTag">
+                            <div *ngIf="table1" class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <thead>
+                                        <tr style="width: 100%;">
+                                            <th></th>
+                                            <th style="max-width: 10%;">Name</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Practice</th>
+                                            <th>Location</th>
+
+                                            <th style="max-width: 10%; text-align: center"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of searchdata|paginate: config; let i=index">
+                                            <td><label class="radio-inline i-checks">
+                                                    <div class="icheckbox_square-green" style="position: relative;">
+                                                        <p-checkbox name="group2"
+                                                            (onChange)="selectedcheck($event,item,i)"
+                                                            formControlName="selectedreplycheck2"></p-checkbox>
+                                                    </div>
+                                                </label></td>
+
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.city}}</td>
+                                            <td>{{item.state}}</td>
+                                            <td>{{item.practice}}</td>
+                                            <td>{{item.location}}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                                </pagination-controls>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div id="dvSearchMemberResultForTag"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-footer>
+        <div class="modal-footer">
+            <a class="btn btn-primary pull-right btnprocessing" (click)="saveReply()">Save</a>
+
+        </div>
+    </p-footer>
+</p-dialog>
+
+<!--Tag Popup-->
+<p-dialog id="Tag" [(visible)]="tagdisplay" [modal]="true" [responsive]="true"
+    [style]="{width: '900px', minWidth: '410px',top:'30px'}" [minY]="40" [baseZIndex]="1000" [positionTop]="10"
+    [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right" (click)="closetag()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Tag</h5>
+        </div>
+    </p-header>
+    <div class="modal-body">
+        <form [formGroup]="caseForm">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Patient</label>
+                    <div>{{parentdata.Name}}</div>
+                </div>
+                <div class="col-md-4">
+                    <label>Account Number</label>
+                    <div>{{parentdata.Account}}</div>
+                </div>
+                <div class="col-md-4">
+                    <label>Case #</label>
+                    <div>{{parentdata.Case}}</div>
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row dvpt">
+
+                <br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Search Tag To Member</label>
+                        <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                            placeholder="Enter First Name" formControlName="tagsearch">
+                    </div>
+                    <div class="col-md-2 m-t-md">
+                        <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btnSearchMemberForReminderAlert"
+                            (click)="onSearchtagClick()">Search Tag To</a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divReminderMembersSelected" id="divReminderMembersSelected">
+                            <div class="tagsinput " *ngIf="showTextBox"
+                                style="width: 85%; min-height: 50px; height: auto;"><span
+                                    *ngFor="let item of tagsearchcheck" class="tag">
+                                    <span><span><span class="memberdetail">{{item.name}}
+                                            </span></span>&nbsp;&nbsp;</span>
+
+                                    <a (click)="closetagnote(item)" title="Removing tag">x</a></span>
+                                <div id="tags1580128833988_addTag"></div>
+                                <div class="tags_clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div *ngIf="search" class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div id="dvSearchMemberResultForTag">
+                            <div *ngIf="table" class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                                <table class="table table-striped table-hover table-condensed">
+                                    <thead>
+                                        <tr style="width: 100%;">
+                                            <th></th>
+                                            <th style="max-width: 10%;">Name</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Practice</th>
+                                            <th>Location</th>
+
+                                            <th style="max-width: 10%; text-align: center"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of searchdata|paginate: config; let i=index">
+                                            <td><label class="radio-inline i-checks">
+                                                    <div class="icheckbox_square-green" style="position: relative;">
+                                                        <p-checkbox name="group2"
+                                                            (onChange)="selectedtagcheck($event,item)"
+                                                            formControlName="tagselectedcheck2" [value]="searchdata"
+                                                            inputId="finance"></p-checkbox>
+
+                                                    </div>
+                                                </label></td>
+
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.city}}</td>
+                                            <td>{{item.state}}</td>
+                                            <td>{{item.practice}}</td>
+                                            <td>{{item.location}}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                                </pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divReminderMembersSelected hide" id="divReminderMembersSelected">
+                            <input type="text" id="tags1580125667265" class="selectedReminderMembers"
+                                placeholder="Selected members" autocomplete="off" style="display: none;">
+                            <div id="tags1580125667265_tagsinput" class="tagsinput "
+                                style="width: 85%; min-height: auto; height: auto;">
+                                <div id="tags1580125667265_addTag"></div>
+                                <div class="tags_clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-12">
+                        <div id="dvSearchResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hddEpisodeTeamRoleActivityStatusCommentId">
+        </form>
+    </div>
+    <p-footer>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" class="btn btn-primary pull-right whiteColor" id="btnTagMemberComments"
+                (click)="saveTag()">Save</a>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<!--Reminder popup-->
+<p-dialog id="Reminder" [(visible)]="reminderdisplay" [modal]="true" [responsive]="true"
+    [style]="{width: '900px', minWidth: '410px',top:'30px'}" [minY]="40" [positionTop]="10" [draggable]="false"
+    [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right" (click)="closereminder()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Reminder</h5>
+        </div>
+    </p-header>
+    <div class="modal-body dvpt">
+        <form [formGroup]="caseForm">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Patient</label>
+                    <div>{{parentdata.Name}}</div>
+                </div>
+                <div class="col-md-4">
+                    <label>Account Number</label>
+                    <div>{{parentdata.Account}}</div>
+                </div>
+                <div class="col-md-4">
+                    <label>Case #</label>
+                    <div>{{parentdata.Case}}</div>
+                </div>
+            </div>
+            <br>
+            <div class="row" class="form-group">
+                <div class="col-md-12">
+                    <label>Reminder <span style="color: red">*</span></label>
+                    <textarea class="form-control" value="{{Notes}}" formControlName="Notes" cols="20" id="txtReminder"
+                        maxlength="1000" name="Reminder" rows="2">{{Notes}}</textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <label>Date <span style="color: red">*</span></label>
+                    <input data-val="true" type="text" formControlName="reminderdate" placeholder="Datepicker"
+                        class="form-control" bsDatepicker>
+                </div>
+                <div class="col-md-4">
+                    <label>Time <span style="color: red">*</span></label>
+                    <br>
+                    <p-dropdown formControlName="remindertime" styleClass="input-md formcontrol chosen-select"
+                        optionLabel="label" class="chosen-container chosen-container-single" id="targetdropdown"
+                        [options]="time" filter="true" #pDropId placeholder="Select Time">
+                    </p-dropdown>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Search Remind To Member</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Enter Name" formControlName="remindersearch">
+                </div>
+                <div class="col-md-2 m-t-md">
+                    <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btnSearchMemberForReminderAlert"
+                        (click)="onSearchreminderClick()">Search
+                        Remind To</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="divReminderMembersSelected" id="divReminderMembersSelected">
+                        <input type="text" id="tags1580128833988" class="selectedReminderMembers" autocomplete="off"
+                            style="display: none;">
+                        <div id="tags1580128833988_tagsinput" *ngIf="showTextBox" class="tagsinput "
+                            style="width: 85%; min-height: 50px; height: auto;"><span
+                                *ngFor="let item of remindersearcharray" class="tag">
+                                <span><span><span class="memberdetail">{{item.name}}
+                                        </span></span>&nbsp;&nbsp;</span>
+
+                                <a href="#" (click)="closeremindertag(item)" title="Removing tag">x</a></span>
+                            <div id="tags1580128833988_addTag"></div>
+                            <div class="tags_clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div *ngIf="search" class="row" style="margin-top: 10px;">
+                <div class="col-md-12">
+                    <div id="dvSearchMemberResultForTag">
+                        <div *ngIf="table" class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <tr style="width: 100%;">
+                                        <th></th>
+                                        <th style="max-width: 10%;">Name</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Practice</th>
+                                        <th>Location</th>
+
+                                        <th style="max-width: 10%; text-align: center"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of searchdata|paginate: config; let i=index">
+                                        <td><label class="radio-inline i-checks">
+                                                <div class="icheckbox_square-green" style="position: relative;">
+                                                    <p-checkbox name="group2"
+                                                        (onChange)="selectedremindercheck($event,item)"
+                                                        [value]="searchdata" inputId="finance"></p-checkbox>
+                                            </div>
+                                            </label></td>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.city}}</td>
+                                        <td>{{item.state}}</td>
+                                        <td>{{item.practice}}</td>
+                                        <td>{{item.location}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                            </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-12">
+                    <div id="dvSearchResult"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <p-footer>
+        <div class="modal-footer">
+            <a class="btn btn-primary pull-right whiteColor" id="btnSaveEpisodeSurgeryAlerts"
+                (click)="saveReminder()">Save</a>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<!--Task popup-->
+<p-dialog id="Task" [(visible)]="taskdisplay" [modal]="true" [responsive]="true" [style]="{width: '70vw'}"
+    [minY]="40" [positionTop]="10" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right" (click)="closetask()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Task</h5>
+        </div>
+    </p-header>
+    <div class="modal-body">
+        <form [formGroup]="caseForm">
+            <div class="col-lg-12">
+
+                <!-- search filter start  -->
+
+                <div class="col-md-6">
+                    <label>Assign To<span style="color: red">*</span></label>
+                    <br>
+                    <div class="input-group">
+                        <div id="txtTo_tagsinput" class="tagsinput createTaskMembersTagsInput"
+                            style="width: 100%; min-height: 42px; height: auto;">
+                            <div id="txtTo_addTag">
+                                <span class="tag" *ngIf="selectedFromSource != undefined">
+                                    <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                                        {{selectedFromSource}}
+                                    </span>&nbsp;&nbsp;
+                                    <a title="Removing tag" (click)="closeTag('removeReferralSourceFromTag')">x</a>
+                                </span>
+                                <p-autoComplete [suggestions]="filteredSourceToMember" appendTo="body" 
+                                    (onSelect)="selectFromSource($event)" field="Name"
+                                    (completeMethod)="filterSourceToMember($event)"  [size]="30"
+                                    placeholder="Search Member" [minLength]="1" formControlName="Assignto">
+                                </p-autoComplete>
+                            </div>
+                            <div class="tags_clear"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- search filter end -->
+
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Episode</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" disabled="disabled" id="txtlegalrepmemid" formControlName="taskepisode"
+                            value="{{parentdata.Name}}">
+                            <span class="input-group-addon dvSearchEpisodeForMessage">
+                                <a href="javascript:void(0)" class="pi pi-search" id="btnSearchEpisodes"
+                                    (click)="showTaskSearch()" title="Search Episode"></a></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input class="msgsub input-md form-control" formControlName="tasksubject" id="txtsubject"
+                            maxlength="200" type="text" value="">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Description <span style="color: red">*</span></label>
+                        <textarea rows="3" formControlName="taskdescription" class="form-control " id="txtDescription"
+                            maxlength="2000"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Due Date</label>
+                            <input data-val="true" type="text" formControlName="taskduedate" placeholder="Datepicker"
+                                class="form-control" bsDatepicker>
+                            <span class="field-validation-valid" data-valmsg-for="EpisodeTask.DueDate"
+                                data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Task Type<span style="color: red">*</span></label><br>
+                            <p-dropdown formControlName="tasktype" styleClass="input-md formcontrol chosen-select"
+                                class="chosen-container chosen-container-single" id="targetdropdown"
+                                [options]="tasktypesoptions" optionLabel="label" filter="true" #pDropId
+                                placeholder="select" [style]="{ width: '150%' }">
+                            </p-dropdown>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label>Status</label><br>
+                            <p-dropdown formControlName="taskstatustype" styleClass="input-md formcontrol chosen-select"
+                                optionLabel="label" class="chosen-container chosen-container-single" id="targetdropdown"
+                                [options]="taskstatus" filter="true" #pDropId placeholder="select"
+                                [style]="{ width: '150%' }">
+
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid m-l-lg">
+                <h4 style="border-bottom: 1px solid lightgray;">Attachments</h4>
+
+                <div class="control-group">
+                    <div id="msgsgrp" class="attchcontrols" data-download-url="/Patient/DownloadTaskAttachment">
+                        <div>
+                            <div class="fallback" ondrop="upload_file(event)">
+                                <label class="dropzone" style="padding: 0px;">
+
+                                    <i class="pi pi-cloud-upload"
+                                        style="font-size: 95px; color: #36cb94; margin-top: 18px;"></i>
+                                    <h2 style="font-size: 18px; margin: -26px;">Drop files here or click to upload.</h2>
+                                    <input id="S3Files" class="S3FileUpload_9e958" formControlName="addnewattachment"
+                                        onchange="readURL(this);" name="file" type="file">
+
+                                </label>
+                            </div>
+
+                            <div role="presentation" style="width: 100%;" data-toggle="modal-gallery; "
+                                data-target="#modal-gallery" class="s3files_S3FileUpload_9e958">
+                            </div>
+                            <div class="results_S3FileUpload_9e958">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="margin: 0 auto;">
+                    <div class="panel-group" id="accordion-home">
+
+                        <div class="panel panel-default" style="margin-bottom: 2px;">
+                            <div class="panel-heading rea" style="background-color: #1c84c6; padding: 5px 15px;">
+                                <h3>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#Documents"
+                                        style="color: white;" class="awvAccordionanc">Documents Details
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="Documents" class="panel-collapse in">
+                                <div class="panel-body ">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Document Category<span style="color: red;">*</span>
+                                        </label>
+                                        <p-dropdown formControlName="doccategory"
+                                            styleClass="input-md formcontrol chosen-select" optionLabel="label"
+                                            class="chosen-container chosen-container-single" id="targetdropdown"
+                                            [options]="doccategorytypes" filter="true" #pDropId placeholder="select">
+
+                                        </p-dropdown>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Document Type <span style="color: red;">*</span>
+                                        </label>
+                                        <p-dropdown formControlName="documenttype"
+                                            styleClass="input-md formcontrol chosen-select" optionLabel="label"
+                                            class="chosen-container chosen-container-single" id="targetdropdown"
+                                            [options]="doctype" filter="true" #pDropId placeholder="select">
+
+                                        </p-dropdown>
+                                    </div>
+                                    <div class="col-md-3 provider">
+                                        <label>
+                                            Provider
+                                        </label>
+                                        <p-dropdown formControlName="providercontrol"
+                                            styleClass="input-md formcontrol chosen-select" optionLabel="label"
+                                            class="chosen-container chosen-container-single" id="targetdropdown"
+                                            [options]="provideroption" filter="true" #pDropId placeholder="select">
+                                        </p-dropdown>
+                                    </div>
+
+                                    <div class="col-md-3 treatmentdate">
+                                        <label>
+                                            Treatment Date
+                                        </label>
+                                        <input formControlName="taskterminatedate" class="form-control inputbox"
+                                            maxlength="75" type="text" bsDatepicker>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <p-footer>
+        <div class="modal-footer">
+            <div class="pull-right">
+                <a href="javascript:void(0)" class="btn btn-primary" id="btnSend" (click)="saveTask()">Create Task</a>
+            </div>
+        </div>
+    </p-footer>
+
+</p-dialog>
+
+<!--Task search popup-->
+<p-dialog id="Seatchtask" [(visible)]="searchtaskdisplay" [modal]="true" [responsive]="true" [style]="{width: '60vw'}"
+    [minY]="40" [baseZIndex]="1000" [positionTop]="10" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a href="javascript:void(0)" class="btn btn-danger pull-right" (click)="closesearchtask()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Search Episode</h5>
+        </div>
+    </p-header>
+    <div class="modal-body">
+        <form [formGroup]="searchTaskForm">
+            <div class="row ibox-content">
+                <div class="col-sm-10">
+                    <label>Search</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Name" formControlName="Search1">
+                </div>
+                <div class="col-sm-2">
+                    <a href="javascript:void(0)" class="btn btn-primary m-t-md" id="btnSearchEpisodesForMessage"
+                        (click)="showDataContaint()">Search</a>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="search">
+                <table class="table">
+                    <thead>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Contact#</th>
+                        <th>Case Manager</th>
+                        <th>Primary Location</th>
+                        <th>Case#</th>
+                        <th>Source</th>
+                        <th>Status</th>
+                        <th>Episode age</th>
+                        <th style="max-width: 10%; text-align: center"></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of episodesearchdata|paginate: config; let i=index">
+                            <td>{{item.episodename}}</td>
+                            <td>{{item.DOB}}</td>
+                            <td>{{item.Gender}}</td>
+                            <td>{{item.Contact_No}}</td>
+                            <td>{{item.casemanager}}</td>
+                            <td>{{item.primarylocation}}</td>
+                            <td>{{item.episodecase_no}}</td>
+                            <td>{{item.Source}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.episodeage}}</td>
+                            <td>
+                                <a style="color: rgb(69, 69, 240);" (click)="selectSearch(item)"
+                                    class="selectedEpisodeSurgeon">Select</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                </pagination-controls>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="dvSearchEpisodeResults">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <p-footer>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right">Close</a>
+        </div>
+    </p-footer>
+</p-dialog>

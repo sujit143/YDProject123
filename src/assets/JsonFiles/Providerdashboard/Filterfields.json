@@ -1,0 +1,244 @@
+[
+  {
+    "Id": "1",
+    "visible": "true",
+    "fieldName": "Practice",
+    "position": "1",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.practice",
+    "controlname": "practice"
+  },
+  {
+    "Id": "2",
+    "visible": "true",
+    "fieldName": "Location",
+    "position": "2",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.location",
+    "controlname": "location"
+  },
+  {
+    "Id": "3",
+    "visible": "true",
+    "fieldName": "Provider",
+    "position": "3",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.provider",
+    "controlname": "provider"
+  },
+  {
+    "Id": "4",
+    "visible": "true",
+    "fieldName": "POS Location",
+    "position": "4",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.pos_location",
+    "controlname": "pos_location"
+  },
+  {
+    "Id": "5",
+    "visible": "true",
+    "fieldName": "POS Practice",
+    "position": "5",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.pos_practice",
+    "controlname": "pos_practice"
+  },
+  {
+    "Id": "6",
+    "visible": "true",
+    "fieldName": "Case #",
+    "position": "6",
+    "type": "inputbox",
+    "isVisible": "true",
+    "controlname": "case"
+  },
+  {
+    "Id": "7",
+    "visible": "true",
+    "fieldName": "Account #",
+    "position": "7",
+    "type": "inputbox",
+    "isVisible": "true",
+    "controlname": "account"
+  },
+  {
+    "Id": "8",
+    "visible": "true",
+    "fieldName": "Patient Name",
+    "position": "8",
+    "type": "inputbox",
+    "isVisible": "true",
+    "controlname": "patient_name"
+  },
+  {
+    "Id": "9",
+    "visible": "true",
+    "fieldName": "Dictation Status",
+    "position": "9",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.dic_ststus",
+    "controlname": "dic_ststus"
+  },
+  {
+    "Id": "10",
+    "visible": "true",
+    "fieldName": "Super Bill Status",
+    "position": "10",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.sup_bill_staus",
+    "controlname": "sup_bill_staus"
+  },
+  {
+    "Id": "11",
+    "visible": "true",
+    "fieldName": "Billing Status",
+    "position": "11",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.bill_status",
+    "controlname": "bill_status"
+  },
+  {
+    "Id": "12",
+    "visible": "true",
+    "fieldName": "Dictation Type",
+    "position": "12",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.dic_type",
+    "controlname": "dic_type"
+  },
+  {
+    "Id": "13",
+    "visible": "true",
+    "fieldName": "Case Type",
+    "position": "13",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.case_type",
+    "controlname": "case_type"
+  },
+  {
+    "Id": "14",
+    "visible": "true",
+    "fieldName": "Assessment Status",
+    "position": "14",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.asse_ststus",
+    "controlname": "asse_ststus"
+  },
+  {
+    "Id": "15",
+    "visible": "true",
+    "fieldName": "Apmt Created To Date",
+    "position": "15",
+    "type": "datepicker",
+    "isVisible": "true",
+    "controlname": "asse_ststus"
+  },
+  {
+    "Id": "16",
+    "visible": "true",
+    "fieldName": "Appointment Status",
+    "position": "16",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.appt_status",
+    "controlname": "appt_status"
+  },
+  {
+    "Id": "17",
+    "visible": "true",
+    "fieldName": "Episode Status",
+    "position": "17",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.epi_status",
+    "controlname": "epi_status"
+  },
+  {
+    "Id": "18",
+    "visible": "true",
+    "fieldName": "Authorization Status",
+    "position": "18",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.aut_status",
+    "controlname": "aut_status"
+  },
+  {
+    "Id": "19",
+    "visible": "true",
+    "fieldName": "Apmt Created From Date",
+    "position": "19",
+    "type": "datepicker",
+    "isVisible": "true",
+    "controlname": "aut_status"
+  },
+  {
+    "Id": "20",
+    "visible": "true",
+    "fieldName": "Verification Status",
+    "position": "20",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.ver_status",
+    "controlname": "ver_status"
+  },
+  {
+    "Id": "21",
+    "visible": "true",
+    "fieldName": "Appointment Type",
+    "position": "21",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.appt_type",
+    "controlname": "appt_type"
+  },
+  {
+    "Id": "22",
+    "visible": "true",
+    "fieldName": "Appointment To Date",
+    "position": "22",
+    "type": "datepicker",
+    "isVisible": "true",
+    "controlname": "appt_to_date"
+  },
+  {
+    "Id": "23",
+    "visible": "true",
+    "fieldName": "Appointment From Date",
+    "position": "23",
+    "type": "datepicker",
+    "isVisible": "true",
+    "controlname": "appt_from_date"
+  },
+  {
+    "Id": "24",
+    "visible": "true",
+    "fieldName": "Favourite Filters",
+    "position": "24",
+    "type": "dropdown",
+    "isVisible": "true",
+    "options": "this.myFilter",
+    "controlname": "fav_fil",
+    "icon": "fa fa-trash"
+  },
+  {
+    "Id": "25",
+    "visible": "true",
+    "fieldName": "Is Stat File",
+    "position": "25",
+    "type": "chekbox",
+    "isVisible": "true"
+  }
+]

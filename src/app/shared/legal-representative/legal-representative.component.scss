@@ -1,0 +1,291 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "~../../../assets/CSS/plugins.css";
+
+
+.collapse.in {
+  display: block;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+.panel-group .panel-heading + .panel-collapse > .panel-body, .panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 1px solid #ddd;
+}
+.panel-body {
+  padding: 15px;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 992px)
+{
+.col-md-12 {
+    width: 100%;
+    float: left;
+}
+}
+ .col-md-2{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+ .ibox-content h4{
+  margin-top: 5px;
+}
+
+.ibox-content h4{
+  margin-top: 5px;
+}
+ h4 {
+  margin-top: 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+hr {
+  // margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 2px dashed #DFDFE4 !important;
+  width: 96%;
+}
+@media (min-width: 992px)
+{
+.col-md-6 {
+    width: 50%;
+    float: left;
+}
+}
+
+ .col-md-6 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: normal !important;
+}
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group .form-control {
+  display: table-cell;
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-bottom: 0;
+}
+
+.form-control[disabled] {
+  cursor: not-allowed;
+  background-color: #CCC;
+  opacity: 1;
+}
+
+
+.input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child){
+  border-radius: 0;
+}
+
+.input-group-addon {
+  background-color: #fff;
+  border: 1px solid #E5E6E7;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px;
+  text-align: center;
+}
+.input-group-addon{
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.fa {
+  display: inline-block;
+  font-family: FontAwesome !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+
+  transform: translate(0, 0);
+}
+
+a {
+  cursor: pointer;
+  color: #337ab7;
+    text-decoration: none;
+    // background-color: transparent;
+}
+.input-group-addon:last-child{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+@media (min-width: 992px)
+{
+.col-md-2 {
+    width: 16.66666667%;
+    float: left;
+}
+}
+
+ .col-md-2 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.pull-right {
+  float: right !important;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+thead {
+  background: #F5F5F7;
+  color: #828388;
+  font-weight: 700;
+}
+ .table > thead:first-child > tr:first-child > th{
+  border-top: 0;
+}
+
+.table > thead > tr > th{
+  line-height: 1.42857;
+  padding: 8px;
+  vertical-align: top;
+  border-bottom: 1px solid #DDDDDD;
+  font-weight: 400;
+
+}
+ .table > tbody > tr > td {
+  border-top: 1px solid #e7eaec;
+  line-height: 1.42857;
+  padding: 8px;
+  vertical-align: top;
+}
+.form-control, .single-line {
+  background-color: #FFFFFF;
+  background-image: none;
+  /* border: 1px solid #e5e6e7; */
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  width: 100% !important;
+  font-size: 14px;
+  border-left: 1px solid #CCC !important;
+  border-top: 1px solid #CCC !important;
+  border-right: 1px solid #CCC !important;
+  border-bottom: 2px solid #36cc95 !important;
+  border-radius: 0px !important;
+}
+.p-t-md {
+  margin-top: 20px;
+}
+.btn-primary {
+  background-color: #848484;
+  border-color: #999999;
+  color: #FFFFFF;
+
+  box-shadow: 0 8px 7px rgba(0, 0, 0, 0.22);
+}
+.btn {
+
+  border-radius: 3px;
+}
+h4 {
+  text-align: center;
+}
+
+::ng-deep #add .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #add .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  // height: 450px !important;
+  overflow: inherit;
+}
+.btn.btn-primary{
+  float:right;
+}
+p-dialog .ui-dialog {
+  overflow: scroll;
+  max-height: 10%;
+}
+
+//For App-Routing to Sch-insurence
+.ibox-title {
+  border-top: 4px solid #1AB394 !important;
+  background: #eee;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+  border-width: 4px 0px 0;
+  color: inherit;
+  margin-bottom: 0;
+  padding-top: 14px;
+  padding-right: 15px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  height: 48px;
+}
+.ibox-title h5 {
+  display: inline-block;
+  font-size: 14px;
+  padding: 0;
+  margin: 0 0 7px;
+  text-overflow: ellipsis;
+  float: left;
+  color:#676A6c;
+}
+
+.btn-danger {
+  background-color: #ed5565;
+  border-color: #ed5565;
+  color: #FFFFFF;
+}
+.btn-warning {
+  background-color: #f8ac59;
+  border-color: #f8ac59;
+  color: #FFFFFF;
+}
+
+//  .badge-danger {
+//   background-color: #ed5565;
+//   color: #FFFFFF;
+//   font-size: 13px !important;
+//   font-weight: bold !important;
+//   padding-bottom: 4px;
+//   padding-left: 6px;
+//   padding-right: 6px;
+//   text-shadow: none;
+// }
+ .badge-info {
+  background-color: #23c6c8;
+  color: #FFFFFF;
+}

@@ -1,0 +1,298 @@
+<div>
+
+
+    <!--Sidebar upadate-->
+
+
+      <!-- <div class="row float-right">
+        <button class="float-right" (click)="isSidebar=false"><i class="fa fa-times-circle fa-2x"
+            aria-hidden="true"></i></button>
+      </div> -->
+
+      <!-- <nav> -->
+        <div *ngIf="isSidebar" class="side-menu show" [@slideInOut]="menuState" >
+          <div class="burger burger-transition clicked" (click)="toggleMenu()" ><span></span></div>
+      <ul  class="main">
+        <li><a routerLink="/home" routerLinkActive="router-link-active" (click)="toggleMenu()">Home</a></li>
+        <li ><a routerLink="/aboutus" (click)="toggleMenu()">About Us</a></li >
+        <li><a routerLink="/doctors" (click)="toggleMenu()">Doctors </a></li>
+        <li><a routerLink="/speciality" (click)="toggleMenu()">Specialities</a></li>
+        <li><a routerLink="/locations" (click)="toggleMenu()">Locations </a></li>
+        <li><a routerLink="/dummypage" (click)="toggleMenu()">DummyPage </a></li>
+        <li>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+
+              <a href="#" class="btn btn-block btn-login loog " data-toggle="modal" data-target="#loginModal"
+                (click)="openlogin();toggleMenu()">Log In</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <!--   <li><a href="#0">Request an Appointment </a></li>-->
+        <!--   <li class="d-block d-sm-none"><a href="#0" class="d-inline log-sign">Log In</a> <a href="#" class="d-inline log-sign"> Sign Up </a></li>-->
+      </ul>
+      <div class="social">
+        <a href="javascript:void(0)">
+          <svg viewBox="0 0 22 40" width="28px" height="28px" data-test="icon-facebook">
+            <path
+              d="M0.4,13.4l5.5,0L6,9c0-1.8,0-4.6,1.4-6.4C8.7,0.7,10.6,0,13.9,0c5.4,0,7.6,0.8,7.6,0.8l-1.1,5.8c0,0-2-0.5-3.6-0.5c-1.7,0-3.1,0.6-3.1,2.2l0,5.1h6.6l-0.1,6.6L13.7,20v19.9L6.3,40V20.1H0.4V13.4z"
+              fill="#FFFFFF"></path>
+          </svg>
+        </a><a href="javascript:void(0)">
+          <svg viewBox="0 0 50 40" width="31px" height="31px" data-test="icon-twitter">
+            <path
+              d="M49.6,4.7c-1.8,0.8-3.8,1.3-5.8,1.6c2.1-1.2,3.7-3.2,4.4-5.6c-2,1.2-4.1,2-6.4,2.4C40,1.2,37.4,0,34.5,0c-5.6,0-10.1,4.5-10.1,10.1c0,0.8,0.1,1.6,0.3,2.3C16.2,12,8.8,8,3.8,1.8C2.9,3.3,2.4,5.1,2.4,6.9c0,3.5,1.8,6.6,4.5,8.4c-1.7-0.1-3.2-0.5-4.6-1.3v0.1c0,4.9,3.5,9,8.1,9.9c-0.8,0.2-1.7,0.4-2.7,0.4c-0.7,0-1.3-0.1-1.9-0.2c1.3,4,5,6.9,9.4,7c-3.5,2.7-7.8,4.3-12.5,4.3c-0.8,0-1.6,0-2.4-0.1c4.5,2.9,9.8,4.5,15.5,4.5c18.6,0,28.7-15.4,28.7-28.7c0-0.4,0-0.9,0-1.3C46.5,8.5,48.3,6.8,49.6,4.7"
+              fill="#FFFFFF"></path>
+          </svg>
+        </a><a href="javascript:void(0)">
+          <svg viewBox="0 0 63 40" width="40px" height="40px" data-test="icon-google-plus">
+            <path clip-rule="evenodd"
+              d="M56,16.4V9.5h-4.9v6.9H44v5h7.1v7.1H56v-7.1h6.9v-5H56z M20,16V24c0,0,7.7,0,10.8,0c-1.7,5.1-4.3,7.9-10.8,7.9c-6.6,0-11.7-5.3-11.7-11.9c0-6.6,5.1-11.9,11.7-11.9c3.5,0,5.7,1.2,7.8,2.9c1.6-1.6,1.5-1.9,5.7-5.8C29.9,2,25.2,0,20,0c-11,0-20,9-20,20S9,40,20,40c16.5,0,20.5-14.4,19.2-24H20z"
+              fill="#FFFFFF" fill-rule="evenodd"></path>
+          </svg>
+        </a><a href="javascript:void(0)">
+          <svg viewBox="0 0 40 40" width="28px" height="28px" data-test="icon-linkedin">
+            <path
+              d="M8.9,40H0.6V13.3h8.3V40z M4.8,9.6C2.1,9.6,0,7.5,0,4.8C0,2.2,2.1,0,4.8,0c2.7,0,4.8,2.2,4.8,4.8C9.6,7.5,7.4,9.6,4.8,9.6z M40,40h-8.3V27c0-3.1-0.1-7.1-4.3-7.1c-4.3,0-5,3.4-5,6.9V40h-8.3V13.3h8v3.7h0.1c1.1-2.1,3.8-4.3,7.9-4.3c8.4,0,10,5.5,10,12.7V40z"
+              fill="#FFFFFF"></path>
+          </svg>
+        </a>
+      </div>
+      <ul class="sub">
+        <li><a href=""><b>Phone : 1-844-DRS-1010</b></a></li>
+        <li><a href=""><b>Email : info@yourdrs.com </b></a></li>
+      </ul>
+      <!-- </nav> -->
+
+
+
+    </div>
+
+
+    <!--Sidebar upadate-->
+    <!--
+      <button pButton type="button" (click)="visibleSidebar2 = false" label="Save" class="ui-button-success"></button>
+      <button pButton type="button" (click)="visibleSidebar2 = false" label="Cancel" class="ui-button-secondary"></button> -->
+
+
+  <header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-xs-9 col-xl-5 col-8 ">
+                <div class="header-logo">
+                    <a>
+                        <img id="logo" src="assets/img/aboutus/logo.png" class="img-fluid" (click)="navigateHome()" style="-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; cursor: pointer;" alt="">
+                      </a>
+                </div>
+                <!-- <div class="header-logo">
+                  <a href="/Home/Index">
+                      <img src="assets/img/aboutus/logo-small.png" class="img-fluid" style="-webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s;" alt=""></a>
+              </div> -->
+
+        </div>
+        <div class="col-sm-6 col-md-7  col-xs-3 col-xl-7 col-4">
+          <ul class="list-inline text-right mgb0">
+            <li class="list-inline-item" *ngIf="showVirtual">
+
+              <ul class="list-inline v-menu-list d-none d-md-block">
+
+
+                <li class="list-inline-item"><a
+                    href="#section-1">How does it works ?</a></li>
+                <li class="list-inline-item"><a
+                    href="#section-2">Who Pays ?</a></li>
+                <li class="list-inline-item"><a
+                    href="#section1">Check Eligibility </a></li>
+                    <li class="list-inline-item">
+                      <!-- <a href="javascript:void(0)" id="Scheduler"
+                class="btn btn-outline-secondary header-appoint-btn d-none d-md-block btnrequestappointmentnew specialeffects"
+                data-req-url="/Home/GetBodyPartRangeCMS" data-update-container="#dvPopupTopNode1"
+                (click)="openReqApp()"><span>Schedule Now</span></a> -->
+                <button class="btn btn-outline-secondary header-appoint-btn header-schedule-btn d-none d-md-block " data-toggle="modal" data-target="#myModalappoint">Schedule Now </button>
+                  </li>
+
+              </ul>
+
+
+            </li>
+
+            <li class="list-inline-item" *ngIf="!showVirtual">
+              <a href="javascript:void(0)"
+                class="btn btn-outline-secondary header-appoint-btn d-none d-md-block btnrequestappointmentnew specialeffects"
+                data-req-url="/Home/GetBodyPartRangeCMS" data-update-container="#dvPopupTopNode1"
+                (click)="openReqApp()"><span>Request an Appointment</span></a>
+            </li>
+
+            <li>
+                        <div class="appoin-icon">
+                            <img src="assets/Images/NewYourDrsHome/appoint-icon-3.png" class="d-md-none d-sm-block  appoint-ico" data-toggle="modal" data-target="#myModalappoint" (click)="openReqApp()" style="width: 32px; height: auto;" alt=""></div>
+            </li>
+            <li class="list-inline-item">
+                      <div class="burger burger-transition" (click)="openSidebar()"  (click)="toggleMenu()"><span></span>
+
+                      </div>
+                    </li>
+
+
+                </ul>
+                <!-- <div class="burger burger-transition" (click)="openSidebar()"><span></span>
+
+                </div> -->
+
+            </div>
+        </div>
+      </div>
+  </header>
+
+
+
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <div > -->
+  <p-dialog blockScroll="false" id="whrHurt" [(visible)]="displayreq" [closable]="false" [modal]="true" [responsive]="true" [baseZIndex]="10000"
+  [contentStyle]="{width: '1200px', height: '700px'}"  [positionTop]="10" [draggable]="false">
+
+    <div class="container">
+
+    <app-reqappointment></app-reqappointment>
+
+  </div>
+</p-dialog>
+
+  <!-- </div> -->
+  <p-dialog  id="cust" header="Login"   [(visible)]="displayLogin"  [modal]="true" [responsive]="true" [style]="{width: '510px', minWidth: '410px',top:'30px'}" [minY]="40"
+         [baseZIndex]="1000"  [positionTop]="50" [draggable]="false" [closable]="false">
+         <p-header>
+          <span class="pull-right">
+            <button class="btn-lg" (click)="closeLoginDialog()" style="color: white;background-color: #3495B6;
+            border-color: #3495B6;"><b>X</b></button>
+          </span>
+        </p-header>
+    <app-log ></app-log>
+
+    </p-dialog>
+    <div *ngIf="isShow" id="scrollTop" class="btn btn-top" (click)="gotoTop()" style="display:block;z-index: 99;">
+      <img src="./assets/img/Locationimages/back-top.png" style="width:80%; height:auto;"  >
+    </div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-5 col-6">
+            <img src="https://qa.yourdrs.com/images/NewYourDrsHome/yd-foot.png" class="img-fluid foot-chuki" alt="">
+          </div>
+          <div class="col-md-6 col-6">
+            <h3>YourDRs</h3>
+            <ul class="list-unstyled">
+              <li class=" "><a routerLink="/aboutus">About</a></li>
+              <li class=""><a routerLink="/doctors">Doctor Profiles</a></li>
+              <li class=""><a routerLink="/speciality">Specialties</a></li>
+              <li class=""><a routerLink="/locations">Locations</a></li>
+
+              <li><a href="javascript:void(0)" class="btnrequestappointmentnew" data-req-url="/Home/GetBodyPartRangeCMS"
+                  data-update-container="#dvPopupTopNode1" (click)="openReqApp()"><span>Request an Appointment</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-5 col-6" id="spec">
+        <h3>Specialties</h3>
+        <div class="row" >
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+
+
+
+              <li class=" "><a (click)="dispSelSpecDoc(13)"  style="cursor:pointer">Anesthesia</a></li>
+
+              <li class=" "><a (click)="dispSelSpecDoc(12)"  style="cursor:pointer">Neurosurgery</a></li>
+              <li class=""><a (click)="dispSelSpecDoc(1)"  style="cursor:pointer">Orthopedics</a></li>
+              <li class=""><a (click)="dispSelSpecDoc(3)"  style="cursor:pointer">Pain Management</a></li>
+              <li class=""><a (click)="dispSelSpecDoc(5)"  style="cursor:pointer">Physical Medicine &amp;
+                  Rehabilitation</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class=" "><a (click)="dispSelSpecDoc(6)" style="cursor:pointer">Physical Therapy</a></li>
+              <li class=""><a (click)="dispSelSpecDoc(4)"  style="cursor:pointer">Podiatry</a></li>
+              <li class=""><a (click)="dispSelSpecDoc(22)"  style="cursor:pointer">Sports Medicine</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6" id="bpart">
+        <h3>Where does it hurts?</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class=" "><a (click)="bodyParts('4')" style="cursor:pointer">Ankle</a></li>
+              <li class=""><a (click)="bodyParts('3')" style="cursor:pointer">Arm</a></li>
+              <li class=""><a (click)="bodyParts('13')" style="cursor:pointer">Elbow</a></li>
+              <li class=""><a (click)="bodyParts('16')" style="cursor:pointer">Foot</a></li>
+              <li class=" "><a (click)="bodyParts('10')" style="cursor:pointer">Hand</a></li>
+              <li class=""><a (click)="bodyParts('9')" style="cursor:pointer">Head</a></li>
+              <li class=""><a (click)="bodyParts('11')" style="cursor:pointer">Hip</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class=" "><a (click)="bodyParts('15')" style="cursor:pointer">Knee</a></li>
+              <li class=""><a (click)="bodyParts('19')" style="cursor:pointer">Leg</a></li>
+              <li class=""><a (click)="bodyParts('8')" style="cursor:pointer">Low Back</a></li>
+              <li class=""><a (click)="bodyParts('7')" style="cursor:pointer">Mid Back</a></li>
+              <li class=" "><a (click)="bodyParts('1')" style="cursor:pointer">Neck</a></li>
+              <li class=""><a (click)="bodyParts('12')" style="cursor:pointer">Shoulder</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 order-sm-2 order-md-1 order-lg-1">
+
+          <p>© 2019 YourDrs Inc. All rights reserved. &nbsp; <span class="foot-links">&nbsp;<a
+                href="/#/Yourdrs-privacy">Privacy </a>&nbsp; | &nbsp; <a href="/#/Yourdrs-terms">Terms of
+                Use </a></span></p>
+        </div>
+        <div class="col-4 col-md-4 text-center d-none ">
+
+
+
+        </div>
+        <div class="col-12 col-md-6 text-right order-sm-1 order-md-2 order-lg-2">
+          <ul class="list-inline mbm_social">
+            <li class="list-inline-item"><a href="javascript:void(0)" class="btn-social btn-facebook social-facebook"><i
+                  class="fa fa-facebook-f" aria-hidden="true"></i>
+                <div class="tooltip"><span>facebook</span></div>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="btn-social btn-twitter social-twitter"><i
+                  class="fa fa-twitter" aria-hidden="true"></i>
+                <div class="tooltip"><span>Twitter</span></div>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)" class="btn-social btn-linkedin social-linkedin"><i
+                  class="fa fa-linkedin" aria-hidden="true"></i>
+                <div class="tooltip"><span>linkedin</span></div>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript:void(0)"
+                class="btn-social btn-youtube social-google-plus"><i class="fa fa-google-plus-official"
+                  aria-hidden="true"></i>
+
+                <div class="tooltip"><span>Google<b>+</b></span></div>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

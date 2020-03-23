@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "Name": "Child"
+  },
+  {
+    "Id": 2,
+    "Name": "Parent"
+  },
+  {
+    "Id": 3,
+    "Name": "Self"
+  },
+  {
+    "Id": 4,
+    "Name": "Spouse"
+  },
+  {
+    "Id": 5,
+    "Name": "Aunt"
+  },
+  {
+    "Id": 6,
+    "Name": "Cousin"
+  },
+  {
+    "Id": 7,
+    "Name": "Former spouse"
+  },
+  {
+    "Id": 8,
+    "Name": "Grandchild"
+  }
+]

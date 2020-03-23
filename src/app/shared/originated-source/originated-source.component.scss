@@ -1,0 +1,28 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "~../../../assets/CSS/plugins.css";
+
+a:not([href]) {
+  color: #FFFFFF ;
+}
+
+:host{ // dropdown color
+  ::ng-deep  #pwsdropdownbutton .ui-dropdown {
+    background-color: #FFFFFF;
+    background-image: none;
+    color: inherit;
+    padding: 6px 12px;
+    width: 100% !important;
+    font-size: 14px;
+    border-left: 1px solid #CCC !important;
+    border-top: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+    border-bottom: 2px solid #36cc95 !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+     }
+   }
+.horizontal-line{
+  margin-top: 5px!important;
+  border-top: 2px solid gray;
+}

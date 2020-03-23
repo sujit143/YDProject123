@@ -1,0 +1,53 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Rakesh",
+    "LastName": "Roshan",
+    "AddressLine1": "Maharashtra",
+    "AddressLine2": "Mumbai",
+    "Zip": "99999-9999",
+    "City": "Mumbai",
+    "State": "AE",
+    "Email": "rakesh@gmail.com",
+    "RelationshipType": "Parent",
+    "Phone": [
+      {
+        "Id": 1,
+        "PhoneType": "Home",
+        "PhoneNumber": "9591914276",
+        "OtherPhoneType": "",
+        "Extension": "123"
+      }
+    ],
+    "Comments": ""
+  },
+  {
+    "Id": 2,
+    "FirstName": "Dell",
+    "LastName": "comp",
+    "AddressLine1": "",
+    "AddressLine2": "",
+    "Zip": "",
+    "City": "",
+    "State": "AE",
+    "Email": "",
+    "RelationshipType": "Child",
+    "Phone":[
+      {
+        "Id": 1,
+        "PhoneType": "Home",
+        "PhoneNumber": "7676718358",
+        "OtherPhoneType": "",
+        "Extension": ""
+      },
+      {
+        "Id": 2,
+        "PhoneType": "Other",
+        "PhoneNumber": "7676718358",
+        "OtherPhoneType": "OtherType",
+        "Extension": ""
+      }
+    ],
+    "Comments":"Dell Xps"
+  }
+]

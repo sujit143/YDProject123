@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "Billstatus": "Pending",
+    "BillstatusId": 1
+  }, {
+    "Id": 2,
+    "Billstatus": "Rejected",
+    "BillstatusId": 2
+  }, {
+    "Id": 3,
+    "Billstatus": "In Progress",
+    "BillstatusId": 3
+  }
+]

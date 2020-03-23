@@ -1,0 +1,24 @@
+
+[
+  {
+    "id": 1,
+    "name":"Left"
+  },
+  {
+    "id": 2,
+    "name":"Right"
+
+  },
+  {
+    "id": 3,
+    "name":"Both"
+  },
+  {
+    "id": 3,
+    "name":"NA"
+  },
+  {
+    "id": 3,
+    "name":"Bilateral"
+  }
+]

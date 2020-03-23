@@ -1,0 +1,23 @@
+[
+  {
+    "id":"1",
+    "name":"Select"
+  },
+  {
+    "id":"2",
+    "name":"Booking Sheet"
+  },
+  {
+    "id":"3",
+    "name":"Diagnostic Report"
+  },
+  {
+    "id":"4",
+    "name":"Demo and other Intake forms Diagnostic Report"
+  },
+  {
+    "id":"5",
+    "name":"Others"
+  }
+
+]

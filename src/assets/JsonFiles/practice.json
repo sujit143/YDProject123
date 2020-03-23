@@ -1,0 +1,85 @@
+[
+  {
+      "id":1,
+      "name":"Advanced Pain care"
+  },
+  {
+      "id":2,
+      "name":"Apple Pain Management and Rehab"
+  },
+  {
+      "id":3,
+      "name":"Baynes Ortho"
+  },
+  {
+      "id":4,
+      "name":"Beth Israel MG"
+
+  },
+  {
+      "id":5,
+      "name":"Bronx"
+  },
+  {
+    "id":6,
+    "name":"Cypress Test Deck"
+  },
+  {
+    "id":7,
+    "name":"Edison Rehab and Acupuncture PC"
+  },
+  {
+    "id":8,
+    "name":"Electrodiagnostics and Physical Medicine"
+  },
+  {
+    "id":9,
+    "name":"Flushing Office"
+  },
+  {
+    "id":10,
+    "name":"Foot and Ankle Surgical Associates"
+  },
+  {
+    "id":11,
+    "name":"Gaon Pain Clinic"
+  },
+  {
+    "id":12,
+    "name":"HEMA"
+  },
+  {
+    "id":13,
+    "name":"HEMG"
+  },
+  {
+    "id":14,
+    "name":"magnacarepractice"
+  },
+  {
+    "id":15,
+    "name":"Montefiore New Rochelle Hospital"
+  },
+  {
+    "id":16,
+    "name":"New Century Spine And Outpatient Surgical Institute"
+  },
+  {
+    "id":17,
+    "name":"New York Hand Surgery"
+  },
+  {
+    "id":18,
+    "name":"New York Orthopaedic Surgery and Rehabilitation"
+  },
+  {
+    "id":19,
+    "name":"New York Spine and Pain Care"
+  },
+  {
+    "id":20,
+    "name":"NJ Orthopaedic Rehabilitation and Pain Management"
+  }
+
+
+]

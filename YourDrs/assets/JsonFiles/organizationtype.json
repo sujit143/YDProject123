@@ -1,0 +1,60 @@
+[
+  {
+      "id":1,
+      "name":"Representative"
+  },
+  {
+      "id":2,
+      "name":"Employer"
+  },
+  {
+      "id":3,
+      "name":"Third Party Administrator"
+  },
+  {
+      "id":4,
+      "name":"Hospital"
+
+  },
+  {
+      "id":5,
+      "name":"Medical Practice"
+  },
+  {
+    "id":6,
+    "name":"Urgent Care"
+  },
+  {
+    "id":7,
+    "name":"Surgical Facilities"
+  },
+  {
+    "id":8,
+    "name":"Management Company"
+  },
+  {
+    "id":9,
+    "name":"Sports"
+  },
+  {
+    "id":10,
+    "name":"NYC LAW"
+  },
+  {
+    "id":11,
+    "name":"Church"
+  },
+  {
+    "id":12,
+    "name":"Firemans Insurance Co"
+  },
+  {
+    "id":13,
+    "name":"Normandy Insurance"
+  },
+  {
+    "id":14,
+    "name":"QA Client"
+  }
+
+]

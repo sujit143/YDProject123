@@ -1,0 +1,27 @@
+[
+  {
+    "First_Name": "KMC",
+    "City": "Hubli",
+    "State": "Karnataka"
+  },{
+    "First_Name": "SDM",
+    "City": "Bagalkot",
+    "State": "Karnataka"
+  },{
+    "First_Name": "KLE",
+   "City": "Pune",
+    "State": "Maharastra"
+  },{
+    "First_Name": "GOvt",
+    "City": "Jammu",
+    "State": "Kashmir"
+  },{
+    "First_Name": "GNR",
+    "City": "Jammu",
+    "State": "Kashmir"
+  },{
+    "First_Name": "PVS",
+    "City": "Jammu",
+    "State": "Kashmir"
+  }
+]

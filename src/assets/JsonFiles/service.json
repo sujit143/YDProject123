@@ -1,0 +1,39 @@
+[
+    {
+        "id":1,
+        "practice":"Baynes Ortho",
+        "location":"39 East 69th Street"
+
+
+    },
+    {
+        "id":2,
+        "practice":"Bronx",
+        "location":"38 Astoria"
+
+
+    },
+    {
+        "id":3,
+        "practice":"First Practice",
+        "location":"100A Liv, Brooklyn"
+
+
+    },
+    {
+        "id":4,
+        "practice":"Flushing Office",
+        "location":"New Brunswick"
+
+
+    },
+
+    {
+        "id":5,
+        "practice":"HEMA",
+        "location":"54 Dean"
+
+
+    }
+
+]

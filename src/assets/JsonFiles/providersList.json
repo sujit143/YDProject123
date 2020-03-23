@@ -1,0 +1,31 @@
+[
+  {
+    "Id": 1,
+    "ProviderName": "Sai",
+    "PatientId": 1,
+    "Location": "54 Dean",
+    "Specialty": "Orthopaedics"
+  },
+  {
+    "Id": 2,
+    "ProviderName": "Deepa",
+    "PatientId": 2,
+    "Location": "Flemington Neuro",
+    "Specialty": "Minimally Invasive Spine"
+  },
+  {
+    "Id": 3,
+    "ProviderName": "Ashwini",
+    "PatientId": 3,
+    "Location": "54 Dean",
+    "Specialty": "NeuroSurgery"
+  },
+  {
+    "Id": 4,
+    "ProviderName": "Sushma",
+    "PatientId": 4,
+    "Location": "100A Liv Brooklyn",
+    "Specialty": "Anesthesia"
+
+  }
+]

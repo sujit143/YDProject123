@@ -1,0 +1,804 @@
+.border-bottom {
+    border-bottom: 1px solid #e7eaec !important;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+.ibox {
+    clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.ibox-title {
+    border-top: 4px solid #1AB394 !important;
+    background: #eee;
+}
+
+.ibox-title {
+
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 0px 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    height: 48px;
+}
+
+.ibox-content {
+    clear: both;
+    padding: 15px 20px 20px 20px;
+    background-color: #ffffff;
+    color: inherit;
+    border-image: none;
+}
+
+
+
+
+.col-md-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 992px){
+.col-md-12 {
+    width: 100%;
+}
+}
+
+@media (min-width: 992px){
+.col-md-12 {
+    float: left;
+}
+}
+
+@media (min-width: 992px){
+.col-md-2 {
+    width: 16.66666667%;
+}
+}
+
+@media (min-width: 992px){
+.col-md-2{
+    float: left;
+}
+}
+
+.col-md-2{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 992px){
+.col-md-3 {
+    width: 25%;
+}
+}
+
+@media (min-width: 992px){
+.col-md-3 {
+    float: left;
+}
+}
+
+  @media (min-width: 1336px){
+  td{
+    padding: 1px;
+    display: table-cell;
+    vertical-align: inherit;
+   }
+  }
+
+  @media (min-width: 320px) and (max-width: 1440px) {
+    td {
+        padding: 1px;
+        display: table-cell;
+        vertical-align: inherit;
+    }
+  }
+
+  @media (min-width: 1500px) and (max-width: 2990px) {
+    td {
+        padding: 7px;
+        display: table-cell;
+        vertical-align: inherit;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .addres{
+     width: 509px;
+     }
+    }
+
+    @media (min-width: 1500px) and (max-width: 2990px){
+      .addres{
+       width: 96%;
+       }
+      }
+
+  // @media (min-width: 1401px){
+  //   td{
+  //     padding: 7px;
+  //     display: table-cell;
+  //     vertical-align: inherit;
+  // }
+  //   }
+
+
+
+.col-md-3{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    font-weight: normal !important;
+    color: white;
+}
+
+.scheduleAppointmentControls {
+    width: 95% !important;
+    background-color: transparent !important;
+}
+
+.mandatoryFieldBorder {
+    border-color: #ed5565 !important;
+}
+
+
+.form-control {
+    background-image: none;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-left: 1px solid #CCC !important;
+    border-top: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+    border-bottom: 2px solid #36cc95 !important;
+    border-radius: 0px !important;
+    box-shadow: none;
+
+}
+
+.float-e-margins .btn {
+    margin-bottom: 5px;
+}
+
+.btn-primary {
+    background-color: #848484;
+    border-color: #999999;
+    color: #FFFFFF;
+
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-weight: normal !important;
+}
+
+.ibox-content h3{
+    margin-top: 5px;
+}
+
+h3 {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    line-height: 1.1;
+    color: inherit;
+}
+ h4 {
+    font-weight: 600;
+    line-height: 1.1;
+    font-size: 14px;
+    color: inherit;
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: inherit;
+
+}
+
+.ibox-title h5 {
+    display: inline-block;
+    font-size: 14px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: left;
+}
+.ibox-content h4 {
+    margin-top: 5px;
+}
+ h5 {
+    margin-top: 5px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: inherit;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.chosen-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    text-align: left;
+    user-select: none;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed #DFDFE4 !important;
+  width: 96%;
+  box-sizing: content-box;
+  height: 0;
+  display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+}
+
+@media (min-width: 992px){
+.col-md-1 {
+    width: 8.33333333%;
+}
+}
+
+@media (min-width: 992px){
+.col-md-1{
+    float: left;
+}
+}
+
+.col-md-1{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 4px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.app {display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+input{
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+    font: inherit;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    border-image: initial;
+}
+
+//Tabs--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+.tabscontainer {
+    margin-bottom: -5px;
+}
+
+.tbs {
+    background-color: #eee;
+    margin: 5px;
+    padding: 0px;
+    cursor: pointer;
+    border-left: 3px solid #1AB394;
+}
+.tabActive {
+    background-color: #1AB394 !important;
+}
+.tabActive h3 {
+    color: #ffffff !important;
+}
+.tbswidth {
+    width: 160px;
+}
+
+.badge-warning {
+    background-color: #f8ac59;
+    color: #FFFFFF;
+}
+.badge {
+
+    font-family: 'Open Sans';
+    font-size: 11px;
+    font-weight: normal !important;
+    padding-bottom: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    text-shadow: none;
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+.tbs h3 {
+    padding-left: 8px;
+    padding-top: 4px;
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+    color: #aaa;
+
+}
+.ibox-content {
+    clear: both;
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-image: none;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+
+// Patient Information-------------------------------------------------------------------------------------------------------------------------
+
+b {
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: transparent;
+    display: table;
+    border-color: grey;
+}
+
+tbody{
+  display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+// td{
+//   padding: 1px;
+//     display: table-cell;
+//     vertical-align: inherit;
+// }
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #CCC;
+    height: 0;
+    box-sizing: content-box;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+
+}
+
+.col-md-6 {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+.form-control-new {
+
+  border-radius: 1px !important;
+}
+
+.form-control, .single-line {
+    background-color: #FFFFFF;
+    background-image: none;
+    color: inherit;
+    padding: 6px 12px;
+    width: 100% !important;
+    font-size: 14px;
+    border-left: 1px solid #CCC !important;
+    border-top: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+    border-bottom: 2px solid #36cc95 !important;
+    box-shadow: none;
+
+}
+
+ select  {
+    font-family: inherit;
+    line-height: inherit;
+    text-transform: none;
+    margin: 0;
+    font: inherit;
+}
+
+#ScAppointmentddlGenderEpisodeintakMem_chosen.chosen-container {
+    padding-right: 6px;
+}
+
+.chosen-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    text-align: left;
+    user-select: none;
+}
+
+// #dvPatientDemographicsContainer {
+//   display: block;
+//   width: 1660px;
+
+// }
+
+.row:before{
+  display: table;
+  content: " ";
+}
+.row:after{
+  clear: both;
+  display: table;
+  content: " ";
+}
+
+
+
+.chosen-container-single .chosen-single {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 5px 12px;
+    height: 34px !important;
+    border-left: 1px solid #CCC !important;
+    border-top: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+    border-bottom: 2px solid #37cb95 !important;
+    background-color: #fff;
+    border-radius: 0px !important;
+    background-clip: padding-box;
+    color: #555;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+
+    background: #ffffff;
+    box-shadow: none;
+    box-sizing: border-box;
+    cursor: text;
+    margin: 0;
+    min-height: 30px;
+    width: 100%;
+}
+
+div{
+  display: block;
+}
+
+.chosen-container-single .chosen-single span {
+    display: block;
+    overflow: hidden;
+    margin-right: 26px;
+    text-overflow: initial !important;
+    white-space: initial !important;
+}
+
+.chosen-container-single .chosen-single div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 18px;
+    height: 100%;
+}
+
+.chosen-container-single .chosen-single div b {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.chosen-container-single .chosen-drop {
+    margin-top: -1px;
+    border-radius: 0 0 4px 4px;
+    background-clip: padding-box;
+}
+
+.chosen-container .chosen-drop {
+    position: absolute;
+    top: 100%;
+    left: -9999px;
+    z-index: 1010;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-top: 0;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+.col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+option{
+    color: black;
+}
+// END OF Patient Information-------------------------------------------------------------------------------------------------------------------------
+
+//CheckBox
+
+//  .checkbox-inline {
+//     position: relative;
+//     display: inline-block;
+//     margin-bottom: 0;
+//     vertical-align: middle;
+//     cursor: pointer;
+// }
+
+// .icheckbox_square-green.checked {
+//     background-position: -48px 0;
+// }
+
+// .icheckbox_square-green {
+//     display: inline-block;
+//     vertical-align: middle;
+//     margin: 0;
+//     padding: 0;
+//     width: 22px;
+//     height: 22px;
+//     border: none;
+//     cursor: pointer;
+// }
+
+
+ //new
+.form-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 39px;
+  margin-left: 25px;
+}
+
+// / On mouse-over, add a grey background color /
+.container:hover input ~ .checkmark {
+  background-color:green;
+  border-color: green;
+}
+
+// / When the checkbox is checked, add a blue background /
+.container input:checked ~ .checkmark {
+  background-color: green;
+}
+.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+// / Style the checkmark/indicator /
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: white;
+  border-width: 0 3px 3px 0;
+}
+
+
+:host{
+  ::ng-deep .ui-chkbox .ui-chkbox-box {
+    border: 1px solid white;
+    background-color:transparent;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 0;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    //box-shadow: 0 0 0 0.2em #fff !important;
+  }
+}
+:host{
+  ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #36cc95 !important;
+    background-color: #36cc95 !important;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2em #36cc95 !important;
+  }
+}
+
+  :host {
+    ::ng-deep .formcontrol {
+      background-color: #FFFFFF;
+      background-image: none;
+      /* border: 1px solid #e5e6e7; */
+      color: inherit;
+      display: block;
+      // padding: 6px 12px;
+      // width: 100% !important;
+      font-size: 14px;
+      border-left: 1px solid #CCC !important;
+      border-top: 1px solid #CCC !important;
+      border-right: 1px solid #CCC !important;
+      border-bottom: 2px solid #36cc95 !important;
+      -moz-border-radius: 0px !important;
+      -webkit-border-radius: 0px !important;
+      border-radius: 0px !important;
+
+
+    }
+  }
+
+  :host {
+    ::ng-deep .body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight
+     {
+    color: #ffffff;
+    background-color: #36cc95 ;
+    ;
+  }
+}
+
+
+
+
+
+//END OF Check box---------------------------------------------------------------------------------------------------------------------------------------
+
+//Radio Button
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+    box-shadow:0 0 5px 0px gray inset;
+}
+input[type='radio']:hover {
+    box-shadow:0 0 5px 0px green inset;
+}
+input[type='radio']:before {
+    content:'';
+    display:block;
+    width:60%;
+    height:60%;
+    margin: 20% auto;
+    border-radius:50%;
+}
+input[type='radio']:checked:before {
+    background:green;
+}
+// END OF Radio Button----------------------------------------------------------------------------------------------------------------------------------------
+
+//Existing Episodes
+
+th{
+    color: grey;
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+//Selected tags
+div.tagsinput {
+  border: 1px solid #dadada;
+  background: #fff;
+  padding: 5px;
+  margin-top: 14px;
+  width: 100%;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div.tagsinput div {
+  display: block;
+  float: left;
+  position: relative;
+}
+
+div.tagsinput span.tag {
+  border: 1px solid #a5d24a;
+  display: block;
+  float: left;
+  padding: 0 8px;
+  background: #cde69c;
+  color: #638421;
+  margin: 5px 5px 5px 5px;
+  line-height: 23px;
+  font-size: 11px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Rescheduled on patient request"        
+    },
+    {
+        "id": 1,
+        "name": "No show"        
+    },
+    {
+        "id": 1,
+        "name": "Rescheduled on provider request"        
+    },
+    {
+        "id": 1,
+        "name": "Other"        
+    },
+    {
+        "id": 1,
+        "name": "Transfer to hospital"        
+    },
+    {
+        "id": 1,
+        "name": "Transfer to PCP"        
+    },
+    {
+        "id": 1,
+        "name": "Transfer Other"        
+    },
+    {
+        "id": 1,
+        "name": "Authorization Denied"        
+    },
+    {
+        "id": 1,
+        "name": "As per patient request"        
+    }
+]

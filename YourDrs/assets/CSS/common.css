@@ -1,0 +1,40 @@
+.pull-right {
+  float: right !important;
+
+}
+
+h2 {
+  font-size: 25px !important;
+}
+
+h4{
+  font-size: 18px !important;
+}
+
+h3{
+  font-size: 20px !important;
+}
+
+h5 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+/* ::ng-deep .dialog_header {
+  background-color: #ffffff !important;
+
+} */
+
+.ui-dialog .ui-dialog-content {
+  border: 0px !important;
+}
+
+.modalheightcls {
+  height: 500px;
+}
+.btnClsprimary {
+  color: #fff;
+    background-color: #1985ac;
+    border-color: #187da0;
+}
+

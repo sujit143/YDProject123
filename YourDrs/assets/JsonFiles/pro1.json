@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name":"AC Joint Resection",
+        "cpt":"29824",
+        "type":"Pain"
+
+
+    },
+    {
+        "id":2,
+        "name":"Analyze Neurostim, Complex",
+        "cpt":"95972",
+        "type":"Pain"
+
+
+    },
+    {
+        "id":3,
+        "name":"Anchor/screw",
+        "cpt":"C1713",
+        "type":"Ortho"
+
+
+    },
+    {
+        "id":4,
+        "name":"Anesthesia, ankle",
+        "cpt":"01464",
+        "type":"Ortho"
+
+
+    },
+
+    {
+        "id":5,
+        "name":"Anesthesia, elbow",
+        "cpt":"01830",
+        "type":"Ortho"
+
+
+    }
+
+]

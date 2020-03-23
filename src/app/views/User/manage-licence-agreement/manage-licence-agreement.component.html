@@ -1,0 +1,85 @@
+
+<div id="page-wrapper" class="gray-bg">
+  <div class="panel blank-panel" style="background:#969696;border:none;border-radius:0px;">
+    <div class="row wrapper border-bottom white-bg page-heading" style="background:none; padding:0px;">
+        <div class="col-sm-10" style="color:#FFF;">
+            <h2 style="margin:10px 0px 10px 20px; font-size:20px;">Manage Licence Agreement</h2>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox-content m-b-sm ">
+          <div id="dvLicenceMembers">
+            <div class="row" id="bgcol">
+              <div class="col-lg-12" >
+                <div class="row" >
+                  <div class="col-md-3">
+                    <label>Members</label>
+                    <select class="input-md form-control" id="ddlProvider" name="Member.MemberId">
+                      <option value="">All</option>
+                      <option value="10">Kyriakides Christopher</option>
+                      <option value="4425">Admin Support</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <a  class="btn btn-primary btn-continue" id="btnReInforceLicenceAgreement" (click)="changeStatus()" style="color: #FFF;">ReInforce Licence Agreement</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-lg-12" >
+      <div class="wrapper wrapper-content" id="bgcol" >
+        <div id="dvListMembersforLicence" >
+          <div class="ibox-content m-b-sm border-bottom m-t-n-xl" >
+            <table class="table table-striped table-hover table-condensed">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Is Licence Agreed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of licenceArr">
+                  <td>
+                    {{item.name}}
+                  </td>
+                  <td>
+                    {{item.status}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="custompagination pull-right">
+              <span class="label pagerInfo">Showing <b>{{firstvalue}} - {{secondvalue}}</b> of <b>100</b></span>
+              <ul>
+                <li class="disabled">
+                  <a data-val="0">&lt;&lt;</a>
+                </li>
+                <li>
+                  <select class="pagerSelect input-small"  >
+                    <option  value="item" onClick="getPage(item)" *ngFor="let item of list">{{item}}</option>
+                  </select>
+                </li>
+                <li>
+                  <a class="pagerItem" data-val="2" >&gt;&gt;</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- --------------------  -->
+
+<!-- --------------------  -->

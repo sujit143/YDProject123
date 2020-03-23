@@ -1,0 +1,92 @@
+
+.image{
+  max-width: 100%;
+  height: auto;
+}
+.col-md-4 {
+  cursor: pointer;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+// .title-bar {
+// background-color: #049EC3;
+// background-position: center center;
+// background-size: cover;
+// background-repeat: no-repeat;
+// background-attachment: scroll; margin-top: 118px;
+// }
+// .title-bar-table {
+//   display:table;
+//   width: 100%;
+// }
+// .title-bar-table-cell {
+// text-align: left; color: #fff;
+// vertical-align: middle;
+// display: table-cell;
+// padding-top: 6px;
+// }
+// .title-bar h2 {
+// font-size: 32px;
+// font-weight: 600;
+
+// }
+// .text-white{
+//   font-size: 22px;
+//   font-weight: 600;
+// }
+.text{
+  text-align:center;
+  color:#07244B
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.treatment-wrapper {
+  margin-top: 80px !important;
+  -webkit-box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+  min-height: 220px;
+}
+.treatment-wrap-text {
+  background: #fff;
+  padding: 15px 15px 15px 15px;
+  -webkit-box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px -6px rgba(0, 0, 0, 0.1), 0 8px 25px -6px rgba(0, 0, 0, 0.1);
+}
+h3 {
+  font-size: 26px;
+  font-weight: 400;
+  color: #07244B;
+  line-height: 1.2;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+.treatment-wrapper h3 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.section{
+  background: #f9f9f9;
+}
+
+

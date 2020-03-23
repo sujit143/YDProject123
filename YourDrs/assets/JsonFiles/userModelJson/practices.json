@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "name":"Select"
+  },
+  {
+    "id": 2,
+    "name":"Apple Pain Management and Rehab"
+  },
+  {
+    "id": 3,
+    "name":"Baynes Ortho"
+  },
+  {
+    "id": 4,
+    "name":"Bergen Anesthesia Group LLC"
+  },
+  {
+    "id": 5,
+    "name":"Beth Israel MG"
+  },
+  {
+    "id": 6,
+    "name":"bronx"
+  },
+  {
+    "id": 7,
+    "name":"Centra State Medical Center"
+  },
+  {
+    "id": 8,
+    "name":"Edison Rehab and Acupuncture PC"
+  },
+  {
+    "id": 9,
+    "name":"Electrodiagnostics and Physical Medicine "
+  },
+  {
+    "id": 10,
+    "name":"HEMA"
+  },
+  {
+    "id": 11,
+    "name":"Health East Ambulatory Surgical Center"
+  },
+  {
+    "id": 12,
+    "name":"Mount Sinai Beth Israel"
+  },
+  {
+    "id": 13,
+    "name":"New York Hand Surgery"
+  },
+  {
+    "id":14,
+    "name":"HAMG"
+  },
+  {
+    "id":15,
+    "name":"Englewood Hospital"
+  },
+  {
+    "id":16,
+    "name":"New Horizons ASC"
+  },
+  {
+    "id":17,
+    "name":"New York Methodist Hospital"
+  }
+]

@@ -1,0 +1,212 @@
+<div class="container">
+</div>
+<section class="title-bar">
+  <div class="title-bar-table">
+    <div class="title-bar-table-cell">
+      <div class="container" >
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2 class="text-white">Doctor Profile</h2>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="titl-bcrumbs" style="">
+              <ul class="list-inline mgb0" (click)="openDoctors()">
+                <li class="list-inline-item"><a type="button" style="color: #fff;">View All Doctors</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div>
+  <section class="backcol">
+    <div class="container"  style="padding-top: 60px;">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="{{profilePhoto}}" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="img-fluid dr-p-pic">
+                </div>
+                <div class="col-md-8">
+                  <div class="drprowp">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="dr-detail-wraper1 mob-w">
+                          <h3>{{displayName}}</h3>
+                          <ul class="list-inline">
+                            <li class=" dr-first-li">
+                              <p>Specialities :</p>
+                            </li>
+                            <li class="list-inline-item dr-second-li">
+                              <p class="limit-text">{{specialities}}</p>
+                            </li>
+                          </ul>
+                          <ul class="list-inline">
+                            <li class=" dr-first-li">
+                              <p>Locations:</p>
+                            </li>
+                            <li class="list-inline-item dr-second-li ">
+                              <p class="limit-text" *ngFor="let item of officeHours">{{item.Location}}</p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <div class="card" id="profileDetails">
+            <tabset id="tabsBg" class="aligntab">
+              <tab heading="Profile"  class="aligntab1">
+                <label><h4><b>Background:</b></h4></label>
+                <p *ngIf="providerBio!=''; else notShow" [innerHTML]="providerBio"></p>
+                <ng-template #notShow>
+                  <p>
+                    No Record Found
+                  </p>
+                </ng-template>
+              </tab>
+              <tab heading="Education">
+                <div class="dr-detail-wraper1">
+                  <h3 class="add">Education</h3>
+                  <ul class="list-inline" *ngIf="educations!=''; else notShow">
+                    <li class=" dr-first-li" >
+                      <p>Education &amp; Board Certifications :</p>
+                    </li>
+                    <li class="list-inline-item dr-second-li">
+                      <p>{{educations}}</p>
+                    </li>
+                  </ul>
+                  <ng-template #notShow>
+                    <p>
+                      NA
+                    </p>
+                  </ng-template>
+                </div>
+              </tab>
+              <tab heading="Locations">
+                <div *ngIf="officeHours!=''; else notShow" >
+                  <label><h3 class="add">Locations:</h3></label><br>
+                  <a>
+                    <div class="col" *ngFor="let marker of officeHours ">
+                      <div class="row" >
+                        <div class="col-md-4">
+                          <div class="middle-locat2" (click)="openLocation(marker)">
+                            <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/location-map.jpg" alt="Avatar" class="locat-img img-fluid1" style="width: 100%"
+                            (click)="openLocation(marker)">
+                            <div class="overlay1">
+                              <a class="icon" title="User Profile">
+                                <i class="fa fa-search-plus fa-2x" style="color:#404040"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-8 ploc-tab">
+                          <h4> {{marker.Location}}</h4>
+                          <p>{{marker.City}}</p>
+                        </div>
+                      </div><br>
+                    </div>
+                  </a>
+                </div>
+                <ng-template #notShow>
+                  <p>
+                    Locations
+                  </p>
+                </ng-template>
+              </tab>
+              <tab heading="Reviews">
+                <p *ngIf="providerFeedBacks!=''; else notShow">
+                  <label *ngFor="let item of providerFeedBacks">{{item.Comments}}</label>
+                </p>
+                <ng-template #notShow>
+                  <p>
+                    No Results Found
+                  </p>
+                </ng-template>
+              </tab>
+            </tabset>
+          </div><br>
+        </div>
+        <div class="col-md-5 col-lg-4">
+          <p-toast></p-toast>
+          <div class="card card-colors">
+            <div class="card-body" >
+              <h4 class="detail-headingfix">Request an Appointment with
+                <span>{{displayName}} </span>
+              </h4>
+              <form [formGroup]="requestAppointment" (ngSubmit)="saveAppointment(requestAppointment.value)" class="homepage-appointform">
+                <label class="fw600">Full Name<span style="color: red;">*</span></label>
+                <input formControlName="PatientFirstName" type="text" class="form-control" id="ip1">
+                <label class="fw600">Phone Number<span style="color: red;" >*</span></label>
+                <p-inputMask mask="(999) 999-9999" formControlName="Contact"  styleClass="form-control" id="maskinput" [style] ="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx"></p-inputMask>
+                <label class="fw600">Location</label>
+                <select formControlName="location" class="form-control" id="ip1">
+                  <option [ngValue]=null>select</option>
+                </select>
+                <label class="fw600">Preffered Date<span style="color: red;">*</span></label>
+                <input type="text" class="form-control" placeholder="mm/dd/yy" formControlName="AppointmentDateTimeList" bsDatepicker [(bsValue)]="myDateValue"><br>
+                <button type="submit" class="btn btn-secondary btn-block " id="ip1">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p-dialog id="location" [(visible)]="displayLocation" [modal]="true" [responsive]="true"  [closable]="false"  [positionTop]='60'
+    [style]="{width: '500px', height: '700px'}" blockScroll="false">
+    <p-header style="height:50px;">
+      <label class="loc" style="font-size: 20px roboto; color:#07244B;font-family: sans-serif;font-weight: 600;">
+        Location-{{locationList.Location}}
+      </label>
+      <span class="pull-right">
+        <button type="button" class="close closeBodypart" (click)="functionToCloseDialog()" data-dismiss="modal">×</button>
+      </span>
+    </p-header>
+    <p>
+      <span style="font-size: 19px; color:#07244B;font-family: sans-serif;font-weight: bold">
+        {{city}}
+      </span><br>
+      <span style="font-size: 19px roboto; color:#07244B;font-family: sans-serif;">
+        {{address}}
+      </span><br><br>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="true" [zoomControl]="true" [fullscreenControl]="true" [gestureHandling]="'coopeative'" [scrollwheel]= "null">
+        <agm-marker  [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconpath">
+          <agm-info-window>
+            <strong>{{address}}</strong><br>
+            <strong>{{city}}</strong><br>
+            <strong>{{state}}</strong><br>
+            <strong>{{country}}</strong><br>
+            <strong>{{fax}}</strong><br>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </p>
+    <span style="font-size: 150%; color:#07244B;font-family:sans-serif;font-weight: bold;">
+      Call:
+      <h5 class="list-inline-item">{{phoneNumber}}</h5>
+    </span><br>
+    <span style="font-size: 150%; color:#07244B; font-family: sans-serif; font-weight: bold;">
+      Fax:
+      <h5 class="list-inline-item">{{fax}}</h5>
+    </span><br><br><br>
+    <button type="button" class="btn btn-primary btn-block" id="ip2" (click)="openReqPopup()">Request an Appointment</button>
+  </p-dialog>
+
+  <p-dialog id="whrHurt" blockScroll="false"  [closable]="true" [modal]="true" [responsive]="true" [baseZIndex]="10000"
+    [style]="{width: '1200px', height: '200px'}" [positionTop]="60" [positionLeft]="-10">
+    <div class="container">
+      <app-reqappointment></app-reqappointment>
+    </div>
+  </p-dialog>
+</div>
+
+

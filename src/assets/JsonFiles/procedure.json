@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name":"AC Joint Resection",
+        "cpt":"29824",
+        "type":"Pain",
+        "classname":"HEMA"
+
+    },
+    {
+        "id":2,
+        "name":"Ankle Arthroscopy Extensive",
+        "cpt":"72190",
+        "type":"Pain",
+        "classname":"HEMA"
+
+    },
+    {
+        "id":3,
+        "name":"Arthroscopy Elbow",
+        "cpt":"123",
+        "type":"Spine",
+        "classname":"HEMA"
+
+    },
+    {
+        "id":4,
+        "name":"Bicep Tenotomy",
+        "cpt":"12355",
+        "type":"Ortho",
+        "classname":"HEMA"
+
+    },
+
+    {
+        "id":5,
+        "name":"BMAC",
+        "cpt":"0263T",
+        "type":"Ortho",
+        "classname":"HEMA"
+
+    }
+
+]

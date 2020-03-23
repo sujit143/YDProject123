@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Accident-Work and motor vehicle related",
+    "value": "Accident-Work and motor vehicle related"
+  },
+  {
+    "id": 2,
+    "name": "Accident-Work related",
+    "value": "Accident-Work related"
+  },
+  {
+    "id": 3,
+    "name": "Accident-Motor vehicle related",
+    "value": "Accident-Motor vehicle related"
+  },
+  {
+    "id": 4,
+    "name": "Accident-Pedistrian",
+    "value": "Accident-Pedistrian"
+  },
+  {
+    "id": 5,
+    "name": "Personal Injury",
+    "value": "Personal Injury"
+  },
+  {
+    "id": 6,
+    "name": "Slip and Fall",
+    "value": "Slip and Fall"
+  },
+  {
+    "id": 7,
+    "name": "Assault",
+    "value": "Assault"
+  },
+  {
+    "id": 8,
+    "name": "Accident Head Injury",
+    "value": "Accident Head Injury"
+  },
+  {
+    "id": 9,
+    "name": "Test Injury",
+    "value": "Test Injury "
+  },
+  {
+    "id": 10,
+    "name": "Head Injury",
+    "value": "Head Injury"
+  },
+  {
+    "id": 11,
+    "name": "Accident WC",
+    "value": "Accident WC"
+  },
+  {
+    "id": 12,
+    "name": "Left Ankle Injury",
+    "value": "Left Ankle Injury"
+  },
+  {
+    "id": 13,
+    "name": "Cold and Cough",
+    "value": "Cold and Cough"
+  },
+  {
+    "id": 14,
+    "name": "Articular Cartilage",
+    "value": "Articular Cartilage"
+  },
+  {
+    "id": 15,
+    "name": "test injury",
+    "value": "test injury"
+  },
+  {
+    "id": 16,
+    "name": "Accident Test",
+    "value": "Accident Test"
+  }
+
+]

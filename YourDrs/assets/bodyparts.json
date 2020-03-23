@@ -1,0 +1,74 @@
+[
+  {
+    "id" : 1,
+    "name": "Ankle",
+    "imageUrl" : "assets/img/aboutus/ankle.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 2,
+    "name": "Neck",
+    "imageUrl" : "assets/img/aboutus/neck.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 3,
+    "name": "Arm",
+    "imageUrl" : "assets/img/aboutus/Arm.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 4,
+    "name": "Elbow",
+    "imageUrl" : "assets/img/aboutus/Elbow.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 5,
+    "name": "Foot",
+    "imageUrl" : "assets/img/aboutus/Foot.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 6,
+    "name": "Head",
+    "imageUrl" : "assets/img/aboutus/head.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 7,
+    "name": "Hip",
+    "imageUrl" : "assets/img/aboutus/hip.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 8,
+    "name": "Knee",
+    "imageUrl" : "assets/img/aboutus/Knee.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 9,
+    "name": "Shoulder",
+    "imageUrl" : "assets/img/aboutus/shoulder.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 10,
+    "name": "Low-back",
+    "imageUrl" : "assets/img/aboutus/low-back.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 11,
+    "name": "Hand",
+    "imageUrl" : "assets/img/aboutus/hand.png",
+    "isSelected" : false
+  },
+  {
+    "id" : 12,
+    "name": "Leg",
+    "imageUrl" : "assets/AboutUs/leg.png",
+    "isSelected" : false
+  }
+]

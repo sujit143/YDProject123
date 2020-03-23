@@ -1,0 +1,42 @@
+[
+  {
+    "id":"1",
+    "name":"Account",
+    "isChecked": false
+  },
+  {
+    "id":"2",
+    "name":"Adjuster",
+    "isChecked": false
+  },
+  {
+    "id":"3",
+    "name":"AdjusterCareCoordinator",
+    "isChecked": false
+  },
+  {
+    "id":"4",
+    "name":"Admin",
+    "isChecked": false
+  },
+  {
+    "id":"5",
+    "name":"Anesthesiologist",
+    "isChecked": false
+  },
+  {
+    "id":"6",
+    "name":"ARB Attorney",
+    "isChecked": false
+  },
+  {
+    "id":"7",
+    "name":"ASCStaff",
+    "isChecked": false
+  },
+  {
+    "id":"8",
+    "name":"Authorization",
+    "isChecked": false
+  }
+]

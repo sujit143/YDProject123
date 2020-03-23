@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Worker's Compensation",
+    "value": "Worker's Compensation"
+  },
+  {
+    "id": 2,
+    "name": "Liability",
+    "value": "Liability"
+  },
+  {
+    "id": 3,
+    "name": "Auto Accident",
+    "value": "Auto Accident"
+  },
+  {
+    "id": 4,
+    "name": "Group Health",
+    "value": "Group Health"
+  },
+  {
+    "id": 5,
+    "name": "Other",
+    "value": "Other"
+  },
+  {
+    "id": 6,
+    "name": "Surgery",
+    "value": "Surgery"
+  },
+  {
+    "id": 7,
+    "name": "NJ-PIP",
+    "value": "NJ-PIP"
+  },
+  {
+    "id": 8,
+    "name": "Commercial",
+    "value": "Commercial"
+  },
+  {
+    "id": 9,
+    "name": "NY No Fault",
+    "value": "NY No Fault"
+  },
+  {
+    "id": 10,
+    "name": "Self-Pay",
+    "value": "Self-Pay"
+  }
+]

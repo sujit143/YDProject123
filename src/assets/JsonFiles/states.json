@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "Name": "AE"
+  },
+  {
+    "Id": 2,
+    "Name": "AK"
+  },
+  {
+    "Id": 3,
+    "Name": "AL"
+  },
+  {
+    "Id": 4,
+    "Name": "AR"
+  },
+  {
+    "Id": 5,
+    "Name": "AS"
+  },
+  {
+    "Id": 6,
+    "Name": "AZ"
+  },
+  {
+    "Id": 7,
+    "Name": "CA"
+  },
+  {
+    "Id": 8,
+    "Name": "CT"
+  },
+  {
+    "Id": 9,
+    "Name": "DC"
+  },
+  {
+    "Id": 10,
+    "Name": "DE"
+  },
+  {
+    "Id": 11,
+    "Name": "FL"
+  },
+  {
+    "Id": 12,
+    "Name": "FM"
+  },
+  {
+    "Id": 13,
+    "Name": "GA"
+  },
+  {
+    "Id": 14,
+    "Name": "GU"
+  },
+  {
+    "Id": 15,
+    "Name": "HI"
+  },
+  {
+    "Id": 16,
+    "Name": "IA"
+  },
+  {
+    "Id": 17,
+    "Name": "Id"
+  },
+  {
+    "Id": 18,
+    "Name": "IL"
+  },
+  {
+    "Id": 19,
+    "Name": "IN"
+  },
+  {
+    "Id": 20,
+    "Name": "KS"
+  }
+]

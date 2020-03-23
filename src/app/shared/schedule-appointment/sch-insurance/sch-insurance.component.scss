@@ -1,0 +1,1037 @@
+.tabpagescontainer {
+  margin-bottom: 20px;
+  padding: 0px 10px 0px 10px;
+}
+
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #DFDFE4;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+.ibox-content {
+  clear: both;
+  background-color: #ffffff;
+  color: inherit;
+  padding-top: 15px;
+  border-top-color: rgb(231, 234, 236);
+  border-right-color: rgb(231, 234, 236);
+  border-bottom-color: rgb(231, 234, 236);
+  border-left-color: rgb(231, 234, 236);
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+div {
+  display: block;
+}
+
+textarea.form-control{
+  height: auto;
+}
+textarea{
+  overflow: auto;
+  margin: 0;
+  font: inherit;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  -webkit-appearance: textarea;
+  -webkit-rtl-ordering: logical;
+  flex-direction: column;
+  resize: auto;
+  cursor: text;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  border-image: initial;
+}
+
+//Media Querries For REsponsive----------------------------------------------------------------------------------------------------------------------->
+
+@media (min-width: 992px){
+  .col-md-12 {
+      width: 100%;
+      float: left;
+  }
+}
+
+@media (min-width: 992px){
+.col-md-4 {
+  width: 33.33333333%;
+  float: left;
+}
+}
+
+@media (min-width: 992px){
+.col-md-3 {
+  width: 25%;
+  float: left;
+}
+}
+
+@media (min-width: 992px){
+  .col-md-6 {
+      width: 50%;
+      float: left;
+  }
+}
+
+@media (min-width: 992px){
+  .col-md-2 {
+      width: 16.66666667%;
+  float: left;
+}
+}
+
+@media (min-width: 768px){
+  .col-sm-2 {
+      width: 16.66666667%;
+      float: left;
+  }
+}
+
+@media (min-width: 768px){
+  .col-sm-3 {
+      width: 25%;
+      float: left;
+  }
+}
+@media (min-width: 768px){
+  .col-sm-4 {
+      width: 33.33333333%;
+      float: left;
+  }
+}
+
+@media (min-width: 768px){
+  .col-sm-12 {
+      width: 100%;
+      float: left;
+  }
+}
+
+
+//END OF Media Querries For REsponsive----------------------------------------------------------------------------------------------------------------------->
+
+.col-sm-12{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-md-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-sm-2{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-sm-4{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.m-b-sm {
+  margin-bottom: 10px;
+}
+.border-bottom {
+  border-bottom: 1px solid #e7eaec !important;
+}
+
+
+//Case Type Header--------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.ibox-title {
+  border-top: 4px solid #1AB394 !important;
+  background: #eee;
+  border-color: #e7eaec;
+  border-image: none;
+  border-style: solid solid none;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
+  border-width: 4px 0px 0;
+  color: inherit;
+  margin-bottom: 0;
+  padding-top: 14px;
+  padding-right: 15px;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  height: 48px;
+}
+
+//END OF Case Type Header---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+//Case Type Body--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.items-collection {
+  margin: 0px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+label {
+
+  max-width: 100%;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: normal !important;
+  cursor: default;
+
+}
+
+
+[data-toggle="buttons"] > .btn input[type="radio"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+input[type="radio"] {
+  margin: 4px 0 0;
+  line-height: normal;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input{
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-caps: inherit;
+  font-variant-numeric: inherit;
+  font-variant-east-asian: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  color: inherit;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+}
+
+// input[type="radio" i] {
+//     background-color: initial;
+//     cursor: default;
+//     -webkit-appearance: radio;
+//     border: initial;
+// }
+
+
+
+// WCOMP--------------------------------------------->
+.col-md-4{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-sm-3{
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.form-control {
+  background-color: #FFFFFF;
+  background-image: none;
+  color: inherit;
+  padding: 6px 12px;
+  width: 100% !important;
+  font-size: 14px;
+  border-left: 1px solid #CCC !important;
+  border-top: 1px solid #CCC !important;
+  border-right: 1px solid #CCC !important;
+  border-bottom-width: 2px !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: rgb(54, 204, 149) !important;
+  border-radius: 0px !important;
+  box-shadow: none;
+}
+.form-group{
+  margin-bottom: 15px;
+}
+
+select{
+  font-family: inherit;
+  line-height: inherit;
+  text-transform: none;
+  margin: 0;
+  font-style: inherit;
+  font-variant-ligatures: inherit;
+  font-variant-caps: inherit;
+  font-variant-numeric: inherit;
+  font-variant-east-asian: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
+  -webkit-appearance: menulist;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  cursor: default;
+  border-image: initial;
+
+}
+select:not(:-internal-list-box) {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  padding-top: 0px;
+  padding-right: 2px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+}
+
+.chosen-container {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  text-align: left;
+  user-select: none;
+}
+
+.chosen-container-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 5px 12px;
+  height: 34px !important;
+  border-left: 1px solid #CCC !important;
+  border-top: 1px solid #CCC !important;
+  border-right: 1px solid #CCC !important;
+  border-bottom: 2px solid #37cb95 !important;
+  background-color: #fff;
+  border-radius: 0px !important;
+  background-clip: padding-box;
+  color: #555;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 24px;
+  background: #ffffff;
+  box-shadow: none;
+  box-sizing: border-box;
+  cursor: text;
+  margin: 0;
+  min-height: 30px;
+  width: 100%;
+}
+
+.chosen-container-single .chosen-single div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 18px;
+  height: 100%;
+}
+
+.chosen-container * {
+ box-sizing: border-box;
+}
+
+.chosen-container-single .chosen-drop {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  background-clip: padding-box;
+}
+
+.chosen-container .chosen-drop {
+  position: absolute;
+  top: 100%;
+  left: -9999px;
+  z-index: 1010;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-top: 0;
+  background: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+
+.chosen-container-single .chosen-search {
+  color: #000 !important;
+}
+.chosen-container-single .chosen-search {
+  position: relative;
+  z-index: 1010;
+  margin: 0;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+
+.chosen-container-single .chosen-search input[type="text"] {
+  margin: 1px 0;
+  padding: 4px 20px 4px 5px;
+  width: 100%;
+  height: auto;
+  outline: 0;
+  border: 1px solid #aaa;
+  // background: white url(../Scripts/plugins/chosendropdown/chosen-sprite.png) no-repeat 100% -20px;
+  // background: url(../Scripts/plugins/chosendropdown/chosen-sprite.png) no-repeat 100% -20px;
+  font-size: 1em;
+  line-height: normal;
+  border-radius: 0;
+}
+
+.chosen-container .chosen-results {
+  color: #444;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 4px 4px 0;
+  padding: 0 0 0 4px;
+  max-height: 240px;
+}
+
+ul {
+
+  list-style: none;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  display: block;
+}
+.chosen-container .chosen-results li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+.chosen-container .chosen-results li {
+
+  margin: 0;
+  padding: 5px 6px;
+  list-style: none;
+  line-height: 15px;
+  word-wrap: break-word;
+
+}
+
+.chosen-results > .result-selected{
+  background-color: #69b1ff !important;
+  color: #fff !important;
+}
+//END OF Case Type Body--------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+//Patient Insurance------------------------------------------------------------------------------------------------------------------------------------------------------------->
+.ibox-title h5 {
+  display: inline-block;
+  font-size: 14px;
+  padding: 0;
+  margin: 0 0 7px;
+  text-overflow: ellipsis;
+  float: left;
+  color:#676A6c;
+}
+
+h5 {
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1.1;
+  color: inherit;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+strong {
+  font-weight: bold;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+table {
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-color: grey;
+  display: table;
+}
+
+thead {
+  background: #F5F5F7;
+  color: #828388;
+  font-weight: 700;
+  display: table-header-group;
+  vertical-align: middle;
+  border-top-color: inherit;
+  border-right-color: inherit;
+  border-bottom-color: inherit;
+  border-left-color: inherit;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+  border-top-width: 0px;
+  border-top-style: initial;
+  border-top-color: initial;
+}
+.table > thead > tr > td {
+
+  line-height: 1.42857;
+  padding: 8px;
+  vertical-align: top;
+}
+
+td {
+  display: table-cell;
+  font-family: sans-serif;
+  //color: grey;
+  }
+//END OF Patient Insurance------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+// Button ------------------------------------------------------------------------------------------->
+
+
+.btn-group, .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.items-collection label.btn-default {
+  border: 1px solid #CCC;
+  background: #EEE;
+  color: #305891;
+}
+
+.btn-group > .btn {
+  position: relative;
+  float: left;
+}
+
+.button {
+
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+}
+
+.radioBtn {
+  margin: 5px 10px 5px 0px !important;
+  padding: 2px 5px 2px 5px;
+  border-radius: 4px !important;
+  border-radius: 3px;
+}
+
+
+.btn {
+
+  font-size: 13px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  padding-top: 6px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  background-image: none;
+  border: 1px solid transparent;
+  vertical-align: middle;
+  font-weight: normal !important;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initia;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+
+}
+
+.btn.active {
+  outline: 0;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+.btn:hover {
+ text-decoration: none;
+}
+
+label, .btn{
+  font-weight: normal !important;
+}
+
+
+.float-e-margins .btn {
+  margin-bottom: 5px;
+}
+.btn-primary {
+  background-color: #848484;
+  border-top-color: rgb(153, 153, 153);
+  border-right-color: rgb(153, 153, 153);
+  border-bottom-color: rgb(153, 153, 153);
+  border-left-color: rgb(153, 153, 153);
+  color: #FFFFFF;
+  box-shadow: 0 8px 7px rgba(0, 0, 0, 0.22);
+}
+.pull-right {
+  float: right !important;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #337ab7;
+
+}
+
+.btn-success{
+  background-color: #848484;
+  border-color: #999999;
+  color: #FFFFFF;
+  box-shadow: 0 8px 7px rgba(0, 0, 0, 0.22);
+}
+
+.items-collection label.btn-default.active {
+  background-color: #0cd46a;
+  color: #FFF;
+}
+
+.btn-group > .btn:hover,.btn-group > .btn.active {
+  z-index: 2;
+}
+.btn-default.active:hover{
+ border-color: #8c8c8c;
+}
+.items-collection label.btn-default {
+  border: 1px solid #CCC;
+  background: #EEE;
+}
+
+.btn-warning{
+  background-color: #f8ac59;
+  border-color: #f8ac59;
+  color: #FFFFFF;
+}
+
+// END OF Button ------------------------------------------------------------------------------------------->
+
+
+//General Accident Info---------------------------------------------------------------------------------------------->
+
+.row:before {
+  display: table;
+  content: " ";
+}
+
+.row:after{
+  clear: both;
+  display: table;
+  content: " ";
+}
+
+.col-md-3{
+position: relative;
+min-height: 1px;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.scheduleAppointmentControls {
+  width: 95% !important;
+  background-color: transparent !important;
+}
+
+.col-md-6{
+position: relative;
+min-height: 1px;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.i-checks {
+  padding-left: 0;
+}
+
+.radio-inline {
+  position: relative;
+  display: inline-block;
+
+  margin-bottom: 0;
+
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+// Radio Button------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+.form-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 39px;
+  margin-left: 25px;
+}
+
+// / On mouse-over, add a grey background color /
+.container:hover input ~ .checkmark {
+  background-color:green;
+  border-color: green;
+}
+
+// / When the checkbox is checked, add a blue background /
+.container input:checked ~ .checkmark {
+  background-color: green;
+}
+.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+// / Style the checkmark/indicator /
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+.ui-chkbox .ui-chkbox-box {
+  border-radius: 50% !important;
+}
+
+:host{
+  ::ng-deep .ui-chkbox .ui-chkbox-box {
+    border: 1px solid white;
+    background-color:transparent;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    //box-shadow: 0 0 0 0.2em #fff !important;
+  }
+}
+:host{
+  ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #36cc95 !important;
+    background-color: #36cc95 !important;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.2em #36cc95 !important;
+  }
+}
+//END OF Radio Button---------------------------------------------------------------------------------------------------------------------------------------
+
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.input-group .form-control{
+  display: table-cell;
+}
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-bottom: 0;
+}
+.form-control[disabled]{
+  opacity: 1;
+}
+
+.input-group-addon:not(:first-child):not(:last-child){
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.input-group-addon {
+  background-color: #fff;
+  border: 1px solid #E5E6E7;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px;
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  border-collapse: separate;
+}
+
+.fa {
+  display: inline-block;
+  font-family: FontAwesome !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-variant-east-asian: normal;
+  font-stretch: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  transform: translate(0, 0);
+
+}
+
+.fa-eye:before {
+  content: "\f06e";
+}
+
+.input-group-addon:last-child {
+  border-left: 0;
+  border-left-width: 0px;
+  border-left-style: initial;
+  border-left-color: initial;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.col-md-2{
+position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.pull-right {
+  float: right !important;
+}
+
+.p-t-md {
+  margin-top: 20px;
+}
+
+//END OF General Accident Info---------------------------------------------------------------------------------------------->
+
+
+//Legal Representative----------------------------------------------------------------------------------------------------------------->
+
+.panel-group {
+  margin-bottom: 20px;
+}
+.table > thead:first-child > tr:first-child > th{
+  border-top: 0;
+  border-top-width: 0px;
+  border-top-style: initial;
+  border-top-color: initial;
+}
+.table > thead > tr > th{
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(221, 221, 221);
+}
+
+th {
+  text-align: left;
+  display: table-cell;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd){
+  background-color: #fff;
+}
+.hide {
+  display: none !important;
+}
+.table > tbody > tr > td{
+  border-top: 1px solid #e7eaec;
+  line-height: 1.42857;
+  padding: 8px;
+  vertical-align: top;
+}
+
+//END OF Legal Representative----------------------------------------------------------------------------------------------------------------->
+
+
+.modal-content{
+  background-clip: padding-box;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  outline: 0 none;
+  position: relative;
+  box-shadow: 0 27px 24px 0 rgba(0,0,0,.2), 0 40px 77px 0 rgba(0,0,0,.22) !important;
+  border: 1px solid rgba(0,0,0,.2) !important;
+}
+
+.inmodal .modal-header{
+  padding: 26px 17px 10px 15px;
+  text-align: center;
+}
+
+.modal-header{
+  border-bottom: 0px solid #e5e5e5 !important;
+}
+.modal-header:before{
+  display: table;
+content: " ";
+}
+.modal-header:after{
+  clear: both;
+  display: table;
+  content: " ";
+}
+.modal-header h3 {
+  color: #1C223F;
+font-weight: 700;
+font-size: 18px;
+}
+h3{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  line-height: 1.1;
+  color: inherit;
+  margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+display: block;
+font-family: inherit;
+}
+
+.inmodal .modal-body{
+  background: #fff;
+
+}
+.modal-body{
+  padding: 20px 0px 0px 6px;
+  position: relative;
+}
+.modal-footer{
+  margin-top: 0;
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer:before{
+  display: table;
+  content: " ";
+}
+.modal-footer:after{
+  clear: both;
+  display: table;
+  content: " ";
+}
+
+//Check Box
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: grey;
+  border-width: 0 3px 3px 0;
+}
+:host{
+  ::ng-deep .ui-chkbox .ui-chkbox-box {
+    border: 1px solid grey;
+    background-color:transparent;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 0;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    //box-shadow: 0 0 0 0.2em #fff !important;
+  }
+}

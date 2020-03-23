@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "AppmtType": "Depo",
+    "AppmtTypeId": 1
+  }, {
+    "Id": 2,
+    "AppmtType": "Follow Up Visit",
+    "AppmtTypeId": 2
+  }, {
+    "Id": 3,
+    "AppmtType": "Initial Evaluation",
+    "AppmtTypeId": 3
+  }
+]

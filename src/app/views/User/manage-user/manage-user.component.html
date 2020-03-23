@@ -1,0 +1,269 @@
+<p-toast position="top-right"></p-toast>
+<div class="panel blank-panel" style="background:#969696; border:none; border-radius:0px;">
+  <div class="row wrapper border-bottom white-bg page-heading" style="background:none; padding:0px;">
+    <div class="col-sm-10" style="color:#FFF;">
+      <h2 style="margin:10px 0px 10px 20px; font-size:20px; color: white;">
+        Manage Users
+      </h2>
+    </div>
+  </div>
+</div>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-6 ui-lg-3">
+    <label>Practice</label>
+    <p-dropdown styleClass="input-md formcontrol chosen-select"  filter="true" id="txtMemberName" [options]="practiesData"
+      placeholder="select" optionLabel="name" (onChange)="filterPractice($event)"></p-dropdown>
+  </div>
+
+  <div class="ui-g-12 ui-md-6 ui-lg-3">
+    <label>Location</label>
+    <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" id="txtMemberName" [options]="LocationData"
+      placeholder="select" optionLabel="name" (onChange)="filterLocation($event)"></p-dropdown>
+  </div>
+
+  <div class="ui-g-12 ui-md-6 ui-lg-2">
+    <label>Name</label>
+    <input type="text" styleClass="input-md formcontrol chosen-select" id="txtMemberName" class="form-control textbox-search-onenterkey"
+      data-enterkey-pressed="#btnSearchMember" />
+  </div>
+
+  <div class="ui-g-12 ui-md-6 ui-lg-2">
+    <label>Gender</label>
+    <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" id="txtMemberName" [options]="GenderData"
+      placeholder="select" optionLabel="name"></p-dropdown>
+  </div>
+
+  <div class="ui-g-12 ui-md-6 ui-lg-2">
+    <label>Type</label>
+    <p-dropdown styleClass="input-md formcontrol chosen-select" filter="true" id="txtMemberName" [options]="TypesData"
+      placeholder="select" optionLabel="name"></p-dropdown>
+  </div>
+  <div class="ui-g-12 ui-md-6 ui-lg-12">
+    <div class="pull-right">
+      <a class="btn btn-primary" id="btnSearchMember" (click)="showDataContaint()"><span class="textcolor">Search</span></a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <br>
+</div>
+
+
+
+<!--Table-->
+
+<div class="row" *ngIf="showTable" style="margin-top: 20px;">
+  <div class="col-lg-12">
+    <div class="wrapper wrapper-content table-responsive">
+      <div id="dvSearchResult">
+        <div class="ibox-content m-t-n-xl" style="overflow-x: auto;">
+          <table class="table table-striped table-condensed table-responsive">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Cell Phone</th>
+                <th>Practice</th>
+                <th>Edit Reason</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ManageUserData |paginate: config; let i=index">
+                <td>{{ item.last_Name }} {{ item.first_Name }} </td>
+                <td>{{ item.gender }}</td>
+                <td>{{ item.DOB | date: "yyyy-MM-dd" }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.cellPhone }}</td>
+                <td>{{ item.practice }}</td>
+                <td>{{ item.edit_reason }}</td>
+                <td>
+                  <div class="form-group col-md-2">
+                    <a id="btniseclaimenabled" class="btn btn-sm btn-warning btniseclaimenabled" data-memid="4800"
+                      data-get-url="/Account/GetClaimEnabledPractices" data-update-container="#dvClaimEnablePopUp"
+                      (click)="showDialogIsEclaimpopup(item)"><span class="textcolor">IsEclaim Enabled</span></a>
+                  </div>
+                </td>
+
+                <td>
+                  <a class="EditMember btn btn-sm btn-warning" data-memid="4800" data-delurl="/Admin/UpdateMember"
+                    data-get-url="/Account/GetMemberDetails" (click)="showDialog(item)"
+                    data-updatecontainer="#dvUpdateUserContainer"><span class="textcolor">Edit</span></a>
+                </td>
+
+                <td>
+                  <a (click)="messageAlertDialog()" id="btnResetMemberPassword" class="btn btn-sm btn-warning"><span
+                      class="textcolor">Reset Password</span></a>
+                </td>
+                <td>
+                  <a id="btnUnlockMemberAccount" class="btn btn-sm btn-warning" (click)="unlocakclick()"><span
+                      class="textcolor">Unlock Account</span></a>
+                </td>
+
+                <td>
+                  <div class="form-group col-md-2">
+                    <a id="btnResetMemberPasswordNew" class="btn btn-sm btn-warning btnResetMemberPasswordNew"
+                      (click)="resetPasswordNew(item)"><span class="textcolor">Reset Password New</span></a>
+                  </div>
+                </td>
+                <td style="text-align: center">
+                  <a class="delMember btn btn-sm btn-danger" (click)="showDialogDeletePopup(i)"><span
+                      class="textcolor">Delete</span></a>
+                </td>
+              </tr>
+              <tr *ngIf="recordNotFound">
+                <div >
+                  <label>Match Recored Not There</label>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="pageChange($event)" class="my-pagination pull-right">
+          </pagination-controls>
+
+          <div class="custompagination pull-right pagSearchMembersList" style="margin-top:-17px"
+            data-req-url="/Admin/SearchMembersForManageUsers" data-update-container="#dvSearchResult">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="recordNotFound">
+  <label>Match Recored Not There</label>
+</div> -->
+<!-- pop for IsEclaim Enabled -->
+<p-dialog id="create_management"  [resizable]="false" [showHeader]="false" [(visible)]="IsEclaimpopup" [modal]="true" [responsive]="true"
+  [style]="{ width: '510px', minWidth: '410px', top: '30px' }" [minY]="40" [modal]="true" [blockScroll]="true"
+  [positionTop]="50" [draggable]="false" [closable]="false">
+  <div class="modal-header">
+    <h5>Enable Eclaim For Member Practice Location</h5>
+    <a class="btn btn-danger" (click)="closeDialog()" style="width: 60px; color:white">close</a>
+  </div>
+  <div class="modal-body">
+    <span>No Practices Found.</span>
+    <table class="table table-striped" id="tblEnableEclaimforMember" style="width: 100%">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</p-dialog>
+
+<!-- Edit popup -->
+<p-dialog [(visible)]="display"  [(closeOnEscape)]="dialogClose" [responsive]="true" [draggable]="false"
+  [closable]="false" [minY]="40" [modal]="true" class="dialogpopup" [style]="{ width: '90vw' }" [positionTop]="10"
+  [blockScroll]="true" id="editMember">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger pull-right" (click)="closeDialog()" style="width: 60px; color:white">close</a>
+      <h5 class="titleMemo" style="text-align: center;">Edit Member Details</h5>
+    </div>
+  </p-header>
+  <app-create-new (emit1)="updatedForm($event)" (closebuttonEmit)="closebutton($event)"></app-create-new>
+</p-dialog>
+
+<!-- Reset Your Account Password -->
+<p-dialog [showHeader]="false" id="create_management" [resizable]="false" [(visible)]="display1" styleClass="dialog" [(closeOnEscape)]="dialogClose"
+  [responsive]="true" [style]="{ width: '610px', minWidth: '610px', top: '30px' }" [minY]="40" [modal]="true"
+  [blockScroll]="true" [positionTop]="50" [draggable]="false" [closable]="false">
+  <div>
+    <form [formGroup]="addForm">
+      <div class="modal-header">
+        <h5>Reset Your Account Password</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <br />
+            <div class="row">
+              <div class="col-md-4">
+                <label class="control-label">New Password :<span style="color: red">*</span></label>
+              </div>
+              <div class="col-md-6" style="margin-top: -15px; margin-left: -35px;">
+                <input class="form-control" id="txtNewPassword" maxlength="20" name="NewPassword"
+                  onfocus="$(this).removeAttr('readonly');" readonly="True" [type]="password" />
+                <span class="field-validation-valid" data-valmsg-for="ConfirmPassword"
+                  data-valmsg-replace="true"></span>
+                <span id="ResetPassStrength" style="margin-right: -5px; float: right;"></span>
+                <br />
+              </div>
+              <div class="col-md-2" style="padding: 0px;">
+                <a (click)="showpassword()" id="ShowPassword" title="Show Password"></a>
+
+                <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+
+                <i appendTo="body" [outsideClick]="true" class="fa fa-info-circle"
+                  style="color: red; font-size: 12pt; padding-right: 0 !important" popover="Password should contain
+                                      1.Minimum 8 and maximum 16 characters
+                                      2.Should contain at least one number
+                                      3.Should contain at least one capital letter
+                                      4.Should contain at least one special character" popoverTitle="Password Format"
+                  placement="right">
+                </i>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-4">
+                <label class="control-label">Confirm Password :<span style="color: red">*</span></label>
+              </div>
+              <div class="col-md-6" style="margin-top: -15px; margin-left: -35px;">
+                <input class="form-control" id="txtNewConfirmPassword" maxlength="20" name="ConfirmPassword"
+                  onfocus="$(this).removeAttr('readonly');" readonly="True" type="password" />
+                <span class="field-validation-valid" data-valmsg-for="ConfirmPassword"
+                  data-valmsg-replace="true"></span>
+              </div>
+              <div class="col-md-2" style="padding: 0px;">
+                <a id="ShowConfirmPassword" title="Show Password" class="btn btn-xs ShowConfirmPassword"><i
+                    id="idconfirmeye" class="fa fa-eye" style="zoom: 1.3;"></i></a>
+              </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+              <div class="col-md-6">
+                <label>Email: <span style="color: red;">*</span></label><input class="form-control" id="idEmailAddr"
+                  maxlength="60" name="EmailId" placeholder="Email" style="margin-left:155px;margin-top:-35px;"
+                  type="text" formControlName="Email" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" id="btnUpdateNewPasswordForMember" data-memid="4800"
+          data-post-url="/Account/ResetMemberNewPasswordByAdmin" data-updatecontainer="#dvSearchResult"
+          data-get-url="/Admin/SearchMembersForManageUsers">Update Password</a>
+        <a data-dismiss="modal" id="resetpwdClose" (click)="resetPasswordNewclose()"
+          class="btn btn-small btn-danger pull-right">Close</a>
+      </div>
+    </form>
+  </div>
+</p-dialog>
+
+<!-- popup for Delete Conformation -->
+<p-dialog id="create_management"  [resizable]="false" [showHeader]="false" [(visible)]="Deletepopup" [modal]="true" [responsive]="true"
+  [style]="{ width: '710px', minWidth: '510px', top: '30px' }" [minY]="40" [modal]="true" [blockScroll]="true"
+  [positionTop]="50" [draggable]="false" [closable]="false">
+  <form [formGroup]="deleteReason">
+    <div>
+      <div class="modal-body">
+        <h5>
+          This action will remove the user from YourDRs.com, are you sure?
+        </h5>
+        <br /><label>Please provide reason for deletion
+          <span style="color:red;"> *</span></label><br />
+
+        <textarea maxlength="1000" id="txtReasonForUserDelete" style="width:385px" class="form-control"
+          formControlName="DeleteComment"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-primary" (click)="onItemDeleted()">Delete</a>
+      <a data-dismiss="modal" (click)="closeDialog()" class="btn btn-small btn-danger pull-right">Close</a>
+    </div>
+  </form>
+</p-dialog>

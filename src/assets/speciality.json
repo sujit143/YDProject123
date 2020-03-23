@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "OB/GYN",
+    "value": "OB/GYN"
+  },
+  {
+    "id": 2,
+    "name": "Spine Care",
+    "value": "Spine Care"
+  },
+  {
+    "id": 3,
+    "name": "Anesiastiya",
+    "value": "Anesiastiya"
+  },
+  {
+    "id": 4,
+    "name": "Nuerosurgery",
+    "value": "Nuerosurgery"
+  },
+  {
+    "id": 5,
+    "name": "Orthosurgery",
+    "value": "Orthosurgery"
+  },
+  {
+    "id": 6,
+    "name": "Others",
+    "value": "Others"
+  }
+]

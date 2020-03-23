@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "Lesbian, gay or homosexual"
+  },
+  {
+    "Id": 2,
+    "Name": "Straight or heterosexual"
+  },
+  {
+    "Id": 3,
+    "Name": "Bisexual"
+  },
+  {
+    "Id": 4,
+    "Name": "Don't Know"
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "Id":1,
+    "EffectiveFrom": "",
+    "ExpirationDate": "",
+    "DateOfBirth": "",
+    "Status": "",
+    "Gender": "",
+    "State": "",
+    "InsuranceId": "",
+    "GroupId": "",
+    "CopayAmount": "",
+    "PolicyAmount": "",
+    "ApproximateSpentAmount": "",
+    "CaseNumber": "",
+    "CarrierId": "",
+    "City": "",
+    "OtherInformation": "",
+    "Extension": "",
+    "Email": "",
+    "FaxNumber": "",
+    "ContactNumber": "",
+    "PolicyNumber": "",
+    "WCBNumber": "",
+    "ClaimNumber": "",
+    "SelfPayAmount": "",
+    "Prority": {
+      "Primary": true,
+      "Secondary": false,
+      "Tertiary": false
+    },
+    "Copay": {
+      "Fixed": true,
+      "Percent": false
+    },
+    "IsLienDocumentAvailable": true,
+    "Payer": {},
+    "Employeer": {},
+    "SuperVisor": {},
+    "HR": {},
+    "Adjuster": {}
+  }
+]

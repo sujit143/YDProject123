@@ -1,0 +1,298 @@
+[
+  {
+    "id": 1,
+    "name": "AE",
+    "value": "AE"
+  },
+  {
+    "id": 2,
+    "name": "AK",
+    "value": "AK"
+  },
+  {
+    "id": 3,
+    "name": "AL",
+    "value": "AL"
+  },
+  {
+    "id": 4,
+    "name": "AR",
+    "value": "AR"
+  },
+  {
+    "id": 5,
+    "name": "AS",
+    "value": "AS"
+  },
+  {
+    "id": 6,
+    "name": "AZ",
+    "value": "AZ"
+  },
+  {
+    "id": 7,
+    "name": "CA",
+    "value": "CA"
+  },
+  {
+    "id": 8,
+    "name": "CT",
+    "value": "CT"
+  },
+  {
+    "id": 9,
+    "name": "DC",
+    "value": "DC"
+  },
+  {
+    "id": 10,
+    "name": "DE",
+    "value": "DE"
+  },
+  {
+    "id": 11,
+    "name": "FL",
+    "value": "FL"
+  },
+  {
+    "id": 12,
+    "name": "FM",
+    "value": "FM"
+  },
+  {
+    "id": 13,
+    "name": "GA",
+    "value": "GA"
+  },
+  {
+    "id": 14,
+    "name": "GU",
+    "value": "GU"
+  },
+  {
+    "id": 15,
+    "name": "HI",
+    "value": "HI"
+  },
+  {
+    "id": 16,
+    "name": "IA",
+    "value": "IA"
+  },
+  {
+    "id": 17,
+    "name": "ID",
+    "value": "ID"
+  },
+  {
+    "id": 18,
+    "name": "IL",
+    "value": "IL"
+  },
+  {
+    "id": 19,
+    "name": "IN",
+    "value": "IN"
+  },
+  {
+    "id": 20,
+    "name": "KS",
+    "value": "KS"
+  },
+  {
+    "id": 21,
+    "name": "KY",
+    "value": "KY"
+  },
+  {
+    "id": 22,
+    "name": "LA",
+    "value": "LA"
+  },
+  {
+    "id": 23,
+    "name": "MA",
+    "value": "MA"
+  },
+  {
+    "id": 24,
+    "name": "MD",
+    "value": "MD"
+  },
+  {
+    "id": 25,
+    "name": "ME",
+    "value": "ME"
+  },
+  {
+    "id": 26,
+    "name": "MH",
+    "value": "MH"
+  },
+  {
+    "id": 27,
+    "name": "MI",
+    "value": "MI"
+  },
+  {
+    "id": 28,
+    "name": "MN",
+    "value": "MN"
+  },
+  {
+    "id": 29,
+    "name": "MO",
+    "value": "MO"
+  },
+  {
+    "id": 30,
+    "name": "MP",
+    "value": "MP"
+  },
+  {
+    "id": 31,
+    "name": "MS",
+    "value": "MS"
+  },
+  {
+    "id": 32,
+    "name": "MT",
+    "value": "MT"
+  },
+  {
+    "id": 33,
+    "name": "NC",
+    "value": "NC"
+  },
+  {
+    "id": 34,
+    "name": "ND",
+    "value": "ND"
+  },
+
+  {
+    "id": 35,
+    "name": "NE",
+    "value": "NE"
+  },
+  {
+    "id": 36,
+    "name": "NH",
+    "value": "NH"
+  },
+  {
+    "id": 37,
+    "name": "NJ",
+    "value": "NJ"
+  },
+  {
+    "id": 38,
+    "name": "NM",
+    "value": "NM"
+  },
+  {
+    "id": 39,
+    "name": "NV",
+    "value": "NV"
+  },
+
+  {
+    "id": 40,
+    "name": "NY",
+    "value": "NY"
+  },{
+    "id": 41,
+    "name": "OH",
+    "value": "OH"
+  },
+  {
+    "id": 42,
+    "name": "OK",
+    "value": "OK"
+  },
+  {
+    "id": 43,
+    "name": "OR",
+    "value": "OR"
+  },
+  {
+    "id": 44,
+    "name": "OT",
+    "value": "OT"
+  },
+  {
+    "id": 45,
+    "name": "PA",
+    "value": "PA"
+  },
+  {
+    "id": 46,
+    "name": "PR",
+    "value": "PR"
+  },
+  {
+    "id": 47,
+    "name": "RI",
+    "value": "RI"
+  },
+  {
+    "id": 48,
+    "name": "SC",
+    "value": "SC"
+  },
+  {
+    "id": 49,
+    "name": "SD",
+    "value": "SD"
+  },
+  {
+    "id": 50,
+    "name": "TN",
+    "value": "TN"
+  },
+  {
+    "id": 51,
+    "name": "TX",
+    "value": "TX"
+  },
+  {
+    "id": 52,
+    "name": "UM",
+    "value": "UM"
+  },
+  {
+    "id": 53,
+    "name": "UT",
+    "value": "UT"
+  },
+  {
+    "id": 54,
+    "name": "PW",
+    "value": "PW"
+  },
+  {
+    "id": 55,
+    "name": "VI",
+    "value": "VI"
+  },
+  {
+    "id": 56,
+    "name": "WA",
+    "value": "WA"
+  },
+  {
+    "id": 57,
+    "name": "WI",
+    "value": "WI"
+  },
+  {
+    "id": 58,
+    "name": "WV",
+    "value": "WV"
+  },
+  {
+    "id": 59,
+    "name": "WY",
+    "value": "WY"
+  }
+]

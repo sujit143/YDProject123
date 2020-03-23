@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row ui-g ui-fluid">
+    <div class="col-md-3 ui-g-12 ui-md-5 ui-lg-4">
+      <label>Name</label>
+      <input type="text" class="form-control textbox-search-onenterkey" placeholder="Name" #name>
+    </div>
+    <div class="col-md-3 ui-g-12 ui-md-5 ui-lg-4">
+      <label>City</label>
+      <input type="text" class="form-control textbox-search-onenterkey" id="txtRefSrcMemCity" placeholder="City"
+        #city>
+    </div>
+    <div class="col-md-4 ui-g-12 ui-md-5 ui-lg-4">
+      <label>State</label>
+      <p-dropdown [options]="statesOpt" placeholder="Select" filter="true" #states></p-dropdown>
+    </div>
+    <div class="col-md-2" style="margin-top: 20px">
+      <a class="btn btn-primary" (click)="filterSelectedRefferalSource(name.value,city.value,states.value)">Search</a>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <div>
+        <div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+          <table class="table table-striped table-hover table-condensed">
+            <thead>
+              <tr style="width: 100%;">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>FirmName</th>
+                <th style="max-width: 10%;">Name</th>
+                <th>Suffix</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Practice</th>
+                <th>Location</th>
+                <th></th>
+                <th style="max-width: 10%; text-align: center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="searchedRecords.length===0" >
+                <td colspan="7" class="alert alert-warning">No Records Found</td>
+               </tr>
+              <tr *ngFor="let searchedItem of searchedRecords">
+                <td>{{searchedItem.FirstName}}</td>
+                <td>{{searchedItem.LastName}}</td>
+                <td>{{searchedItem.FirmName}}</td>
+                <td>{{searchedItem.Name}}</td>
+                <td>{{searchedItem.Suffix}}</td>
+                <td>{{searchedItem.City}}</td>
+                <td>{{searchedItem.State}}</td>
+                <td>{{searchedItem.Practice}}</td>
+                <td>{{searchedItem.Location}}</td>
+                <td><a (click)="selectSearchItem(searchedItem)" class="text-primary">Select</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="custompagination pull-right pagRefSrcMemList" style="margin-top:-17px">
+            <span class="label pagerInfo">Total Items <strong>{{searchedRecordLength}}</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,69 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Shivu",
+    "MiddleName": "",
+    "LastName": "Metti",
+    "BirthGender": "Male",
+    "SexualOrientation": "Straight or heterosexual",
+    "GenderIdentity": "Male",
+    "OtherGenderIdentity" : "",
+    "DateOfBirth": "2/5/1990",
+    "MaritalStatus": "Divorced",
+    "Address1": "",
+    "Address2": "",
+    "Status": "Active",
+    "Zip": "",
+    "City": "",
+    "State": "AE",
+    "Race": ["White"],
+    "Ethnicity": ["Hispanic or Latino"],
+    "Language": "Arabic",
+    "Email": "",
+    "SSN": "",
+    "Suffix": "",
+    "PreviousName": "",
+    "GranularRace": ["Asian"],
+    "GranularEthnicity": ["Hispanic or Latino"],
+    "SmokingStatus": "",
+    "StartDate": "",
+    "EndDate": "",
+    "Comments": "",
+    "Alcohol": "1-2 drinks per week",
+    "Drug": "No",
+    "Height": "",
+    "Weight": "",
+    "ContactInformation":
+    {
+      "Phone":[
+    {
+        "Id": 1,
+        "PhoneType": "Home",
+        "PhoneNumber": "(123)345-6456",
+        "Primary": true,
+        "OtherPhoneType": "",
+        "Extension": ""
+      },
+      {
+        "Id": 2,
+        "PhoneType": "Other",
+        "PhoneNumber": "(123)345-6464",
+        "Primary": false,
+        "OtherPhoneType": "OtherType",
+        "Extension": ""
+      }
+    ],
+    "Comments": "contact",
+    "CreatedBy": "Admin YourDrs",
+    "CreatedDate": "1/26/2020",
+    "ModifiedBy": "admin dev",
+    "ModifiedDate": "1/28/2020",
+    "AuthorisationToContactPatient": {
+      "Email": true,
+      "Phone": false,
+      "Text": false
+    },
+    "ProfilePicture": "assets/Images/article.jpg"
+    }
+  }
+]

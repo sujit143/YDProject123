@@ -1,0 +1,166 @@
+<div class="tabpagescontainer">
+<div class="ibox float-e-margins tabpages" id="dvScheduleAppointmentDocumentSec">
+    <div class="ibox-title">
+        <h5>Appointment Memo</h5>
+    </div>
+
+    <div class="ibox-content">
+        <div class="row">
+            <div class="row">
+<div class="col-md-12">
+
+
+    <div class="col-md-6">
+        <label style="color: grey;font-size: 14px;">Comments</label>
+        <textarea class="form-control" style="height: 115px !important; overflow: hidden; overflow-wrap: break-word; resize: horizontal;" maxlength="5000" id="txtScheduleAppointmentCaseMemo"></textarea>
+    </div>
+
+    <div class="col-md-1">
+        <span>
+            <input type="checkbox" value="true" name="chkIsUnerversalcomment" id="chkIsUnerversalcomment" class="form-control chkIsUnerversalcomment" style="zoom:55%;">
+        </span>
+    </div>
+    <div class="col-md-1" style="padding: 0px; margin-left: -40px;">
+        <label style="color: grey;font-size: 12px;">Is Universal Comment ?</label>
+    </div>
+    <div class="col-md-1">
+        <a href="javascript:void(0)" data-get-container="#dvPopupTopNode1" class="btnMembersTagAppointmentMemo" (click)="OnTagMemberClick()">Tag Members</a>
+    </div>
+    <div class="col-md-3" style="margin-left: -35px;">
+        <label id="lblMemberTaggedAppointmentMemo"></label>
+    </div>
+</div>
+<br>
+<div class="pull-right" style="margin-right: 20px;">
+     <a href="javascript:void(0)" style="margin-right:10px" class="btn btn-warning  btnPreviousWidget" id="">Previous</a>
+     <a href="javascript:void(0)" class="btn btn-success" data-req-url="/Patient/InsertScheduleAppointmentCaseMemo" data-getoffice-url="/Patient/EpisodeTreatmentDashboard" id="btnSaveCaseMemo" data-presurgicalurl-url="/Patient/PreSurgicalDashBoard">Complete</a>
+</div>
+</div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!-- Edit Member -->
+<p-dialog id="custom" [(visible)]="TagMember" [showHeader]="false" [modal]="true" [responsive]="true"
+[style]="{width: '900px', minWidth: '410px'}" [positionTop]="89" [contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+'max-height': '80vh','min-height':'250px'}" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <div class="modal-header">
+     <a href="javascript:void(0)" data-dismiss="modal" class="btn btn-small btn-danger pull-right" (click)="OnCloseTagMember()">Close</a>
+     <h3 style="text-align: center;">Tag Member</h3>
+ </div>
+ <div class="modal-body">
+  <form [formGroup]="TagMem_Form">
+     <div class="row">
+         <div class="col-md-4">
+             <label>Patient</label>
+             <div>Hdfjdhdhfhdf Fhdfhdfh</div>
+         </div>
+         <div class="col-md-4">
+             <label>Account Number</label>
+             <div>Y200217458</div>
+         </div>
+         <div class="col-md-4">
+             <label>Case #</label>
+             <div>Y200217458_1</div>
+         </div>
+     </div>
+     <br>
+     <div class="row dvpt">
+
+         <br>
+         <div class="row">
+             <div class="col-md-4">
+                 <label>Search Tag To Member</label>
+                 <input type="text"  #searchMember formControlName="searchMem" class="form-control" maxlength="100" id="txtReminderSearchString" placeholder="Enter First Name or Last Name" >
+             </div>
+             <div class="col-md-2 m-t-md">
+                 <a href="javascript:void(0)" class="btn btn-primary btn-sm" id="btnSearchMemberForReminderAlert" (click)="onSearchtagClick()">Search Tag To</a>
+             </div>
+         </div>
+         <br>
+         <br>
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="divReminderMembersSelected" id="divReminderMembersSelected">
+                     <div class="tagsinput " *ngIf="taggedMembers_Cont" style="width: 85%; min-height: 50px; height: auto;">
+                      <span *ngFor="let item of tagged_Members" class="tag">
+                             <span><span><span class="memberdetail">{{item.name}}</span></span>&nbsp;&nbsp;</span>
+                                     <a (click)="closetagnote(item)" title="Removing tag">x</a></span>
+                         <div id="tags1580128833988_addTag"></div>
+                         <div class="tags_clear"></div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <br>
+         <div *ngIf="MembersDisp" class="row" style="margin-top: 10px;">
+          <div class="col-md-12">
+              <div id="dvSearchMemberResultForTag">
+                  <div  *ngIf="table" class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                      <table class="table table-striped table-hover table-condensed">
+                          <thead>
+                              <tr style="width: 100%;">
+                                  <th>
+                                      <label class="radio-inline i-checks" title="Select All Members">
+                                          <div class="icheckbox_square-green" style="position: relative;">
+                                              <p-checkbox [value]="TagMemData" formControlName="selectTagMem" inputId="finance"></p-checkbox>
+                                          </div>
+                                      </label></th>
+
+                                  <th style="max-width: 10%;">Name</th>
+                                  <th>City</th>
+                                  <th>State</th>
+                                  <th>Practice</th>
+                                  <th>Location</th>
+
+                                  <th style="max-width: 10%; text-align: center"></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of TagMemData">
+                                  <td><label class="radio-inline i-checks">
+                                          <div class="icheckbox_square-green" style="position: relative;">
+                                              <p-checkbox name="group2" (onChange)="selectedtagcheck($event,item)" [value]="TagMemData" inputId="finance">
+                                              </p-checkbox>
+                                          </div>
+                                      </label></td>
+                                      <td>{{item.name}}</td>
+                                      <td>{{item.city}}</td>
+                                      <td>{{item.state}}</td>
+                                      <td>{{item.practice}}</td>
+                                      <td>{{item.location}}</td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                      <!-- <pagination-controls (pageChange)="pageChange($event)" class="my-pagination">
+                      </pagination-controls> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="divReminderMembersSelected hide" id="divReminderMembersSelected">
+                     <input type="text" id="tags1581577852933" class="selectedReminderMembers" placeholder="Selected members" autocomplete="off" style="display: none;"><div id="tags1581577852933_tagsinput" class="tagsinput " style="width: 85%; min-height: auto; height: auto;"><div id="tags1581577852933_addTag"></div><div class="tags_clear"></div></div>
+                 </div>
+             </div>
+         </div>
+         <br>
+         <br>
+         <div class="row" style="margin-top: 10px;">
+             <div class="col-md-12">
+                 <div id="dvSearchResult"></div>
+             </div>
+         </div>
+     </div>
+
+     <input type="hidden" id="hddEpisodeTeamRoleActivityStatusCommentId">
+    </form>
+    </div>
+ <div class="modal-footer">
+     <a href="javascript:void(0)" class="btn btn-primary pull-right" id="btnTagMemberComments" data-post-url="/Patient/InsertEpisodeTeamRoleActivityStatusCommentsTag" data-getsearchresult-url="/Patient/GetAllProcedureAggregatedComments" data-updatetaggedcommentsurl="/Patient/GetTaggedComments" data-updatetaggedlistcontainer=".dvEpisodeTaggedCommentDetails">Save</a>
+ </div>
+</p-dialog>
+<!-- Edit Member -->

@@ -1,0 +1,353 @@
+
+
+.ehr-sec {
+ background: #f9f9f9;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-12 col-md-6{
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.text-white {
+  color: #fff!important;
+}
+
+@media (max-width: 767px){
+
+  section {
+    display: block;
+
+  }
+
+.container {
+    max-width: 540px;
+}
+
+}
+
+.about-fix .imgWrap-inner img {height: 77vh; width: auto; margin-top: 0px; 	-webkit-transition: all ease-out .5s;
+    -moz-transition: all ease-out .5s;
+    -o-transition: all ease-out .5s;
+    transition: all ease-out .5s;}
+  .about-fix .imgWrap-inner.sticky img {height: 88vh; width: auto; margin-top: 90px; 	-webkit-transition: all ease-out .5s;
+    -moz-transition: all ease-out .5s;
+    -o-transition: all ease-out .5s;
+    transition: all ease-out .5s;}
+@media (min-width: 1200px)
+{.d-xl-block {
+    display: block!important;
+}}
+@media (min-width: 1900px){
+.container {
+    max-width: 1680px;
+}
+}
+
+.text-center {
+  text-align: center!important;
+}
+@media (min-width: 992px){
+.order-lg-1 {
+    -ms-flex-order: 1;
+    order: 1;
+}
+}
+@media (min-width: 992px){
+.col-lg-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+}
+.ehr-head-padd {
+  padding-top: 180px;
+  padding-bottom: 120px;
+}
+h2 {
+  font-size: 46px;
+  font-weight: 600;
+  color: #07244B;
+
+}
+.ehr-imgtext-pad {
+  padding-bottom: 200px;
+}
+.text-center {
+  text-align: center!important;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.ehr-sec .imgWrap-inner img {
+    height: 83vh;
+    width: auto;  margin-top: 155px;
+}
+
+.ehr-sec .imgWrap-inner.sticky img {
+    height: 83vh;
+    width: auto;
+    margin-top: 155px;
+}
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #07244B;
+  font-family: 'Roboto', sans-serif;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #07244b;
+  font-family: 'Roboto', sans-serif;
+}
+@media (min-width: 992px){
+.order-lg-2 {
+    -ms-flex-order: 2;
+    order: 2;
+}
+}
+@media (min-width: 992px){
+.col-lg-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+}
+#imgWrap {
+  height: auto;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.imgWrap-inner {
+  background-color: transparent;
+}
+.ehr-sec .imgWrap-inner img {
+   height: 64vh;
+    width: auto;
+    margin-top: 12px;
+    transition: all ease-out 0.5s;
+     -webkit-transition: all ease-out .5s;
+    -moz-transition: all ease-out .5s;
+    -o-transition: all ease-out .5s;
+     transition: all ease-out .5s;
+   }
+.ehr-sec .imgWrap-inner.sticky img {
+  height: 85vh;
+  width: auto;
+  margin-top: 130px;
+  -webkit-transition: all ease-out .5s;
+  -moz-transition: all ease-out .5s;
+  -o-transition: all ease-out .5s;
+  transition: all ease-out .5s;
+}
+@media (min-width: 1200px){
+.d-xl-none {
+    display: none!important;
+}
+}
+@media (min-width: 768px){
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+}
+ .col-md-12{
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.ehr-tm-wrap {
+  padding-top: 90px;
+  text-align: center;
+}
+h2 {
+  font-size: 46px;
+  font-weight: 600;
+  color: #07244B;
+  font-family: 'Roboto', sans-serif;
+}
+.ehr-tm-wrap .ehr-img img {
+  max-width: 50%;
+  margin-top: 60px;
+  margin-bottom: 150px;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.ehr-imgtext-pad {
+  padding-bottom: 200px;
+}
+.ehr-tm-wrap {
+  padding-top: 90px;
+  text-align: center;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #07244B;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.ehr-tm-wrap {
+  padding-top: 90px;
+  text-align: center;
+}
+.ehr-imgtext-pad {
+  padding-bottom: 200px;
+}
+
+@media (max-width: 991px) and (min-width: 768px){
+h2 {
+    font-size: 36px;
+}
+}
+
+@media (max-width: 1899px) and (min-width: 1440px){
+.ehr-sec .imgWrap-inner img {
+    height: 74vh;
+    width: auto;
+    padding-top: 0px;
+    margin-top: 20px;
+}
+}
+@media (max-width: 1899px) and (min-width: 1440px){
+.ehr-sec .imgWrap-inner.sticky img {
+    height: 86vh;
+    width: auto;
+    margin-top: 113px;
+}
+}
+@media (max-width: 1899px) and (min-width: 1440px){
+.ehr-head-padd {
+    padding-top: 140px;
+    padding-bottom: 40px;
+}
+}
+
+@media (max-width: 1899px) and (min-width: 1440px){
+h2 {
+    font-size: 35px;
+}
+}
+@media (max-width: 1899px) and (min-width: 1440px){
+h3 {
+    font-size: 24px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+h2 {
+    font-size: 36px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+.ehr-tm-wrap {
+    padding-top: 180px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+.ehr-tm-wrap .ehr-img img {
+    max-width: 40%;
+}
+}
+.ehr-tm-wrap .ehr-img img {
+    max-width: 50%;
+    margin-top: 60px;
+    margin-bottom: 150px;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 1199px) and (min-width: 992px){
+h3 {
+    font-size: 28px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+.ehr-imgtext-pad {
+    padding-bottom: 150px;
+}
+}
+@media (max-width: 991px) and (min-width: 768px){
+h3 {
+    font-size: 28px;
+}
+}
+@media (max-width: 767px){
+h3 {
+    font-size: 22px;
+}
+}
+@media (max-width: 767px){
+.ehr-imgtext-pad {
+    padding-bottom: 70px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+h2 {
+    font-size: 36px;
+}
+}
+@media (max-width: 767px){
+h2 {
+    font-size: 26px;
+}
+}
+@media (max-width: 991px) and (min-width: 768px){
+.title-bar h2 {
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: 12px;
+}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+.title-bar h2 {
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: 12px;
+}
+}
+@media (max-width: 991px) and (min-width: 768px){
+.ehr-tm-wrap {
+    padding-top: 180px;
+}
+}
+@media (max-width: 767px){
+.ehr-tm-wrap {
+    padding-top: 150px;
+}
+}

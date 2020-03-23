@@ -1,0 +1,1525 @@
+<div class="container-fluid">
+
+  <div class="row align-items-center nav navbar-light bg-light">
+    <div class="col-md-9">
+
+      <ul style="width: 100%;">
+        <li [routerLink]="['dashboard']" (click)="changePath('dashboard')" class="different">
+          <a data-toggle="tab" [ngClass]="{'active': navbar == 'dashboard'}">
+            <h3> Dashboard </h3>
+          </a>
+        </li>
+        <li [routerLink]="['scheduler']" (click)="changePath('scheduler')" class="different">
+          <a data-toggle="tab" [ngClass]="{'active': navbar == 'scheduler'}">
+            <h3> Scheduler</h3>
+          </a>
+        </li>
+        <li [routerLink]="['generalRequest']" (click)="changePath('generalRequest')" class="different">
+          <a data-toggle="tab" [ngClass]="{'active': navbar == 'generalRequest'}">
+            <h3> General Requests</h3>
+          </a>
+        </li>
+        <li [routerLink]="['workcalander']" (click)="changePath('workcalander')" class="different">
+          <a data-toggle="tab" [ngClass]="{'active': navbar == 'workcalander'}">
+            <h3> Work Calander </h3>
+          </a>
+        </li>
+        <li [routerLink]="['caseDetails']" (click)="changePath('caseDetails')" class="different" *ngIf="visibleCaseDetails">
+          <a data-toggle="tab" [ngClass]="{'active': navbar == 'caseDetails'}">
+            <h3> {{messageValue}} </h3>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary1" (click)="openadd()"><i class="fa fa-plus"></i> New Appointment</button>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3></h3>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab_default_1">
+
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- new appointment pop up -->
+
+  <p-dialog id="newapp" [(visible)]="newpatient" [modal]="true" [responsive]="true" [blockScroll]="true"
+    [style]="{width: '83%', minWidth: '410px',top:'30px',left:'270px'}" [draggable]="false" [closable]="false"
+    [baseZIndex]="10">
+    <p-toast [style]="{ marginTop: '80px' }"></p-toast>
+    <p-header>
+      <div class="head">
+        <a class="btn btn-danger pull-right" (click)="closepopup()" style="width: 60px; color: white;">close</a>
+        <h5 class="titleMemo">New Appointment</h5>
+      </div>
+    </p-header>
+
+    <form [formGroup]="newpatientform">
+      <div class="modal-body access-req" style="padding:12px 18px 18px 18px;">
+
+        <div>
+          <h4>Patient Info</h4>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label class="label">First Name <span style="color: red; display: inline;">*</span></label><br>
+            <input id="inputbox" formControlName="fname" class="form-control inputbox" maxlength="75" type="text"
+              #searchInput>
+
+            <label *ngIf="newpatientform.get('fname').hasError('required') && !newpatientform.get('fname').pristine"
+              class="text"><span style="color:red">First name is required</span></label>
+          </div>
+
+
+          <div class="col-md-3">
+            <label class="label">Last Name <span style="color: red; display: inline;">*</span></label><br>
+            <input id="inputbox" formControlName="lname" class="form-control inputbox" maxlength="75" type="text">
+            <label *ngIf="newpatientform.get('lname').hasError('required') && !newpatientform.get('lname').pristine"
+              class="text"><span style="color:red">Last name is required</span></label>
+          </div>
+
+
+          <div class="col-md-3">
+            <label class="label">Date of birth <span style="color: red; display: inline;">*</span> </label><br>
+            <input formControlName="dob" class="form-control inputbox" maxlength="75" type="text" bsDatepicker placeholder="dd/mm/yyyy">
+          </div>
+          <div class="m1">
+
+            <button type="submit" (click)="onSearchClick(searchInput.value)"
+              class="btn btn-primary1"><b>Search</b></button>
+          </div>
+
+        </div>
+        <br>
+        <div class="container-fluid" *ngIf="search">
+          <table class="table table-striped table-condensed">
+            <thead>
+              <th></th>
+              <th>Case Number</th>
+              <th>Account Number</th>
+              <th>First Name</th>
+              <th>last Name</th>
+              <th>Date Of Birth</th>
+              <th>Provider</th>
+              <th>Gender</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Case Type</th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of arr2">
+                <td>
+                  <p-radioButton (click)="inputtab(item)"></p-radioButton>
+                </td>
+                <td>{{item.Casenumber}}</td>
+                <td>{{item.Accountnumber}}</td>
+                <td>{{item.PatientName}}</td>
+                <td>{{item.Lname}}</td>
+                <td>{{item.Dob | date :"shortDate"}}</td>
+                <td>{{item.Provider}}</td>
+                <td>{{item.Gender}}</td>
+                <td>{{item.Accidentcity}}</td>
+                <td>{{item.Accidentstate}}</td>
+                <td>{{item.Casetype}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="search1">
+          <div class="row" >
+            <div class="col-md-12">
+                <div class="dvExistingPatientEpisodeList" style="overflow-y: scroll; max-height: 250px;"><tr><td colspan="5"><div class="alert alert-warning">No Patients found. Try with different search filters.</div></td></tr></div>
+            </div>
+        </div>
+          </div>
+        <div class="container-fluid" *ngIf="showDetails">
+          <table class="table table-striped table-condensed">
+            <thead>
+
+              <th>appointment Type</th>
+              <th>Case Type</th>
+              <th>Incedent type</th>
+              <th>Date of Accident</th>
+              <th>Provider</th>
+              <th>Date of service</th>
+<th></th>
+<th></th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of arr2">
+
+                <td>{{item.Appointmenttype}}</td>
+                <td>{{item.Casetype}}</td>
+                <td>{{item.Incidenttype}}</td>
+                <td>{{item.Dateofaccident}}</td>
+                <td>{{item.Provider}}</td>
+                <td>{{item.Dateofservice | date :"shortDate"}}</td>
+                <td>
+
+                  <a href="javascript:void(0)" id="hlpCreatedModifiedDetails" class="hlpCreatedModifiedDetails pull-right e-tooltip e-js" title="" >
+                  <i class="fa fa-info-circle" style="color: #1ab394; font-size: 12pt; padding-right: 0 !important; padding-top: 7px;"
+                  tooltip="Created By : Admin Devs Rathoddas &nbsp;Created Date : 7/20/2016 Modified By : Admin Devs Rathoddas &nbsp; Modified Date :7/30/2016 "  placement="top"></i></a>
+                </td>
+                <td><a href="javascript:void(0)" (click)="openpatientinfo()" title="View"
+                    class="btn btn-small btn-warning EditAppointmentReq"><i class="fa fa-eye"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Gender <span style="color: red; display: inline;">*</span></label><br>
+
+            <select class="form-control" formControlName="gender">
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Not Disclose">Not Disclose</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+
+            <label class="label">
+
+              <p-radioButton (click)="calledbyother()" name="groupname" value="ps4"></p-radioButton>
+
+              Called by patient
+            </label>
+
+            <label class="label">
+
+              <p-radioButton (click)="calledbyothers()" name="groupname" value="ps4"></p-radioButton>
+
+              Called by others
+            </label>
+          </div>
+        </div>
+
+        <div *ngIf="callbyothers">
+          <form [formGroup]="callbyotr">
+
+            <div class="caller container-fluid">
+              <h4>Caller Details</h4>
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-3">
+                <label class="label"> Name <span style="color: red; display: inline;">*</span></label><br>
+                <input formControlName="name" class="form-control inputbox" maxlength="75" type="text">
+                <label *ngIf="callbyotr.get('name').hasError('required') && !callbyotr.get('name').pristine"
+                  class="text"><span style="color:red">Name is required</span></label>
+              </div>
+
+
+              <div class="col-md-3">
+                <label class="label">Phone No <span style="color: red; display: inline;">*</span></label><br>
+                <p-inputMask mask="(999) 999-9999" styleClass="form-control"
+                  [style]="{'border-radius': '0px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="phonenum">
+                </p-inputMask>
+                <!-- <input formControlName="phonenum" class="form-control inputbox" maxlength="10" type="text"> -->
+                <label *ngIf="callbyotr.get('phonenum').hasError('required') && !callbyotr.get('phonenum').pristine"
+                  class="text"><span style="color:red">Phone num is required</span></label>
+              </div>
+
+              <div class="col-md-3">
+                <label class="label">Relationship to Patient <span style="color: red; display: inline;">*</span>
+                </label><br>
+                <select class="form-control" formControlName="relationship">
+
+                  <option value="Attorney">Child</option>
+                  <option value="Physician">Wife</option>
+                  <option value="Payor">Son</option>
+
+                </select>
+                <label
+                  *ngIf="callbyotr.get('relationship').hasError('required') && !callbyotr.get('relationship').pristine"
+                  class="text"><span style="color:red">Relationship is is required</span></label>
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <button type="submit" id="createbtn" (click)="close()">Finish</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div>
+          <h4>Patient Contact</h4>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Cell <span style="color: red; display: inline;">*</span></label><br>
+
+            <p-inputMask mask="(999) 999-9999" styleClass="form-control" [style]="{'border-radius': '0px !important'}"
+              placeholder="(xxx)xxx-xxxx" formControlName="cell"></p-inputMask>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Home </label>&nbsp;&nbsp;<span id="optional">optional</span><br>
+            <input formControlName="home" class="form-control inputbox" maxlength="75" type="text">
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Work</label>&nbsp;&nbsp;<span id="optional">optional</span><br>
+            <input formControlName="work" class="form-control inputbox" maxlength="75" type="text">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Preference </label><br>
+            <select class="form-control" formControlName="preference">
+
+              <option value="Phone">Phone</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Landline">Landline</option>
+
+            </select>
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Email<span style="color: red; display: inline;">*</span> </label><br>
+            <input formControlName="email" class="form-control inputbox" maxlength="75" type="email">
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div>
+          <h4>Appintment info</h4>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Appointment Type <span style="color: red; display: inline;">*</span></label><br>
+
+
+            <p-dropdown [options]="Appointmenttype" filter="true" [autoWidth]="true" [style]="{ width: '100%' }"
+              formControlName="appointmenttype">
+
+              <ng-template let-item pTemplate="selectedItem">
+                <span>{{item.label}}</span>
+              </ng-template>
+              <ng-template let-car pTemplate="item">
+                <div>
+                  <div>{{car.label}}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Provider <span style="color: red; display: inline;">*</span></label><br>
+
+
+            <div class="input-group">
+              <!-- <div  class="tagsinput ReferralSourceFromTagsInput"
+              style="width: 100%; min-height: auto; height: auto;">
+              <div id="tags1581161810655_addTag"><span *ngIf="selectedProcedure == undefined" role="status"
+                  aria-live="polite" class="ui-helper-hidden-accessible">No search results.</span>
+                <span class="tag" *ngIf="selectedProcedure != undefined">
+                  <span id="spnProcedureTag" data-id="607" data-surgerytype-id="1">
+                    {{selectedProcedure}}
+                  </span>&nbsp;&nbsp;
+                  <a title="Removing tag" (click)="closeTag()">x</a>
+                </span>
+                <p-autoComplete [suggestions]="filteredProcedure" appendTo="body"
+                  (onSelect)="selectProcedure($event)" (completeMethod)="filterProcedure($event)" field="ProviderName"
+                  [size]="30" placeholder="Select a Member" [minLength]="1" formControlName="provider">
+                </p-autoComplete>
+              </div>
+              <div class="tags_clear"></div>
+            </div> -->
+              <input class="form-control" class="form-control appointmentSectionModified" id="txtprovider" formControlName="provider">
+              <span class="input-group-addon">
+                <a  (click)="selectprovider()" class="fa fa-search" id="btnSearchprovider" title="Search Provider"></a>
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Date of Service <span style="color: red; display: inline;">*</span> </label><br>
+            <input formControlName="dateofservice" placeholder="dd/mm/yyyy" class="form-control inputbox" maxlength="75"
+              type="text" bsDatepicker>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div>
+          <h4>Case info</h4>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Case Type<span style="color: red; display: inline;">*</span> </label><br>
+
+            <p-dropdown formControlName="casetype" [options]="caseTypesList" filter="true" [autoWidth]="true"
+              [style]="{ width: '100%' }">
+
+            </p-dropdown>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Incident Type</label>&nbsp;&nbsp;<span id="optional">optional</span><br>
+
+            <p-dropdown formControlName="incidenttype" [options]="incidentTypeList" filter="true" [autoWidth]="true"
+              [style]="{ width: '100%' }">
+
+            </p-dropdown>
+
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Date of Accident</label>&nbsp;&nbsp;<span id="optional">optional</span><br>
+            <input formControlName="dateofaccident" placeholder="dd/mm/yyyy" class="form-control inputbox"
+              maxlength="75" type="text" bsDatepicker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="label">Accident Zip <span
+                style="color: red; display: inline;">*</span></label>&nbsp;&nbsp;<span id="optional">optional</span><br>
+            <input formControlName="accidentzip" (keypress)="numberOnly($event)" class="form-control inputbox"
+              maxlength="10" type="text">
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Accident State <span style="color: red; display: inline;">*</span></label><br>
+
+            <p-dropdown [options]="StatesDrop" [filter]="true"  formControlName="accidentstate"
+              [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+          </div>
+
+
+          <div class="col-md-4">
+            <label class="label">Accident City </label>&nbsp;&nbsp;<span id="optional">optional</span> <br>
+            <input formControlName="accidentcity" class="form-control inputbox" maxlength="75" type="text">
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class=" row col-md-12">
+            <div class="col-md-6">
+              <label class="label">Was patient hospitalized?</label>
+              <label>
+                <p-radioButton formControlName="yes" (click)="hospitlised()" name="groupname" value="ps4">
+                </p-radioButton>Yes
+              </label>&nbsp;
+              <label>
+                <p-radioButton formControlName="no" (click)="nohospitlised()" name="groupname" value="ps5">
+                </p-radioButton>No
+              </label>
+              <a href="javascript:void();" (click)="allClear()" data-radiobtnclassname=".rdoIsHospitallizedYesNO"
+                class="clearRadioButtons" data-hide-container1="#dvHospitalised">(clear)</a>
+
+              <div class="col-md-12" id="dvHospitalised" *ngIf="hospital">
+                <label class="label">Select Hospital</label><br>
+                <div class="input-group">
+                  <input formControlName="general_hospital" disabled="disabled" class="form-control" data-mem-id=""
+                    id="txtlegalrepmemid" maxlength="45" name="txtlegalrepmemid" type="text">
+                  <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewPartnerOrgMemDetails"
+                      class="fa fa-eye fa-3  ViewpartorgMem" title="View Details"
+                      (click)="OnOpenhospitalDetails('Hospital')"><span></span></a></span>
+                  <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchpartorgmem"
+                      id="btnSearchPartOrganizationMem" data-memorgtypeid="3" title="Search Facilities"
+                      (click)="OnSearchhospitalClick('Hospital')"></a></span>
+                  <span class="input-group-addon"><a href="javascript:void(0)" id="btnAddNewLegalRep"
+                      title="Add New Organisation" class="fa fa-plus ancaddorgmem haspopup"
+                      data-load-ctrlid="#ddlEmployers" data-role-id="6" data-partner-orgtype="3"
+                      (click)="OnAddhospital('Hospital')"></a></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="label">Did patient go to emergency room?</label>
+              <label>
+                <p-radioButton formControlName="emergencyyes" (click)="emergency()" name="groupname3" value="ps6">
+                </p-radioButton>Yes
+              </label>
+              <label>
+                <p-radioButton formControlName="emergencyno" (click)="noemergency()" name="groupname3" value="ps7">
+                </p-radioButton>No
+              </label>
+              <a (click)="allemergencyClear()" href="javascript:void();" data-radiobtnclassname=".chkIsEmergencyRoom"
+                class="clearRadioButtons" data-hide-container1="#dvEmergencyroom">(clear)</a>
+
+              <div id="dvEmergencyroom" *ngIf="emergencyroom">
+                <div>
+                  <label class="label">Select Emergency Room </label>
+                  <br>
+                  <div class="input-group">
+                    <input formControlName="general_emergency" class="form-control" data-mem-id="" disabled="disabled"
+                      id="txtlegalrepmemid" maxlength="45" name="txtlegalrepmemid" type="text">
+                    <span class="input-group-addon"><a href="javascript:void(0)" id="btnViewPartnerOrgMemDetails"
+                        class="fa fa-eye fa-3  ViewpartorgMem" title="View Details"
+                        (click)="OnOpenhospitalDetails1('Emergencyroom')"><span></span></a></span>
+                    <span class="input-group-addon"><a href="javascript:void(0)" class="fa fa-search searchpartorgmem"
+                        id="btnSearchPartOrganizationMem" data-memorgtypeid="3" title="Search Facilities"
+                        (click)="OnSearchhospitalClick('Emergencyroom')"></a></span>
+                    <span class="input-group-addon"><a href="javascript:void(0)" id="btnAddNewLegalRep"
+                        title="Add New Organisation" class="fa fa-plus ancaddorgmem haspopup"
+                        data-load-ctrlid="#ddlEmployers" data-role-id="6" data-partner-orgtype="3"
+                        (click)="OnAddhospital('Emergencyroom')"></a></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10">
+            <h4>Insurance info <span id="optional">optional</span>
+            </h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample">
+            <app-add-health-insurance-info></app-add-health-insurance-info>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row    ">
+          <div class="col-sm-10">
+            <h4>Referral info<span _ngcontent-pov-c0="" id="optional">optional</span>
+            </h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample1">
+
+            <app-referral-source></app-referral-source>
+
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-sm-10">
+            <h4>Patient Address <span _ngcontent-pov-c0="" id="optional">optional</span></h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample2">
+            <div id="bgcolor">
+              <div class="row">
+
+                <div class="col-lg-4">
+                  <label>Address 1 </label>
+                  <input formControlName="address1" class="form-control form-control-new " maxlength="100" type="text"
+                    value="">
+                </div>
+                <div class="col-lg-4">
+                  <label>Address 2 </label>
+                  <input formControlName="address2" class="form-control form-control-new " maxlength="100" type="text"
+                    value="">
+
+                </div>
+
+                <div class="col-lg-4">
+
+                  <label>ZIP </label>
+                  <input formControlName="zip" class="form-control form-control-new   " maxlength="10"
+                    name="EpisodePatient.Patient.PostalCode" placeholder="xxxxx-xxxx" type="text"
+                    (keypress)="numberOnly($event)" value="">
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <label>City </label>
+                  <input formControlName="city" class="form-control zip form-control-new " maxlength="100" type="text"
+                    value="">
+                </div>
+                <div class="col-lg-4">
+                  <label>State </label>
+                  <p-dropdown [options]="StatesDrop" [filter]="true"  formControlName="state"
+                  [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row   ">
+          <div class="col-sm-10">
+            <h4>Other Patient Info<span _ngcontent-pov-c0="" id="optional">optional</span> </h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample3">
+            <div id="info">
+
+
+
+              <table style="width: 100%">
+                <tbody>
+                  <tr>
+                    <td colspan="3">
+                      <b>Other Information</b>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+
+                      <label>SSN </label>
+
+                      <input formControlName="ssn" id="tel" class="form-control form-control-new"
+                        (keypress)="numberOnly($event)" maxlength="12" placeholder="(xxx)xxx-xxxx">
+                    </td>
+                    <td>
+
+                      <label>Preferred Language </label>
+
+                      <select formControlName="language" class="form-control form-control-new ">
+                        <option>Select</option>
+                        <option value="Albanian">Albanian</option>
+                        <option value="Altaic languages">Altaic languages</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Aromanian Arumanian Macedo-Romanian">Aromanian Arumanian Macedo-Romanian
+                        </option>
+                        <option value="Austronesian languages">Austronesian languages</option>
+                        <option value="Blissymbols Blissymbolics Bliss">Blissymbols Blissymbolics Bliss</option>
+                        <option value="Bokmål, Norwegian Norwegian Bokmål">Bokmål, Norwegian Norwegian Bokmål</option>
+                        <option value="Burmese">Burmese</option>
+                      </select>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" style="padding-top: 18px;">
+                      <b>Authorization to Contact Patient</b>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                        <div class="ui-chkbox ui-widget">
+                          <div class="ui-helper-hidden-accessible">
+                            <input formControlName="email1" type="checkbox" value="email">
+                          </div>
+                        </div>
+                      </p-checkbox>
+                      &nbsp;Email
+                      &nbsp;
+                      <label class="checkbox-inline i-checks">
+                        <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                          <div class="ui-chkbox ui-widget">
+                            <div class="ui-helper-hidden-accessible">
+                              <input formControlName="phone" type="checkbox" value="phone">
+                            </div>
+                          </div>
+                        </p-checkbox> &nbsp;Phone
+                      </label>
+                      &nbsp;
+                      <label class="checkbox-inline i-checks">
+                        <p-checkbox name="groupname" class="ng-untouched ng-pristine ng-valid">
+                          <div class="ui-chkbox ui-widget">
+                            <div class="ui-helper-hidden-accessible">
+                              <input formControlName="text" value="text" type="checkbox" value="Text">
+                            </div>
+                          </div>
+                        </p-checkbox>&nbsp;Text
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row   ">
+          <div class="col-sm-10">
+            <h4>Documents <span _ngcontent-pov-c0="" id="optional">optional</span></h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample4">
+
+            <app-sch-documents></app-sch-documents>
+
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr id="colapsivehr">
+          </div>
+        </div>
+        <div class="row   ">
+          <div class="col-sm-10">
+            <h4>Appointment Memo <span _ngcontent-pov-c0="" id="optional">optional</span> </h4>
+          </div>
+          <div class="col-sm-2">
+            <h4 class="pull-right">
+              <a class="addcolor" data-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false"
+                aria-controls="collapseExample">
+                Add
+              </a> </h4>
+          </div>
+          <div class="collapse" id="collapseExample5">
+
+
+            <app-sch-appointmemtmemo></app-sch-appointmemtmemo>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr id="colapsivehr">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button *ngIf="!submitted"  id="createbtn" type="submit" class="pull-right" (click)="newpatientadd(newpatientform.value)"><b>Create</b></button>
+          <button *ngIf="submitted"  id="createbtn" type="submit" class="pull-right" (click)="newpatientedit(newpatientform.value)"><b>Update</b></button>
+        </div>
+
+      </div>
+
+    </form>
+  </p-dialog>
+
+  <!-- add new org -->
+
+
+  <p-dialog id="addorg" [(visible)]="addhospital" [modal]="true" [responsive]="true" [positionTop]="30"
+    [draggable]="false" [closable]="false" [baseZIndex]="10">
+    <p-header>
+      <a class="btn btn-small btn-danger pull-right" (click)="OnCloseAddOrg()" style="color: white;">close</a>
+      <h3 id="addorgn">Add New Organization</h3>
+    </p-header>
+    <form [formGroup]="addNewOrganisation">
+      <div id="dvNewEmployerModal">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-4">
+                <label>Organization Type<span style="color: red">*</span></label>
+                <p-dropdown [options]="OrganizationType" [filter]="true" optionLabel="label"
+                  formControlName="OrganisationType" [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+              </div>
+              <div class="col-md-4">
+                <label>Name<span style="color: red">*</span></label>
+                <input class="form-control" id="txtParName" maxlength="400" type="text" formControlName="First_Name">
+              </div>
+              <div class="col-md-4">
+                <label>Phone</label>
+                <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                  [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="Phone">
+                </p-inputMask>
+                <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtphn" maxlength="10" name="phone" type="text" > -->
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-md-4">
+                <label>Email</label>
+                <input class="form-control" id="txtEmail" maxlength="50" name="email" type="email"
+                  formControlName="Email">
+              </div>
+              <div class="col-md-4">
+                <label>Fax</label>
+                <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                  [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="Fax">
+                </p-inputMask>
+                <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtfax" maxlength="15" name="fax" type="text"> -->
+              </div>
+              <div class="col-md-4">
+                <label>Address</label>
+                <input class="form-control" id="txtadrs" maxlength="500" name="address" type="text"
+                  formControlName="Address">
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-md-4">
+                <label>ZIP</label>
+                <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                  [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx" formControlName="ZIP">
+                </p-inputMask>
+                <!-- <input class="form-control ZipCodeChange" data-mask1="99999-9999" id="txtorgzp" maxlength="10"
+                name="ZipCode" placeholder="xxxxx-xxxx" type="text"> -->
+              </div>
+              <div class="col-md-4">
+                <label>City</label>
+                <input class="form-control txtorgcity" id="txtorgcity" maxlength="50" name="city" type="text"
+                  formControlName="City">
+              </div>
+              <div class="col-md-4">
+                <label>State</label>
+                <p-dropdown [options]="StatesDrop" [filter]="true" optionLabel="name" formControlName="State"
+                  [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-md-4">
+                <label>Website</label>
+                <input class="form-control" id="txtwebsite" maxlength="50" name="WebSite" type="text"
+                  formControlName="Website">
+              </div>
+              <div class="col-md-4">
+                <label>Contact</label>
+                <input class="form-control" id="txtcontact" maxlength="30" name="Contact" type="text"
+                  formControlName="Contact">
+              </div>
+              <div class="col-md-4">
+                <label>Contact Phone</label>
+                <p-inputMask mask="(999) 999-9999" styleClass="form-control" id="maskinput"
+                  [style]="{'border-radius': '20px !important'}" placeholder="(xxx)xxx-xxxx"
+                  formControlName="ContactPhone"></p-inputMask>
+                <!-- <input class="form-control" data-mask="(999)-999-9999" id="txtcontactphone" maxlength="15"
+                name="ContactPhone" placeholder="(xxx)-xxx-xxxx" type="text"> -->
+              </div>
+            </div><br>
+            <div class="row">
+              <div class="col-md-8">
+                <label>Comments</label>
+                <textarea class="form-control" cols="20" id="txtcmmnts" maxlength="500" name="Comments" rows="2"
+                  formControlName="Comments"></textarea>
+              </div>
+            </div>
+            <div class="row " id="" style="margin-top: 10px;">
+              <div class=" form-group col-sm-3">
+                <label>Practice</label>
+                <p-dropdown [options]="Practice" [filter]="true" optionLabel="label" formControlName="Practice"
+                  [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+              </div>
+              <div class="form-group col-sm-3">
+                <label>Location</label>
+                <p-dropdown [options]="Location" [filter]="true" optionLabel="label" formControlName="Location"
+                  [autoWidth]="true" [style]="{ width: '100%' }"></p-dropdown>
+              </div>
+              <div class="form-group col-md-2" style="margin-top:25px;">
+                <button type="submit" class="btn btn-primary btnOrganAddPracticeLoc"
+                  (click)="showPracLoc(addNewOrganisation.value)">Add</button>
+              </div>
+            </div>
+            <table class="table table-striped table-condensed table-responsive 0 > 0 ?'':'hide'" id="tblpraLocDetails">
+              <thead>
+                <tr>
+                  <th>Practice</th>
+                  <th>Location</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="showPracLocs">
+                <tr *ngFor="let item of addPracLocArr">
+                  <td>{{item.Practice.label}}</td>
+                  <td>{{item.Location.label}}</td>
+                  <td>
+                    <button type="submit" class="btn btn-danger btnOrganAddPracticeLoc"
+                      (click)="deletePracLoc()">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <div class="pull-right" style="margin-top: 30px">
+                <button *ngIf="addButton" type="submit" class="btn btn-primary" id="btnSaveParOrg"
+                  (click)="addNewOrg(addNewOrganisation.value,'Hospital')">Save</button>
+                <button *ngIf="!addButton" type="submit" class="btn btn-primary" id="btnSaveParOrg"
+                  (click)="addNewOrg1(addNewOrganisation.value,'Emergencyroom')">Save</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" id="hddparorgid">
+      </div>
+    </form>
+  </p-dialog>
+  <!-- ADD ORG END -->
+
+
+
+
+  <!-- search -->
+  <p-dialog id="search3" [(visible)]="searchhospitalClick" [showHeader]="false" [modal]="true" [responsive]="true"
+    [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'
+    [baseZIndex]="10">
+    <div class="modal-header">
+      <h3 id="searchorg">Search Healthcare Facilities</h3>
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrg()">Close</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="searchfacilities">
+        <div class="row">
+          <div class="col-md-3">
+            <label>Name</label>
+            <input formControlName="First_Name" type="text" id="txtEpiSodeMemberName"
+              class="form-control textbox-search-onenterkey" placeholder="Name">
+          </div>
+          <div class="col-md-3">
+            <label>City</label>
+            <input formControlName="City" type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity"
+              placeholder="City" data-enterkey-pressed="#btnSearchEpiMember">
+          </div>
+          <div class="col-md-3">
+            <label>State </label>
+            <p-dropdown formControlName="State" styleClass="input-md formcontrol chosen-select " filter="true"
+              [options]="StatesDrop" [style]="{ width: '100%' }" [autoWidth]="true" placeholder="select"
+              optionLabel="name">
+            </p-dropdown>
+          </div>
+          <div class="col-md-2" style="margin-top: 31px">
+            <a class="btn btn-primary btnsearchmem" id="btnSearchEpiMember" (click)="showDataContaint()">Search</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row" style="margin-top:25px;">
+      <div class="col-lg-12">
+        <div class="wrapper wrapper-content table-responsive">
+          <div id="dvSearchResult">
+            <table class="table table-striped table-hover table-condensed" *ngIf="legalRecords">
+              <thead>
+                <tr style="width: 100%;">
+                  <th>Name</th>
+
+                  <th>City</th>
+                  <th>State</th>
+                  <th style="max-width: 10%; text-align: center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of searchfacilitiesArr">
+                  <td>{{ item.First_Name }} </td>
+
+                  <td>{{ item.City }}</td>
+                  <td>{{ item.State }}</td>
+                  <div>
+                    <td>
+                      <a *ngIf="check" (click)="selectSearch(item,'Hospital')"
+                        style="cursor: pointer;color: cornflowerblue;" class="selectedEpisodeSurgeon">Select</a>
+                      <a *ngIf="!check" (click)="selectSearch1(item,'Emergencyroom')"
+                        style="cursor: pointer;color: cornflowerblue;" class="selectedEpisodeSurgeon">Select</a>
+                    </td>
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
+  <!-- End Serach -->
+
+  <!-- Organisation Details select hospital -->
+  <p-dialog id="view2" [(visible)]="openhospital" [showHeader]="false" [modal]="true" [responsive]="true"
+    [style]="{width: '650px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'
+    [baseZIndex]="10">
+    <div class="modal-header">
+      <h3 id="orgdetails">Organization Details</h3>
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrgDetails()">Close</button>
+    </div>
+    <div class="modal-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td ><strong>Name</strong>
+              <br>
+              <span *ngIf="emergencyArray" id="spnPatientFname">{{selectedValArr.First_Name}}</span>
+              <!-- <span *ngIf="!emergencyArray" id="spnPatientFname">{{selectedValArr1.First_Name}}</span> -->
+            </td>
+
+            <td><strong>Phone</strong>
+              <br>
+              <span *ngIf="emergencyArray"  id="spnPatientMname">{{selectedValArr.Phone}}</span>
+              <!-- <span  *ngIf="!emergencyArray" id="spnPatientMname">{{selectedValArr1.Phone}}</span> -->
+            </td>
+            <td><strong>Email</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.Email}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.Email}}</span> -->
+            </td>
+            <td><strong>Fax</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.Fax}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.Fax}}</span> -->
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Address</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.Address}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.Address}}</span> -->
+            </td>
+            <td><strong>City</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.City}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.City}}</span> -->
+            </td>
+            <td><strong>State</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.State}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.State}}</span> -->
+            </td>
+            <td><strong>Website</strong><br>
+              <span *ngIf="emergencyArray" >{{selectedValArr.Website}}</span>
+              <!-- <span *ngIf="!emergencyArray">{{selectedValArr1.Website}}</span> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+  </p-dialog>
+  <!-- ORGANIZATION DETAILS POPUP for select hospital END-->
+    <!-- Organisation Details select hospital -->
+    <p-dialog id="view2" [(visible)]="openEmergency" [showHeader]="false" [modal]="true" [responsive]="true"
+    [style]="{width: '650px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'
+    [baseZIndex]="10">
+    <div class="modal-header">
+      <h3 id="orgdetails">Organization Details</h3>
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseOrgDetails1()">Close</button>
+    </div>
+    <div class="modal-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td ><strong>Name</strong>
+              <br>
+              <!-- <span *ngIf="emergencyArray" id="spnPatientFname">{{selectedValArr.First_Name}}</span> -->
+              <span *ngIf="!emergencyArray" id="spnPatientFname">{{selectedValArr1.First_Name}}</span>
+            </td>
+
+            <td><strong>Phone</strong>
+              <br>
+              <!-- <span *ngIf="emergencyArray"  id="spnPatientMname">{{selectedValArr.Phone}}</span> -->
+              <span  *ngIf="!emergencyArray" id="spnPatientMname">{{selectedValArr1.Phone}}</span>
+            </td>
+            <td><strong>Email</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.Email}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.Email}}</span>
+            </td>
+            <td><strong>Fax</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.Fax}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.Fax}}</span>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Address</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.Address}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.Address}}</span>
+            </td>
+            <td><strong>City</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.City}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.City}}</span>
+            </td>
+            <td><strong>State</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.State}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.State}}</span>
+            </td>
+            <td><strong>Website</strong><br>
+              <!-- <span *ngIf="emergencyArray" >{{selectedValArr.Website}}</span> -->
+              <span *ngIf="!emergencyArray">{{selectedValArr1.Website}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+  </p-dialog>
+  <!-- ORGANIZATION DETAILS POPUP for select hospital END-->
+  <!-- End Organisation Details -->
+
+
+  <!-- close pop up -->
+  <p-dialog [(visible)]="closenewappointment" id="dlt" [modal]="true" [responsive]="true"
+    [style]="{width: '900px', minWidth: '410px',top:'30px'}" [minY]="40" [baseZIndex]="10" [positionTop]="50"
+    [draggable]="false" [closable]="false">
+    <p-header>
+      <div>
+        <h4>Are you sure want to Close?</h4>
+      </div>
+    </p-header>
+    <div class="modal-footer"><a data-handler="0" class="btn null" href="javascript:; "
+        (click)="closeconfirm()">Cancel</a><a data-handler="1" class="btn btn-primary" href="javascript:;"
+        (click)="closeallconfirms()">OK</a></div>
+
+  </p-dialog>
+  <!-- close end -->
+
+
+
+
+  <!-- =========================================================================================================================================== -->
+  <!-- open patient info -->
+  <p-dialog [(visible)]="patientinfo" id="patientinformation" [modal]="true" [responsive]="true"
+    [style]="{width: '1000px', minWidth: '410px',top:'30px'}" [minY]="40" [baseZIndex]="10" [positionTop]="50" [contentStyle]="{'overflow-y': 'auto', 'overflow-x': 'hidden',
+    'max-height': '80vh','min-height':'250px'}"
+    [draggable]="false" [closable]="false">
+    <div class="modal-header">
+      <h3 id="patientdetails">Appointment</h3>
+      <button class="btn btn-danger btn-sm pull-right" (click)="OnClosepateintinfo()">Close</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editPopUpData" (ngSubmit)= "saveEditedData()">
+        <div id="dvAddAppointment">
+          <div class="row" id="dvSurgeryPatientDetails">
+            <div class="col-md-12">
+              <div style="background-color: #337ab7;">
+                <div class="row" style="margin-left: 10px;">
+                  <h3 style="color: white;">
+                    <span>{{patientName}}</span>
+                    <span>(Y200217392_1) </span>
+                    <span>MRN : Y200217392</span>
+                  </h3>
+                </div>
+                <div class="row" style="font-weight: bold; margin-left: 10px;">
+                  <span style="color: white;"></span>
+                  <span style="color: white;">{{appointmenttypes}}</span>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Appointment Type<span style="color: red">*</span></label>
+              <p-dropdown [options]="Appointmenttype" filter="true" [autoWidth]="true" [style]="{ width: '100%' }"
+              formControlName="AppointmentType" (onChange)="selectAppointment($event)">
+
+              <ng-template let-item pTemplate="selectedItem">
+                <span>{{item.label}}</span>
+              </ng-template>
+              <ng-template let-car pTemplate="item">
+                <div>
+                  <div>{{car.label}}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+
+            </div>
+            <div *ngIf="showZipCode">
+              <div class="col-md-2 ">
+                <label id="lblAppointmentZipCode">ZipCode</label>
+                <input type="text" class="form-control" formControlName="Zipcode" placeholder="xxxxx-xxxx" data-mask1="99999-9999" maxlength="10">
+            </div>
+
+            </div>
+            <div class="col-md-4" >
+              <label>Location<span style="color: red">*</span></label>
+              <select *ngIf="displayselectlocation" disabled="disabled"  class="form-control ddlmemberlanguage chosen-select" id="LocationId" name="LocationId" formControlName="Location">
+                <option [ngValue]=null>Select Location</option>
+                <option value="Flemington Neuro" >Flemington Neuro</option>
+                <option value="54 DEAN" >54 DEAN</option>
+                <option value="38 Astoria" >38 Astoria</option>
+                <option value="100A Liv Brooklyn" >100A Liv Brooklyn</option>
+              </select>
+              <select *ngIf="!displayselectlocation" class="form-control ddlmemberlanguage chosen-select" id="LocationId" name="LocationId" formControlName="Location">
+                <option [ngValue]=null>Select Location</option>
+                <option value="Flemington Neuro" >Flemington Neuro</option>
+                <option value="54 DEAN" >54 DEAN</option>
+                <option value="38 Astoria" >38 Astoria</option>
+                <option value="100A Liv Brooklyn" >100A Liv Brooklyn</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label>Provider / Physician Assistant</label>
+              <div class="input-group">
+                <input class="form-control" class="form-control appointmentSectionModified" id="txtprovider" disabled="disabled" formControlName="providerPhysicianAssistant">
+                <span class="input-group-addon">
+                  <a  (click)="selectprovider()" class="fa fa-search" id="btnSearchprovider" title="Search Provider"></a>
+                </span>
+              </div>
+              <span class="hide showprovidermandatorytomovecheckin" style="color: red;">select provider to move appointment to check in</span>
+            </div>
+          </div><br><br><br>
+          <div class="row">
+            <div class="table-responsive white_section" style="overflow-x: inherit !important">
+              <label style="margin-left: 10px;">Appointment Details (Best date(s) and time(s) of appointment) </label>
+              <table class="table timetable_big" id="tblAppointmentFileds">
+                <thead>
+                  <tr>
+                    <th>Preferred Date</th>
+                    <th>Start Time <span style="color: red;">*</span></th>
+                    <th>End Time <span style="color: red;">*</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="trTimeSlots">
+                    <td>
+                      <input type="text" class="form-control" placeholder="Schedule date" formControlName="preferredDate" bsDatepicker (click)="resonEnable()" [(bsValue)]="myDateValue">
+                    </td>
+                    <td>
+                      <select class="form-control ddlmemberlanguage chosen-select" id="LocationId" name="LocationId" formControlName="StartTime" >
+                        <option [ngValue]=null>Select Time</option>
+                        <option value="04:00">04:00 AM</option>
+                        <option value="04:15">04:15 AM</option>
+                        <option value="04:30">04:30 AM</option>
+                        <option value="04:45">04:45 AM</option>
+                        <option value="05:00">05:00 AM</option>
+                        <option value="05:15">05:15 AM</option>
+                        <option value="05:30">05:30 AM</option>
+                        <option value="05:45">05:45 AM</option>
+                      </select>
+                    </td>
+                    <td>
+                      <select class="form-control ddlmemberlanguage chosen-select" id="LocationId" name="LocationId" formControlName="EndTime" >
+                        <option [ngValue]=null>Select Time</option>
+                        <option value="04:00">04:00 AM</option>
+                        <option value="04:15">04:15 AM</option>
+                        <option value="04:30">04:30 AM</option>
+                        <option value="04:45">04:45 AM</option>
+                        <option value="05:00">05:00 AM</option>
+                        <option value="05:15">05:15 AM</option>
+                        <option value="05:30">05:30 AM</option>
+                        <option value="05:45">05:45 AM</option></select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-12">
+              <label>Appointment Memo</label>
+              <textarea formControlName="Appmemo" id="txtAppointmentMemo" class="form-control" maxlength="2000" ></textarea>
+            </div>
+          </div><br>
+          <div  id="dvAppointmentReschduled"  *ngIf="descriptionEnable">
+            <div class="row col-md-12">
+              <div class="col-md-6">
+                <label>Reason<span style="color: red">*</span></label>
+                <select class="form-control ddlmemberlanguage chosen-select" id="LocationId" name="LocationId" formControlName="reason">
+                  <option [ngValue]=null>Select</option>
+                  <option value="Rescheduled on patient request">Rescheduled on patient request.</option>
+                  <option value="No Show">No Show</option>
+                  <option value="Rescheduled on provider request">Rescheduled on provider request.</option>
+                  <option value="Other">Other</option>
+                  <option value="Transfer to Hospital">Transfer to Hospital</option>
+                  <option value="Transfer to PCP">Transfer to PCP</option>
+
+                </select>
+              </div>
+              <div class="col-md-6" id="dvAppointmentResheduledReasonDesc">
+                <label>Description<span class="reasondesc hide" style="color: red">*</span></label>
+                <textarea class="form-control" placeholder="Description" id="txtAppointmentResheduledReasonDesc" maxlength="200" rows="3" cols="20" style="height: 50px;"
+                formControlName="description"></textarea>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="showSurgery">
+          <div id="dvepisodesurgeryDetailsforAppointmaent" class="" style="margin-top: 25px">
+
+            <div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+                <h3>Surgeries</h3><hr><table class="table table-striped table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Procedure Name</th>
+                            <th>Body Part</th>
+                            <th>Body Part Side</th>
+                            <th>Surgeon</th>
+                            <th>Status</th>
+                            <th>Place of Service</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="rdoEpisodeSurgeryId" id="rdoEpisodeSurgeryId" class="radio-inline i-checks rdoEpisodeSurgeryId" value="8736" data-surgery-name="Single Level Injection - Lumbar" data-surgeonid="19" data-locationid="47" data-surgeonname="Adin David " data-proceduretimeinminutes="15" data-ishotdate="False" data-locationame="Englewood Hospital @ Englewood Hospital" data-practicelocationid="47" data-practiceid="13" data-practicename="Englewood Hospital" checked="checked">
+                                    </td>
+                                    <td>Single Level Injection - Lumbar</td>
+                                    <td>Mid-Back</td>
+                                    <td>Right</td>
+                                    <td>Adin David </td>
+                                    <td>Discharged</td>
+                                    <td>Englewood Hospital @ Englewood Hospital @ Englewood Hospital</td>
+                                </tr>
+                    </tbody>
+                </table>
+            </div>
+                </div>
+          </div>
+
+
+            <br><br><br><br><br>
+              <div class="row pull-right">
+                <input type="submit" class="btn btn-primary btnprocessing " value="Save"/>
+            </div>
+        </div>
+      </form>
+    </div>
+
+  </p-dialog>
+  <!-- closepatient info -->
+
+  <!-- search provider inside patient info -->
+  <p-dialog id="appointDialog" [(visible)]="selprovider" [style]="{width: '900px', minWidth: '410px',top:'30px'}"  [modal]="true" [responsive]="true" [maximizable]="false" [closable]="false" blockScroll='false' [baseZIndex]='10' >
+    <p-header>
+      <div class="head">
+        <a href="javascript:void(0)" class="btn btn-danger pull-right"
+          (click)="closeEditAddPopup()" style="width: 60px; background: red;color: white;">close</a>
+        <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Search Provider / Physician Assistant</h5>
+      </div>
+    </p-header>
+    <form [formGroup]="searchProvider" (ngSubmit)="onSearchProvider()">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" id="txtProvider" class="form-control textbox-search-onenterkey" formControlName="ProviderName">
+          </div>
+          <div class=" form-group col-sm-3">
+            <label>Practice</label>
+            <select class="form-control ddlmemberlanguage chosen-select"  id="LocationId" name="LocationId" formControlName="Practice">
+              <option [ngValue]=null>Any Practice</option>
+              <option value="83">Baynes Ortho</option>
+              <option value="385">Bronx</option>
+              <option value="333">Edison Rehab and Acupuncture PC</option>
+              <option value="321">Electrodiagnostics and Physical Medicine </option>
+              <option value="474">First Practice</option>
+              <option value="383">Flushing Office</option>
+              <option value="102">Foot and Ankle Surgical Associates</option>
+              <option value="81">HEMA</option>
+              <option value="82">HEMG</option>
+              <option value="415">magnacarepractice</option>
+              <option value="458">Montefiore New Rochelle Hospital</option>
+              <option value="461">New Century Spine And Outpatient Surgical Institute</option>
+              <option value="451">New York Hand Surgery</option>
+              <option value="169">New York Orthopaedic Surgery and Rehabilitation</option>
+              <option value="91">New York Spine and Pain Care</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Location</label>
+            <select class="form-control ddlmemberlanguage chosen-select"  id="LocationId" name="LocationId" formControlName="Location">
+              <option [ngValue]=null>Any Location</option>
+              <option value="188"> Baarn Rehab &amp; Pain Clinic, Flushing, NY</option>
+              <option value="199"> Flemington Neuro</option>
+              <option value="405"> New Brunswick</option>
+              <option value="404"> Rehabilitation Medicine Center of New York, New York, NY</option>
+              <option value="158">100A Liv, Brooklyn</option>
+              <option value="483">209- 35 Northern Blvd</option>
+              <option value="574">330 9th Street, Brooklyn NY 11215</option>
+              <option value="165">38 Astoria</option>
+
+
+            </select>
+          </div>
+          <div class=" form-group col-md-3 dvProviderspe">
+            <div id="dvProviderspe">
+              <label>Specialty</label>
+              <select class="form-control ddlmemberlanguage chosen-select"  id="LocationId" name="LocationId" formControlName="Specialty">
+                <option [ngValue]=null>Any Speciality</option>
+                <option value="17"> OB / GYN</option>
+                <option value="13">Anesthesia</option>
+                <option value="16">Bariatric Surgery</option>
+                <option value="10">Medical Weight Loss Surgery</option>
+                <option value="11">Minimally Invasive Spine</option>
+                <option value="12">NeuroSurgery</option>
+                <option value="1">Orthopaedics</option>
+
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label>ZIP</label>
+            <input type="text" class="form-control ZipCodeChange" id="txtproviderZip" placeholder="xxxxx-xxxx" maxlength="10"  formControlName="ZIP">
+          </div>
+          <div class="col-md-3">
+            <label>City</label>
+            <input type="text" class="form-control textbox-search-onenterkey" id="txtproviderCity" formControlName="City">
+          </div>
+          <div class="col-md-3">
+            <label>State</label>
+            <select class="form-control ddlmemberlanguage chosen-select" id="LocationId" formControlName="State" >
+              <option [ngValue]=null>Any</option>
+              <option value="AE">AE</option>
+              <option value="AK">AK</option>
+              <option value="AL">AL</option>
+              <option value="AR">AR</option>
+              <option value="AS">AS</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+
+            </select>
+          </div>
+          <div class="col-md-3" style="margin-top: 20px">
+            <button type="submit" class="btn btn-primary btnSearchProForAppointment" id="btnSearchProForAppointment" >Search</button>
+          </div>
+        </div><br><br><br>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper wrapper-content ">
+              <div id="dvSearchProviderResult">
+                <div class="ibox-content m-b-sm border-bottom m-t-n-xl" *ngIf="onSearchProviderdiplay">
+                  <table class="table table-striped table-hover table-condensed">
+                    <thead>
+                      <tr style="width: 100%;">
+                        <th style="max-width: 10%;">Name</th>
+                        <th>Practice</th>
+                        <th>Location</th>
+                        <th>Address</th>
+                        <th>Specialty</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th style="max-width: 10%; text-align: center"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of providerArr">
+                        <td>{{item.ProviderName}}</td>
+                        <td></td>
+                        <td>{{item.Location}}</td>
+                        <td></td>
+                        <td>{{item.Specialty}}</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <a  (click)="selectSearchdata(item)" class="selectedEpisodeSurgeon">Select</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="custompagination pull-right pagEpisodeAPPSearchMembersList" style="margin-top:-17px" >
+                    <span class="label pagerInfo">Showing <em>1-20</em> of <em>112</em></span>
+                    <ul>
+                      <li class="disabled">
+                        <a data-val="0" >&lt;&lt;</a>
+                      </li>
+                      <li>
+                        <label style="display:none" for="selId">.</label>
+                        <select class="pagerSelect input-small" id="selId">
+                          <option selected="selected" value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                        </select>
+                      </li>
+                      <li>
+                        <a class="pagerItem" data-val="2" >&gt;&gt;</a>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </p-dialog>
+  <!-- close serach provider -->
+</div>

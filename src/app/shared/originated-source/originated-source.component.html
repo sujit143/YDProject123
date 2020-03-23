@@ -1,0 +1,32 @@
+<div class="panel-body ">
+  <form [formGroup]="originatedform">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Originated Source</h4>
+      <hr class="horizontal-line">
+      <div id="dvOrginatedSourceResult">
+        <div class="row" id="dvepisodeorginatedrefferal">
+          <div class="col-md-4">
+            <label>Originated Source </label><br>
+            <p-dropdown id="pwsdropdownbutton" [options]="OriginatedSourceOpt" placeholder="Please Select"
+              optionLabel="Source2" (onChange)="selectedOriginatedSource($event)" filter="true" formControlName="Source" >
+            </p-dropdown>
+          </div>
+          <div class="col-md-4">
+            <label>Originated Source 2</label><br>
+            <div *ngIf="message">
+              <p>No records Found</p>
+            </div>
+            <div *ngIf="checkbox">
+              <p-checkbox name="groupname" value="selectedOpt.Source2" label="{{selectedOpt}}" formControlName="checkboxin"></p-checkbox>
+            </div>
+          </div>
+          <div class="col-md-4" style="margin-top: 30px">
+            <a class="btn btn-primary" (click)="saveSource()">Save</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

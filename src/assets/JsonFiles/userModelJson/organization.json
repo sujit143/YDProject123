@@ -1,0 +1,42 @@
+[
+  {
+    "Id":1,
+    "Name":"Careworks"
+  },
+  {
+    "Id":2,
+    "Name":"InTotal Health"
+  },
+  {
+    "Id":3,
+    "Name":"Integrity Mutual Insurance Company"
+  },
+  {
+    "Id":4,
+    "Name":"Healthsource ME"
+  },
+  {
+    "Id":5,
+    "Name":"Patient Advocates LLC"
+  },
+  {
+    "Id":6,
+    "Name":"Christus Health Medicare Advantage"
+  },
+  {
+    "Id":7,
+    "Name":"American Healthcare Alliance"
+  },
+  {
+    "Id":8,
+    "Name":"Metropolitan Health Plan"
+  },
+  {
+    "Id":9,
+    "Name":"MIdwest Insurance"
+  },
+  {
+    "Id":10,
+    "Name":"St. James PHO"
+  }
+]

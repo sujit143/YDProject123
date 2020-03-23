@@ -1,0 +1,1344 @@
+<div class="panel-heading">
+  <div class="panel-options">
+    <ul class="nav nav-tabs" style="background-color: #969696; height: 40px;">
+      <li class="active liTitle">
+        <a class="ProviderDashboard pdtab">&nbsp;&nbsp;<i class="fa fa-file"></i> Provider Dashboard</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- drop down start -->
+
+<p-accordion [activeIndex]="index">
+  <p-accordionTab header="Search Filters" >
+    <form [formGroup]="editapptForm">
+      <!-- <div class="row">
+        <div class="col-lg-12">
+          <div class="wrapper wrapper-content">
+            <div class="ibox-content m-b-sm border-bottom"> -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div
+                      *ngFor="let data of itemFilterFieldsStringsLeft"
+                      class="col-lg-2 col-md-4 col-sm-6 col-xs-12 "
+                      id="margin1">
+                      <span>
+                        <label>{{ data.fieldName }}</label
+                        ><br />
+                        <p-dropdown
+                          *ngIf="data.isVisible && data.type == 'dropdown'"
+                          id="pwsdropdown"
+                          #dd
+                          formControlName="{{ data.controlname }}"
+                          [showClear]="practiceDRP"
+                          (onChange)="Send($event)"
+                          [autoWidth]="true"
+                          [style]="{ width: '100%' }"
+                          #pDropId
+                          [(options)]="data.options"
+                          optionLabel="label"
+                          filter="true"
+                          placeholder="select">
+                        </p-dropdown>
+                        <span class ="trash" *ngIf ="data.fieldName == 'Favourite Filters'"><i  class="{{data.icon}}" (click)="deletepopup()"></i></span>
+                        <!-- style="width:90%  !important" -->
+                        <div
+                          class="ui-inputgroup"
+                          *ngIf="data.isVisible && data.type == 'inputbox'">
+                          <input
+                            type="text"
+                            formControlName="{{data.controlname}}"
+                            class="form-control textbox-search-onenterkey"
+                            id="txtPatientName"
+                            placeholder="First / Last Name"/>
+                        </div>
+                        <input
+                          *ngIf="data.isVisible && data.type == 'datepicker'"
+                          type="text"
+                          formControlName="{{data.controlname}}"
+                          class="form-control"
+                          placeholder=" mm/dd/yyy"
+                          #dp="bsDatepicker"
+                          bsDatepicker/>
+                        <input
+                          *ngIf="data.isVisible && data.type == 'chekbox'"
+                          type="checkbox"
+                          value="true"
+                          id="chkIsStatFilePD"
+                          class=""/>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              <!-- </div>
+            </div>
+          </div>
+        </div> -->
+        <app-providerdashboard1
+          (searcResult)="searcResult($event)"
+          (filterColumns)="filterColoumn($event)"
+          (filterFields)="filterFields($event)"
+          (reset)="reset($event)"
+          (saveFilter)="saveFilter($event)"
+          style="width: 100%;"
+        ></app-providerdashboard1>
+      </div>
+    </form>
+  </p-accordionTab>
+</p-accordion>
+
+<!-- drop down end -->
+
+<!-- Table Start -->
+
+<div id="collapse1" class="tableDiv">
+  <table
+    class="table table-striped table-hover table-condensed tablesorter  text-sm"
+    *ngIf="ShowTab">
+    <thead>
+      <tr>
+        <th *ngIf="AppointmentFromDate" class="thproviderSort headerSort sortIconchange" title="Appointment From Date">
+          Appointment From Date
+        </th>
+        <th *ngIf="AuthorizationStatus" class="thproviderSort headerSort sortIconchange" title="Authorization Status">
+          Authorization Status
+        </th>
+        <th *ngIf="Case" class="thproviderSort headerSort sortIconchange" title="Case #">
+          Case #
+        </th>
+        <th *ngIf="MOP" class="thproviderSort headerSort sortIconchange" title="Sort by MOP">
+          MOP
+        </th>
+        <th *ngIf="SuperBillStatus" class="thproviderSort headerSort sortIconchange" title="Super Bill Status">
+          Super Bill Status
+        </th>
+        <th *ngIf="CheckedInTime" class="thproviderSort headerSort sortIconchange" title="Checked In Time">
+          Checked In Time
+        </th>
+        <th *ngIf="PatientName" class="thproviderSort headerSort sortIconchange" title="Patient Name">
+          Patient Name
+        </th>
+        <th *ngIf="AppointmentCreatedFromDate" class="thproviderSort headerSort sortIconchange" title="Appointment Created From Date">
+          <span>Appointment Created Date</span>
+        </th>
+        <th *ngIf="Provider" class="thproviderSort headerSort sortIconchange" title="Provider">
+          Provider
+        </th>
+        <th *ngIf="VerificationStatus" class="thproviderSort headerSort sortIconchange" title="Verification Status">
+          Verification Status
+        </th>
+        <th *ngIf="Location" class="thproviderSort headerSort sortIconchange" title="Location">
+          Location
+        </th>
+        <th *ngIf="CaseDetails" class="thproviderSort headerSort sortIconchange" title="Case Details">
+          Case Details
+        </th>
+        <th *ngIf="AppointmentStatus" class="thproviderSort headerSort sortIconchange" title="Appointment Status">
+          Appointment Status
+        </th>
+        <th *ngIf="DictationType" class="thproviderSort headerSort sortIconchange" title="Dictation Type">
+          Dictation Type
+        </th>
+        <th *ngIf="AssessmentStatus" class="thproviderSort headerSort sortIconchange" title="Assessment Status">
+          Assessment Status
+        </th>
+        <th *ngIf="POSLocation" class="thproviderSort headerSort sortIconchange" title="POS Location">
+          POS Location
+        </th>
+        <th *ngIf="VideoSession" class="thproviderSort headerSort sortIconchange" title="Video Session">
+          Video Session
+        </th>
+        <th *ngIf="DictationStatus" class="thproviderSort headerSort sortIconchange" title="Dictation Status">
+          Dictation Status
+        </th>
+        <th *ngIf="BillingStatus" class="thproviderSort headerSort sortIconchange" title="Billing Status">
+          Billing Status
+        </th>
+        <th *ngIf="AppointmentType" class="thproviderSort headerSort sortIconchange" title="Appointment Type">
+          Appointment Type
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of your; index as i">
+        <td *ngIf="AppointmentFromDate" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="27/12/2005">
+          {{ item.appt_date }}</span>
+        </td>
+        <td *ngIf="AuthorizationStatus" class="lnkTratmentEpisode">
+          <span class="badge badge-warning" title="Authorization Pending">{{ item.auth_status }}</span>
+        </td>
+        <td *ngIf="Case" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="Y18047621_1">{{ item.case }}</span>
+        </td>
+        <td *ngIf="MOP" class="lnkTratmentEpisode">
+          <span class="mop" title="NA">{{ item.mop }}</span>
+        </td>
+        <td *ngIf="SuperBillStatus" class="lnkTratmentEpisode">
+          <span class="super bill" title="pending">{{ item.sup_bilstatus }}</span>
+        </td>
+        <td *ngIf="CheckedInTime" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="NA">{{ item.check_in_time }}</span>
+        </td>
+        <td *ngIf="PatientName" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="abc">{{ item.pat_name }}</span>
+        </td>
+        <td *ngIf="AppointmentCreatedFromDate" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="25/11/2020">{{ item.appt_cre_date }}</span>
+        </td>
+        <td *ngIf="Provider" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="Dr ky">{{ item.provider }}</span>
+        </td>
+        <td *ngIf="VerificationStatus" class="lnkTratmentEpisode">
+          <span class="badge badge-warning" title="Verification Pending">{{ item.ver_status }}</span>
+        </td>
+        <td *ngIf="Location" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="HEMA">{{ item.location }}</span>
+        </td>
+        <td *ngIf="CaseDetails" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="worker com">{{ item.case_detail }}</span>
+        </td>
+        <td *ngIf="AppointmentStatus" class="lnkTratmentEpisode">
+            <span class="tooltipcase" title="Visit Requested">{{ item.appt_status }}</span>
+        </td>
+        <td *ngIf="DictationType" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="	medical record">{{ item.dic_type }}</span>
+        </td>
+        <td *ngIf="AssessmentStatus" class="lnkTratmentEpisode">
+          <span class="assessmentstatus_34428" title="N/A">{{ item.ass_status }}</span>
+        </td>
+        <td *ngIf="POSLocation" class="lnkTratmentEpisode" (click)="moreInfo(item)">
+          <span class="tooltipcase" title="HEMA 54 dean">{{ item.pos_loc }}</span>
+        </td>
+        <td class="lnkTratmentEpisode" *ngIf="VideoSession">
+          <span class="tooltipcase" title="NA">{{ item.vid_session }}</span>
+        </td>
+        <td class="lnkTratmentEpisode" *ngIf="DictationStatus">
+          <div  title="Dictation Completed" class="micupdatecontainer  dictstatus_34428">
+            <span class="tooltipcase" title="Dictation Completed">{{ item.dic_status }}</span>
+          </div>
+          <input type="checkbox" value="true" id="" class="chkIsStatFileUpdate"/><span>Is Stat File</span> <br />
+        </td>
+        <td *ngIf="BillingStatus" class="lnkTratmentEpisode">
+          <span class="tooltipcase" title="pending">{{item.bill_status}}</span>
+        </td>
+        <td *ngIf="AppointmentType" class="lnkTratmentEpisode">
+          <i class="fa fa-check-circle"></i>
+          <span class="tooltipcase" title="PT">{{item.appt_type}}</span>
+        </td>
+        <td class="lnkTratmentEpisode"
+            style="vertical-align: middle;">
+          <div class="btn-group open" dropdown placement="bottom left">
+            <button
+              id="button-basic"
+              dropdownToggle
+              type="button"
+              class="btn btn-xs btn-primary dropdown-toggle">
+              Actions
+            </button>
+            <ul
+              id="dropdown-basic"
+              *dropdownMenu
+              class="dropdown-menu dropdown-menu-left margin"
+              role="menu"
+              aria-labelledby="button-basic">
+              <li>
+                <a (click)="Newepisode()">&nbsp;&nbsp;<i class="fa fa-external-link-square"></i> Order labs /  Diagnostic Images</a>
+              </li>
+              <hr/>
+              <li>
+                <a>&nbsp;&nbsp;<i class="fa fa-info-circle"></i> Case Details</a>
+              </li>
+              <hr/>
+              <li>
+                <a (click)="Editappt(item)">&nbsp;&nbsp;<i class="fa fa-edit"></i> Edit Appointment</a>
+              </li>
+              <hr/>
+              <li>
+                <a><i class="fa fa-file" title="Click For Case Notes">&nbsp;&nbsp;</i> Case Notes</a>
+              </li>
+              <hr/>
+              <li>
+                <a (click)="Apptmemo()">&nbsp;&nbsp;<i class="fa fa-file"></i> Appointment Memos</a>
+              </li>
+              <hr/>
+              <li>
+                <a (click)="Casemang()">&nbsp;&nbsp;<i class="fa fa-file"></i> Add CaseManagment Memo</a>
+              </li>
+              <hr/>
+              <li>
+                <a>&nbsp;&nbsp;<i class="fa fa-file pull-left"></i> View Super Bill Document</a>
+              </li>
+              <hr/>
+              <li>
+                <a (click)="viewSuperBill()">&nbsp;&nbsp;<i class="fa fa-download"></i> Download Super Bill</a>
+              </li>
+              <hr/>
+              <li>
+                <a (click)="Addmop()">&nbsp;&nbsp;<i class="fa fa-plus"></i> Add MOP</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tr *ngIf="your.length ===0" >
+      <td colspan="10" class="alert alert-warning">
+        No Data Found
+      </td>
+   </tr>
+  </table>
+  <div class="custompagination pull-right">
+    <span class="label pagerInfo">Total Items <strong>{{tableDataLength}}</strong></span>
+  </div>
+</div>
+
+<!-- Favorite Filter Delete Popup Start -->
+
+<p-dialog id="deletefavpopup" [(visible)]="deletePopup" [modal]="true" [draggable]="false" [responsive]="true"
+  [draggable]="false"[positionTop]="50" [closable]="false" [blockScroll]="true">
+  <p-header>
+    <p>Are you sure, You want to delete this favourite filter</p>
+  </p-header>
+  <p-footer>
+    <a (click)="delete(index)" class="btn btn-success">Delete</a>
+    <a class="btn btn-small btn-danger pull-right"(click)="closeDeletePopup()">Close</a>
+  </p-footer>
+</p-dialog>
+
+  <!-- Favorite Filter Delete Popup End -->
+
+
+
+
+<!-- Table End -->
+
+<p-dialog
+  id="editAppt"
+  [(visible)]="Editapptdisplay"
+  [modal]="true"
+  [draggable]="false"
+  [responsive]="true"
+  [draggable]="false"
+  [positionTop]="50"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeEditAppt()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Appointment</h3>
+  </p-header>
+  <form [formGroup]="editapptForm">
+    <div id="dvAddAppointment">
+      <div class="row" id="dvSurgeryPatientDetails">
+        <div class="col-md-12">
+          <div style="background-color: #337ab7;">
+            <div class="row" style="margin-left: 10px;">
+              <h3 style="color: white;">
+                abc
+
+                <span>(Y18047621_1) </span><span>MRN : Y1804762</span>
+              </h3>
+            </div>
+
+            <div class="row" style="font-weight: bold; margin-left: 10px;">
+              <span style="color: white;"> </span>
+              <span style="color: white;">Worker's Compensation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-3">
+          <label>Appointment Type<span style="color: red">*</span></label>
+          <p-dropdown
+            id="pwsdropdown"
+            #dd
+            [autoWidth]="true"
+            formControlName="appt_type"
+            optionLabel="name"
+            [style]="{ width: '100%' }"
+            [options]="appt_type"
+            filter="true"
+          >
+          </p-dropdown>
+        </div>
+
+        <div class="col-md-2 dvAppointmentZipcode">
+          <label id="lblAppointmentZipCode">ZipCode</label>
+          <input
+            type="text"
+            class="form-control"
+            id="txtAppointmentZipCode"
+            data-req-url="/Patient/GetPracticeLocationForZipcode"
+            data-req-url2="/Patient/GetAppointmentLocation"
+            placeholder="xxxxx-xxxx"
+            data-mask1="99999-9999"
+            maxlength="10"
+            data-update-container="#ddlLocationForAppointment"
+          />
+        </div>
+
+        <div class="col-md-3">
+          <label>Location<span style="color: red">*</span></label>
+          <p-dropdown
+            id="pwsdropdown"
+            #dd
+            [autoWidth]="true"
+            formControlName="location"
+            [style]="{ width: '100%' }"
+            [options]="location"
+            optionLabel="name"
+            filter="true"
+          >
+          </p-dropdown>
+        </div>
+
+        <div class="col-md-4">
+          <label>Provider / Physician Assistant</label>
+          <div class="input-group">
+            <input
+              type="text"
+              value="Kyriakides Christopher"
+              data-mem-id="10"
+              data-locationid="149"
+              data-practiceid="81"
+              class="form-control appointmentSectionModified"
+              id="txtprovider"
+              disabled="disabled"
+              data-practicelocationid="149"
+            />
+            <span class="input-group-addon"
+              ><a
+                href="javascript:void(0)"
+                (click)="SearchProvider()"
+                class="fa fa-search"
+                id="btnSearchprovider"
+                title="Search Provider"
+                data-req-url="/Patient/SearchProvider"
+                data-update-container="#dvPopupTopNode"
+                data-search-updatecontainer="#txtprovider"
+              ></a>
+            </span>
+          </div>
+          <span
+            class="hide showprovidermandatorytomovecheckin"
+            style="color: red;"
+          >
+            select provider to move appointment to check in
+          </span>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <div class="row">
+        <div
+          class="table-responsive white_section"
+          style="overflow-x: inherit !important"
+        >
+          <label style="margin-left: 10px;"
+            >Appointment Details (Best date(s) and time(s) of appointment)
+          </label>
+          <table class="table timetable_big" id="tblAppointmentFileds">
+            <thead>
+              <tr>
+                <th>Preferred Date <span style="color: red;">*</span></th>
+                <th>Start Time <span style="color: red;">*</span></th>
+                <th>End Time <span style="color: red;">*</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="trTimeSlots">
+                <td>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="{{ dateTime | date: 'MM/dd/yyyy' }}"
+                    placeholder="mm/dd/yyyy"
+                    (bsValueChange)="showMemo($event)"
+                    #dp="bsDatepicker"
+                    bsDatepicker
+                  />
+                </td>
+
+                <td>
+                  <p-dropdown
+                    id="pwsdropdown"
+                    [autoWidth]="true"
+                    [style]="{ width: '100%' }"
+                    [options]="start_time"
+                    optionLabel="time"
+                    filter="true"
+                    placeholder="select"
+                  >
+                  </p-dropdown>
+                </td>
+
+                <td>
+                  <p-dropdown
+                    id="pwsdropdown"
+                    [autoWidth]="true"
+                    [style]="{ width: '100%' }"
+                    [options]="end_time"
+                    optionLabel="time"
+                    filter="true"
+                    placeholder="select"
+                  >
+                  </p-dropdown>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+
+      <div class="row col-md-12">
+        <label>Appointment Memo</label>
+        <textarea
+          id="txtAppointmentMemo"
+          class="form-control"
+          maxlength="2000"
+          disabled=""
+        ></textarea>
+      </div>
+      <br />
+      <br />
+
+      <div
+        id="dvAppointmentReschduled"
+        style="margin-top: -15px"
+        *ngIf="showMemoFeilds"
+      >
+        <div class="col-md-6">
+          <label>Reason<span style="color: red">*</span></label>
+          <p-dropdown
+            id="pwsdropdown"
+            [autoWidth]="true"
+            [style]="{ width: '100%' }"
+            [options]="start_time"
+            optionLabel="time"
+            filter="true"
+            placeholder="select"
+          >
+          </p-dropdown>
+        </div>
+
+        <div class="col-md-6" id="dvAppointmentResheduledReasonDesc">
+          <label
+            >Description<span class="reasondesc hide" style="color: red"
+              >*</span
+            ></label
+          >
+          <textarea
+            class="form-control"
+            placeholder="Description"
+            id="txtAppointmentResheduledReasonDesc"
+            maxlength="200"
+            rows="3"
+            cols="20"
+            style="height: 50px;"
+          ></textarea>
+        </div>
+      </div>
+      <br />
+    </div>
+  </form>
+  <div class="modal-footer">
+    <a
+      href="javascript:void(0)"
+      class="btn btn-primary pull-right btnsaveMop"
+      id="btnsaveMop"
+      data-appointmentid="34494"
+      data-post-url="/Billing/InsUpdAppointmentMOP"
+      >Save</a
+    >
+  </div>
+</p-dialog>
+
+<p-dialog
+  id="searchProv"
+  [(visible)]="Searchprodisplay"
+  [modal]="true"
+  [draggable]="false"
+  [responsive]="true"
+  [draggable]="false"
+  [positionTop]="50"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeSearchPro()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Search Provider / Physician Assistant</h3>
+  </p-header>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-3">
+        <label>Name</label>
+        <input
+          type="text"
+          id="txtProvider"
+          class="form-control textbox-search-onenterkey"
+          data-enterkey-pressed="#btnSearchProForAppointment"
+        />
+      </div>
+
+      <div class=" form-group col-sm-3">
+        <label>Practice</label>
+        <p-dropdown
+          id="pwsdropdown"
+          #dd
+          [autoWidth]="true"
+          [style]="{ width: '100%' }"
+          [options]="practice"
+          optionLabel="name"
+          filter="true"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label>Location</label>
+        <p-dropdown
+          id="pwsdropdown"
+          #dd
+          [autoWidth]="true"
+          [style]="{ width: '100%' }"
+          [options]="location"
+          optionLabel="name"
+          filter="true"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class=" form-group col-md-3 dvProviderspe">
+        <div id="dvProviderspe">
+          <label>Specialty</label>
+          <p-dropdown
+            id="pwsdropdown"
+            #dd
+            [autoWidth]="true"
+            [style]="{ width: '100%' }"
+            [options]="speciality"
+            optionLabel="name"
+            filter="true"
+          >
+          </p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <label>ZIP</label>
+        <input
+          type="text"
+          class="form-control ZipCodeChange"
+          id="txtproviderZip"
+          data-req-url="/Admin/GetCityStateFromZip"
+          data-mask1="99999-9999"
+          placeholder="xxxxx-xxxx"
+          maxlength="10"
+          data-cityfield="#txtproviderCity"
+          data-statefield="#ddlproviderState"
+        />
+      </div>
+
+      <div class="col-md-3">
+        <label>City</label>
+        <input
+          type="text"
+          class="form-control textbox-search-onenterkey"
+          id="txtproviderCity"
+          data-enterkey-pressed="#btnSearchProForAppointment"
+        />
+      </div>
+
+      <div class="col-md-3">
+        <label>State</label>
+        <p-dropdown
+          id="pwsdropdown"
+          #dd
+          [autoWidth]="true"
+          [style]="{ width: '100%' }"
+          [options]="state"
+          optionLabel="name"
+          filter="true"
+        >
+        </p-dropdown>
+      </div>
+
+      <div class="col-md-3" style="margin-top: 20px">
+        <a
+          href="javascript:void(0)"
+          class="btn btn-primary btnSearchProForAppointment"
+          id="btnSearchProForAppointment"
+          (click)="onsearchProvider()"
+          >Search</a
+        >
+        <a
+          href="javascript:void(0)"
+          class="btn btn-primary hide btnSearchProForAddPatient"
+          >Search</a
+        >
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="row" *ngIf="searchClicked">
+      <div class="col-lg-12">
+        <div class="wrapper wrapper-content ">
+          <div id="dvSearchProviderResult">
+            <div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+              <table class="table table-striped table-hover table-condensed">
+                <thead>
+                  <tr style="width: 100%;">
+                    <th style="max-width: 10%;">Name</th>
+                    <th>Practice</th>
+                    <th>Location</th>
+                    <th>Address</th>
+                    <th>Specialty</th>
+                    <th>City</th>
+                    <th>State</th>
+
+                    <th style="max-width: 10%; text-align: center"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of serprovider">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.practice }}</td>
+                    <td>{{ item.location }}</td>
+                    <td>{{ item.address }}</td>
+                    <td>{{ item.speciality }}</td>
+                    <td>{{ item.city }}</td>
+                    <td>{{ item.state }}</td>
+                    <td>
+                      <a
+                        href="javascript:void(0)"
+                        data-mem-id="1313"
+                        data-practaxid="81-2024723"
+                        data-member-name="aaaa Aggy"
+                        class="selprovider ChangingClasses"
+                        data-practiceid="81"
+                        data-locationid="149"
+                        data-locationname="54 DEAN"
+                        data-practiceame="HEMA"
+                        data-post-url="/Patient/InsEpisodeCareTeamMembersForNewTreatment"
+                        data-checkmemberexistsurl="/Patient/CheckEpisodeMemberExistsinCareTeam"
+                        data-update-url="/Patient/GetEpisodeCareTeamMembersForTreatment"
+                        data-update-container="#ddlEpisodeProviders"
+                        data-practicelocationid="149"
+                        data-availableschedule=""
+                        data-getbodyparturl="/Patient/GetEpisodeBodyPartsForCheck"
+                        >Select</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div
+                class="custompagination pull-right pagEpisodeAPPSearchMembersList"
+                style="margin-top:-17px"
+                data-req-url="/Patient/SearchProviderForEpisodeAppointments"
+                data-update-container="#dvSearchProviderResult"
+              >
+                <span class="label pagerInfo"
+                  >Showing <b>1-20</b> of <b>111</b></span
+                >
+                <ul>
+                  <li class="disabled">
+                    <a data-val="0" href="javascript:void(0)">&lt;&lt;</a>
+                  </li>
+                  <li>
+                    <select class="pagerSelect input-small"
+                      ><option selected="selected" value="1">1</option
+                      ><option value="2">2</option
+                      ><option value="3">3</option
+                      ><option value="4">4</option
+                      ><option value="5">5</option
+                      ><option value="6">6</option></select
+                    >
+                  </li>
+                  <li>
+                    <a class="pagerItem" data-val="2" href="javascript:void(0)"
+                      >&gt;&gt;</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="custompagination pull-right pagEpisodeAddPatientSearchMembersList hide"
+                style="margin-top:-17px"
+                data-get-url="/Patient/SearchProviderForAddpatientTagsInput"
+                data-update-container="#dvSearchProviderResult"
+              >
+                <span class="label pagerInfo"
+                  >Showing <b>1-20</b> of <b>111</b></span
+                >
+                <ul>
+                  <li class="disabled">
+                    <a data-val="0" href="javascript:void(0)">&lt;&lt;</a>
+                  </li>
+                  <li>
+                    <select class="pagerSelect input-small"
+                      ><option selected="selected" value="1">1</option
+                      ><option value="2">2</option
+                      ><option value="3">3</option
+                      ><option value="4">4</option
+                      ><option value="5">5</option
+                      ><option value="6">6</option></select
+                    >
+                  </li>
+                  <li>
+                    <a class="pagerItem" data-val="2" href="javascript:void(0)"
+                      >&gt;&gt;</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  id="editEpisode"
+  [(visible)]="Newepisodedisplay"
+  [modal]="true"
+  [draggable]="false"
+  [responsive]="true"
+  [draggable]="false"
+  [positionTop]="50"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeNewEpisode()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">New Episode Treatment</h3>
+  </p-header>
+  <div class="modal-body">
+    <div id="dvNewEpisodeTreatmentDetails">
+      <div class="row appendAssessments">
+        <div class="ibox-content m-b-sm border-bottom dvAssessmentdetails">
+          <div class="row providerdbtreatmnt hide" style="display: none;">
+            <div class="col-md-12">
+              <label class="checkbox-inline i-checks">
+                <div class="icheckbox_square-green" style="position: relative;">
+                  <input
+                    type="checkbox"
+                    id="chkpastappointment"
+                    style="position: absolute; opacity: 0;"
+                  /><ins
+                    class="iCheck-helper"
+                    style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"
+                  ></ins>
+                </div>
+
+                <b
+                  >This is Past Appointment, I have the medical records already
+                  with me.</b
+                >
+              </label>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-12 " style="margin-bottom:10px;">
+              <label style="color: red; text-align: left;">
+                There are no appointments associated to this Episode. In order
+                to create a new treatment, please select an appointment type. An
+                appointment shall be scheduled for today for the selected
+                provider and a treatment will be created for the new
+                appointment.
+              </label>
+            </div>
+            <div class="col-md-12">
+              <div class="col-md-4  hide  ">
+                <label>
+                  Date of Service <span style="color: red;">*</span>
+                </label>
+
+                <select
+                  class="form-control chosen-select providerdbtreatmntdisable"
+                  id="ddlDateOfService"
+                  disabled="disabled"
+                  style="display: none;"
+                >
+                  <option value="">Select</option>
+                </select>
+                <div
+                  class="chosen-container chosen-container-single chosen-disabled"
+                  style="width: 100%"
+                  title=""
+                  id="ddlDateOfService_chosen"
+                >
+                  <a class="chosen-single chosen-default"
+                    ><span>Select an Option</span>
+                    <div><b></b></div
+                  ></a>
+                  <div class="chosen-drop">
+                    <div class="chosen-search">
+                      <input type="text" autocomplete="off" disabled="" />
+                    </div>
+                    <ul class="chosen-results"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <!-- style="display: " -->
+                <label>
+                  Appointment Type <span style="color: red;">*</span>
+                </label>
+                <p-dropdown
+                  id="pwsdropdown"
+                  #dd
+                  [autoWidth]="true"
+                  [style]="{ width: '100%' }"
+                  [options]="appt_type"
+                  optionLabel="name"
+                  filter="true"
+                >
+                </p-dropdown>
+              </div>
+
+              <div class="col-md-4">
+                <label> Provider <span style="color: red;">*</span> </label>
+                <p-dropdown
+                  id="pwsdropdown"
+                  #dd
+                  [autoWidth]="true"
+                  [style]="{ width: '100%' }"
+                  [options]="provider"
+                  optionLabel="name"
+                  filter="true"
+                >
+                </p-dropdown>
+              </div>
+            </div>
+
+            <div class="col-md-12 trTimeSlots" style="margin-top: 10px;">
+              <div class="col-md-4">
+                <label>
+                  Appointment Date <span style="color: red;">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=" mm/dd/yyy"
+                  #dp="bsDatepicker"
+                  bsDatepicker
+                />
+              </div>
+
+              <div class="col-md-4">
+                <label> Start Time <span style="color: red;">*</span> </label>
+                <p-dropdown
+                  id="pwsdropdown"
+                  #dd
+                  [autoWidth]="true"
+                  [style]="{ width: '100%' }"
+                  [options]="start_time"
+                  optionLabel="time"
+                  filter="true"
+                >
+                </p-dropdown>
+              </div>
+
+              <div class="col-md-4">
+                <label> End Time <span style="color: red;">*</span> </label>
+                <p-dropdown
+                  id="pwsdropdown"
+                  #dd
+                  [autoWidth]="true"
+                  [style]="{ width: '100%' }"
+                  [options]="end_time"
+                  optionLabel="time"
+                  filter="true"
+                >
+                </p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn btn-small btn-danger"
+      >Cancel</a
+    >
+    <a
+      href="javascript:void(0)"
+      class="btn btn-success btnprocessing"
+      data-checkinitialevaluationisexistsurl="/Patient/CheckAppointmentTypeInitialEvaluationIsExists"
+      data-update-container="#dvCreateEpisodeSummaryDetails"
+      data-appointmentdisplay=""
+      data-episode-id="16518"
+      id="btnCreateNewTreatment"
+      data-post-url="/Patient/CreateNewEpisodeTreatment"
+      data-isfromprodb="true"
+      >Create New Treatment</a
+    >
+    <a
+      href="javascript:void(0)"
+      class="btn btn-success btnprocessing hide"
+      data-checkinitialevaluationisexistsurl="/Patient/CheckAppointmentTypeInitialEvaluationIsExists"
+      data-update-container="#dvCreateEpisodeSummaryDetails"
+      data-episode-id="16518"
+      id="btnsubmitpastappointment"
+      data-insappointmentrequestpost-url="/Patient/CreateNewEpisodeTreatment"
+      data-insupepisodedocurl="/Patient/InsEpisodeFolderDocumentFiles"
+      data-updateappointmentstaus="/Patient/UpdateAppointmentStatus"
+      >Submit</a
+    >
+  </div>
+</p-dialog>
+
+<p-dialog
+  id="caseMangmemo"
+  [(visible)]="Casemangdisplay"
+  [modal]="true"
+  [draggable]="false"
+  [responsive]="true"
+  [draggable]="false"
+  [positionTop]="50"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeCaseMang()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Add Case Management Memo</h3>
+  </p-header>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <span>
+          <label>Comment <span style="color:red;">*</span></label>
+          <textarea class="form-control" id="txtCaseManagementMemo"></textarea>
+        </span>
+      </div>
+    </div>
+  </div>
+  <a href="javascript:void(0)" id="btnSaveCaseManagementMemo" class="btn btn-success pull-right" style="margin-left:10px">Submit</a>
+</p-dialog>
+
+<p-dialog
+  id="addmop"
+  [(visible)]="Addmopdisplay"
+  [modal]="true"
+  [draggable]="false"
+  [responsive]="true"
+  [draggable]="false"
+  [positionTop]="50"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeAddmop()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Add / Edit MOP</h3>
+  </p-header>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-4">
+        <label>MOP</label>
+        <p-dropdown
+          id="pwsdropdown"
+          #dd
+          [autoWidth]="true"
+          placeholder="select"
+          [style]="{ width: '100%' }"
+          [options]="mop"
+          optionLabel="name"
+          filter="true"
+        >
+        </p-dropdown>
+      </div>
+    </div>
+    <br />
+  </div>
+  <div class="modal-footer">
+    <a
+      href="javascript:void(0)"
+      class="btn btn-primary pull-right btnsaveMop"
+      id="btnsaveMop"
+      data-appointmentid="34494"
+      data-post-url="/Billing/InsUpdAppointmentMOP"
+      >Save</a
+    >
+  </div>
+</p-dialog>
+
+<!-- app memo start -->
+
+<p-dialog
+  id="addmemo"
+  [(visible)]="Memodisplay"
+  [modal]="true"
+  [responsive]="true"
+  [style]="{ width: '1023px', minwidth: '500px' }"
+  [positionTop]="10"
+  [draggable]="false"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeMemo()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Appointment Memo</h3>
+  </p-header>
+
+  <div class="modal-body">
+    <div class="row ibox-content">
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <label>Comments<span style="color: red">*</span></label>
+          <textarea
+            ngModel
+            name="comments"
+            style="background: #bfd8f1; width: 942px;"
+            rows="5"
+            cols="110"
+            [(ngModel)]="appt_memo"
+          ></textarea>
+        </div>
+      </div>
+      <br />
+      <div class="col-md-12" style="margin-top: 15px">
+        <div class="col-md-12">
+          <div class="col-md-1">
+            <span>
+              <input
+                type="checkbox"
+                id="chkIsUnerversalcomment"
+                class="form-control chkIsUnerversalcomment"
+              />
+            </span>
+          </div>
+          <div class="col-md-2" style="padding: 0px;">
+            <label>Is Universal Comment ?</label>
+          </div>
+          <div class="col-md-2">
+            <a
+              href="javascript:void(0)"
+              data-get-container="#dvPopupTopNode2"
+              class="btnMembersTagAppointmentMemo"
+              (click)="memotag()"
+              >Tag Members</a
+            >
+          </div>
+          <div class="col-md-6" style="margin-left: -35px;">
+            <label id="lblMemberTaggedAppointmentMemo"></label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            style="color: white;margin-left: 793px; border-radius: 0px;width: 50%;background: gray; "
+            class="btn btn-primary"
+            (click)="onSaveMemo('')"
+          >
+            <b>Save</b>
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="container">
+      <table class="table table-striped table-condensed">
+        <thead style="font-size: 9px; color: grey; font-weight: bold;">
+          <tr>
+            <th>Appointment Memo</th>
+            <th>Who Added</th>
+            <th>When Added</th>
+          </tr>
+        </thead>
+        <tbody style="font-size: 10px; font-weight: bolder; color: #80808075;">
+          <tr *ngFor="let item of apptmemo">
+            <td>{{ item.appt_memo }}</td>
+            <td>{{ item.who_added }}</td>
+            <td>{{ item.when_added }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</p-dialog>
+
+<p-dialog
+  id="tagmember"
+  [(visible)]="Tagdisplay"
+  [modal]="true"
+  [responsive]="true"
+  [style]="{ width: '1023px', minwidth: '500px' }"
+  [positionTop]="10"
+  [draggable]="false"
+  [closable]="false"
+>
+  <p-header>
+    <a
+      href="javascript:void(0)"
+      data-dismiss="modal"
+      class="btn btn-small btn-danger pull-right"
+      (click)="closeTagmem()"
+      >Close</a
+    >
+    <h3 style="text-align: center;">Tag Member</h3>
+  </p-header>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-4">
+        <label>Patient</label>
+        <div>Sai Hong Yeung</div>
+      </div>
+      <div class="col-md-4">
+        <label>Account Number</label>
+        <div>Y1607325</div>
+      </div>
+      <div class="col-md-4">
+        <label>Case #</label>
+        <div>Y1607325_1</div>
+      </div>
+    </div>
+    <br />
+
+    <div class="row dvpt">
+      <br />
+      <div class="row">
+        <div class="col-md-10">
+          <label>Search Tag To Member</label>
+          <input
+            type="text"
+            class="form-control"
+            maxlength="100"
+            id="txtReminderSearchString"
+            placeholder="Enter First Name or Last Name"
+          />
+        </div>
+        <div class="col-md-2 m-t-md">
+          <a
+            href="javascript:void(0)"
+            (click)="ontagmember()"
+            class="btn btn-primary btn-sm"
+            id="btnSearchMemberForReminderAlert"
+            >Search Tag To</a
+          >
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <div
+            class="divReminderMembersSelected hide"
+            id="divReminderMembersSelected"
+          >
+            <input
+              type="text"
+              id="tags1580898905335"
+              class="selectedReminderMembers"
+              placeholder="Selected members"
+              autocomplete="off"
+              style="display: none;"
+            />
+            <div
+              id="tags1580898905335_tagsinput"
+              class="tagsinput "
+              style="width: 85%; min-height: auto; height: auto;"
+            >
+              <div id="tags1580898905335_addTag"></div>
+              <div class="tags_clear"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <div class="row" style="margin-top: 10px;">
+        <div class="col-md-12">
+          <div id="dvSearchResult"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dvSearchResult">
+      <div class="ibox-content m-b-sm border-bottom m-t-n-xl">
+        <table
+          class="table table-striped table-hover table-condensed"
+          id="style"
+          *ngIf="searchtagmember"
+        >
+          <thead>
+            <tr style="width: 100%;">
+              <th style="max-width: 10%;">Name</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Practice</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of membertag">
+              <td>{{ item.name }}</td>
+              <td>{{ item.city }}</td>
+              <td>{{ item.state }}</td>
+              <td>{{ item.practice }}</td>
+              <td>{{ item.location }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<!-- app memo end -->

@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "name": "Self(Patient)"
+  },
+  {
+    "Id": 2,
+    "name": "Employer"
+  },
+  {
+    "Id": 3,
+    "name": "Representative"
+  },
+  {
+    "Id": 4,
+    "name": "Provider"
+  },
+  {
+    "Id": 5,
+    "name": "Insurance Carrier"
+  },
+  {
+    "Id": 6,
+    "name": "Office"
+  },
+  {
+    "Id": 7,
+    "name": "Hospital"
+  },
+  {
+    "Id": 8,
+    "name": "Patient"
+  },
+  {
+    "Id": 9,
+    "name": "Unknown"
+  },
+  {
+    "Id": 10,
+    "name": "Physician Assistant"
+  }
+]

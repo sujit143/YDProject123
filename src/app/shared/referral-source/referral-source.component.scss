@@ -1,0 +1,70 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "~../../../assets/CSS/plugins.css";
+
+
+a:not([href]) {
+  color: #FFFFFF;
+}
+::ng-deep #dialogbounceright .ui-dialog{
+  -webkit-animation-name: bounceInRight;
+	animation-name: bounceInRight;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+:host ::ng-deep #viewbtn {
+  color: #337ab7;
+}
+.dialog-title {
+  text-transform: none;
+  text-align: center;
+  font-weight: 1000;
+}
+.heading-tag{
+  margin-top:5px!important;
+  border-top: 2px solid gray;
+}
+.col-md-12{
+  margin-bottom: 10px;
+  margin: 0 auto;
+}
+.btn-primary{
+  display: inline;
+  float: right;
+}
+.panel-default{
+  margin-bottom: 2px;
+}
+.panel-heading{
+  background-color: #1c84c6;
+  padding: 5px 15px;
+}
+.awvAccordionanc{
+  color: white;
+  background-color: #1c84c6;
+}
+
+.span-data{
+  margin-left: 6px;
+}
+.mandatoryBorder{
+  color: red;
+}
+.col-md-2{
+  margin-top: 20px;
+}
+.table-row{
+  width: 100%;
+}
+.table-head{
+  max-width: 10%;
+}
+.table-align{
+  max-width: 10%;
+  text-align: center;
+}
+.custompagination {
+  margin-top:-17px;
+}
+#dialogalign { top: 20px;}

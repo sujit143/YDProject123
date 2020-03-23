@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "name": "Employer"
+  },
+  {
+    "Id": 2,
+    "name": "Representative"
+  },
+  {
+    "Id": 3,
+    "name": "Provider"
+  },
+  {
+    "Id": 4,
+    "name": "Insurance Carrier"
+  },
+  {
+    "Id": 5,
+    "name": "Office"
+  },
+  {
+    "Id": 6,
+    "name": "Hospital"
+  },
+  {
+    "Id": 7,
+    "name": "School"
+  },
+  {
+    "Id": 8,
+    "name": "Patient"
+  }
+]

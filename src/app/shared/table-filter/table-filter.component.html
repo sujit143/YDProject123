@@ -1,0 +1,64 @@
+<ul class="nav nav-pills " id="nav">
+  <li class="nav-item" id="date">
+    <!-- <a class="nav-link active" href="#">Active</a> -->
+<span><i class="fa fa-chevron-left" aria-hidden="true"></i>
+  <i class="fa fa-calendar-times-o fa-lg" aria-hidden="true"></i>
+  <input id="DatePicker" type="text"
+  #dp="bsDatepicker"
+  bsDatepicker
+  [bsValue]="bsValue"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+</span>
+  </li>
+  <i class="fa fa-map-marker fa-lg" id="i" aria-hidden="true">
+    <li class="nav-item dropdown1">
+      <!-- <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        Dropdown</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+      </div> -->
+
+       <!-- <select name="city" class="nav-link dropdown-toggle"  (change)="Location($event.target.value)">
+         <option *ngFor="let country of Locations"  [value]="country.id">{{country.name}}</option>
+
+        </select> -->
+        <ejs-dropdownlist   [dataSource]='Locations' [fields]='fields'  placeholder='Select a Location' (change)="Location($event.value)"></ejs-dropdownlist>
+    </li>
+    <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+
+  </i>
+
+  <i class="fa fa-user fa-lg" id="i" aria-hidden="true">
+    <li class="nav-item dropdown1">
+      <!-- <select name="city" class="nav-link dropdown-toggle" (change)="Doctor($event.target.value)">
+        <option *ngFor="let country of Doctors"   [value]="country.id">{{country.name}}</option>
+        </select> -->
+        <ejs-dropdownlist   [dataSource]='Doctors' [fields]='fields'  placeholder='Select a Doctor' (change)="Doctor($event.value)"></ejs-dropdownlist>
+    </li>
+    <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+  </i>
+
+
+  <!-- <i class="fa fa-lg" id="i" aria-hidden="true">
+    <li class="nav-item dropdown">
+      <select name="city" class="nav-link dropdown-toggle" (change)="Doctor($event.target.value)">
+        <option *ngFor="let country of Doctors"   [value]="country.id">More Filters</option>
+        </select>
+    </li>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  </i> -->
+<div class="pull-right">
+  <i class="fa fa-lg pull-right " id="i" aria-hidden="true">
+    <li class="nav-item dropdown justify-content-end ">
+      <!-- <select name="city" class="nav-link dropdown-toggle" (change)="Doctor($event.target.value)">
+        <option *ngFor="let country of Doctors"   [value]="country.id">Sort</option>
+        </select> -->
+        <ejs-dropdownlist   [dataSource]='Doctors' [fields]='fields'  placeholder='Select a Doctor' (change)="Doctor($event.value)"></ejs-dropdownlist>
+    </li>
+    <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+  </i>
+</div>
+</ul>

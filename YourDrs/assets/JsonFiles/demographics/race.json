@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "Name": "Asian"
+  },
+  {
+    "Id": 2,
+    "Name": "White"
+  },
+  {
+    "Id": 3,
+    "Name": "Other Race"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id":1,
+    "name" : "Krishna Rajesh",
+    "city": "Englewood",
+    "state" : "NJ"
+
+  },
+  {
+       "id":2,
+      "name" : "Kumara Rajesh",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+       "id":3,
+      "name" : "bhagale Rashmi",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+    "id":4,
+      "name" : "gowda ramesh",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+    "id":5,
+      "name" : "smith adam",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+    "id":6,
+      "name" : "assistant medical",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+    "id":7,
+      "name" : "staff ASC",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  },
+  {
+    "id":8,
+      "name" : "Jayaraj Apoorva",
+      "city": "Englewood",
+      "state" : "NJ"
+
+  }
+]

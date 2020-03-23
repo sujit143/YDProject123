@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "EpiStatus": "Active",
+    "EpiStatusId": 1
+  }, {
+    "Id": 2,
+    "EpiStatus": "Denied",
+    "EpiStatusId": 2
+  }, {
+    "Id": 3,
+    "EpiStatus": "Authorized",
+    "EpiStatusId": 3
+  }
+]

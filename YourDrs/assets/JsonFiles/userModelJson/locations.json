@@ -1,0 +1,55 @@
+[
+  {
+    "Id": 1,
+    "Name":"Select"
+
+  },
+  {
+    "Id": 2,
+    "Name":"Baarn Rehab & Pain Clinic, Flushing, NY"
+  },
+  {
+    "Id": 3,
+    "Name":"Centra State Medical Center, Freehold, NJ"
+  },
+  {
+    "Id": 4,
+    "Name":"Flemington Neuro"
+  },
+  {
+    "Id": 5,
+    "Name":"Rehabilitation Medicine Center of New York, New York, NY"
+  },
+  {
+    "Id": 6,
+    "Name":"HEASC @ 54 Dean"
+  },
+  {
+    "Id": 7,
+    "Name":"New York Methodist Hospital  @ Brooklyn, NY"
+  },
+  {
+    "Id": 8,
+    "Name":"West NY"
+  },
+  {
+    "Id": 9,
+    "Name":"54 DEAN"
+  },
+  {
+    "Id": 10,
+    "Name":"baynes ortho asc"
+  },
+  {
+    "Id": 11,
+    "Name":"Bruckner"
+  },
+  {
+    "Id": 12,
+    "Name":" Centra State Medical Center, Freehold, NJ"
+  },
+  {
+    "Id": 13,
+    "Name":"Astoria"
+  }
+]

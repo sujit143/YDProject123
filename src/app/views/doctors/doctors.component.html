@@ -1,0 +1,289 @@
+<div class="container-fluid">
+</div>
+<section class="title-bar">
+  <div class="title-bar-table">
+    <div class="title-bar-table-cell">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6 col-6">
+            <h2 class="text-white" *ngIf="!queryparams">Doctors</h2>
+            <h2 class="text-white" *ngIf="queryparams">{{name}}</h2>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 col-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div>
+  <section class="backcol">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-lg-8 order-2  order-sm-2 order-md-1 order-lg-1">
+          <div class="drp-t-text">
+            <div class="dr-p2">
+              <ul class="list-unstyled pdt25 d-none d-sm-none d-md-block">
+                <li>
+                  <h4 class="about-font fw400" *ngIf="!queryparams">YourDRs is a network of physicians who
+                    specialize in physical medicine &amp; rehabilitation, sports medicine,
+                    orthopedic surgery, pain management, and more.<br><br>
+                    With over 30 locations across New York and New Jersey, finding a
+                    specialist for any of your musculoskeletal ailments has never been
+                    easier.
+                  </h4>
+                  <h4 class="about-font fw400" *ngIf="queryparams">
+                    {{desc}}
+                  </h4>
+                </li>
+              </ul><br>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-lg-4 order-1 order-sm-1 order-md-2 order-lg-2">
+          <div class="dr-p-image mob-dr-pimg text-center d-none d-md-block">
+            <img src="https://qa.yourdrs.com/Images/NewYourDrsHome/chuki-3t.png" class="img-fluid mx-auto about-img-width " alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background: #F9F9F9; padding-bottom: 100px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="shadow-sm p-filter-wrap">
+            <div class="d-md-none clearfix mgb15  ">
+              <div class="">
+                <div class="btn-group btn-group-justified w-100">
+                  <button class="btn btn-outline-primary" id="list">
+                    <i class="fa fa-list"></i>&nbsp;  List View
+                  </button>
+                  <button class="btn btn-outline-primary" id="grid">
+                    <i class="fa fa-th-large"></i>&nbsp;  Grid View
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div id="imgWrap dr-wii" style="width: 100%;">
+                <div class="dr-p-fix ">
+                  <div class="accordion" id="accordionExample">
+                    <div class="card filt-wrap">
+                      <div class="card-header collapsed d-block d-md-none filter-head-mob " id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">
+                        <h2 class="mb-0">
+                          <button type="button" class="btn btn-link filter-text">Filter by :</button>
+                          <i class="fa fa-plus float-right filter-ic "></i>
+                        </h2>
+                      </div>
+                      <div id="collapseTwo" class="collapse d-md-block" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <form [formGroup]="doctors"  (ngSubmit)= "onSearchDoctor(doctors.value)">
+                          <div class="card-body filt-body ">
+                            <ul class="list-inline p-filter-ul mgb0">
+                              <li class="list-inline-item p-filter-li-1">
+                                <label class="fw600 d-md-block d-lg-block d-xl-block d-none">Filter by :</label>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <select class="form-control ddlmemberspeciality chosen-select" data-val="true" data-val-number="The field SpecialityId must be a number." id="SpecialityId" name="SpecialityId" formControlName="speciality">
+                                  <option [ngValue]=null>Speciality</option>
+                                  <option *ngFor="let item of specialityList" [value]=item.Id>{{item.Name}}</option>
+                                </select>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <div class="form-group">
+                                  <select class="form-control ddlmemberGender" formControlName="gender">
+                                    <option [ngValue]=null>Gender</option>
+                                    <option value="1">Male </option>
+                                    <option value="2">Female </option>
+                                  </select>
+                                </div>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <div class="form-group">
+                                  <select class="form-control ddlmemberlanguage chosen-select" data-val="true" data-val-number="The field LocationId must be a number." id="LocationId" name="LocationId" formControlName="languages">
+                                    <option [ngValue]=null>Languages</option>
+                                    <option *ngFor="let item of languageList" [value]=item.Id>{{item.Description}}</option>
+                                  </select>
+                                </div>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" placeholder="Schedule date" formControlName="schedule_date" bsDatepicker [(bsValue)]="myDateValue">
+                                </div>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <div class="form-group">
+                                  <select class="form-control ddlmemberlocation chosen-select" id="LocationId" name="LocationId" formControlName="locations">
+                                    <option [ngValue]=null>Locations</option>
+                                    <option *ngFor="let item of locationLists" [value]=item.Id>{{item.Name}}</option>
+                                  </select>
+                                </div>
+                              </li>
+                              <li class="list-inline-item p-filter-li">
+                                <button class="btn btn-secondary-filter btn-block btnsearchMember" data-req-url="/Home/FindYourDoctor" data-update-container="#NewYoudrsMemberlist" type="submit">Search </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <p-progressSpinner *ngIf="spinnerdisplay"></p-progressSpinner>
+                    </div>
+                    <div class="d-flex justify-content-center" *ngIf="lengthOfDocRec==0">
+                      <h2>No Records Found</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngFor="let item of doctorsList; let i = index;" id="sections">
+
+              <div class="col-md-12">
+                <hr class="border-0" style="margin-top: 2px;">
+              </div>
+              <div class="col-md-12 col-lg-12 col-xl-7" (click)="openDoctorProfilePopup(item)">
+                <div id="drp1" class="clsshowMorememebrs">
+                  <a>
+                  <div class="card card-colorss1">
+                    <div class="row">
+                      <div class="item col-6 col-md-12 grid-group-item section " id="{{i+1}}">
+                        <div class="dr-profilewrapbp shadow-sm btnshowmemberdetailsinpopup selectedDoc" data-memid="8" data-req-url="/Home/GetDoctorDetailsInPopup" data-getlocations-url="/Home/GetDoctorsLocation" data-update-container="#body-dr-pop">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <img src="{{item.ProfilePhoto}}" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="img-fluid dp2-img">
+                            </div>
+                            <div class="col-md-8">
+                              <div class="dppad">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="bpdr-list-view">
+                                      <h3 class="docname">{{item.DisplayName}}</h3>
+                                      <div class="addScrollDiv">
+                                      </div>
+                                      <ul class="list-inline dr-spec-grid mgb0">
+                                        <li class="list-inline-item dr-second-li">
+                                          <p class="limit-text">
+                                            <span class="dr-first-li " id="ip2">Specialities :</span>{{item['Specialities']}}
+                                          </p>
+                                        </li>
+                                      </ul>
+                                      <ul class="list-inline mgb0 d-none d-md-block">
+                                        <li class="list-inline-item dr-second-li">
+                                          <p class="limit-text">
+                                            <span title="{{item.tempLocation}} "><span class="dr-first-li">Locations :</span>{{item.tempLocation}}  </span>
+                                          </p>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                </div>
+              </div>
+              <div class="col-md-5" [ngClass]="(item.tempId == tempId)?'visible_true':'visible_false'">
+                <div class="col-md-12  d-none d-md-none d-lg-none d-xl-block">
+                  <div class="text-center leftmapcontainer">
+                    <label class="displaydocname"><h4>Displaying locations for {{item.DisplayName}}</h4></label>
+                    <div class="dp-map-width">
+                      <div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" style="height: 300px" [zoom]="zoom" [disableDefaultUI]="true"
+                          [zoomControl]="true" [fullscreenControl]="true" [gestureHandling]="'coopeative'" [scrollwheel]= "null">
+                          <agm-marker *ngFor="let marker of selectedLocation" [latitude]="marker.Lattitude" [longitude]="marker.Longitude" [iconUrl]="iconpath">
+                            <agm-info-window>
+                              <strong>{{marker.Address}}</strong><br>
+                              <strong>{{marker.City}}</strong><br>
+                              <strong>{{marker.State}}</strong><br>
+                              <strong>{{marker.Country}}</strong><br>
+                              <strong>{{marker.Zipcode}}</strong>
+                            </agm-info-window>
+                          </agm-marker>
+                        </agm-map>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p-dialog id="ankle"  [(visible)]="display" [modal]="true" [responsive]="true" [maximizable]="false"  [closable]="false" [blockScroll]='true' >
+    <p-header>
+      <label>{{arr['Specialities']}}</label>
+      <span class="pull-right">
+        <button type="button" class="close closeBodypart" (click)="functionToCloseDialog()" data-dismiss="modal">×</button>
+      </span>
+    </p-header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3" >
+          <img src="assets/Wheredoesithurts/background.jpg" class="dr-back-pink img-fluid d-none d-xl-block" >
+          <img src="{{arr.ProfilePhoto}}" onerror="this.src='https://qa.yourdrs.com/Images/specialitydetails/noresult.jpg'" class="dr-img-sec imageleft" >
+        </div>
+        <div class="col-md-9" style="color: #07244B;">
+          <h3 style="font-family:'Roboto', sans-serif; font-size: 23px;font-weight: 600;margin-bottom: .5rem;line-height: 1.2;">
+            {{arr.DisplayName}}
+          </h3>
+          <ul class="list-inline">
+            <li class=" dr-first-li">
+              <p>Specialities :</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+              <p>{{arr['Specialities']}}</p>
+            </li>
+          </ul>
+          <ul class="list-inline">
+            <li class=" dr-first-li">
+              <p>Locations:</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+              <p>
+                <label *ngFor="let loc of arr.MemberLocations">{{loc.Name}} |</label>
+              </p>
+            </li>
+          </ul>
+          <ul class="list-inline">
+            <li class=" dr-first-li">
+              <p>Education:</p>
+            </li>
+            <li class="list-inline-item dr-second-li">
+              <p>{{arr.Educations}}</p>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <div >
+            <button type="button" class="btn btn-pill btn-block" (click)="openDoctorProfile(arr)" id="ip1">Learn about {{arr.DisplayName}}</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-pill btn-block " (click)="openReqPopup()" id="ip2">Request an appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog id="whrHurt" blockScroll="true" [closable]="false" [modal]="true" [responsive]="true" [baseZIndex]="10000" [style]="{width: '1200px', height: '200px'}"
+    [positionTop]="60">
+    <span class="pull-right">
+      <button type="button" class="close closeBodypart " (click)="closeDialog()" data-dismiss="modal"> ×</button>
+    </span>
+    <div class="container">
+      <app-reqappointment></app-reqappointment>
+    </div>
+  </p-dialog>
+</div>
+

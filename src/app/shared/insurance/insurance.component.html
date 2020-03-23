@@ -1,0 +1,825 @@
+<div class="panel-group">
+  <div class="panel panel-default" style="margin-bottom: 2px;">
+    <div id="dvEpisodeInsuranceSection" class="panel-collapse collapse in " aria-expanded="true">
+      <div class="panel-body ">
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Insurance</h4>
+            <hr style="margin-top: 5px!important; border-top: 2px solid gray;">
+            <div id="dvEpisodeInsuranceMvAWCBResult">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row" style="float: right; margin-right: 10px;">
+                    <a id="btnInsAccInsMVAWCB" class="btn btn-primary pull-right"
+                      (click)="opendDialog('editInsurancePop')">Edit
+                      Details</a>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-group">
+                <div class="panel panel-default" style="margin-bottom: 2px;">
+                  <div class="panel-heading rea" style="background-color: white; padding: 5px 15px;">
+                    <h3>
+                      <a data-toggle="collapse" data-parent="#accordion" style="color: #676a6c;"
+                        class="awvAccordionanc">Health Insurance Info <i class="fa fa-dot-circle-o" aria-hidden="true"
+                          title="This field is used to complete insurance and general information."
+                          style="color: #f0ad4e;"></i></a>
+                    </h3>
+                  </div>
+                  <div id="dvinsuranceSection" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <div class="">
+                        <div id="dvListPatientpayer" class="dvListPatientpayer">
+                          <div *ngIf="!insuranceAssociated">
+                            <table class="table table-striped" style="table-layout: fixed;">
+                              <thead style="background-color: #337ab7; color: white">
+                                <tr>
+                                  <td colspan="14">Insurance Associated to this Case</td>
+                                </tr>
+                              </thead>
+                            </table>
+                            <div class="warning">No Payer information found</div>
+                            <br>
+                            <br>
+                            <table class="table table-striped" style="table-layout: fixed;">
+                              <thead style="background-color: #337ab7; color: white">
+                                <tr>
+                                  <td colspan="14">Additional Insurance for this Patient</td>
+                                </tr>
+                              </thead>
+                            </table>
+                            <div class="warning">No Payer information found</div>
+                          </div>
+
+                          <div *ngIf="insuranceAssociated">
+                            <div>
+                              Legends &nbsp;
+                              <button type="button" class="normalHCCRisk hovertip" style="width: 10px; height: 10px; display: inline-block" placement="bottom"
+                                triggers="mouseenter:mouseleave" popoverTitle="Active Insurance"
+                                popover="Insurance will be active if the insurance expiration date is greater than today's date">
+                              </button>
+                              <button class="highHCCRisk hovertip"  style="width: 10px; height: 10px; display: inline-block" placement="bottom"
+                                triggers="mouseenter:mouseleave"
+                                popover="Insurance will be inactive if the insurance expiration date is less than or equal to today's date"
+                                popoverTitle="Inactive Insurance">
+                              </button>
+                            </div>
+                            <h3>Insurance Associated to this Case</h3>
+                            <table class="table table-striped" style="table-layout: fixed;">
+                              <thead style="background-color: #337ab7; color: white">
+                                <tr>
+                                  <td style="width: 30%; padding: 6px;"><b>Payer</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Copay Amount</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Relation</b></td>
+                                  <td style="width: 10%; padding: 6px"><b>Effective From</b></td>
+                                  <td style="width: 10%; padding: 6px"><b>Expiration Date</b></td>
+                                  <td style="width: 10%; padding: 6px"><b>Claim #</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Insurance Id</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Carrier Case #</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>WCB #</b></td>
+                                  <td style="width: 7%; padding: 6px"><b>Group Id</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Priority</b></td>
+                                  <td style="width: 9%; padding: 6px"><b>Balance Amount</b></td>
+                                  <td style="width: 6%; padding: 6px"><b></b></td>
+                                  <td style="width: 6%; padding: 6px"><b></b></td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let insuranceItem of insuraneAssociatedArr;">
+                                  <td title="Active" class="normalHCCRisk"
+                                    style="width: 100%; padding: 5px; word-wrap: break-word;">
+                                    <!-- Aetnatest (P O Box 981106 add2 El Paso TX 79998) -->
+                                    {{insuranceItem.payerName}}
+                                    <br> Tel : {{insuranceItem.telePhone}} <span style="margin-left: 6px"><a class="label twiliocall"
+                                        style="color:white; background-color:lightgreen;"
+                                        data-phnumber="888-632-3862"><i class="fa fa-phone" data-phnumber="888-632-3862"
+                                          title="Call" aria-hidden="true"></i></a></span>&nbsp;<span
+                                      style="margin-left: 4px; padding:0px; margin-top:0px;" class="badge"><a
+                                        class="twiliosms"
+                                        style="color:white; background-color:lightgreen; padding: 2px 6px 4px 6px; margin: 0px; border-radius: 50%;"
+                                        data-phnumber="888-632-3862" data-episodeid="12416" data-patientid="13284"><i
+                                          class="fa fa-comment-o" title="SMS" aria-hidden="true"></i></a></span>
+                                    <br> Fax : (528)856-6616</td>
+
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+                                  <td
+                                    style="width: 10%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                    N/A</td>
+                                  <td
+                                    style="width: 10%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                    N/A</td>
+                                  <td
+                                    style="width: 10%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+                                  <td
+                                    style="width: 10%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+
+                                  <td
+                                    style="width: 7%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                  </td>
+
+                                  <td
+                                    style="width: 9%; padding: 5px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                    <span class="badge badge-danger">$ 0.00</span>
+                                  </td>
+
+                                  <td style="width: 6%; padding: 6px; -ms-word-wrap: break-word; word-wrap: break-word;">
+                                    <a  id="" class="lnkEligibility" (click)="opendDialog('Payer Eligibility')" data-updatecontainer="#dvPopupTopNode1" data-req-url="/Patient/GetEligibilityForPatient" data-val="397" data-payer-insuranceid="" data-patientpayerid="5527"><i class="fa fa-check-circle GEDINotChecked" aria-hidden="true" style="padding-top: 7px;font-size:16px"></i></a>
+                                   <ng-template #popTemplate >Created By : admin dev, <br> Created Date : 2/19/2020 , <br> Modified By :  ,<br> Modified Date :  </ng-template>
+                                    <a  class="hovertip pull-right"   placement="left" triggers="mouseenter:mouseleave" popoverTitle="Created & Modified"
+                                    [popover]= "popTemplate"  ><i class="fa fa-info-circle" style="color: #1ab394; font-size: 12pt; padding-right: 0 !important; padding-top: 7px;"></i></a>
+                                    <a  id="hlpCreatedModifiedDetails" class="hovertip pull-right" data-toggle="popover" data-trigger="hover" data-html="true" title="" data-content="Change Requested and Requested for Deactivation" data-placement="left" data-original-title=""></a>
+                                  </td>
+
+                                  <td style="width: 6%;">
+                                    <div class="btn-group" role="group" dropdown >
+                                      <a  dropdownToggle   class="btn btn-warning" data-toggle="dropdown" aria-expanded="false">
+                                          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                      </a>
+                                      <ul *dropdownMenu class="dropdown-menu show dropdown-menu-right" role="menu" ng-reflect-klass="dropdown-menu"
+                                       style="left: 0px; right: auto; top: 100%; transform: translateY(0px);" >
+                                        <li role="menuitem"><a class="dropdown-item" (click)="editInsurance(insuranceItem)">Edit</a></li>
+                                        <li role="menuitem"><a class="dropdown-item" >Delete</a></li>
+                                        <li role="menuitem"><a class="dropdown-item" (click)="disAssociateInsurance(insuranceItem)">Disassociate to episode</a></li>
+                                      </ul>
+                                  </div>
+                                   </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+
+
+                          <div class="">
+                            <button type="button" class="btn btnpatientcreatedinsurance"
+                              data-container="#dvpatientcreatedinsurance"
+                              data-geturl="/Patient/GetPatientCreatedInsurance"
+                              style="width:100%;text-align:left;border-radius:0px; margin-top:20px; display:block; background-color: #337ab7; color: white"
+                              data-toggle="collapse" data-target="#dvpatientcreatedinsurance"
+                              aria-expanded="true">Insurance Added by Patient</button>
+                            <div id="dvpatientcreatedinsurance" class="collapse in" aria-expanded="true">
+                              <div id="institle" class="pull-left"></div>
+                              <div class="panel-body gp-ins-table" style="padding:0px">
+                                <table class="table table-striped table-responsive" id="tblPatientInsurance">
+                                  <thead>
+                                    <tr class="ins-table-head">
+                                      <th>Insurance Number</th>
+                                      <th>Carrier</th>
+                                      <th>Plan</th>
+                                      <th>Added Date</th>
+                                      <th>Accident Date</th>
+                                      <th>Status</th>
+                                      <th></th>
+                                      <th class="insaction">Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td colspan="4">
+                                        No Records Found.
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane in">
+                <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px;">
+                    <div class="panel-heading rea" style="background-color: white; padding: 5px 15px;">
+                      <h3>
+                        <a data-toggle="collapse" data-parent="#accordion" style="color: #676a6c;"
+                          class="awvAccordionanc">General Accident/Incident Info</a>
+                      </h3>
+                    </div>
+                    <div id="dvGeneralAccidentIncidentSection" class="panel-collapse collapse in  ">
+                      <div class="panel-body ">
+                        <div id="dvPatientIncident">
+                          <div id="dvAccidentIncident">
+                            <div class="row">
+                              <div class="col-md-12" style="margin-bottom: 10px;">
+                              </div>
+                            </div>
+                            <table class="table table-striped">
+                              <tbody>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Case Type <i class="fa fa-dot-circle-o" aria-hidden="true"
+                                        title="This field is used to complete insurance and general information."
+                                        style="color: #f0ad4e;"></i></label>
+                                  </td>
+                                  <td colspan="2">
+                                    <label>Other Case Type Info</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2"><span> Commercial</span></td>
+                                  <td colspan="2"><span>NA</span> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Incident Type <i class="fa fa-dot-circle-o" aria-hidden="true"
+                                        title="This field is used to complete insurance and general information."
+                                        style="color: #f0ad4e;"></i></label>
+                                  </td>
+                                  <td colspan="2">
+                                    <label>Other Incident Type Info</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2"><span>NA</span></td>
+                                  <td colspan="2">NA</td>
+                                </tr>
+                                <tr class="hide">
+                                  <td colspan="4">
+                                    <label>New Incident?</label>
+                                  </td>
+                                </tr>
+                                <tr class="hide">
+                                  <td colspan="4"><span>NA</span></td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <label>Accident Date <i class="fa fa-dot-circle-o" aria-hidden="true"
+                                        title="This field is used to complete insurance and general information."
+                                        style="color: #f0ad4e;"></i></label>
+                                  </td>
+                                  <td>
+                                    <label>Accident City</label>
+                                  </td>
+                                  <td>
+                                    <label>
+                                      Accident State
+                                    </label>
+                                  </td>
+                                  <td>
+                                    <label>Accident ZIP</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><span>NA</span></td>
+                                  <td><span><span>NA</span></span>
+                                  </td>
+                                  <td><span><span>NA</span> </span>
+                                  </td>
+                                  <td><span><span>NA</span> </span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4">
+                                    <label>Description</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td><span>NA</span> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4">
+                                    <label>Was the patient on the job at the time of the accident?</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="4">
+                                    NA
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <label>Did patient go to the Emergency room ?</label>
+                                  </td>
+                                  <td>
+                                    <label>Hospital</label>
+                                  </td>
+                                  <td>
+                                    <label>Was Patient Hospitalized ?</label>
+                                  </td>
+                                  <td>
+                                    <label>Hospital</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    NA
+                                  </td>
+                                  <td><span>NA</span> </td>
+                                  <td>
+                                    NA
+                                  </td>
+                                  <td><span>NA</span> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Is Incident Report Filed ?</label>
+                                  </td>
+                                  <td colspan="2">
+                                    <label>Reference number of Incident Report ?</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    NA
+                                  </td>
+                                  <td colspan="2"><span>NA</span> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Has patient been treated by other physician for this Incident ?</label>
+                                  </td>
+                                  <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    NA
+                                  </td>
+                                  <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Frequency Of Treatment </label>
+                                  </td>
+                                  <td colspan="2">
+                                    <label>Other Provider Treated </label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2"><span>NA</span></td>
+                                  <td colspan="2"><span>NA</span></td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    <label>Has patient had any physical therapy for this injury ?</label>
+                                  </td>
+                                  <td colspan="2">
+                                    <label>Description</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2">
+                                    NA
+                                  </td>
+                                  <td colspan="2"><span>NA</span> </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <br>
+                            <h4>MRI, CT Scans Or XRays Report</h4>
+                            <hr>
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th>Body Part</th>
+                                  <th>Report Type</th>
+                                  <th>Comments</th>
+                                </tr>
+                              </thead>
+                            </table>
+                            <br>
+                            <h4>Medications</h4>
+                            <hr>
+                            <table class="table table-striped">
+                            </table>
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th>
+                                    <label>Created By</label>
+                                  </th>
+                                  <th>
+                                    <label>Created Date</label>
+                                  </th>
+                                  <th>
+                                    <label>Modified By</label>
+                                  </th>
+                                  <th>
+                                    <label>Modified Date</label>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>admin dev</td>
+                                  <td>10/3/2019</td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane hide">
+                <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px;">
+                    <div class="panel-heading rea" style="background-color: white; padding: 5px 15px;">
+                      <h3>
+                        <a data-toggle="collapse" data-parent="#accordion" style="color: #676a6c;"
+                          class="awvAccordionanc">Work Related Info</a>
+                      </h3>
+                    </div>
+                    <div id="dvWorkersComponsationSection" class="panel-collapse collapse in  ">
+                      <div class="panel-body ">
+                        <div id="dvWCB">
+                          <div class="row">
+                            <div class="col-md-12" style="margin-bottom: 10px;">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <label>Is Patient Currently Working? <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br> NA
+                                    </td>
+                                    <td>
+                                      <label>Last Day Worked (if not working) <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>WCB Case # (if known)</label>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Is patient still working for same employer? </label>
+                                      <br> NA
+                                    </td>
+                                    <td>
+                                      <label>Current Employer (if not working for same employer)</label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Policy Number</label>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Group Number</label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Carrier Case # </label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Claim Handler Or Adjuster</label>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Date Supervisor Notified</label>
+                                      <br>
+                                      <span>NA</span>
+                                    </td>
+                                    <td>
+                                      <label>Hrs worked day of Injury</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>Hrs worked prior 7 days</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Pre-Injury Work Status</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>Recurrence of Prior Injury?</label>
+                                      <br>
+                                      <span>NA</span>
+                                    </td>
+                                    <td>
+                                      <label>Date of Prior Injury</label>
+                                      <br>
+                                      <span>NA</span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>RDOs</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>Date of Death (if applicable)</label>
+                                      <br>
+                                      <span>NA</span>
+                                    </td>
+                                    <td>
+                                      <label>Location/Facility/Station/Building/Depot</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Area/Booth/Vehicle #/Track</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>County</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>What were you doing when injured or when injury recurred?</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>What object or substance directly harmed the patient?</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>Why did injury occur?</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                    <td>
+                                      <label>Nature of injury (type of injury AND part of body)</label>
+                                      <br>
+                                      <span></span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane hide">
+                <div class="panel-group">
+                  <div class="panel panel-default" style="margin-bottom: 2px;">
+                    <div class="panel-heading rea" style="background-color: white; padding: 5px 15px;">
+                      <h3>
+                        <a data-toggle="collapse" data-parent="#accordion" style="color: #676a6c;"
+                          class="awvAccordionanc">Motor Vehicle Accident</a>
+                      </h3>
+                    </div>
+                    <div id="dvMotorVehicleAccidentSection" class="panel-collapse collapse in  ">
+                      <div class="panel-body ">
+                        <div id="dvVehicleRelated">
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <label>Motor Vehicle Accident Role <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Motor Vehicle Accident Safety <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Motor Vehicle Accident Motion <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Motor Vehicle Accident Vehicle <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                    <td>
+                                      <label>Motor Vehicle Accident Collision <i class="fa fa-dot-circle-o"
+                                          aria-hidden="true"
+                                          title="This field is used to complete insurance and general information."
+                                          style="color: #f0ad4e;"></i></label>
+                                      <br>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="3">
+                                      <label>Comments</label>
+                                      <br>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <h4>Auto Insurance Information</h4>
+                              <table class="table table-striped">
+                                <tbody>
+                                  <tr>
+                                    <td colspan="4">
+                                      <label>Carrier</label> :
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4">
+                                      <h4>Insured People Related To Information</h4>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Name</label>
+                                    </td>
+                                    <td>
+                                      <label>Gender</label>
+                                    </td>
+                                    <td>
+                                      <label>Phone Number</label>
+                                    </td>
+                                    <td>
+                                      <label>Date Of Birth</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td> </td>
+                                    <td>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4">
+                                      <label>Address</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4">
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <label>Relation</label>
+                                    </td>
+                                    <td>
+                                      <label>Policy Number</label>
+                                    </td>
+                                    <td>
+                                      <label>Case Number</label>
+                                    </td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4">
+                                      <label>Comments</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td colspan="4"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="rejectreasonmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">×</button>
+                      <h4 class="modal-title">Please provide the reject reason</h4>
+                    </div>
+                    <div class="modal-body">
+                      <textarea class="form-control" rows="5" id="txtrejectreason"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-default" id="rejectreasonsave"
+                        data-dismiss="modal">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog id="dialogbounceright customDialog" [showHeader]="false" [(visible)]="editInsurancePop" [modal]="true"
+  [responsive]="true" [minY]="40" [modal]="true" [blockScroll]="true" [positionTop]="50" [draggable]="false"
+  [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('editInsurancePop')">Close</a>
+      <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Insurance & General Information</h3>
+    </div>
+  </p-header>
+  <div class="body">
+    <div class="container-fluid">
+      <div class="row">
+        <app-insurance-general-information></app-insurance-general-information>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="modal-footer">
+      <a class="btn btn-success">Update</a>
+      <a class="btn btn-danger" (click)="closeDialog('editInsurancePop')">Cancel</a>
+    </div>
+  </p-footer>
+</p-dialog>
+
+<p-dialog id="customDialog" [showHeader]="false" [(visible)]="payerEligiblity" [modal]="true"
+  [responsive]="true" [minY]="40" [modal]="true" [blockScroll]="true" [positionTop]="50" [draggable]="false"
+  [closable]="false">
+  <p-header>
+    <div class="head">
+      <a class="btn btn-danger btn-sm pull-right" (click)="closeDialog('Payer Eligibility')">Close</a>
+      <h3 style="text-transform: none; text-align: center; font-weight: 1000;">Payer Eligibility</h3>
+    </div>
+  </p-header>
+  <div class="body">
+    <div class="container-fluid">
+      <div class="row">
+          <a class="btn btn-primary">Check Insured Eligibility</a>
+      </div>
+      <div class="row">
+        <div class="alert alert-warning">No Data Found</div>
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="modal-footer">
+      <a class="btn btn-success">Update</a>
+      <a class="btn btn-danger" (click)="closeDialog('editInsurancePop')">Cancel</a>
+    </div>
+  </p-footer>
+</p-dialog>

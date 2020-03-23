@@ -1,0 +1,67 @@
+@import "~../../../assets/CSS/Bundle-Layout.css";
+@import "../../../../src/scss/afterLogin.scss";
+
+a:not([href]) {
+  color: #ffffff;
+}
+::ng-deep #customDialog .ui-dialog{
+  -webkit-animation-name: bounceInRight;
+	animation-name: bounceInRight;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+::ng-deep #customDialog .ui-dialog .ui-dialog-titlebar {
+  border: 0px;
+  background-color: white;
+  color: #333333;
+  padding: 1em;
+  font-weight: 700;
+  border-bottom: 0 none;
+}
+::ng-deep #customDialog .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px;
+  height: 700px;
+  padding: 0.571em 1em;
+}
+@media screen and (min-width: 40em) {
+  ::ng-deep #customDialog .ui-dialog {
+    width: 58vw !important;
+    top: 100px !important;
+  }
+}
+@media screen and (min-width: 760px) and (max-width: 768px) {
+  ::ng-deep #customDialog .ui-dialog {
+    width: 84vw !important;
+    top: 6px !important;
+    left: 84px !important;
+  }
+}
+@media screen and (max-width: 1026px) and (min-width: 1024px) {
+  ::ng-deep #customDialog .ui-dialog {
+    width: 76vw !important;
+    top: 11px !important;
+    left: 233px !important;
+}
+}
+.dialog-title {
+  text-transform: none; text-align: center; font-weight: 1000;
+}
+
+.horizontal-line {
+  margin-top: 5px !important;
+  border-top: 2px solid gray;
+}
+.RecordsCount {
+  margin-top: -17px;
+}
+.mandatoryBorder {
+  color: red;
+}
+
+::ng-deep input.ui-inputtext.ui-corner-all.ui-state-default.ui-widget {
+  border-bottom: 2px solid #36cc95 !important;
+}

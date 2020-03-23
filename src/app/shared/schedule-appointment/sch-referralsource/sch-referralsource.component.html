@@ -1,0 +1,240 @@
+
+<div class="tabpagescontainer">
+<div class="ibox float-e-margins tabpages" id="dvPatientInfo" >
+    <div class="ibox-title">
+        <h5>Referral Source Information</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="" id="dvReferralSourceInformationContainer"><style>
+.form-control-new {
+    -moz-border-radius: 1px !important;
+    -webkit-border-radius: 1px !important;
+    border-radius: 1px !important;
+}
+</style>
+
+<div class="col-md-12">
+<div class="row">
+    <div class="col-md-12" style="padding: 20px; border: 1px solid lightgray; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; background-color: #454e5c; color: white; margin-top: 20px;">
+        <div style="margin-bottom: 10px;">
+            <h2>Referral Source Information</h2>
+            <hr>
+            <div class="row">
+                <div class="dvSourceReferral" id="dvSourceReferral">
+                        <div class="col-md-3">
+                            <label>Source of Referral </label>
+                            <p-dropdown
+                            styleClass="input-md formcontrol chosen-select"
+                            filter="true"
+                            [options]="sourceofreferral"
+                            placeholder="select"
+                            optionLabel="label"
+                            [autoWidth]="true" (onChange)="onChange($event)">
+                        </p-dropdown>
+                    </div>
+                </div>
+
+
+                    <div class="col-md-6 qrefsrcmem"  *ngIf="nonSelfref">
+                        <label>Select Referral Source Member </label><br>
+                        <div class="input-group">
+                            <input class="form-control mandatoryFieldBorder episodereferralSourceTag" data-req-url="/Patient/SearchReferralSourceMember" name="Episode.ReferralSourcheMemberName" type="text" value="" id="tags1580988666619" style="display: none;">
+                            <div id="tags1580988666619_tagsinput" class="tagsinput EpisodeReferralSourceTagsInput" style="width: 100%; min-height: auto; height: auto;">
+                              <div id="tags1580988666619_addTag">
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <input id="tags1580988666619_tag" style="width: 142px; color: rgb(102, 102, 102);" value="" data-default="Search Member" placeholder="Search Member" class="ui-autocomplete-input" autocomplete="off">
+                              </div><div class="tags_clear"></div></div>
+
+                            <span class="input-group-addon">
+                              <a href="javascript:void(0)" id="btnViewMemDetails" class="fa fa-eye fa-3 viewmemberdetails " title="View Details" data-mem-id="" (click)="OnAddReff_MemDetail()" ><span></span>
+                          </a>
+                      </span>
+                          <span class="input-group-addon">
+                              <a href="javascript:void(0)" class="fa fa-search" id="btnSearchSchdAppoRefSrcAftrAppo" title="Search Member" (click)="OnReff_SearchPop()">
+                              </a>
+                          </span>
+                          <span class="input-group-addon hide">
+                              <a href="javascript:void(0)" id="btnAddNewMember" class="fa fa-plus qaddnewrefsrcmember" title="Add New Member">
+                              </a>
+                          </span>
+                        </div>
+                    </div>
+                <div class="col-md-6 qkrefsourcemedium" *ngIf="selref">
+                    <label>Where did you hear about YourDrs ?</label><br>
+                    <p-dropdown
+                    styleClass="input-md formcontrol chosen-select"
+                    filter="true"
+                    [options]="hearaboutyourDrs"
+                    placeholder="select"
+                    optionLabel="label"
+                    [autoWidth]="true">
+                </p-dropdown>
+             </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<br>
+<div class="col-md-12">
+<div class="row">
+        <!-- <div class="row">
+    <div class="col-md-12" style="margin-bottom: 10px;">
+        <a href="javascript:void(0)" style="display: none; float: right;" class="btn btn-small btn-primary btnAddEditReferralSource" data-get-url="/Patient/AddEditEpisodeReferralSource" data-updatecontainer="#dvEditEpisodeReferralSourceModal">
+            Add Referral Source</a>
+    </div>
+</div> -->
+
+<div class="row">
+<div class="col-md-12" style="margin: 0 auto;">
+    <div class="panel-group" id="accordion-home">
+
+        <div class="panel panel-default" style="margin-bottom: 2px;">
+            <div class="panel-heading rea" style="background-color: #1c84c6; padding: 5px 15px;">
+                <h3>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#refsource" style="color: white;" class="awvAccordionanc" aria-expanded="false">Referral Source Details
+                    </a>
+                </h3>
+            </div>
+            <div id="refsource" class="panel-collapse in" aria-expanded="false">
+                <div class="panel-body ">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>From</th>
+                                <th>Type</th>
+                                <th>To</th>
+                                <th>On</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                            <tbody><tr>
+                                <td colspan="7" class="alert alert-warning">No Records Found</td>
+                            </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+            <br>
+            <br>
+            <a *ngIf="isEdit == true" href="javascript:void(0)" class="btn btn-primary pull-right" style="margin-right: 8px" id="btnNextEpisodeReferralInformation" data-post-url="/Patient/UpdEpisodeReferralSource" data-getdocument-url="/Patient/GetEpisodeDocument" data-documentgetupdate-container="#dvScheduleAppointmentDocumentList" data-hidecontainer="#dvReferralSourceInformation">Next</a>
+            <a *ngIf="isEdit == true" href="javascript:void(0)" style="margin-right: 10px" class="btn btn-warning pull-right  btnPreviousWidget" id="">Previous</a>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- SEARCH Referral Source Member POPUP -->
+<p-dialog id="custom" [(visible)]="reffSearch" [showHeader]="false" [modal]="true" [responsive]="true"
+    [style]="{width: '900px'}" [positionTop]="89" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <div class="modal-header">
+        <button class="btn btn-danger btn-sm pull-right" (click)="OncloseReff_searchpopup()">Close</button>
+        <h3 style="text-align: center;">Search - UnKnown Contact</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-3">
+                <label>Name</label>
+                <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                    placeholder="Name" data-enterkey-pressed="#btnSearchEpiMember">
+            </div>
+            <div class="col-md-3">
+                <label>City</label>
+                <input type="text" class="form-control textbox-search-onenterkey" id="txtSearchCity" placeholder="City"
+                    data-enterkey-pressed="#btnSearchEpiMember">
+            </div>
+            <div class="col-md-4">
+                <label>State </label>
+                <p-dropdown styleClass="input-md formcontrol chosen-select " filter="true" [options]="StatesDrop"
+                    placeholder="select" optionLabel="label">
+                </p-dropdown>
+            </div>
+            <div class="col-md-2" style="margin-top: 20px">
+                <a href="javascript:void(0)" class="btn btn-primary btnsearchmem" id="btnSearchEpiMember">Search</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="dvSearchEpisodeAdminMemResult" class="dvSearchEpisodeAdminMemResult">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="head">
+        <button class="btn btn-danger btn-sm pull-right" (click)="OncloseReff_searchpopup()">Close</button>
+    </div>
+</p-dialog>
+<!-- SEARCH Referral Source Member END -->
+
+<!-- Referral Source Details POPUP -->
+<p-dialog id="custom" [(visible)]="reffDetails" [modal]="true" [showHeader]="false"  [responsive]="true"
+    [style]="{width: '1000px'}" [positionTop]="86" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <div class="modal-header">
+        <button class="btn btn-danger btn-sm pull-right" (click)="OnCloseReff_MemDetail()">Close</button>
+        <h3 style="text-align: center; ">Member Details</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><strong>Title</strong>
+                        <br>
+                        <span id="spnPatientTitle"></span>
+                    </td>
+
+                    <td><strong>First Name</strong>
+                        <br>
+                        <span id="spnPatientFname">Test</span>
+                    </td>
+
+                    <td><strong>Middle Name</strong>
+                        <br>
+                        <span id="spnPatientMname">-NA-</span>
+                    </td>
+
+                    <td><strong>Last Name</strong><br>
+                        <span id="spnPatientLname">By Dev</span></td>
+                    <td><strong>Gender</strong>
+                        <br>NA
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Date of Birth</strong><br></td>
+
+                    <td><strong>City</strong><br>
+                        <span>-NA-</span></td>
+                    <td><strong>State</strong><br>
+                        <span style="word-wrap: break-word; display: block; width: 150px;">-NA-</span></td>
+                    <td><strong>Email</strong><br>testbydev@aaa.com</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Profile Photo</strong>
+                        <br>
+                        <img class="img-responsive" src="/Images/profile/dummypic.jpg" style="width:35%">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+</p-dialog>
+<!-- Referral Source Details POPUP END -->

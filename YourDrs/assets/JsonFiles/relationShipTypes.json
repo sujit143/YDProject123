@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Child",
+    "value": "Child"
+  },
+  {
+    "id": 2,
+    "name": "Parent",
+    "value": "Parent"
+  },
+  {
+    "id": 3,
+    "name": "Self",
+    "value": "Self"
+  },
+  {
+    "id": 4,
+    "name": "Spouse",
+    "value": "Spouse"
+  },
+  {
+    "id": 5,
+    "name": "Aunt",
+    "value": "Aunt"
+  },
+  {
+    "id": 6,
+    "name": "Cousin",
+    "value": "Cousin"
+  },
+  {
+    "id": 7,
+    "name": "Former spouse",
+    "value": "Former spouse"
+  },
+  {
+    "id": 8,
+    "name": "Grandchild",
+    "value": "Grandchild"
+  }
+]

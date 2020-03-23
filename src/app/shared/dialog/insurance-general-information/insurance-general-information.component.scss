@@ -1,0 +1,235 @@
+@import '../../../../assets/CSS/Bundle-Layout.css';
+@import '../../../../assets/CSS/plugins.css';
+
+a:not([href]) {
+  color: #FFFFFF;
+}
+
+.normalHCCRisk {
+    background-color: green;
+    color: white;
+    display: inline-block;
+    padding: 5px;
+}
+.highHCCRisk {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  padding: 5px;
+}
+.GEDINotChecked {
+  color: red;
+}
+// Payer Eligibility Start
+
+// ::ng-deep #editFIlter .ui-dialog {
+//   width: 600px;
+//   top: 20px !important;
+//   z-index: 200;
+// }
+// ::ng-deep #editFIlter .ui-dialog .ui-dialog-content {
+// height: 100px;
+// overflow: auto;
+// }
+// ::ng-deep #editFIlter .ui-dialog .ui-dialog-titlebar {
+// border: 0px;
+// background-color: white;
+// }
+// ::ng-deep #editFIlter .ui-dialog .ui-dialog-content {
+// background-color: white;
+// color: #333333;
+// border: 0px;
+// padding: 0.571em 1em;
+// }
+// ::ng-deep #editFIlter  .ui-dialog .ui-dialog-footer {
+// border: 0px;
+// background-color: #ffffff;
+// color: #333333;
+// padding: 0.571em 1em;
+// margin: 0;
+// text-align: right;
+// position: relative;
+// top: -1px;
+// }
+
+// ::ng-deep #customDialog .ui-dialog{
+//   -webkit-animation-name: bounceInRight;
+// 	animation-name: bounceInRight;
+// 	-webkit-animation-duration: 1s;
+// 	animation-duration: 1s;
+// 	-webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
+// ::ng-deep #customDialog .ui-dialog .ui-dialog-titlebar {
+//   border: 0px;
+//   background-color: white;
+//   color: #333333;
+//   padding: 1em;
+//   font-weight: 700;
+//   border-bottom: 0 none;
+// }
+// ::ng-deep #customDialog .ui-dialog .ui-dialog-content {
+//   background-color: #ffffff;
+//   color: #333333;
+//   border: 0px;
+//   padding: 0.571em 1em;
+// }
+// @media screen and (min-width: 40em) { //popup adjustted when it is responsive
+//   :host ::ng-deep #customDialog .ui-dialog {
+//     width: 85vw !important;
+//     top: 40px !important;
+//   }
+// }
+// Payer Eligibility
+
+
+// add new document popup styles
+.popupHeading{
+  text-align: center;
+}
+:host{
+  ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  background-color: white;
+}}
+:host{
+  ::ng-deep .ui-dialog {
+    width: 50%;
+    top: 40px !important;
+  }
+}
+:host{
+  ::ng-deep .ui-dialog .ui-dialog-content {
+  border: 0px solid #c8c8c8 !important;
+  padding: 3.5em .75em !important;
+}
+}
+:host{ // dropdown color
+  ::ng-deep .dropdown-color .ui-dropdown {
+     border-bottom: 1px solid #36cc95 !important;
+    }
+   }
+   .image-upload-wrap { // popup input file box
+    margin-top: 20px;
+    border: 3px dashed #1FB264;
+    position: relative;
+  }
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .drag-text {
+    text-align: center;
+  }
+  .fa-cloud-upload{
+    font-size: 70px;
+    color:#1FB264 ;
+  }
+
+  // ////////////////////////////////
+::ng-deep #member .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #member .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 450px !important;
+}
+::ng-deep #member .ui-dialog {
+  top: 20px !important;
+  z-index: 100;
+}
+::ng-deep #view .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #view .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 450px !important;
+}
+::ng-deep #view .ui-dialog {
+  top: 20px !important;
+  z-index: 100;
+}
+::ng-deep #new .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #new .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 650px !important;
+}
+::ng-deep #new .ui-dialog {
+  top: 20px !important;
+  z-index: 100;
+}
+::ng-deep #orgnization .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #orgnization .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 650px !important;
+}
+::ng-deep #orgnization .ui-dialog {
+  top: 20px !important;
+  z-index: 100;
+}
+::ng-deep #addorgnization .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #addorgnization .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 750px !important;
+}
+::ng-deep #addorgnization .ui-dialog {
+  top: 20px !important;
+  z-index: 100;
+}
+// Payer Eligibility End
+
+.dialog-title{
+  text-align: center;
+}
+::ng-deep #customizeDialog .ui-dialog .ui-dialog-content {
+     background-color: #ffffff;
+     color: #333333;
+     border: 0px;
+     padding: 0.571em 1em;
+   }
+   ::ng-deep #customizeDialog  .ui-dialog .ui-dialog-titlebar {
+       border: 0px;
+       background-color: white;
+       color: #333333;
+       padding: 1em;
+      font-weight: 700;
+       border-bottom: 0 none;
+     }
+::ng-deep input.ui-inputtext.ui-corner-all.ui-state-default.ui-widget {
+  border-bottom: 2px solid #36cc95 !important;
+}
+.my-style-class {
+  width: 50% !important;
+  height: 40% !important;
+}

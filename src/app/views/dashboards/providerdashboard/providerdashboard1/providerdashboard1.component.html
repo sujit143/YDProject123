@@ -1,0 +1,164 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<p-dialog id="editFIlter" [(visible)]="saveEditFilter" [modal]="true" [draggable]="false" [responsive]="true"
+  [draggable]="false"[positionTop]="50" [closable]="false" [blockScroll]="true">
+  <p-header>
+    <a class="btn btn-small btn-danger pull-right"(click)="closeSaveEditFilter()">Close</a>
+    <h5>Favourite Filter</h5>
+  </p-header>
+  <form [formGroup]="favoritename">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <label>Filter Name
+            <span class="star">*</span>
+          </label>
+          <input type="text" formControlName="fname" class="form-control">
+        <label *ngIf="favoritename.get('fname').hasError('required') && !favoritename.get('fname').pristine"
+              class="text"><span class="star">Filter Name is required</span></label>
+      </div>
+    </div>
+  </div>
+</form>
+  <p-footer>
+    <a (click)="onSavefilter()" class="btn btn-success"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Save Filter</a>
+  </p-footer>
+</p-dialog>
+
+<p-dialog id="displayColum" [(visible)]="editDisplayColumns" [modal]="true" [draggable]="false" [responsive]="true"
+  [draggable]="false"[positionTop]="50" [closable]="false" [blockScroll]="true">
+  <p-header>
+    <div class="row" >
+      <div class="col-lg-12">
+        <a class="btn btn-small btn-danger pull-right" (click)="closeDisplayColum()">Close</a>
+        <h5>Provider Dashboard Display Fields</h5>
+        <h6>Drag, Drop &amp; Sort your desired filters</h6>
+      </div>
+    </div>
+  </p-header>
+  <ng-template #itemTemplate let-item="item" let-index="index"><span>{{item.value}}</span></ng-template>
+
+<div class="container">
+    <div class="row" >
+        <div class="col-lg-6">
+          <div class="ibox ">
+            <div class="ibox-title">
+              <h5>Available Display Fields</h5>
+            </div>
+            <div class="ibox-content">
+              <ul  class="sortable-list connectList agile-list ui-sortable" id="selectedlist">
+                <bs-sortable
+                  class="info-element"
+                  [(ngModel)]="itemDisplayColumnsStringsRight"
+                  itemClass="sortable-item"
+                  itemActiveClass="sortable-item-active"
+                  placeholderItem="Drag here"
+                  placeholderClass="placeholderStyle"
+                  wrapperClass="sortable-wrapper">
+                </bs-sortable>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="ibox ">
+            <div class="ibox-title">
+              <h5>Selected Filters</h5>
+            </div>
+              <div class="ibox-content">
+                <ul class="sortable-list connectList agile-list ui-sortable" id="unselectedlist">
+                  <bs-sortable
+                    class="info-element"
+                    [(ngModel)]="itemDisplayColumnsStringsLeft"
+                    [itemTemplate]="itemTemplate"
+                    itemClass="sortable-item"
+                    itemActiveClass="sortable-item-active"
+                    placeholderItem="Drag here"
+                    placeholderClass="placeholderStyle"
+                    wrapperClass="sortable-wrapper">
+                  </bs-sortable>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <p-footer>
+    <a class="btn btn-success " (click)="onSave()">Save</a>
+  </p-footer>
+
+  </p-dialog>
+
+  <p-dialog id="filterFields" [(visible)]="editFilterFields" [modal]="true" [draggable]="false" [responsive]="true"
+            [draggable]="false"[positionTop]="50" [closable]="false" [blockScroll]="true">
+      <p-header>
+        <div class="row" >
+         <div class="col-lg-12">
+          <a class="btn btn-small btn-danger pull-right" (click)="closeEditFilterFields()">Close</a>
+          <h5>Provider Dashboard Filter Fields</h5>
+          <h6>Drag, Drop &amp; Sort your desired filters</h6>
+         </div>
+        </div>
+      </p-header>
+      <ng-template #itemTemplate let-item="item" let-index="index"><span>{{item.value}}</span></ng-template>
+
+<div class="container">
+  <div class="row" >
+ <div class="col-lg-6">
+   <div class="ibox ">
+       <div class="ibox-title">
+           <h5>Available Display Fields</h5>
+       </div>
+       <div class="ibox-content">
+           <ul  class="sortable-list connectList agile-list ui-sortable" id="selectedlist">
+             <bs-sortable
+             class="info-element"
+             [(ngModel)]="itemFilterFieldsStringsRight"
+             itemClass="sortable-item"
+             itemActiveClass="sortable-item-active"
+             placeholderItem="Drag here"
+             placeholderClass="placeholderStyle"
+             wrapperClass="sortable-wrapper"
+           ></bs-sortable>
+           </ul>
+       </div>
+   </div>
+</div>
+<div class="col-lg-6">
+  <div class="ibox ">
+    <div class="ibox-title">
+      <h5>Selected Filters</h5>
+    </div>
+      <div class="ibox-content">
+          <ul class="sortable-list connectList agile-list ui-sortable" id="unselectedlist">
+
+            <bs-sortable
+            class="info-element"
+            [(ngModel)]="itemFilterFieldsStringsLeft"
+            [itemTemplate]="itemTemplate"
+            fieldName="fieldName"
+            itemClass="sortable-item"
+            itemActiveClass="sortable-item-active"
+            placeholderItem="Drag here"
+            placeholderClass="placeholderStyle"
+            wrapperClass="sortable-wrapper"
+          ></bs-sortable>
+          </ul>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<p-footer>
+  <a class="btn btn-success" (click)="onSave1()" >Save</a>
+</p-footer>
+  </p-dialog>
+
+<div class="col-xs-8 pull-right" style="padding: 20px;">
+  <a class="btn btn-primary pull-right" (click)="printPage()">Print</a>
+  <a class="btn btn-primary pull-right" (click)="Search()">Search</a>
+  <a class="btn btn-primary pull-right" (click)="editfilterfields()"><em class="fa fa-pencil"></em> Edit Filter Fields</a>
+  <a class="btn btn-primary pull-right" (click)="editdisplaycolumns()"><em class="fa fa-pencil"></em> Edit Display Columns</a>
+  <a class="btn btn-primary pull-right" (click)="saveeditfilter()"><em class="fa fa-pencil"></em> Save/Edit Filter</a>
+  <a class="btn btn-primary pull-right" (click)="clear()">Clear Filter Fields</a>
+</div>

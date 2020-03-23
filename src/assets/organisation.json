@@ -1,0 +1,30 @@
+[
+  {
+    "OrganisationName": "Dharwad",
+    "City": "Hubli",
+    "State":  [
+      {
+        "id": "1",
+        "name": "Karnataka"
+      }
+    ]
+  }, {
+    "OrganisationName": "Banglore",
+    "City": "Banglore",
+    "State": [
+      {
+        "id": "2",
+        "name": "Karnataka"
+      }
+    ]
+  }, {
+    "OrganisationName": "Pune",
+    "City": "Pune",
+    "State": [
+      {
+        "id": "3",
+        "name": "Maharasthra"
+      }
+    ]
+  }
+]

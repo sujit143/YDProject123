@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "Location": "54 DEAN",
+    "LocationId": 1
+  }, {
+    "Id": 2,
+    "Location": "Astorial",
+    "LocationId": 2
+  }, {
+    "Id": 3,
+    "Location": "CPW",
+    "LocationId": 3
+  }
+]

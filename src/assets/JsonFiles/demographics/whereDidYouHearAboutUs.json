@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "TV Ads"
+  },
+  {
+    "Id": 2,
+    "Name": "Newspaper Ads"
+  },
+  {
+    "Id": 3,
+    "Name": "Trade Shows"
+  },
+  {
+    "Id": 4,
+    "Name": "Conference"
+  },
+  {
+    "Id": 5,
+    "Name": "Internet"
+  },
+  {
+    "Id": 6,
+    "Name": "Other"
+  }
+]

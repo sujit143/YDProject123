@@ -1,0 +1,204 @@
+@import "~../../../../assets/CSS/plugins.css";
+@import "~../../../../assets/CSS/Bundle-Layout.css";
+.schedule-group-editing.e-schedule .e-month-view .e-appointment .e-appointment-details {
+  padding: 1px;
+  padding-left: 3px;
+}
+
+.schedule-group-editing.e-schedule .e-vertical-view .e-resource-cells {
+  height: 62px;
+}
+
+.schedule-group-editing.e-schedule .template-wrap {
+  display: flex;
+  text-align: left;
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-image {
+  width: 45px;
+  height: 45px;
+  background-size: 45px;
+  background-repeat: no-repeat;
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-details {
+  padding-left: 10px;
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-details .resource-name {
+  font-size: 16px;
+  font-weight: 500;
+  padding-right: 10px;
+}
+
+.schedule-group-editing.e-schedule.e-device .template-wrap .resource-details .resource-name {
+  font-size: inherit;
+  font-weight: inherit;
+  padding-top: 5px;
+}
+
+.schedule-group-editing.e-schedule.e-device .e-resource-tree-popup .e-fullrow {
+  height: 50px;
+}
+
+.schedule-group-editing.e-schedule.e-device .template-wrap .resource-details .resource-designation {
+  display: none;
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-image.margaret {
+  background-image: url('~/assets/schedule/images/margaret.png');
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-image.robert {
+  background-image: url('~/assets/schedule/images/robert.png');
+}
+
+.schedule-group-editing.e-schedule .template-wrap .resource-image.laura {
+  background-image: url('~/assets/schedule/images/laura.png');
+}
+
+/* ------------------- context-menu ------------------- */
+.schedule-context-menu .e-menu-item .new::before {
+content: '\e7f9';
+}
+
+.schedule-context-menu .e-menu-item .edit::before {
+content: '\ea9a';
+}
+
+.schedule-context-menu .e-menu-item .recurrence::before {
+content: '\e308';
+font-weight: bold;
+}
+
+.schedule-context-menu .e-menu-item .today::before {
+content: '\e322';
+}
+
+.schedule-context-menu .e-menu-item .delete::before {
+content: '\e94a';
+}
+
+.e-bigger .schedule-context-menu ul .e-menu-item .e-menu-icon {
+font-size: 14px;
+}
+
+.schedule-context-menu ul .e-menu-item .e-menu-icon {
+font-size: 12px;
+}
+
+/* custom code start*/
+.highcontrast .schedule-context-menu .e-menu-item .today::before,
+.fabric .schedule-context-menu .e-menu-item .today::before {
+  content: '\e321';
+}
+
+.bootstrap .schedule-context-menu .e-menu-item .today::before {
+  content: '\e312';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .delete::before,
+.fabric .schedule-context-menu .e-menu-item .delete::before {
+  content: '\eb00';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .new::before,
+.fabric .schedule-context-menu .e-menu-item .new::before {
+  content: '\e823';
+}
+
+.highcontrast .schedule-context-menu .e-menu-item .recurrence::before,
+.fabric .schedule-context-menu .e-menu-item .recurrence::before {
+  content: '\e309';
+  font-weight: bold;
+}
+ .ui-dialog {
+  padding: 0px;
+  height: 450px !important;
+  width: 1000px !important;
+  border: 0px solid #c8c8c8 !important;
+}
+.ui-dialog .ui-dialog-content{
+  padding: 0px;
+  height: 450px !important;
+  width: 1000px !important;
+  border: 0px solid #c8c8c8 !important;
+}
+@media screen and (max-width: 40em) {
+  .ui-dialog .ui-dialog-content{
+    padding: 0px;
+    height: 450px !important;
+    width: 1000px !important;
+    border: 0px solid #c8c8c8 !important;
+  }
+}
+/* custom code end*/
+/* ------------------- context-menu end ------------------- */
+.dialog-title {
+  text-transform: none;
+  text-align: center;
+  font-weight: 1000;
+}
+::ng-deep #appointDialog .ui-dialog .ui-dialog-titlebar{
+  border: 0px solid #c8c8c8;
+    background-color: white;
+}
+::ng-deep #appointDialog .ui-dialog .ui-dialog-content {
+  background-color: #ffffff;
+  color: #333333;
+  border: 0px solid #c8c8c8;
+  padding: 0.571em 1em;
+  height: 450px !important;
+}
+div.my-modal > div.modal-dialog {
+  width: 1000px !important;
+}
+
+::ng-deep .e-dialog.e-popup {
+  width: 60% !important;
+}
+::ng-deep .e-title-text {
+  display: none;
+}
+::ng-deep .e-btn.e-flat.e-primary {
+  display: none;
+}
+::ng-deep .e-btn.e-flat {
+  display: none;
+}
+// @media (min-width:1439px) {
+
+
+// }
+
+// @media (min-width:768px) {
+//   ::ng-deep .e-dialog.e-popup {
+//     width: 60% !important;
+//   }
+
+// }
+:host{
+  ::ng-deep .ui-dialog .ui-dialog-titlebar {
+  background-color: white;
+}}
+:host{
+  ::ng-deep .ui-dialog {
+    width: 50%;
+    top: 40px !important;
+  }
+}
+:host{
+  ::ng-deep .ui-dialog .ui-dialog-content {
+  border: 0px solid #c8c8c8 !important;
+  padding: 3.5em .75em !important;
+}
+}
+.cancelPopupHeading{
+  text-align: center;
+}
+:host{ // dropdown color
+  ::ng-deep   .ui-dropdown {
+     border-bottom: 2px solid #36cc95 !important;
+     width: 50%;
+     }
+   }

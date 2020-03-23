@@ -1,0 +1,82 @@
+[
+  {
+    "displayid": 1,
+    "name": "Surgery Team",
+    "city": "",
+    "state":"",
+    "practice":"Hema",
+    "location":"54 Dean"
+  },
+  {
+    "displayid": 2,
+    "name": "Testing Team",
+    "city": "",
+    "state":"",
+    "practice":"Hema",
+    "location":"54 Dean"
+  },
+{
+   "displayid": 3,
+    "name": "Consultation Team",
+    "city": "",
+    "state":"",
+    "practice":"Hema",
+    "location":"54 Dean"
+  },
+{
+    "displayid": 4,
+    "name": "Care Team",
+    "city": "",
+    "state":"",
+    "practice":"Hema",
+    "location":"54 Dean"
+  },
+{
+    "displayid": 5,
+    "name": "Office visit",
+    "city": "",
+    "state":"",
+    "practice":"Hema",
+    "location":"54 Dean"
+  },
+{
+    "displayid": 6,
+    "name": "Yourdrs",
+    "city": "",
+    "state":"",
+    "practice":"Englewood Hospital",
+    "location":"Englewood Hospital @ Englewood Hospital"
+  },
+{
+   "displayid": 7,
+    "name": "Kyriakides Christopher",
+    "city": "Englewood",
+    "state":"NJ",
+    "practice":"Hema",
+    "location":"West NY"
+  },
+{
+    "displayid": 8,
+    "name": "Nieves Cynthia",
+    "city": "Englewood",
+    "state":"NJ",
+    "practice":"Health East Ambulatory Surgical Center",
+    "location":"HEASC @ 54 Dean"
+  },
+{
+    "displayid": 9,
+    "name": "testdr",
+    "city": "",
+    "state":"",
+    "practice":"Health East Ambulatory Surgical Center",
+    "location":"HEASC @ 54 Dean"
+  },
+{
+   "displayid": 10,
+    "name": "Lora Arlene",
+    "city": "Englewood",
+    "state":"NJ",
+    "practice":"Health East Ambulatory Surgical Center",
+    "location":"HEASC @ 54 Dean"
+  }
+]

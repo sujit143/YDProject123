@@ -1,0 +1,422 @@
+
+{
+  "kanbanData":
+[
+
+  {
+    "Id": "Task 1",
+    "Title": "Task - 29001",
+    "Status": "Open",
+    "Summary": "Analyze the new requirements gathered from the customer.",
+    "Type": "Story",
+    "Priority": "Low",
+    "Tags": "Analyze,Customer",
+    "Estimate": 3.5,
+    "Assignee": "Nancy Davloio",
+    "RankId": 1,
+    "Color": "#8b447a",
+      "Patientname" : "shivu ",
+      "Dob": "26/01/1992",
+      "Gender" : "Male",
+      "Casetype" : "Auto accident",
+      "Incidenttype" : "Slip & fall",
+      "Dateofaccident" : "12/12/17",
+      "Phone" : 9465672650,
+      "Email" : "shivu.sky@gmail.com",
+      "Address" : "test address",
+      "Appointmenttype":"Follow up Visit"    ,
+      "Provider": "Dr.Capiola David",
+      "Bodypart": "LowerBack",
+      "Frequency":"1st time",
+      "Location": "54 DEAN",
+      "Time": "9:30AM",
+      "Date": "2/04/2020"
+
+
+  },
+
+  {
+
+    "Id": "Task 3",
+    "Title": "Task - 29003",
+    "Status": "Open",
+    "Summary": "Arrange a web meeting with the customer to get new requirements.",
+    "Type": "Others",
+    "Priority": "Critical",
+    "Tags": "Meeting",
+    "Estimate": 5.5,
+    "Assignee": "Janet Leverling",
+    "RankId": 2,
+    "Color": "#27AE60",
+      "Patientname" : "shiv ",
+      "Dob": "Englewood",
+      "Gender" : "Male",
+      "Casetype" : "Auto accident",
+      "Incidenttype" : "slip&fall",
+      "Dateofaccident" : "12/01/19",
+      "Phone" : 9465658650,
+      "Email" : "shivu.sky25@gmail.com",
+      "Address" : "1751 Glendola Road",
+      "Appointmenttype": "Emergency add on",
+      "Provider": "Dr.Advin David",
+      "Bodypart": "Leg",
+      "Frequency":"3x for 4 weeks",
+      "Location": "New York",
+      "Time": "10:00AM",
+      "Date": "2/05/2020"
+
+
+  },
+  {
+
+    "Id": "Task 5",
+    "Title": "Task - 29005",
+    "Status": "Review",
+    "Summary": "Fix the issues reported by the customer.",
+    "Type": "Bug",
+    "Priority": "Low",
+    "Tags": "Customer",
+    "Estimate": "3.5",
+    "Assignee": "Steven walker",
+    "RankId": 1,
+    "Color": "#cc0000",
+      "Patientname" : "Deepa ",
+      "Dob": "01/11/1995",
+      "Gender" : "Female",
+      "Casetype" : "Group Health",
+      "Incidenttype" : "Slip & fall",
+      "Dateofaccident" : "12/05/2019",
+      "Phone" : 9856475662,
+      "Email" : "deepa.sky@gmail.com",
+      "Address" : "test address",
+      "Appointmenttype": "Aron",
+      "Provider": "Kyriakides Christopher",
+      "Bodypart": "Hand",
+      "Location": "38 Astoria",
+      "Time": "2:00PM",
+      "Date": "2/06/2020"
+
+
+  },
+  {
+
+    "Id": "Task 6",
+    "Title": "Task - 29007",
+    "Status": "Validate",
+    "Summary": "Validate new requirements",
+    "Type": "Improvement",
+    "Priority": "Low",
+    "Tags": "Validation",
+    "Estimate": 1.5,
+    "Assignee": "Robert King",
+    "RankId": 1,
+    "Color": "#7d7297",
+      "Patientname" : "Sushma ",
+      "Dob": "Englewood",
+      "Gender" : "Female",
+      "Casetype" : "Group Health",
+      "Incidenttype" : "Slip & fall",
+      "Dateofaccident" : "15/06/2019",
+      "Phone" : 9902665353,
+      "Email" : "sushma.sky@gmail.com",
+      "Address" : "test address",
+      "Appointmenttype": "Consulation",
+      "Provider": "Dr.assistant physical",
+      "Bodypart": "LowerBack",
+      "Frequency":"2x for 4 weeks",
+      "Location": "54 DEAN",
+      "Time": "11:00AM",
+      "Date": "2/07/2020"
+
+  },
+  {
+    "Id": "Task 8",
+    "Title": "Task - 29010",
+    "Status": "Close",
+    "Summary": "Test the application in the IE browser.",
+    "Type": "Story",
+    "Priority": "Low",
+    "Tags": "Review,IE",
+    "Estimate": 5.5,
+    "Assignee": "Margaret hamilt",
+    "RankId": 3,
+    "Color": "#8b447a",
+      "Patientname" : "Saipriya ",
+      "Dob": "12/03/1998",
+      "Gender" : "Female",
+      "Casetype" : "Group Health",
+      "Incidenttype" : "Slip & fall",
+      "Dateofaccident" : "18/08/19",
+      "Phone" : 9568315245,
+      "Email" : "saipriya.sky@gmail.com",
+      "Address" : "test address",
+      "Appointmenttype": "APOS Therapy",
+      "Provider": "Dr.Badri Homam",
+      "Bodypart": "Neck",
+      "Frequency":"1x for 4 weeks",
+      "Location": "75 Central Park list",
+      "Time": "3:00PM",
+      "Date": "2/08/2020"
+  }
+
+
+
+
+],
+"cardData": [
+  {
+      "Id": "Task 1",
+      "Title": "Task - 29001",
+      "Status": "Open",
+      "Summary": "Analyze customer requirements.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Nancy Davloio"
+  },
+  {
+      "Id": "Task 2",
+      "Title": "Task - 29002",
+      "Status": "InProgress",
+      "Summary": "Add responsive support to applicaton",
+      "Priority": "Low",
+      "Tags": "Story, Kanban",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 3",
+      "Title": "Task - 29003",
+      "Status": "Open",
+      "Summary": "Show the retrived data from the server in grid control.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 4",
+      "Title": "Task - 29004",
+      "Status": "Open",
+      "Summary": "Fix the issues reported in the IE browser.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 5",
+      "Title": "Task - 29005",
+      "Status": "Review",
+      "Summary": "Improve application performance.",
+      "Priority": "Normal",
+      "Tags": "Story",
+      "Assignee": "Steven walker"
+  },
+  {
+      "Id": "Task 6",
+      "Title": "Task - 29009",
+      "Status": "Review",
+      "Summary": "API Improvements.",
+      "Priority": "Critical",
+      "Tags": "Bug",
+      "Assignee": "Nancy Davloio"
+  },
+  {
+      "Id": "Task 7",
+      "Title": "Task - 29010",
+      "Status": "Close",
+      "Summary": "Fix cannot open user's default database sql error.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Margaret hamilt"
+  },
+  {
+      "Id": "Task 8",
+      "Title": "Task - 29015",
+      "Status": "Open",
+      "Summary": "Fix the filtering issues reported in safari.",
+      "Priority": "Critical",
+      "Tags": "Bug, Breaking Issue",
+      "Assignee": "Margaret hamilt"
+  },
+  {
+      "Id": "Task 9",
+      "Title": "Task - 29016",
+      "Status": "Review",
+      "Summary": "Fix the issues reported in IE browser.",
+      "Priority": "High",
+      "Tags": "Bug, Customer",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 10",
+      "Title": "Task - 29017",
+      "Status": "Review",
+      "Summary": "Enhance editing functionality.",
+      "Priority": "Normal",
+      "Tags": "Story, Kanban",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 11",
+      "Title": "Task - 29018",
+      "Status": "Close",
+      "Summary": "Arrange web meeting with customer to get login page requirement.",
+      "Priority": "High",
+      "Tags": "Feature",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 12",
+      "Title": "Task - 29020",
+      "Status": "Close",
+      "Summary": "Login page validation.",
+      "Priority": "Low",
+      "Tags": "Bug",
+      "Assignee": "Margaret hamilt"
+  },
+  {
+      "Id": "Task 13",
+      "Title": "Task - 29021",
+      "Status": "Close",
+      "Summary": "Test the application in IE browser.",
+      "Priority": "Normal",
+      "Tags": "Bug",
+      "Assignee": "Steven walker"
+  },
+  {
+      "Id": "Task 14",
+      "Title": "Task - 29022",
+      "Status": "Close",
+      "Summary": "Analyze stored procedure.",
+      "Priority": "Critical",
+      "Tags": "CustomSample, Customer",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 15",
+      "Title": "Task - 29024",
+      "Status": "Review",
+      "Summary": "Check login page validation.",
+      "Priority": "Low",
+      "Tags": "Story",
+      "Assignee": "Nancy Davloio"
+  },
+  {
+      "Id": "Task 16",
+      "Title": "Task - 29025",
+      "Status": "Close",
+      "Summary": "Add input validation for editing.",
+      "Priority": "Critical",
+      "Tags": "Bug, Breaking Issue",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 17",
+      "Title": "Task - 29026",
+      "Status": "InProgress",
+      "Summary": "Improve performance of editing functionality.",
+      "Priority": "Critical",
+      "Tags": "Bug, Customer",
+      "Assignee": "Nancy Davloio"
+  },
+  {
+      "Id": "Task 18",
+      "Title": "Task - 29027",
+      "Status": "Open",
+      "Summary": "Arrange web meeting for cutomer requirement.",
+      "Priority": "High",
+      "Tags": "Story",
+      "Assignee": "Steven walker"
+  },
+  {
+      "Id": "Task 19",
+      "Title": "Task - 29029",
+      "Status": "Review",
+      "Summary": "Fix the issues reported by the customer.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 20",
+      "Title": "Task - 29030",
+      "Status": "InProgress",
+      "Summary": "Test editing functionality",
+      "Priority": "Low",
+      "Tags": "Story",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 21",
+      "Title": "Task - 29031",
+      "Status": "InProgress",
+      "Summary": "Check filtering validation",
+      "Priority": "Normal",
+      "Tags": "Feature, Release",
+      "Assignee": "Janet Leverling"
+  },
+  {
+      "Id": "Task 22",
+      "Title": "Task - 29032",
+      "Status": "InProgress",
+      "Summary": "Arrange web meeting with customer to get login page requirement",
+      "Priority": "Critical",
+      "Tags": "Feature",
+      "Assignee": "Margaret hamilt"
+  },
+  {
+      "Id": "Task 23",
+      "Title": "Task - 29033",
+      "Status": "Open",
+      "Summary": "Arrange web meeting with customer to get editing requirements",
+      "Priority": "Critical",
+      "Tags": "Story, Improvement",
+      "Assignee": "Andrew Fuller"
+  },
+  {
+      "Id": "Task 24",
+      "Title": "Task - 29034",
+      "Status": "InProgress",
+      "Summary": "Fix the issues reported by the customer.",
+      "Priority": "Critical",
+      "Tags": "Bug, Customer",
+      "Assignee": "Steven walker"
+  },
+  {
+      "Id": "Task 25",
+      "Title": "Task - 29035",
+      "Status": "Close",
+      "Summary": "Fix the issues reported in Safari browser.",
+      "Priority": "High",
+      "Tags": "Bug",
+      "Assignee": "Nancy Davloio"
+  },
+  {
+      "Id": "Task 26",
+      "Title": "Task - 29036",
+      "Status": "Review",
+      "Summary": "Check Login page validation.",
+      "Priority": "Critical",
+      "Tags": "Bug, Customer",
+      "Assignee": "Margaret hamilt"
+  },
+  {
+      "Id": "Task 27",
+      "Title": "Task - 29037",
+      "Status": "Open",
+      "Summary": "Fix the issues reported in data binding.",
+      "Priority": "Normal",
+      "Tags": "Bug",
+      "Estimate": "3.5",
+      "Assignee": "Steven walker"
+  },
+  {
+      "Id": "Task 28",
+      "Title": "Task - 29038",
+      "Status": "Close",
+      "Summary": "Test editing functionality.",
+      "Priority": "Normal",
+      "Tags": "Story",
+      "Estimate": 0.5,
+      "Assignee": "Steven walker"
+  }
+]
+}

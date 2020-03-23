@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "label": "Open",
+    "value": "Open"
+  },
+  {
+    "id": 2,
+    "label": "Approved",
+    "value": "Approved"
+  },
+  {
+    "id": 3,
+    "label": "Rejected",
+    "value": "Rejected"
+  },
+{
+    "id": 4,
+    "label": "Completed",
+    "value": "Completed"
+  },
+{
+    "id": 4,
+    "label": "Sent",
+    "value": "Sent"
+  },
+{
+    "id": 5,
+    "label": "In Progress",
+    "value": "In Progress"
+  },
+{
+    "id": 6,
+    "label": "Cancelled",
+    "value": "Cancelled"
+  },
+{
+    "id": 7,
+    "label": "Denied",
+    "value": "Denied"
+  },
+{
+    "id": 8,
+    "label": "Scheduled",
+    "value": "Scheduled"
+  },
+{
+    "id": 9,
+    "label": "Appeal-1 sent",
+    "value": "Appeal-1 sent"
+  }
+
+
+]

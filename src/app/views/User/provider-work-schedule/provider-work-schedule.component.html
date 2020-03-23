@@ -1,0 +1,573 @@
+<div class="panel blank-panel" style="background: #969696;  ">
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-10" style="color: #FFF;">
+      <h2 style="margin: 10px 0px 10px 20px; font-size: 20px;color: white;">Provider Work Schedule</h2>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="ibox-content m-b-sm border-bottom">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-2">
+                <span>
+                  <label>Practices<span style="color: red">*</span></label>
+                  <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+                    <ng-template let-item pTemplate="selectedItem">
+                        <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                    </ng-template>
+                    <ng-template let-car pTemplate="item">
+                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                            <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+                </span>
+              </div>
+              <div class="col-md-2">
+                <span>
+                  <label>Locations<span style="color: red">*</span></label>
+                  <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+                    <ng-template let-item pTemplate="selectedItem">
+                        <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                    </ng-template>
+                    <ng-template let-car pTemplate="item">
+                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                            <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+                </span>
+              </div>
+              <div class="col-md-2">
+                <span>
+                  <label>Providers<span style="color: red">*</span></label>
+                  <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+                    <ng-template let-item pTemplate="selectedItem">
+                        <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                    </ng-template>
+                    <ng-template let-car pTemplate="item">
+                        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                            <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+                </span>
+              </div>
+              <div class="col-md-2" style="margin-top: 30px;">
+                <a style="color: white;" class="btn btn-primary" id="btnSearchProvider">Search Schedule</a>
+              </div>
+              <div class="col-md-2" style="margin-top: 30px">
+                <a style="color: white;" class="btn btn-primary" id="btnAddworkshedule"
+                  (click)="openAddNewSchedule()">Add New Schedule</a>
+              </div>
+              <div class="col-md-2" style="margin-top: 30px">
+                <a style="color: white;" class="btn btn-primary" id="btnAddworksheduleexception"
+                  (click)="openAddNewSchedule()">Add New Exception</a>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+            </div>
+            <br>
+            <div class="row">
+              <div id="dvListMembers" class="container-fluid">
+                <div>
+                  <tabset id="pws" type="pills">
+                    <tab heading="Provider Work Schedule" id="tab1">
+
+                      <div class="tab-content">
+                        <div class="tab-pane active">
+                          <div class="">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div>
+                                    <table class="table table-striped table-hover table-condensed table-bordered">
+                                      <thead>
+                                        <tr>
+                                          <th style="text-align: center; width: 14%;">Sunday</th>
+                                          <th style="text-align: center; width: 14%;">Monday</th>
+                                          <th style="text-align: center; width: 14%;">Tuesday</th>
+                                          <th style="text-align: center; width: 14%;">Wednesday</th>
+                                          <th style="text-align: center; width: 14%;">Thursday</th>
+                                          <th style="text-align: center; width: 14%;">Friday</th>
+                                          <th style="text-align: center; width: 14%;">Saturday</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="508"
+                                              data-practiceid="83" data-locationid="664" data-providerid="4938"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px; color: white;">04:00
+                                                        AM-04:15 AM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px; color: white;">Baynes
+                                                        Ortho / baynes ortho @ 54 dean</span><br>
+                                                      <span style="color: white;">1/14/2020 - 12/31/2020</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="496"
+                                              data-practiceid="30" data-locationid="64" data-providerid="4454"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">08:45
+                                                        AM-04:00 PM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">North
+                                                        East Anesthesia and Pain Management / North East Anesthesia and
+                                                        Pain Management @ Englewood, Englewood, NJ</span><br>
+                                                      <span style="color: white;">1/1/2019 - 12/31/2020</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="496"
+                                              data-practiceid="30" data-locationid="64" data-providerid="4454"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">09:45
+                                                        AM-03:00 PM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">North
+                                                        East Anesthesia and Pain Management / North East Anesthesia and
+                                                        Pain Management @ Englewood, Englewood, NJ</span><br>
+                                                      <span style="color: white;">1/1/2019 - 12/31/2020</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="496"
+                                              data-practiceid="30" data-locationid="64" data-providerid="4454"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">09:00
+                                                        AM-01:15 PM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">North
+                                                        East Anesthesia and Pain Management / North East Anesthesia and
+                                                        Pain Management @ Englewood, Englewood, NJ</span><br>
+                                                      <span style="color: white;">1/1/2019 - 12/31/2020</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="472"
+                                              data-practiceid="57" data-locationid="116" data-providerid="550"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">11:30
+                                                        AM-02:15 PM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">Health
+                                                        East Ambulatory Surgical Center / HEASC @ 54 Dean</span><br>
+                                                      <span style="color: white;">10/3/2019 - 10/3/2019</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                            <br>
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="467"
+                                              data-practiceid="36" data-locationid="690" data-providerid="5093"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">09:45
+                                                        AM-10:30 AM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">Park
+                                                        West Surgical LLC / 39 East 69th Street</span><br>
+                                                      <span style="color: white;">8/23/2019 - 12/31/2019</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </td>
+                                          <td>
+                                            <a href="javascript:void(0)" data-providerscheduleid="505"
+                                              data-practiceid="81" data-locationid="149" data-providerid="446"
+                                              class="EditProviderSchedule" title="">
+                                              <div class="col-lg-12" style="padding: 0px">
+                                                <div class="widget style1 lazur-bg"
+                                                  style="background-color: #969696 !important;border-radius: 10px;">
+                                                  <div class="row">
+                                                    <div class="col-xs-12 text-left" style="padding: 20px">
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">04:45
+                                                        AM-05:00 AM</span><br>
+                                                      <span
+                                                        style="font-weight: normal; font-size: 14px;color: white;">HEMA
+                                                        / 54 DEAN</span><br>
+                                                      <span style="color: white;">1/14/2020 - 12/31/2020</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </td>
+                                        </tr>
+
+                                      </tbody>
+                                    </table>
+                                    <div class="col-md-12">
+                                      <a href="" class="btn btn-primary pull-right btnGenerateWorkSchedule"
+                                        data-post-url="/Admin/GenerateProviderWorkSchedule"
+                                        data-memberpracticelocationid="446">Generate Work Schedule</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </tab>
+                    <tab heading="Exceptions">Basic content 1</tab>
+                  </tabset>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div id="dvListMembersException"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<p-dialog id="pwspopup" [(visible)]="addNewSchedulePopup" [modal]="true" [draggable]="false" [responsive]="true"
+[draggable]="false"[positionTop]="50" [closable]="false" >
+  <p-header>
+    <div class="head">
+      <a href="javascript:void(0)" class="btn btn-danger btn-sm pull-right" (click)="closeadd()">close</a>
+      <h3>Add/Edit Provider Work Schedule</h3>
+    </div>
+  </p-header>
+<form [formGroup]="ProWorkSchedule" (ngSubmit)="addnewpws()">
+  <div class="modal-body">
+    <div class="ibox-content">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label>Practice <span style="color: red">*</span></label>
+          <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+                <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+            </ng-template>
+            <ng-template let-car pTemplate="item">
+                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+      </div>
+        <div class="form-group col-md-4">
+          <label>Location <span style="color: red">*</span></label>
+          <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+                <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+            </ng-template>
+            <ng-template let-car pTemplate="item">
+                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        </div>
+        <div class="form-group col-md-4">
+          <label >Provider <span style="color: red">*</span></label>
+          <p-dropdown id="pwsdropdown" [options]="ListOfPractices" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+                <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+            </ng-template>
+            <ng-template let-car pTemplate="item">
+                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <div style="font-size:14px;margin-top:4px">{{car.label}}</div>
+                </div>
+            </ng-template>
+        </p-dropdown>
+        </div>
+      </div>
+      <br>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label>From Date</label>
+          <input formControlName="FromDate" placeholder="mm/dd/yy"  bsDatepicker type="text" class="form-control" >
+        </div>
+        <div class="form-group col-md-3">
+          <label >To Date</label>
+          <input formControlName="ToDate" placeholder="mm/dd/yy"  bsDatepicker  type="text" class="form-control" >
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <div class="col-md-12">
+            <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+              <p-checkbox name="group1" (onChange)="checkStatus($event,'Sunday')" value="Sunday" label="Sunday" id="checkboxcolor"></p-checkbox>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <div formArrayName="SelectTime">
+                <div *ngFor="let item of getControls();let i=index" >
+                  <input type="text" class="form-control" *ngIf="sundaycheckbox" placeholder="Select Time" [formControlName]="i">
+                  <div *ngIf="!sundaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+                  <div class="form-group col-md-3">
+                  </div>
+                </div>
+              </div>
+              <input  placeholder="Select Time" *ngIf="sundaycheckbox"  type="text" class="form-control" >
+              <div *ngIf="!sundaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen">
+                <a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search">
+                <input type="text" autocomplete="off" disabled="">
+              </div>
+            </div>
+          </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div formArrayName="SelectTime">
+                <div *ngFor="let item of getControls();let i=index" >
+                  <input type="text" class="form-control" *ngIf="sundaycheckbox" placeholder="Select Time" [formControlName]="i">
+                  <div *ngIf="!sundaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+                  <div class="form-group col-md-3">
+                  </div>
+                </div>
+              </div>
+              <input placeholder="Select Time" *ngIf="sundaycheckbox"  type="text" class="form-control" >
+              <div *ngIf="!sundaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+            </div>
+            <div class="form-group col-md-3">
+              <div formArrayName="SelectTime">
+                <div *ngFor="let item of getControls();let i=index" >
+                  <button *ngIf="dispDeleteButton" class="btn btn-small btn-warning removeslot" (click)="onDeleteSelectTimeClicked(i)" style="margin-left: 30px;">Remove</button>
+                  <div class="form-group col-md-3">
+                  </div>
+                </div>
+              </div>
+              <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;" (click)="onAddSelectTime()">Add</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <div class="col-md-12">
+          <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+            <p-checkbox name="group1" value="Monday" (onChange)="checkStatus($event,'Monday')" label="Monday" id="checkboxcolor"  ></p-checkbox>
+          </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <input  placeholder="Select Time" *ngIf="mondaycheckbox"  type="text" class="form-control" >
+            <div *ngIf="!mondaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+                   </div>
+          <div class="form-group col-md-3">
+            <input  placeholder="Select Time" *ngIf="mondaycheckbox"  type="text" class="form-control" >
+            <div *ngIf="!mondaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+                   </div>
+          <div class="form-group col-md-3">
+            <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <div class="col-md-12">
+        <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+          <p-checkbox name="group1" value="Tuesday" (onChange)="checkStatus($event,'Tuesday')" label="Tuesday" id="checkboxcolor"  ></p-checkbox>
+        </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <input  placeholder="Select Time" *ngIf="tuesdaycheckbox"  type="text" class="form-control" >
+          <div *ngIf="!tuesdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+               </div>
+        <div class="form-group col-md-3">
+          <input  placeholder="Select Time" *ngIf="tuesdaycheckbox"  type="text" class="form-control" >
+          <div *ngIf="!tuesdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+               </div>
+        <div class="form-group col-md-3">
+          <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+        <p-checkbox name="group1" value="Wednesday" (onChange)="checkStatus($event,'Wednesday')" label="Wednesday" id="checkboxcolor"  ></p-checkbox>
+      </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="weddaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!weddaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="weddaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!weddaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+        <p-checkbox name="group1" value="Thursday" (onChange)="checkStatus($event,'Thursday')" label="Thursday" id="checkboxcolor"  ></p-checkbox>
+      </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="thurdaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!thurdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="thurdaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!thurdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+        <p-checkbox name="group1" value="Friday" (onChange)="checkStatus($event,'Friday')" label="Friday" id="checkboxcolor"  ></p-checkbox>
+      </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="fridaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!fridaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="fridaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!fridaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <div class="checkbox checkbox-success" style="margin-right: 4px; margin-top: 20px;">
+        <p-checkbox name="group1" value="Saturday" (onChange)="checkStatus($event,'Saturday')" label="Saturday" id="checkboxcolor"  ></p-checkbox>
+      </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="satdaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!satdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <input  placeholder="Select Time" *ngIf="satdaycheckbox"  type="text" class="form-control" >
+        <div *ngIf="!satdaycheckbox"  class="chosen-container chosen-container-single chosen-disabled" style="width: 100%;" title="" id="ddlForWorkscheduleFromTime_chosen"><a class="chosen-single"><span>Select Time</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" disabled=""></div><ul class="chosen-results"></ul></div></div>
+           </div>
+      <div class="form-group col-md-3">
+        <a href="javascript:void(0)" class="btn btn-small btn-primary addnewslot" data-slot=".dvsundayslot" style="margin-left: 30px;">Add</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+</div>
+</form>
+  <p-footer>
+    <div class="modal-footer">
+      <a href="javascript:void(0)" class="btn btn-primary pull-right" id="btnsavepracticelocationsub"
+      data-post-url="/Admin/InsertUpdatePracLocSubscriptions"
+      data-get-url="/Admin/GetPracticeLocationSubscriptionList"
+      data-updatecontainer="#dvPracticeLocationSubList">Save</a>
+    </div>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,67 @@
+[
+    {
+        "id":1,
+        "name":"prabhu",
+        "moddlename":"B",
+        "lastname":"aloji",
+        "gender":"Male",
+        "dob":"01-06-1990",
+        "city":"banglore",
+        "state":"NJ",
+        "practice":"HEMA",
+        "location":"54 Dean",
+        "email":"prabhu@gmail.com"
+    },
+    {
+        "id":4,
+        "name":"Abhi",
+        "moddlename":"C",
+        "lastname":"Patil",
+        "gender":"Male",
+        "dob":"01-06-1999",
+        "city":"Mysoore",
+        "state":"KA",
+        "practice":"HEMA",
+        "location":"Hubali",
+        "email":"abhi@gmail.com"
+    },
+    {
+        "id":5,
+        "name":"Sujit",
+        "moddlename":"as",
+        "lastname":"Sindhe",
+        "gender":"Male",
+        "city":"banglore",
+        "state":"MH",
+        "practice":"HEMA",
+        "location":"Dharwad",
+        "email":"Sujit@gmail.com"
+    },
+    {
+        "id":2,
+        "name":"shivu",
+        "moddlename":"H",
+        "lastname":"Meti",
+        "gender":"Male",
+        "city":"banglore",
+        "state":"KS",
+        "practice":"HEMA",
+        "location":"Dharwad",
+        "email":"shivu@gmail.com"
+    },
+
+    {
+        "id":3,
+        "name":"Sushma",
+        "moddlename":"H",
+        "lastname":"N",
+        "gender":"Female",
+        "city":"banglore",
+        "state":"KS",
+        "practice":"54 Dean",
+        "location":"Dharwad",
+        "email":"Sushma@gmail.com"
+    }
+
+
+]

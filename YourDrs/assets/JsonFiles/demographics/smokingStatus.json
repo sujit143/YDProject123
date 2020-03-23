@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Current every day smoker"
+  },
+  {
+    "id": 2,
+    "name": "Current some day smoker"
+  },
+  {
+    "id": 3,
+    "name": "Former smoker"
+  },
+  {
+    "id": 4,
+    "name": "Never smoker"
+  }
+]

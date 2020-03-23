@@ -1,0 +1,15 @@
+[
+  {
+    "Id": 1,
+    "VerStatus": "Pending",
+    "VerStatusId": 1
+  }, {
+    "Id": 2,
+    "VerStatus": "Complted",
+    "VerStatusId": 2
+  }, {
+    "Id": 3,
+    "VerStatus": "Waiting for Callback",
+    "VerStatusId": 3
+  }
+]
